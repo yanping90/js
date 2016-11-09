@@ -52,7 +52,7 @@
   </style>
 </head>
 <body>
-<div>
+<div class="sel" style="border:1px solid #ddd">
   <div class="month">
     <input type="text" class="user"/>
   </div>
@@ -63,7 +63,7 @@
 </div>
 <script>
   var arr = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-  for (var i = 0; i <= 12; i++) {
+  for (var i = 0; i < arr.length; i++) {
     $("<li>").appendTo($(".monthBox")[0]).attr("value", i + 1).html(arr[i]);
   }
 
@@ -88,9 +88,19 @@
     if ($("span")[0]) {
       $("span")[0].remove();
     }
-    $(".user")[0].value = e.target.html();
-    $(".monthContent")[0].addClass("hide");
+    if (e.target.tagName.toUpperCase() == "LI") {
+      $(".user")[0].value = e.target.html();
+      $(".monthContent")[0].addClass("hide");
+    }
   }, false);
+
+  $(".sel")[0].addEventListener("click", function(e){
+    e.stopPropagation();
+  });
+
+  document.addEventListener("click", function(e){
+    $(".monthContent")[0].addClass("hide");
+  });
 
 </script>
 </body>
