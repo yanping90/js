@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件委托</title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<ul id="mylinks">
+  <li id="baidu">百度</li>
+  <li id="guge">谷歌</li>
+  <li id="ie">IE</li>
+</ul>
+<script>
+  var mylinks=$("#mylinks");
+  var handler=function(e){
+    window.e=e;
+    target= e.target;
+    switch(target.id){
+      case "baidu":
+        location.href="https://www.baidu.com/";
+        break;
+      case "guge":
+        location.href="https://www.google.com.hk/";
+        break;
+      case"ie":
+        location.href="http://www.360.com/";
+        break;
+    }
+  };
+  mylinks[0].addEventListener("click",handler,false);
+</script>
+</body>
+</html>

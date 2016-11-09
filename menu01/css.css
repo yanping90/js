@@ -1,0 +1,10 @@
+.menu ul{ list-style-type: none; }
+.menu ul li{float:left;  width:100px;background-color: #ddd;}
+.menu ul li ul{ width:80px;  margin-left: -40px; background-color: #fff !important;}
+.menu ul li ul{display: none;}
+.menu ul li.expend ul{display: block;}
+.menu ul li ul li{ float: left; background-color: #fff !important;}
+
+
+#form1 ul{ list-style-type: none; font-size: 12px;}
+#form1 ul li{ height: 34px; line-height: 34px;}

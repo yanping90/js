@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>select联动（年月日）</title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<select name="selYear" id="selYear"></select>
+<select name="selMonth" id="selMonth"></select>
+<select name="selDay" id="selDay"></select>
+<script>
+  function createArr(start,end,title,i){
+    var arr = [];
+    for (i = start; i <= end; i++) {
+      arr.push([
+        i, i + " "+title
+        ]);
+    }
+    return arr;
+  }
+
+  function createOpt(arr,select){
+    var i,opt;
+    for (i in arr) {
+      opt = document.createElement("option");
+      opt.value = arr[i][0];
+      opt.text = arr[i][1];
+      select.appendChild(opt);
+    }
+  }
+
+  createOpt(createArr(1960,2016,"年"),document.getElementById("selYear"));
+  createOpt(createArr(1,12,"月"),document.getElementById("selMonth"));
+
+  document.getElementById("selMonth").addEventListener("change",function(e){
+    var maxDay;
+    if([1,3,5,7,8,10,12].indexOf(Number(e.target.value)>>0)>-1){
+      maxDay=31;
+    }
+    else if([4,6,9,11].indexOf(Number(e.target.value))>-1){
+      maxDay=30;
+    }
+    else{
+      maxDay=28;
+    }
+    document.getElementById("selDay").innerHTML="";
+    createOpt(createArr(1,maxDay,"日"),document.getElementById("selDay"));
+  });
+</script>
+</body>
+</html>

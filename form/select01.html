@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<form name="form1">
+  <select name="selYear">
+    <option>年</option>
+  </select>
+  <select name="selMonth">
+    <option>月</option>
+  </select>
+  <select name="selDay">
+    <option>日</option>
+  </select>
+</form>
+<script>
+  // 创建年的option
+  var year = new Date().getFullYear();
+  var i, opt;
+  for (i = year - 60; i < year; i++) {
+    opt = document.createElement("option");
+    opt.appendChild(document.createTextNode(i + " 年"));
+    opt.setAttribute("value", i);
+    document.forms[0].elements["selYear"].appendChild(opt);
+  }
+
+  // 创建月的option
+  for (i = 1; i <= 12; i++) {
+    opt = document.createElement("option");
+    opt.appendChild(document.createTextNode(i + " 月"));
+    opt.setAttribute("value", i);
+    document.forms[0].elements["selMonth"].appendChild(opt);
+  }
+
+  //绑定月结束
+  //selMonth change事件
+  document.forms[0].elements["selMonth"].addEventListener("change", function (e) {
+    var str = document.forms[0].elements["selDay"].options;
+    var len = str.length;
+    for (var c = 0; c < len; c++) {
+      document.forms[0].elements["selDay"].removeChild(document.forms[0].elements["selDay"][0]);
+    }
+    var maxDays = 30;
+    if (e.target.value == 1
+      || e.target.value == 3
+    ) {
+      maxDays++;
+    }
+
+    // 创建 n 个天数的 option
+    var i, opt;
+    for (i = 1; i <= maxDays; i++) {
+      opt = document.createElement("option");
+      opt.appendChild(document.createTextNode(i+"日"));
+      opt.setAttribute("value",i);
+      document.forms[0].elements["selDay"].appendChild(opt);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+  <style>
+    ul{ list-style-type: none;height: 30px; line-height: 30px; overflow: hidden;}
+    ul li{height: 30px; line-height: 30px; }
+  </style>
+</head>
+<body>
+<ul>
+  <li><a href="www.baidu.com">hello</a></li>
+  <li><a>world</a></li>
+  <li><a>世界</a></li>
+  <li><a>你好</a></li>
+</ul>
+<script>
+  function roll(){
+    //$("li")
+    return  $("ul")[0].appendChild($("li")[0]);
+  }
+  setInterval(roll,2000);
+</script>
+</body>
+</html>

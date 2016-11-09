@@ -1,0 +1,21 @@
+﻿<script>
+function myStar()
+{
+	var i,j,n,num;
+	var result=document.getElementById("result");
+	var count=document.getElementById("countI").value;
+	for(j=0;j<count;j++){
+		star="";
+		num="";
+		for(n=0;n<count-j+1;n++){
+			num = num +" ";
+		};
+		for(i=0;i<2*j+1;i++){
+			star = star  + "*";
+		}
+		result.innerHTML += num+star+"<br />";
+	}
+}
+</script>
+<pre id="result"></pre>
+<input type="text"  value="" id="countI"/><input id="star" type="button" onclick="myStar()"  value="查看" />

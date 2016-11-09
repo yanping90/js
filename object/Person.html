@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  function Person(){
+    Person.prototype.name = "lily";
+    Person.prototype.age = 18;
+  }
+  function Person01(){
+
+  }
+  Person01.prototype = {
+    name: "lucy",
+    age: 20,
+    city: "上海"
+  };
+  var person0101=new Person01();
+  console.log(person0101.name+" "+person0101.age+" "+person0101.city);
+  var person1= new Person();
+  person1.age = 20;
+  person1.city = "上海";
+  console.log(Object.getOwnPropertyNames(person1));
+  function hasPrototypeProperty(object ,name){
+    return  (!Object.hasOwnProperty(name) && name in object);
+  }
+  </script>
+</body>
+</html>

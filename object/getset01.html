@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="content" class="show d left  sss"></div>
+<script>
+  var book = {};
+  Object.defineProperties(book, {
+    _year: {
+      value: 2004
+    },
+    edition: {
+      value: 1
+    },
+    year: {
+      get: function () {
+        return this._year
+      },
+      set: function (value) {
+        if (value > 2004) {
+          this._year = value;
+          book.edition = this._year - 2004;
+        }
+      }
+    }
+  })
+  var descriptor = Object.getOwnPropertyDescriptor(book, "year");
+  console.log("_year属性值：" + descriptor.value);
+  console.log("_year属性值:" + descriptor.writable)
+  console.log(typeof descriptor.get);
+  function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+  }
+  person1 = new Person("lili", 16, "teacher");
+  console.log(person1.constructor);
+
+  String.prototype.removeWord = function (word) {
+    var arr = this.split(" ");
+    var start;
+    while ((start = arr.indexOf(word)) != -1) {
+      arr.splice(start, 1);
+    }
+    return arr.join(" ");
+  }
+
+  Element.prototype.removeClass = function (word) {
+    var arr = this.className.split(" ");
+    var idx;
+    while ((idx = arr.indexOf(word)) != -1) {
+      arr.splice(idx, 1);
+    }
+    this.className = arr.join(" ");
+    return this;
+  }
+
+  Element.prototype.addClass = function (word) {
+    if(!this.hasClass(word)){
+      this.className += " " + word;
+    }
+    return this;
+  }
+
+  Element.prototype.hasClass = function (word) {
+    return this.className.split(" ").indexOf(word) != -1;
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<script>
+  //去除不要的元素
+  function removeClass(oldClass,moveClass){
+    var arr=oldClass.split(" ");
+    var newArr=[];
+    for(var i in arr){
+      if(arr[i] != moveClass){
+        newArr[newArr.length]=arr[i];
+      }
+    }
+    return newArr.join(" ");
+  }
+  removeClass("new old content show cols","show");
+
+  //删除空元素
+  function removeNull(arr){
+    var arrNew=[];
+    for(var i in arr){
+      if(arr[i] != ""){
+        arrNew[arrNew.length]=arr[i];
+      }
+    }
+    return arrNew;
+  }
+  removeNull([1,2,"hello",3,"world","","al",""]);
+
+  //删除重复元素
+  function removeSame(arr,ele){
+    //var arr=str.split("");
+    if(arr.indexOf(ele) != arr.lastIndexOf(ele)){
+      for(var i=arr.indexOf(ele);i<arr.length;i++){
+        arr[i]=arr[i+1];
+      }
+    }
+    return arr;
+  }
+  removeSame("hello world","l");
+</script>
+</body>
+</html>

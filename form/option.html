@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<form  method="post">
+  <input name="user"  type="text" size="10" maxlength="10"  />
+  <input type="text" />
+  <select>
+    <option>请选择</option>
+  </select>
+  <input type="radio" name="1" value="男"/>男
+  <input type="radio" name="1" value="女"/>女
+  <button type="submit">提交</button>
+</form>
+<script>
+  window.addEventListener("load",function(){
+    if($("input")[0].autofocus !== true){
+      $("input")[0].focus();
+      console.log(1);
+    }
+  });
+  $("input")[1].addEventListener("keypress",function(e){
+    if(!/\d/.test(String.fromCharCode(e.keyCode))){
+      e.preventDefault();
+    }
+  });
+</script>
+</body>
+</html>

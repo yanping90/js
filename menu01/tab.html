@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+
+    ul li {
+      float: left;
+    }
+
+    .content {
+      width: 300px;
+    }
+
+    .tab {
+      width: 300px
+    }
+
+    .tab01 li {
+      width: 60px;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body class="body">
+<div class="tab">
+  <ul class="tab01">
+    <li>js</li>
+    <li>css</li>
+    <li>html</li>
+  </ul>
+</div>
+<div class="content">
+  <div class="content01 hide">01010101011</div>
+  <div class="content01 hide">0202020202</div>
+  <div class="content01 hide">0303030303</div>
+</div>
+
+<div class="clear" style="clear:both;"></div>
+<hr/>
+<div class="wrap">
+  <div class="test">
+    <p></p>
+    <p></p>
+    <div class="innerTest">
+      <ul>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  Element.prototype.getChild = function(tag){
+    var ele=this;
+    var arr=[];
+    for(var i in ele.childNodes){
+      if(ele.childNodes[i].tagName && ele.childNodes[i].tagName.toLowerCase() == tag){
+        arr[arr.length] = ele.childNodes[i];
+      }
+    }
+    return arr;
+  }
+
+  Element.prototype.getParent = function(tag){
+    var ele=this;
+    while(ele.parentNode){
+      if(ele.parentNode.tagName && ele.parentNode.tagName.toLowerCase() == tag){
+        return ele.parentNode;
+      }
+      ele=ele.parentNode;
+    }
+    return null;
+  }
+
+  Element.prototype.child = function (tag) {
+    return this.getElementsByTagName(tag);
+  }
+
+
+  Element.prototype.idx = function (){
+    var idx=0;
+    var tempEle=this;
+    while (tempEle.previousSibling != null) {
+      if(tempEle.previousSibling.tagName && tempEle.previousSibling.tagName.toLowerCase() == "li"){
+        idx++;
+      }
+      tempEle = tempEle.previousSibling;
+    }
+    return idx;
+  }
+  Element.prototype.removeClass = function(ele){
+    var arr = this.className.split(" ");
+    var idx;
+    while((idx=arr.indexOf(ele)) != -1){
+      arr.splice(idx,1);
+    }
+    this.className = arr.join(" ");
+  }
+  Element.prototype.addClass = function(ele){
+    var arr = this.className.split(" ");
+    arr.push(ele);
+    this.className=arr.join(" ");
+  }
+  var handler=function(e){
+    window.e=e;
+    if($(".show")[0]){
+      $(".show")[0].removeClass("show");
+    }
+    $(".content01")[e.target.idx()].addClass("show");
+  };
+  for (var i in $(".tab01")[0].childNodes) {
+    if ($(".tab01")[0].childNodes[i].tagName && $(".tab01")[0].childNodes[i].tagName.toLowerCase() == "li") {
+      $(".tab01")[0].childNodes[i].addEventListener("click", handler, false)
+    }
+  }
+</script>
+</body>
+</html>

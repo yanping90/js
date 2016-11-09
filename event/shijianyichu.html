@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>事件移除</title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<div id="mywords"></div>
+<div id="mydiv">
+  <input type="button"  value="查看" id="mybtn"/>
+</div>
+<script>
+  var handler=function(e){
+    e.target.parentNode.previousSibling.previousSibling.innerHTML="世界，你好";
+    $("#mybtn")[0].onclick=null;
+    $("#mydiv")[0].innerHTML="processing";
+  }
+  $("#mydiv")[0].addEventListener("click",handler,false);
+
+</script>
+</body>
+</html>

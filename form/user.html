@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<label></label><label></label>
+<div class="content">
+  <input type="text" name="user"/> <label></label>
+</div>
+
+<div class="content">
+  <input type="text" name="user"/> <label></label>
+</div>
+
+<script>
+  var user = document.getElementsByTagName("input")[1];
+  user.addEventListener("change", function (e) {
+    var str = user.value;
+    var len = 0;
+    for (var i in str) {
+      if (str.charCodeAt(i) > 255) {
+        len += 2;
+      }
+      else {
+        len++;
+      }
+    }
+
+    e.target.parentNode.getElementsByTagName("label")[0].html(
+      len > 10 ? "用户名长度为10个字符，请重新填写" : "用户名填写正确"
+    );
+  }, false);
+</script>
+</body>
+</html>

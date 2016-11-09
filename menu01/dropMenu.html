@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="css.css" type="text/css" />
+</head>
+<body>
+  <div class="menu">
+    <ul id="menu">
+      <li>menu01<ul><li>menu011</li><li>menu012</li></ul></li>
+      <li>menu02<ul><li>menu021</li><li>menu022</li></ul></li>
+      <li>menu03<ul><li>menu031</li><li>menu032</li></ul></li>
+    </ul>
+    <script>
+      function mymenu(ev){
+        var els=document.getElementsByClassName("expend");
+        var i;
+        for(i=0;i<els.length;i++){
+          els[i].className = " ";
+        }
+        ev.target.className="expend";
+      }
+      ele=document.getElementById("menu");
+      for(i=0;i<ele.childNodes.length;i++){
+        if(ele.childNodes[i].nodeName.toLowerCase() == "li"){
+          ele.childNodes[i].onclick=mymenu;
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>

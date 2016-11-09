@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+  <style>
+    *{ margin: 0; padding: 0;}
+    #scroll {
+      height: 60px;
+      overflow: hidden;
+      border: 1px solid #999999;
+    }
+    #scroll01 ul {
+      list-style-type: none;
+    }
+    #scroll01 ul li {
+      height: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+<div id="scroll">
+  <div id="scroll01">
+    <ul>
+      <li>1.修正原线路产品信息方法</li>
+      <li>2.掘金之旅</li>
+      <li>3.关于公司平台网站无法正常操作情况说明</li>
+      <li>4.航企获机票定价权</li>
+      <li>5.陷倒闭魔咒</li>
+      <li>6.旅游B2B平台——优客业务暂停</li>
+    </ul>
+  </div>
+  <script>
+    var scroll = function () {
+      var scroll = $("#scroll")[0];
+      var ele = $("ul")[0];
+      if (scroll.scrollTop < 30) {
+        scroll.scrollTop++;
+      }
+      else{
+        $("ul")[0].appendChild($("li")[0]);
+        scroll.scrollTop = 0;
+      }
+    }
+    var scrollTime=setInterval(scroll, 100);
+    scroll.addEventListener("mouseover",function(){
+      clearInterval(scrollTime);
+    },false);
+    scroll.addEventListener("mouseout",scrollTime,false);
+  </script>
+</div>
+</body>
+</html>

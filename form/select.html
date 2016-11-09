@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../G.js"></script>
+</head>
+<body>
+<form method="post" action="//localhost:8888/test.php">
+  <select name="year01" id="selyear">
+    <option value="">请选择</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+  </select>
+  <select name="year02" id="selyear">
+    <option value="">请选择</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+  </select>
+  <button type="submit">查看</button>
+</form>
+<script>
+  var selyear01 = document.forms[0].elements["year01"];
+  var selyear02 = document.forms[0].elements["year02"];
+  document.forms[0].addEventListener("submit", function (e) {
+    $("button")[0].disabled = true;
+    if (selyear01.options[selyear01.options.selectedIndex].value == "" || selyear02.options[selyear02.options.selectedIndex].value == "") {
+      alert("请选择日期");
+      e.preventDefault();
+      $("button")[0].disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

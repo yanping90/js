@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .menu,.menu li ul { list-style-type: none; }
+    .menu li{width: 100px;}
+    .menu li{ float: left;}
+    .menu li ul{display:none; margin-left:-40px;}
+    .menu li.expend ul{ display: block;}
+  </style>
+</head>
+<body>
+  <ul class="menu" id="menu">
+    <li>css<ul><li>css01</li><li>css01</li></ul></li>
+    <li>html<ul><li>html01</li></ul></li>
+    <li>js<ul><li>js01</li><li>js01</li><li>js01</li></ul></li>
+  </ul>
+<script>
+  function mymenu(ev){
+    ele=document.getElementsByClassName("expend");
+    var i;
+    for(i=0;i<ele.length;i++){
+      ele[i].className="";
+    }
+    ev.target.className="expend";
+  }
+
+  els=document.getElementById("menu");
+  for(i=0;i<els.childNodes.length;i++){
+    if(els.childNodes[i].nodeName.toLowerCase()=="li"){
+      els.childNodes[i].onclick=mymenu;
+    }
+  }
+
+  if (location.search.indexOf('test')!=-1) {
+    alert(1);
+  }
+</script>
+</body>
+</html>

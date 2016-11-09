@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    ul {
+      list-style-type: none;
+      width: 360px;
+    }
+
+    ul li {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    ul li label {
+      font-size: 12px;
+      color: #999;
+      margin-left: 10px;
+    }
+
+    .errorTips {
+      color: #f00;
+    }
+
+    .errorBorder {
+      border: 1px solid #f00;
+    }
+
+    ul li div.passwTips {
+      font-size: 12px !important;
+      line-height: 18px;
+      float: right;
+      border: 1px solid #eee;
+    }
+
+    ul li div.passwTips div {
+      width: 120px;
+      display: none;
+    }
+
+    ul li div.show div {
+      display: block;
+    }
+  </style>
+  <script src="../G.js"></script>
+</head>
+<body>
+<form method="post" action="//localhost:8888/test.php">
+  <ul>
+    <li>用户名：<input type="text" name="user"/><label></label></li>
+    <li>密码：<input type="password" name="passw"/>
+
+      <div class="passwTips">
+        <div>长度为6-16个字符</div>
+        <div>不能包含空格</div>
+        <div>不能是9位以下纯数字</div>
+      </div>
+    </li>
+    <li class="message">
+      <button type="submit" name="sub">提交</button>
+    </li>
+  </ul>
+</form>
+<script>
+  $("input")[0].addEventListener("focus", function (e) {
+    $("label", e.target.parentNode)[0].html("请输入昵称");
+  })
+  $("input")[0].addEventListener("change", function (e) {
+    var len = e.target.value.length;
+    if (len > 8) {
+      $("label", e.target.parentNode)[0].html("不能超过8个字符");
+      $("label", e.target.parentNode)[0].attr("class", "errorTips");
+      $("input", e.target.parentNode)[0].attr("class", "errorBorder");
+    }
+    else if (len > 0 && len < 8) {
+      if ($("label", e.target.parentNode)[0].hasClass("errorTips")) {
+        $("label", e.target.parentNode)[0].removeClass("errorTips");
+      }
+      if ($("input", e.target.parentNode)[0].hasClass("errorBorder")) {
+        $("input", e.target.parentNode)[0].removeClass("errorBorder");
+      }
+      $("label", e.target.parentNode)[0].html("昵称输入正确");
+    }
+  }, false);
+  $("input")[1].addEventListener("focus", function (e) {
+    $(".passwTips", e.target.parentNode)[0].addClass("show");
+  }, false);
+  $("input")[1].addEventListener("keyup", function (e) {
+      if($(".errorTips", $(".passwTips")[0])[0]){
+      $(".errorTips", $(".passwTips")[0])[0].removeClass("errorTips");
+    }
+    var valuePaw = e.target.value;
+    if (valuePaw.length < 6 || valuePaw.length > 16) {
+      if(valuePaw.indexOf(" ") >-1){
+        $("div", $(".passwTips")[0])[1].addClass("errorTips");}
+      $("div", $(".passwTips")[0])[0].addClass("errorTips");
+    }
+    else if(/[0-9]{9}/.test(valuePaw) == true){
+      $("div", $(".passwTips")[0])[2].addClass("errorTips");
+    }
+    else if(valuePaw.indexOf(" ") >-1){
+      $("div", $(".passwTips")[0])[1].addClass("errorTips");}
+  }, false);
+</script>
+</body>
+</html>

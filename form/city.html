@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>可以改变文字的下拉</title>
+    <script src="../G.js"></script>
+    <style>
+        *{ font-size: 12px; margin: 0; padding: 0;}
+        .hide{display: none;}
+        .user{  border:1px solid #bbbbbb ; border-radius: 4px; height: 18px; line-height: 18px; width: 60px; color:#000;}
+        .monthBox{ list-style-type: none; max-height: 96px; overflow: auto; cursor: auto; border:1px solid #bbbbbb ; border-radius: 4px; width: 50px; padding: 6px 0 6px 6px; }
+        .monthBox li{ line-height: 18px; height: 18px; color:#666;}
+        .monthContent{  position: absolute;top:20px;}
+        .monthBox li:hover{ background-color: #dddddd;}
+        .errorWord{ color:#f00;}
+    </style>
+</head>
+<body>
+<div>
+    <div class="month">
+        <input type="text"  class="user" />
+    </div>
+    <div class="monthContent hide">
+        <ul  class="monthBox">
+        </ul>
+    </div>
+</div>
+<script>
+    var arr = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+    for(var i =0;i<=12;i++){
+        $("<li>").appendTo($(".monthBox")[0]).attr("value",i+1).html(arr[i]);
+    }
+
+    $(".user")[0].addEventListener("focus",function(){
+        $(".monthContent")[0].removeClass("hide");
+    },false);
+
+    $(".user")[0].addEventListener("change",function(e){
+        if( $("span")[0]){
+            $("span")[0].remove();
+        }
+        if(arr.indexOf(e.target.value) > -1){
+            $(".monthContent")[0].addClass("hide");
+        }
+        else{
+            $(".monthContent")[0].addClass("hide");
+            $("<span>").appendTo($(".month")[0]).html("没有该月份").addClass("errorWord");
+        }
+    },false);
+
+    $(".monthBox")[0].addEventListener("click",function(e){
+        if( $("span")[0]){
+            $("span")[0].remove();
+        }
+        $(".user")[0].value = e.target.html();
+        $(".monthContent")[0].addClass("hide");
+    },false);
+
+</script>
+</body>
+</html>

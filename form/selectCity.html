@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>省市区</title>
+</head>
+<body>
+<select id="province">
+  <option value="">请选择</option>
+</select>
+<select id="city">
+  <option value="">请选择</option>
+</select>
+<select id="area">
+  <option value="">请选择</option>
+</select>
+<script>
+  arr = [
+    {name:"安徽",child:[
+        {name:"安庆",child:["全安庆","大观","桐城"]},
+        {name:"合肥",child:["全合肥","经开"]}
+    ]
+    },
+    {
+      name: "浙江", child: [
+      {name:"杭州",child:["全杭州","余杭","江干"]},
+      {name:"嘉兴",child:["全嘉兴","平湖"]}
+    ]
+    }
+  ];
+  for (var i = 0; i < arr.length; i++) {
+    var opt = document.createElement("option");
+    opt.text = arr[i].name + "省";
+    opt.value = i;
+    document.getElementById("province").appendChild(opt);
+  }
+
+  document.getElementById("province").addEventListener("change", function (e) {
+    var city = document.getElementById("city");
+    city.innerHTML = "<option value=''>请选择</option>";
+    for (var j in arr[e.target.value].child) {
+      var opt = document.createElement("option");
+      opt.text = arr[e.target.value].child[j].name + "市";
+      opt.value = j;
+      city.appendChild(opt);
+    }
+  })
+  document.getElementById("city").addEventListener("change", function (e) {
+    var area = document.getElementById("area");
+    area.innerHTML = "<option value=''>请选择</option>";
+    var a = document.getElementById("province").value;
+    for (var b in arr[a].child[e.target.value].child) {
+      var opt = document.createElement("option");
+      opt.text = arr[a].child[e.target.value].child[b];
+      opt.value = b;
+      area.appendChild(opt);
+    }
+  })
+</script>
+</body>
