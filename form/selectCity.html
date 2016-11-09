@@ -3,6 +3,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>省市区</title>
+  <script src="../G.js"></script>
 </head>
 <body>
 <select id="province">
@@ -15,7 +16,7 @@
   <option value="">请选择区县</option>
 </select>
 <script>
-  arr = [
+  var arr = [
     {name:"安徽",child:[
         {name:"安庆",child:["全安庆","大观","桐城"]},
         {name:"合肥",child:["全合肥","经开"]}
@@ -29,10 +30,7 @@
     }
   ];
   for (var i = 0; i < arr.length; i++) {
-    var opt = document.createElement("option");
-    opt.text = arr[i].name + "省";
-    opt.value = i;
-    document.getElementById("province").appendChild(opt);
+    $("<option>").appendTo($("#province")).attr("value",i).html(arr[i].name +"省");
   }
 
   document.getElementById("province").addEventListener("change", function (e) {
