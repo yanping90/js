@@ -6,16 +6,28 @@
     <script src="../G.js"></script>
     <style>
         *{ font-size: 12px; color:#333;}
-        .proviceTitle{ width: 80px; height: 18px; line-height: 18px; padding-left: 5px; border:1px solid #ddd; background: url("dropdown_bg-noborder._CB183808916_.gif") no-repeat right;}
+        .proviceTitle,.cityTitle,.areaTitle{ width: 80px; height: 18px; line-height: 18px; padding-left: 5px; border:1px solid #ddd; background: url("dropdown_bg-noborder._CB183808916_.gif") no-repeat right;}
         .hide{ display: none;}
-        .proveceUl{ list-style-type: none; position: absolute; top:30px; left: -30px;}
-        .proveceUl li{ float: left; width: 30px; height: 20px; color:#666;}
+        .provice,.city,.area{ float: left;}
+        .city,.area{ margin-left: 10px;}
+        .proviceUl,.cityUl{ list-style-type: none; position: absolute; top:30px; left: -30px;}
+        .areaUl{list-style-type: none; position: absolute; top:30px; left: 140px;}
+        .cityUl{ list-style-type: none; position: absolute; top:30px; left: 70px;}
+        .proviceUl li,.cityUl li,.areaUl li{ float: left; width: 30px; height: 20px; color:#666;}
     </style>
 </head>
 <body>
 <div class="provice">
     <div class="proviceTitle">请选择省</div>
-    <div class="proviceCont hide"><ul class="proveceUl"></ul></div>
+    <div class="proviceCont hide"><ul class="proviceUl"></ul></div>
+</div>
+<div class="city">
+    <div class="cityTitle">请选择城市</div>
+    <div class="cityCont hide"><ul class="cityUl"></ul></div>
+</div>
+<div class="area">
+    <div class="areaTitle">请选择区域</div>
+    <div class="areaCont hide"><ul class="areaUl"></ul></div>
 </div>
 <script>
   arr = [
@@ -32,27 +44,46 @@
     }
   ];
   for(var i in arr){
-      $("<li>").appendTo($(".proveceUl")[0]).attr("value",i).html(arr[i].name);
+      $("<li>").appendTo($(".proviceUl")[0]).attr("value",i).html(arr[i].name);
   }
 
   $(".proviceTitle")[0].addEventListener("click", function (e){
       $(".proviceCont")[0].removeClass("hide");
   },false);
 
-    $(".proveceUl")[0].addEventListener("click",function(e){
-        window.e=e;
+    $(".proviceUl")[0].addEventListener("click",function(e){
         if(e.target.tagName.toLowerCase() == "li"){
             $(".proviceTitle")[0].html(e.target.html());
             $(".proviceCont")[0].addClass("hide");
         }
+        $(".cityUl")[0].html("");
+        for(var i in arr[e.target.value].child){
+            $("<li>").appendTo($(".cityUl")[0]).attr("value",i).html(arr[e.target.value].child[i].name);
+        }
+        $(".cityCont")[0].removeClass("hide");
     },false);
 
     $(".provice")[0].addEventListener("click",function(e){
         e.stopPropagation();
     },false)
+  $(".city")[0].addEventListener("click",function(e){
+      e.stopPropagation();
+  },false)
     document.addEventListener("click",function(){
         $(".proviceCont")[0].addClass("hide");
     });
+
+    $(".cityUl")[0].addEventListener("click", function (e) {
+        window.e=e;
+        if(e.target.tagName.toLowerCase() == "li"){
+            $(".cityTitle")[0].html(e.target.html());
+            $(".cityCont")[0].addClass("hide");
+        }
+    },false);
+
+     $(".cityTitle")[0].addEventListener("click",function(){
+         $(".cityCont")[0].removeClass("hide");
+     },false);
 
 </script>
 </body>
