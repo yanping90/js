@@ -28,33 +28,5 @@
     ]
     }
   ];
-  for (var i = 0; i < arr.length; i++) {
-    var opt = document.createElement("option");
-    opt.text = arr[i].name + "省";
-    opt.value = i;
-    document.getElementById("province").appendChild(opt);
-  }
-
-  document.getElementById("province").addEventListener("change", function (e) {
-    var city = document.getElementById("city");
-    city.innerHTML = "<option value=''>请选择</option>";
-    for (var j in arr[e.target.value].child) {
-      var opt = document.createElement("option");
-      opt.text = arr[e.target.value].child[j].name + "市";
-      opt.value = j;
-      city.appendChild(opt);
-    }
-  })
-  document.getElementById("city").addEventListener("change", function (e) {
-    var area = document.getElementById("area");
-    area.innerHTML = "<option value=''>请选择</option>";
-    var a = document.getElementById("province").value;
-    for (var b in arr[a].child[e.target.value].child) {
-      var opt = document.createElement("option");
-      opt.text = arr[a].child[e.target.value].child[b];
-      opt.value = b;
-      area.appendChild(opt);
-    }
-  })
 </script>
 </body>
