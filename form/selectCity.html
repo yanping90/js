@@ -3,30 +3,56 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>省市区</title>
+    <script src="../G.js"></script>
+    <style>
+        *{ font-size: 12px; color:#333;}
+        .proviceTitle{ width: 80px; height: 18px; line-height: 18px; padding-left: 5px; border:1px solid #ddd; background: url("dropdown_bg-noborder._CB183808916_.gif") no-repeat right;}
+        .hide{ display: none;}
+        .proveceUl{ list-style-type: none; position: absolute; top:30px; left: -30px;}
+        .proveceUl li{ float: left; width: 30px; height: 20px; color:#666;}
+    </style>
 </head>
 <body>
-<select id="province">
-  <option value="">请选择省</option>
-</select>
-<select id="city">
-  <option value="">请选择城市</option>
-</select>
-<select id="area">
-  <option value="">请选择区县</option>
-</select>
+<div class="provice">
+    <div class="proviceTitle">请选择省</div>
+    <div class="proviceCont hide"><ul class="proveceUl"></ul></div>
+</div>
 <script>
   arr = [
     {name:"安徽",child:[
-        {name:"安庆",child:["全安庆","大观","桐城"]},
-        {name:"合肥",child:["全合肥","经开"]}
+        {name:"安庆",child:["全安庆","大观","桐城","迎江","宜秀","枞阳","怀宁","潜山","宿松","岳西","其他"]},
+        {name:"合肥",child:["全合肥","蜀山","庐阳","包河","瑶海","经开","高新","新站","滨湖新区","北城新区","政务","合肥周边"]}
     ]
     },
     {
       name: "浙江", child: [
-      {name:"杭州",child:["全杭州","余杭","江干"]},
-      {name:"嘉兴",child:["全嘉兴","平湖"]}
+      {name:"杭州",child:["全杭州","西湖","拱墅","江干","下城","上城","余杭","萧山","滨江","建德","富阳","临安","桐庐","淳安","杭州周边"]},
+      {name:"嘉兴",child:["全嘉兴","南湖","秀洲","经济开发区","平湖","海盐","嘉兴市区","桐乡","海宁","嘉善","嘉兴周边"]}
     ]
     }
   ];
+  for(var i in arr){
+      $("<li>").appendTo($(".proveceUl")[0]).attr("value",i).html(arr[i].name);
+  }
+
+  $(".proviceTitle")[0].addEventListener("click", function (e){
+      $(".proviceCont")[0].removeClass("hide");
+  },false);
+
+    $(".proveceUl")[0].addEventListener("click",function(e){
+        window.e=e;
+        if(e.target.tagName.toLowerCase() == "li"){
+            $(".proviceTitle")[0].html(e.target.html());
+            $(".proviceCont")[0].addClass("hide");
+        }
+    },false);
+
+    $(".provice")[0].addEventListener("click",function(e){
+        e.stopPropagation();
+    },false)
+    document.addEventListener("click",function(){
+        $(".proviceCont")[0].addClass("hide");
+    });
+
 </script>
 </body>
