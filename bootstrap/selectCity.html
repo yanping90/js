@@ -68,7 +68,7 @@
       var _self = $(this);
       window._self = _self;
       $(".btn-default").eq(0).html(_self.html() + '<span class="caret"></span>');
-      $(".dropdown-menu").eq(1).html("");
+      $(".dropdown-menu").eq(1).empty();
       for (var j in arr[_self.attr("data-value")].child) {
         $("<li>")
           .attr("data-value", j)
@@ -89,6 +89,7 @@
 
       for (i = 0; i < arr.length && arr[i].name != $(".dropdown-toggle").eq(0).text(); i++)
         ;
+      $(".dropdown-menu").eq(2).empty();
       for (var j in arr[i].child[_self.attr("data-value")].child) {
         $("<li>")
           .attr("data-value", j)
