@@ -67,7 +67,7 @@
     $(".dropdown-menu").eq(0).on("click", "li", function (e) {
       var _self = $(this);
       window._self = _self;
-      $(".btn-default").eq(0).html(_self.html() + '<span class="caret"></span>');
+      $(".btn-default").eq(0).html(_self.text() + '<span class="caret"></span>');
       $(".dropdown-menu").eq(1).empty();
       for (var j in arr[_self.attr("data-value")].child) {
         $("<li>")
@@ -85,8 +85,7 @@
     $(".dropdown-menu").eq(1).on("click", "li", function () {
       var _self = $(this);
       var i;
-      $(".dropdown-toggle").eq(1).html(_self.html() + '<span class="caret"></span>');
-
+      $(".dropdown-toggle").eq(1).html(_self.text() + '<span class="caret"></span>');
       for (i = 0; i < arr.length && arr[i].name != $(".dropdown-toggle").eq(0).text(); i++)
         ;
       $(".dropdown-menu").eq(2).empty();
@@ -102,7 +101,7 @@
     })
 
     $(".dropdown-menu").eq(2).on("click", "li", function () {
-      $(".dropdown-toggle").eq(2).html($(this).html() + '<span class="caret"></span>');
+      $(".dropdown-toggle").eq(2).html($(this).text() + '<span class="caret"></span>');
     });
   </script>
 </div>
