@@ -11,7 +11,12 @@
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="../G.js"></script>
+  <!--<script src="../G.js"></script>*}-->
+  <!--<script>
+    $(function(){
+
+    });
+  </script>-->
 </head>
 <body>
 <div class="container">
@@ -37,60 +42,68 @@
     <ul class="dropdown-menu" role="menu">
     </ul>
   </div>
-<script>
-  var arr = [
-    {name:"安徽",child:[
-        {name:"安庆",child:["全安庆","大观","桐城","迎江","宜秀","枞阳","怀宁","潜山","宿松","岳西","其他"]},
-        {name:"合肥",child:["全合肥","蜀山","庐阳","包河","瑶海","经开","高新","新站","滨湖新区","北城新区","政务","合肥周边"]}
-    ]
-    },
-    {
-      name: "浙江", child: [
-      {name:"杭州",child:["全杭州","西湖","拱墅","江干","下城","上城","余杭","萧山","滨江","建德","富阳","临安","桐庐","淳安","杭州周边"]},
-      {name:"嘉兴",child:["全嘉兴","南湖","秀洲","经济开发区","平湖","海盐","嘉兴市区","桐乡","海宁","嘉善","嘉兴周边"]}
-    ]
-    }
-  ];
-  for(var i in arr){
-    $("<li>")
-      .append($("<a>").attr("data-value",i).html(arr[i].name))
-      .appendTo($(".dropdown-menu")[0]);
-  }
+  <script>
+    var arr = [
+      {name:"安徽",child:[
+          {name:"安庆",child:["全安庆","大观","桐城","迎江","宜秀","枞阳","怀宁","潜山","宿松","岳西","其他"]},
+          {name:"合肥",child:["全合肥","蜀山","庐阳","包河","瑶海","经开","高新","新站","滨湖新区","北城新区","政务","合肥周边"]}
+      ]
+      },
+      {
+        name: "浙江", child: [
+        {name:"杭州",child:["全杭州","西湖","拱墅","江干","下城","上城","余杭","萧山","滨江","建德","富阳","临安","桐庐","淳安","杭州周边"]},
+        {name:"嘉兴",child:["全嘉兴","南湖","秀洲","经济开发区","平湖","海盐","嘉兴市区","桐乡","海宁","嘉善","嘉兴周边"]}
+      ]
+      }
+    ];
 
-  $(".dropdown-menu")[0].addEventListener("click", function (e) {
-    $(".btn-default")[0].html(e.target.html() +'<span class="caret"></span>');
-    $(".dropdown-menu")[1].html("");
-    for(var j in arr[e.target.attr("data-value")].child){
+    for (var i in arr) {
       $("<li>")
-        .append($("<a>").attr("data-value",j)
-          .html((arr[e.target.attr("data-value")].child[j].name)))
-        .appendTo($(".dropdown-menu")[1]);
+        .attr("data-value", i)
+        .append($("<a>").html(arr[i].name))
+        .appendTo($(".dropdown-menu").eq(0));
     }
 
-    setTimeout(function(){
-      $(".dropdown-toggle")[1].click();
-    }, 0);
-  },false);
+    $(".dropdown-menu").eq(0).on("click", "li", function (e) {
+      var _self = $(this);
+      window._self = _self;
+      $(".btn-default").eq(0).html(_self.html() + '<span class="caret"></span>');
+      $(".dropdown-menu").eq(1).html("");
+      for (var j in arr[_self.attr("data-value")].child) {
+        $("<li>")
+          .attr("data-value", j)
+          .append($("<a>")
+            .html((arr[_self.attr("data-value")].child[j].name)))
+          .appendTo($(".dropdown-menu").eq(1));
+      }
 
-  $(".dropdown-menu")[1].addEventListener("click",function(e){
-    var i ;
-    $(".dropdown-toggle")[1].html(e.target.html()+'<span class="caret"></span>');
+      setTimeout(function () {
+        $(".dropdown-toggle").eq(1).click();
+      }, 0);
+    });
 
-    for(i = 0;i < arr.length && arr[i] != $(".dropdown-toggle")[0].html().substr(0,2); i++ )
-    for(var j in arr[i].child[e.target.attr("data-value")].child){
-      $("<li>")
-        .append($("<a>").attr("data-value",j).html(arr[i].child[e.target.attr("data-value")].child[j]))
-    }
-    setTimeout(function () {
-      $(".dropdown-toggle")[2].click();
-    },0);
-  },false)
+    $(".dropdown-menu").eq(1).on("click", "li", function () {
+      var _self = $(this);
+      var i;
+      $(".dropdown-toggle").eq(1).html(_self.html() + '<span class="caret"></span>');
 
-  $(".dropdown-menu")[2].addEventListener("click",function(e){
-    window.e=e;
-    $(".dropdown-toggle")[2].html(e.target.html() + '<span class="caret"></span>');
-  },false);
-</script>
+      for (i = 0; i < arr.length && arr[i].name != $(".dropdown-toggle").eq(0).text(); i++)
+        ;
+      for (var j in arr[i].child[_self.attr("data-value")].child) {
+        $("<li>")
+          .attr("data-value", j)
+          .append($("<a>").html(arr[i].child[_self.attr("data-value")].child[j]))
+          .appendTo($(".dropdown-menu").eq(2));
+      }
+      setTimeout(function () {
+        $(".dropdown-toggle").eq(2).click();
+      }, 0);
+    })
+
+    $(".dropdown-menu").eq(2).on("click", "li", function () {
+      $(".dropdown-toggle").eq(2).html($(this).html() + '<span class="caret"></span>');
+    });
+  </script>
 </div>
 </body>
 </html>
