@@ -52,19 +52,28 @@
             </ul>
           </div>
         </li>
-        <li></li>
-        <li></li>
+        <li>商品分类</li>
+        <li class="drop-down">
+          收藏夹<span class="caret"></span>
+          <div class="drop-content hide">
+            <ul>
+              <li>收藏的宝贝</li>
+              <li>收藏的店铺</li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </div>
 </div>
 <script>
-  $(".drop-down").on("mouseover",function(){
-    $(".drop-content").removeClass("hide");
+  $(".list-inline").on("mouseover","li",function(){
+    $(this).children(".drop-content").removeClass("hide");
   });
-  $(".drop-down").on("mouseout",function(){
-    $(".drop-content").addClass("hide");
+
+  $(".list-inline").on("mouseout","li",function(){
+    $(this).children(".drop-content").addClass("hide");
   });
 
 </script>
