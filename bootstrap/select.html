@@ -3,7 +3,14 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="../G.js"></script>
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
         .tab-title,.content-title{ background:#bbb; height: 30px; line-height: 30px;}
         .tab-title { list-style-type: none;}
@@ -25,7 +32,26 @@
     <div class="content hide">html111</div>
 </div>
 <script>
-    $(".tab-title")[0].addEventListener("click", function (e) {
+    $(".tab-title").on("click","li",function(){
+        var i;
+        var ele = $(".content");
+        for(var i=0;i<ele.length;i++){
+            if( !ele.eq(i).hasClass("hide")){
+                ele.eq(i).addClass("hide");
+            }
+        }
+        
+        var len =$(this).prevAll().length;
+        $(".content").eq(len).removeClass("hide");
+    });
+
+
+
+
+
+
+
+    /**$(".tab-title")[0].addEventListener("click", function (e) {
         var ele= e.target;
         var count=0;
         for(var i =0;i<$(".content").length;i++){
@@ -41,7 +67,8 @@
             ele=ele.previousSibling;
         }
         $(".content")[count].removeClass("hide");
-    },false);
+    },false);**/
+
 </script>
 </body>
 </html>
