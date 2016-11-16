@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../G.js"></script>
+    <style>
+        .tab-title,.content-title{ background:#bbb; height: 30px; line-height: 30px;}
+        .tab-title { list-style-type: none;}
+        .tab-title  li{ float:left; width: 60px;}
+        .hide{ display: none;}
+    </style>
+</head>
+<body>
+<div>
+    <ul class="tab-title">
+        <li class="tab">js</li>
+        <li class="tab">css</li>
+        <li class="tab">html</li>
+    </ul>
+</div>
+<div class="content-title">
+    <div class="content hide">js000</div>
+    <div class="content hide">css000</div>
+    <div class="content hide">html111</div>
+</div>
+<script>
+    $(".tab-title")[0].addEventListener("click", function (e) {
+        var ele= e.target;
+        var count=0;
+        for(var i =0;i<$(".content").length;i++){
+            if( ! $(".content")[i].hasClass("hide")){
+                $(".content")[i].addClass("hide");
+            }
+        }
+
+        while(ele.previousSibling){
+            if(ele.previousSibling.tagName && ele.previousSibling.tagName.toLowerCase() == "li"){
+                count++;
+            }
+            ele=ele.previousSibling;
+        }
+        $(".content")[count].removeClass("hide");
+    },false);
+</script>
+</body>
+</html>
