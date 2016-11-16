@@ -12,9 +12,8 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-        .tab-title,.content-title{ background:#bbb; height: 30px; line-height: 30px;}
-        .tab-title { list-style-type: none;}
-        .tab-title  li{ float:left; width: 60px;}
+        .tab-title,.content-title{ background:#bbb; height: 30px; line-height: 30px; list-style-type: none;}
+        .tab-title  li{ width: 60px; display: inline-block;}
         .hide{ display: none;}
     </style>
 </head>
@@ -43,12 +42,6 @@
 
         $(".content").eq($(this).prevAll().length).removeClass("hide");
     });
-
-
-
-
-
-
 
     /**$(".tab-title")[0].addEventListener("click", function (e) {
         var ele= e.target;
