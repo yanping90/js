@@ -21,13 +21,18 @@
 <body>
 <div>
     <ul class="tab-title">
-        <li class="tab">js</li>
-        <li class="tab">css</li>
-        <li class="tab">html</li>
+        <li class="tab">公告</li>
+        <li class="tab">规则</li>
+        <li class="tab">论坛</li>
     </ul>
 </div>
 <div class="content-title">
-    <div class="content hide">js000</div>
+    <div class="content hide">
+      <ul>
+        <li>新零售引燃商业未来 单日千亿交易催生新经济</li>
+        <li>2016双11是新零售起点</li>
+      </ul>
+    </div>
     <div class="content hide">css000</div>
     <div class="content hide">html111</div>
 </div>
@@ -36,7 +41,6 @@
         $(".show").removeClass("show").addClass("hide");
         $(".content").eq($(this).index()).removeClass("hide").addClass("show");
     });
-
     /**$(".tab-title")[0].addEventListener("click", function (e) {
         var ele= e.target;
         var count=0;
@@ -54,7 +58,6 @@
         }
         $(".content")[count].removeClass("hide");
     },false);**/
-
 </script>
 </body>
 </html>
