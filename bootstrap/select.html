@@ -40,9 +40,8 @@
                 ele.eq(i).addClass("hide");
             }
         }
-        
-        var len =$(this).prevAll().length;
-        $(".content").eq(len).removeClass("hide");
+
+        $(".content").eq($(this).prevAll().length).removeClass("hide");
     });
 
 
