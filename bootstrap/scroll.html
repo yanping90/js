@@ -11,8 +11,8 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-        .new{width: 210px;}
-        .scroll{ width: 200px; line-height: 20px; background: #fff; padding: 5px 10px; height: 58px; overflow: hidden; }
+        .new{ width: 210px;}
+        .scroll{ width: 200px; line-height: 20px; background: #fff; padding: 5px 10px; height: 60px; overflow: hidden; }
         .scroll li span { color:#999;}
     </style>
 </head>
@@ -36,15 +36,21 @@
 <script>
     var scroll = function(){
         var topHeight=$(".scroll").scrollTop();
-        if(topHeight<=61){
-            topHeight += 61;
+        if(topHeight<60){
+            topHeight += 2;
         }else{
             topHeight=0;
             $(".scroll").children("li").eq(0).appendTo(".scroll");
         }
         $(".scroll").scrollTop(topHeight);
     }
-    setInterval(scroll,2000);
+    var scrollEle=setInterval(scroll,30);
+  $(".scroll").on("mouseover",function(){
+    clearInterval(scrollEle);
+  });
+    $(".scroll").on("mouseout",function(){
+      scrollEle=setInterval(scroll,30);
+    });
 </script>
 </body>
 </html>
