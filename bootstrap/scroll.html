@@ -35,11 +35,14 @@
 </div>
 <script>
     var scroll = function(){
-        var topHeight=0;
-        while(topHeight<=183){
+        var topHeight=$(".scroll").scrollTop();
+        if(topHeight<=61){
             topHeight += 61;
-            $(".scroll").scrollTop(topHeight);
+        }else{
+            topHeight=0;
+            $(".scroll").children("li").eq(0).appendTo(".scroll");
         }
+        $(".scroll").scrollTop(topHeight);
     }
     setInterval(scroll,2000);
 </script>
