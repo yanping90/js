@@ -78,6 +78,8 @@
 </div>
 <script>
     $(".tab-title").on("mouseover","li",function(){
+        var _self= $(this);
+        window._self =_self;
         $(".selected").removeClass("selected");
         $(this).addClass("selected");
         $(".content").addClass("hide");
