@@ -12,5 +12,73 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="header">
+    <div class="container">
+        <div class="header-th pull-left">
+            <ul class="list">
+                <li><span>亲，请登录</span></li>
+                <li><a>免费注册</a></li>
+                <li><a>手机逛淘宝</a></li>
+            </ul>
+        </div>
+        <div class="header-th pull-right">
+            <ul class="list">
+                <li class="drop-menu"><a>我的淘宝</a>
+                    <div class="drop-content hide">
+                        <ul>
+                            <li><a>已买到的宝贝</a></li>
+                            <li><a>我的足迹</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="drop-menu"><a>收藏夹</a>
+                    <div class="drop-content hide">
+                        <ul>
+                            <li><a>收藏的宝贝</a></li>
+                            <li><a>收藏的店铺</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header-register"><a>商品分类</a></li>
+                <li class="drop-menu"><a>卖家中心</a>
+                    <div class="drop-content hide">
+                        <ul>
+                            <li><a>免费开店</a></li>
+                            <li><a>已卖出的宝贝</a></li>
+                            <li><a>出售中的宝贝</a></li>
+                            <li><a>卖家服务市场</a></li>
+                            <li><a>卖家培训中心</a></li>
+                            <li><a>体检中心</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="drop-menu"><a>联系客服</a>
+                    <div class="drop-content hide">
+                        <ul>
+                            <li><a>消费者客服</a></li>
+                            <li><a>卖家客服</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(".list").on("mouseover","li",function(){
+        var _self =$(this) ;
+        if(_self.hasClass("drop-menu")){
+            _self.addClass("drop-menu-hover");
+        }
+        _self.children(".drop-content").removeClass("hide");
+    });
+   $(".list").on("mouseout","li",function(){
+        var _self =$(this) ;
+        if(_self.hasClass("drop-menu")){
+            _self.removeClass("drop-menu-hover");
+        }
+        _self.children(".drop-content").addClass("hide");
+    });
+</script>
 </body>
 </html>
