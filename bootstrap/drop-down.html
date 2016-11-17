@@ -14,17 +14,13 @@
         .left{ float: left;}
         .right{ float: right;}
         .hide{ display: none;}
-        .contain{ background: #f5f5f5; height: 40px; line-height: 40px;}
-        .header{ width: 1200px; margin: 0 auto;}
-        .list{ list-style-type: none;}
-        .list .loginl{ color:#ff8800;}
-        .list li{ display: inline-block; position: relative; border:1px solid #f5f5f5; padding: 0 5px; border-bottom: none;}
-        .list li:hover{ background: #fff; border:1px solid #eee; border-bottom: none;}
-        .drop-menu{ position: absolute;border:1px solid #eee; border-top: none; margin-left: -6px;} /**下拉内容要设置绝对定位**/
-        .drop-menu a{ display: block; line-height: 20px; width: 100px;padding: 5px; }
-        .drop-menu a:hover{ background: #eee;}
+        .contain{ background: #f5f5f5; height: 30px; line-height: 30px;}
+        .header{ width: 1200px; margin: 0 auto;height: 30px; line-height: 30px;}
+        .list{ list-style-type: none;height: 30px; line-height: 30px}
+        .list li{ display: inline-block;}
+        .drop-menu a{ display: block; line-height: 20px;}
         .headerl{ width:600px;}
-        .headerr{ width:200px;}
+        .headerr{width:600px;}
     </style>
 </head>
 <body>
@@ -32,12 +28,16 @@
 <div class="header">
     <div class="headerl left">
         <ul class="list">
-          <li><div class="loginl">亲，请登录</div></li>
-          <li>免费注册</li>
-          <li>手机逛淘宝</li>
+            <li>消息
+                <div class="drop-menu hide">
+                    <a>买家消息</a>
+                    <a>卖家消息</a>
+                </div>
+            </li>
+            <li>ddd vvv</li>
+            <li>ddd vvv</li>
         </ul>
     </div>
-
     <div class="headerr right">
         <ul class="list">
             <li>我的淘宝
@@ -46,23 +46,17 @@
                     <a>我的足迹</a>
                 </div>
             </li>
-          <li>收藏夹
-            <div class="drop-menu hide">
-              <a>收藏的宝贝</a>
-              <a>收藏的店铺</a>
-            </div>
-          </li>
-            <li>商品分类</li>
+            <li>ddd vvv</li>
         </ul>
     </div>
 </div>
 </div>
 <script>
    $(".list").on("mouseover","li",function(){
+       var _self = $(this);
+       if($(this).children(".drop-menu")){
            $(this).children(".drop-menu").removeClass("hide");
-   });
-   $(".list").on("mouseout","li",function(){
-     $(this).children(".drop-menu").addClass("hide");
+       }
    });
 </script>
 </body>
