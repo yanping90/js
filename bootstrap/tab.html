@@ -12,34 +12,78 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-        .tab-title,.content-title{ background:#bbb; height: 30px; line-height: 30px; list-style-type: none;}
-        .tab-title  li{ width: 60px; display: inline-block;}
+        *{ font-size: 12px; padding: 0; margin: 0 auto;}
+        body{ background: #f5f5f5;}
+        .notice{ width: 290px; background: #ffffff; height: 90px;}
+        .tab-title,.content{list-style-type: none; line-height: 22px;}
+        .tab-title{ padding: 5px 10px;}
+        .tab-title  li.tab{ width: 49px; display: inline-block; color:#666; text-align: center;}
+        .tab-title  li a:hover,.tab-title  li.selected a{ border-bottom: 2px solid #f60; width: 40px; display: block; font-weight: bold;}
+
+        .content{ margin-left: 15px; color:#666; line-height: 26px;}
+        .content ul { list-style-type: none;}
+        .content ul li{ display: inline-block; padding-right: 10px;}
+        .content ul li a:hover{ color:#f80;}
         .hide{ display: none;}
 
     </style>
 </head>
 <body>
-<div>
+<div class="notice">
     <ul class="tab-title">
-        <li class="tab">公告</li>
-        <li class="tab">规则</li>
-        <li class="tab">论坛</li>
+        <li class="tab selected"><a>公告</a></li>
+        <li class="tab"><a>规则</a></li>
+        <li class="tab"><a>论坛</a></li>
+        <li class="tab"><a>安全</a></li>
+        <li class="tab"><a>公益</a></li>
     </ul>
-</div>
 <div class="content-title">
-    <div class="content hide">
+    <div class="content">
       <ul>
-        <li>新零售引燃商业未来 单日千亿交易催生新经济</li>
-        <li>2016双11是新零售起点</li>
+        <li><a>新零售引燃商业未来 单日千亿交易催生新经济</a></li>
+        <li><a>2016双11是新零售起点</a></li>
       </ul>
     </div>
-    <div class="content hide">css000</div>
-    <div class="content hide">html111</div>
+    <div class="content hide">
+        <ul>
+            <li><a>不正当谋利规则变更</a></li>
+            <li><a>淘宝亲宝贝市场管理规范</a></li>
+            <li><a>淘宝价格发布规范变更</a></li>
+            <li><a>店铺相关规则调整变更</a></li>
+        </ul>
+    </div>
+    <div class="content hide">
+        <ul>
+            <li><a>新零售引燃商业未来 单日千亿交易催生新经济</a></li>
+            <li><a>2016双11是新零售起点</a></li>
+        </ul>
+    </div>
+    <div class="content hide">
+        <ul>
+            <li><a>恶意买家疯狂下单？</a></li>
+            <li><a> 钱盾电脑版来啦！</a></li>
+            <li><a>半路货被劫了！</a></li>
+            <li><a> 许多卖家收到了这条</a></li>
+        </ul>
+    </div>
+    <div class="content hide">
+        <ul>
+            <li><a>闲鱼公益上线招募NGO</a></li>
+            <li><a>阿里与残联出助残政策</a></li>
+            <li><a>公益宝贝卖家发票索取</a></li>
+            <li><a>公益机构淘宝开店攻略</a></li>
+        </ul>
+    </div>
+</div>
 </div>
 <script>
-    $(".tab-title").on("click","li",function(){
-        $(".show").removeClass("show").addClass("hide");
-        $(".content").eq($(this).index()).removeClass("hide").addClass("show");
+    $(".tab-title").on("mouseover","li",function(){
+        $(".selected").removeClass("selected");
+        $(this).addClass("selected");
+        $(".content").addClass("hide");
+        $(".content").eq($(this).index()).removeClass("hide");
+       // $(".show").removeClass("show").addClass("hide");
+        //$(".content").eq($(this).index()).removeClass("hide").addClass("show");
     });
     /**$(".tab-title")[0].addEventListener("click", function (e) {
         var ele= e.target;
