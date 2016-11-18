@@ -34,21 +34,22 @@
   </div>
   <script>
     var scroll = function () {
-      var scroll = $("#scroll")[0];
+      var scroll = $("#scroll");
       var ele = $("ul")[0];
-      if (scroll.scrollTop < 30) {
-        scroll.scrollTop++;
+      if (scroll.scrollTop < 60) {
+        scroll.scrollTop += 30;
       }
       else{
+
         $("ul")[0].appendChild($("li")[0]);
         scroll.scrollTop = 0;
       }
     }
-    var scrollTime=setInterval(scroll, 100);
-    scroll.addEventListener("mouseover",function(){
-      clearInterval(scrollTime);
-    },false);
-    scroll.addEventListener("mouseout",scrollTime,false);
+    var scrollTime=setInterval(scroll, 2000);
+    //scroll.addEventListener("mouseover",function(){
+     // clearInterval(scrollTime);
+   // },false);
+   // scroll.addEventListener("mouseout",scrollTime,false);
   </script>
 </div>
 </body>

@@ -13,7 +13,7 @@
     <style>
         .new{ width: 210px;}
         .scroll{ width: 200px; line-height: 20px; background: #fff; padding: 5px 10px; height: 60px; overflow: hidden; }
-        .scroll li{ height: 60px;}
+       .scroll li{ margin-bottom: 5px;}
         .scroll li span { color:#999;}
     </style>
 </head>
@@ -21,15 +21,15 @@
 <div class="new">
     <ul class="scroll">
         <li>
-            <a><迪拜-阿布扎比7日自助游>入住5678星酒店，阿联酋航空，往返A380</a><br>
+            <a title="<迪拜-阿布扎比7日自助游>入住5678星酒店，阿联酋航空，往返A380"><迪拜-阿布扎比7日自助游>入住5678星酒店，阿联酋航空，往返A380</a><br>
             <span>用户***细</span>
         </li>
         <li>
-            <a><美西拉斯维加斯-洛杉矶6日游>洛杉矶接机，含主题门票（当地游</a><br>
+            <a title="<美西拉斯维加斯-洛杉矶6日游>洛杉矶接机，含主题门票（当地游）"><美西拉斯维加斯-洛杉矶6日游>洛杉矶接机，含主题门票（当地游）</a><br>
             <span>用户***细</span>
         </li>
         <li>
-            <a><帕劳订机票送天堂岛酒店4晚5日自助游>香港太平洋航空</a><br>
+            <a title="<帕劳订机票送天堂岛酒店4晚5日自助游>香港太平洋航空"><帕劳订机票送天堂岛酒店4晚5日自助游>香港太平洋航空</a><br>
             <span>用户***细</span>
         </li>
     </ul>
@@ -37,20 +37,24 @@
 <script>
     var scroll = function(){
         var topHeight=$(".scroll").scrollTop();
-        if(topHeight<60){
+        if(topHeight<65){
             topHeight += 2;
         }else{
             topHeight=0;
             $(".scroll").children("li").eq(0).appendTo(".scroll");
+            clearInterval(scrollEle);
+            setTimeout(function () {
+                scrollEle=setInterval(scroll,30);
+             },1000);
         }
         $(".scroll").scrollTop(topHeight);
     }
-   var scrollEle=setInterval(scroll,30);
-  $(".scroll").on("mouseover",function(){
-    clearInterval(scrollEle);
-  });
+    var scrollEle=setInterval(scroll,30);
+    $(".scroll").on("mouseover",function(){
+        clearInterval(scrollEle);
+    });
     $(".scroll").on("mouseout",function(){
-      scrollEle=setInterval(scroll,30);
+        scrollEle=setInterval(scroll,30);
     });
 </script>
 </body>
