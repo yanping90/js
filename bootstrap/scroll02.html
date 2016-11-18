@@ -37,24 +37,26 @@
 <script>
     var scroll = function(){
         var topHeight=$(".scroll").scrollTop();
-        if(topHeight<65){
-            topHeight += 2;
+        if(topHeight<64){
+            topHeight += 4;
         }else{
             topHeight=0;
             $(".scroll").children("li").eq(0).appendTo(".scroll");
             clearInterval(scrollEle);
             setTimeout(function () {
-                scrollEle=setInterval(scroll,30);
+                clearInterval(scrollEle);
+                scrollEle=setInterval(scroll,50);
              },1000);
         }
         $(".scroll").scrollTop(topHeight);
     }
-    var scrollEle=setInterval(scroll,30);
+    var scrollEle=setInterval(scroll,50);
     $(".scroll").on("mouseover",function(){
         clearInterval(scrollEle);
     });
     $(".scroll").on("mouseout",function(){
-        scrollEle=setInterval(scroll,30);
+        clearInterval(scrollEle);
+        scrollEle=setInterval(scroll,50);
     });
 </script>
 </body>
