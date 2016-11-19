@@ -11,6 +11,8 @@ $result = [
     ],
 ];
 
+sleep(1);
+
 if (! is_file($filename)) {
     $result["code"] = 2;
 } else {

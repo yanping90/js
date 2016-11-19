@@ -19,5 +19,5 @@ if ($filename) {
         $result["code"] = 1;
     }
 }
-
+sleep(1);
 echo json_encode($result);
