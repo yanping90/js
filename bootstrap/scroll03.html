@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="style/public.css">
+  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <style>
+    .new{ width: 210px;}
+    .scroll{ width: 200px; line-height: 20px; background: #fff; padding: 5px 10px; height: 60px; overflow: hidden; }
+    .scroll li{ margin-bottom: 5px;}
+    .scroll li span { color:#999;}
+  </style>
+</head>
+<body>
+<div class="new">
+  <ul class="scroll">
+    <li>
+      <a title="<迪拜-阿布扎比7日自助游>入住5678星酒店，阿联酋航空，往返A380"><迪拜-阿布扎比7日自助游>入住5678星酒店，阿联酋航空，往返A380</a><br>
+      <span>用户***细</span>
+    </li>
+    <li>
+      <a title="<美西拉斯维加斯-洛杉矶6日游>洛杉矶接机，含主题门票（当地游）"><美西拉斯维加斯-洛杉矶6日游>洛杉矶接机，含主题门票（当地游）</a><br>
+      <span>用户***细</span>
+    </li>
+    <li>
+      <a title="<帕劳订机票送天堂岛酒店4晚5日自助游>香港太平洋航空"><帕劳订机票送天堂岛酒店4晚5日自助游>香港太平洋航空</a><br>
+      <span>用户***细</span>
+    </li>
+  </ul>
+</div>
+<script>
+  var pause = 0;
+  var scroll = function(){
+    var topHeight=$(".scroll").scrollTop();
+    if(pause)  return ;
+    if(topHeight<64){
+      topHeight += 4;
+    }else{
+      topHeight=0;
+      $(".scroll").children("li").eq(0).appendTo(".scroll");
+      clearInterval(scrollEle);
+      setTimeout(function () {
+        scrollEle=setInterval(scroll,50);
+      },1000);
+    }
+    $(".scroll").scrollTop(topHeight);
+  }
+  var scrollEle=setInterval(scroll,50);
+  $(".scroll").on("mouseover",function(){
+    pause = 1;
+  });
+  $(".scroll").on("mouseout",function(){
+    pause = 0;
+  });
+</script>
+</body>
+</html>
