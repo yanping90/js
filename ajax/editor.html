@@ -24,9 +24,12 @@
       </ol>
     </div>
     <div class="col-lg-8">
-      <textarea class="from-control" rows="10"></textarea><br>
-      <input type="button" id="btn"  class="btn btn-default" disabled value="save"/>
-      <input name="filename" id="filename" type="hidden"/>
+      <form>
+        <textarea class="form-control" id="content" rows="3"></textarea><br>
+        <input type="text" class="form-control hidden" id="newtitle" placeholder="Text input"><br>
+        <input type="button" id="btn"  class="btn btn-default" disabled value="save"/>
+        <input name="filename" id="filename" type="hidden"/>
+      </form>
     </div>
   </div>
 </div>
@@ -46,6 +49,7 @@
         "json"
       );
     $("#list").on("click","li",function(){
+
       var _self = $(this);
       $("#btn").prop("disabled",true);
       $.get(
@@ -56,8 +60,10 @@
             alert("内容输出错误");
           }
           else{
-            $(".from-control").val(r.data.content);
+            $("#content").val(r.data.content);
             $("#filename").val(_self.text());
+            var idx = $("#content").val().split("\n").length;
+            $("#content").attr("rows",idx);
             $("#btn").prop("disabled",false);
           }
         },
@@ -65,10 +71,19 @@
       );
     });
     $("#btn").on("click",function(){
+      $("#btn").prop("disabled",true);
+      var title;
+      if( $("#filename").val()== ""){
+        $(".hidden").removeClass("hidden");
+        title = $("#newtitle").val();
+      }
+      else{
+        title = $("#filename").val();
+      }
       var _self = $(this);
       $.post(
         "/write.php",
-        {"filename": $("#filename").val(),"content":$(".from-control").val()},
+        {"filename": title,"content":$("#content").val()},
         function(r){
           if(r.code){
             alert("保存失败");
@@ -76,9 +91,18 @@
           else{
             alert("保存成功了");
           }
+          $("#btn").prop("disabled",false);
         },
         "json"
       );
+    });
+    $("#content").on("keyup",function(){
+      var idx = $("#content").val().split("\n").length;
+      $("#content").attr("rows",idx);
+      if( $("#filename").val()== ""){
+        $(".hidden").removeClass("hidden");
+        $("#btn").prop("disabled",false);
+      }
     });
 
   })
