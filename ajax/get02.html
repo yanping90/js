@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        body{ font-size: 12px;}
+        a{ cursor: pointer;}
+        #list{ margin-left: -26px;}
+        .col-lg-4 h6 a{ padding-left: 30px; position: relative;}
+        .new-title{ background: #fff; position: absolute; left:100%; width: 240px; height: 160px; z-index: 1100; }
+        .new-title p{  height: 30px; line-height: 30px; border-bottom: 2px solid #eee; color:#333; padding-left: 15px;}
+        .new-title p a{ padding-right: 15px;}
+        .new-title input{ width: 210px; height: 26px; font-size: 12px; margin-left: 15px;}
+        .new-title-bg{ background: #000; opacity: 0.5; position: fixed; width: 100%; height: 100%; z-index: 1000;}
+    </style>
+</head>
+<body>
+<div class="new-title-bg"></div>
+<div class="container">
+    <div class="rows">
+        <div class="col-lg-4">
+                    <h5>文件名 <a>新建</a></h5>
+            <div class="new-title">
+                <p>新建文件<a class="pull-right">关闭</a></p>
+                <input type="text" class="form-control" id="newtitle" placeholder="请输入文件名称">
+            </div>
+            <ol id="list"></ol>
+        </div>
+        <div class="col-lg-8"></div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $.get("/list.php",
+                function(r){
+                    if(r.code){}
+                    else{
+                        var files = r.data.files;
+                        for(var i in files){
+                            $("<li>").appendTo($("#list")).html(files[i]);
+                        }
+                        console.log(r);
+                    }
+                },
+                "json"
+        )
+    })
+</script>
+</body>
+</html>
