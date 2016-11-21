@@ -16,43 +16,141 @@
         a{ cursor: pointer;}
         #list{ margin-left: -26px;}
         .col-lg-4 h6 a{ padding-left: 30px; position: relative;}
-        .new-title{ background: #fff; position: absolute; left:100%; width: 240px; height: 160px; z-index: 1100; }
+        /**弹框**/
+        .new-title{ background: #fff; position: absolute; left:100%; top:100%; width: 340px; height: 250px; z-index: 1100; }
         .new-title p{  height: 30px; line-height: 30px; border-bottom: 2px solid #eee; color:#333; padding-left: 15px;}
         .new-title p a{ padding-right: 15px;}
-        .new-title input{ width: 210px; height: 26px; font-size: 12px; margin-left: 15px;}
+        .new-title input#newtitle{ width: 310px; height: 26px; font-size: 12px; margin-left: 15px;}
+        #txtcontent{ width: 310px;margin-left: 15px;}
+        #savebtn{ margin-left: 15px;}
         .new-title-bg{ background: #000; opacity: 0.5; position: fixed; width: 100%; height: 100%; z-index: 1000;}
     </style>
 </head>
 <body>
-<div class="new-title-bg"></div>
+<div class="new-title-bg hidden"></div>
 <div class="container">
     <div class="rows">
         <div class="col-lg-4">
-                    <h5>文件名 <a>新建</a></h5>
-            <div class="new-title">
-                <p>新建文件<a class="pull-right">关闭</a></p>
-                <input type="text" class="form-control" id="newtitle" placeholder="请输入文件名称">
+                    <h5>文件名 <a id="newbtn">新建</a></h5>
+            <div class="new-title hidden">
+                <p>新建文件<a class="pull-right" id="close">关闭</a></p>
+              <form role="form">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="newtitle" placeholder="请输入文件名称">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="5" id="txtcontent" placeholder="请输入文件内容"></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="button" id="savebtn" value="保存" class="btn btn-default"/>
+                </div>
+              </form>
             </div>
             <ol id="list"></ol>
         </div>
-        <div class="col-lg-8"></div>
+        <div class="col-lg-8">
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" id="editcontent"  rows="10"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" id="editbtn" disabled>保存</button>
+              <input type="hidden" id="filename"/>
+            </div>
+          </form>
+        </div>
     </div>
 </div>
 <script>
     $(function(){
+      var loadlist=function(){
+        $("#list").empty();
         $.get("/list.php",
-                function(r){
-                    if(r.code){}
-                    else{
-                        var files = r.data.files;
-                        for(var i in files){
-                            $("<li>").appendTo($("#list")).html(files[i]);
-                        }
-                        console.log(r);
-                    }
-                },
-                "json"
-        )
+          function(r){
+            if(r.code){}
+            else{
+              var files = r.data.files;
+              for(var i in files){
+                $("<li>").appendTo($("#list")).html(files[i]);
+              }
+            }
+          },
+          "json"
+        );
+      }
+      loadlist();
+      $("#savebtn").on("click",function(){
+        $.post("/write.php",
+          {
+            "filename":$("#newtitle").val(),
+            "content":$("#txtcontent").val()
+          },
+          function(r){
+            if(r.code) {
+              alert("保存失败");
+            }
+            else{
+              $("#txtcontent").attr("rows",$("#txtcontent").val().split("\n").length);
+              alert("保存成功");
+              loadlist();
+              $(".new-title-bg").addClass("hidden");
+              $(".new-title").addClass("hidden");
+            }
+          },
+          "json"
+        );
+      })
+
+      $("#list").on("click","li",function(){
+        var _self = $(this);
+        $("#editbtn").prop("disabled",false);
+        $.get("/read.php",
+          {
+            "filename": _self.text()
+          },
+          function(r){
+            if(r.code){}
+            else{
+              $("#editcontent").val(r.data.content);
+              $("#filename").val(_self.text());
+            }
+          },
+          "json"
+        );
+      });
+
+      $("#editbtn").on("click",function(e){
+        $("#editbtn").prop("disabled",true);
+        $.post("/write.php",
+          {
+            "filename":$("#filename").val(),
+            "content":$("#editcontent").val()
+          },
+          function(r){
+            if(r.code) {}
+            else{
+              alert("编辑成功");
+              $("#editbtn").prop("disabled",false);
+            }
+          }
+        );
+        e.preventDefault();
+        return false;
+      });
+
+      $("#newbtn").on("click",function(){
+        $(".new-title-bg").removeClass("hidden");
+        $(".new-title").removeClass("hidden");
+      });
+      $("#close").on("click",function(){
+        $(".new-title-bg").addClass("hidden");
+        $(".new-title").addClass("hidden");
+      });
+
+      $("#editcontent").on("keyup",function(){
+        $(this).attr("rows",Math.max($("#editcontent").val().split("\n").length,10));
+      });
+
     })
 </script>
 </body>
