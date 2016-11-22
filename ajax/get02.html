@@ -90,7 +90,6 @@
               alert("保存失败");
             }
             else{
-              $("#txtcontent").attr("rows",$("#txtcontent").val().split("\n").length);
               alert("保存成功");
               loadlist();
               $(".new-title-bg").addClass("hidden");
@@ -148,7 +147,7 @@
       });
 
       $("#editcontent").on("keyup",function(){
-        $(this).attr("rows",Math.max($("#editcontent").val().split("\n").length,10));
+        $(this).attr("rows",Math.max($("#editcontent").val().split("\n").length,5));
       });
 
     })
