@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        *{ font-size: 12px; margin: 0 auto; padding: 0;}
+        ul{ list-style-type: none;}
+        a{ cursor: pointer;}
+        .left{ float: left;}
+        .right{ float: right;}
+        .hidden{ display: none;}
+
+
+        .header{ background-color: #f5f5f5; width: 100%; height: 36px; line-height: 36px; border-bottom: 1px solid #eee;}
+        .site-nav{ width:1200px; color:#666;}
+        .site-nav-l  li{ display: inline-block; padding-right: 10px;}
+        .site-nav-l  li a.site-login,.site-nav a:hover{ color: #f60;}
+        .site-nav-l  li span{ padding-left: 10px;}
+        .site-nav-r li{ display: inline-block; position: relative;}
+        .site-nav-r li span{ padding:0 10px;}
+        .site-nav-r li.site-nav-dropdown{border:1px solid #f5f5f5;border-bottom: none;}
+        .site-nav-hover{ background: #fff;border:1px solid #eee; border-bottom: none; border-top:#fff;}
+        .site-nav-r li .site-content{ position: absolute; width: 90px; background: #fff; border:1px solid #f4f4f4; border-top:none; line-height: 26px; margin-left: -1px; padding:5px 0;}
+        .site-nav-r li .site-content ul  li { padding: 2px 5px;}
+        .site-nav-r li .site-content ul li:hover{ background: #f6f6f6; width: 80px;}
+        .site-nav-r li .site-content ul li a:hover{ color: #666;}
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <div class="site-nav">
+        <ul class="site-nav-l left">
+            <li><a class="site-login">亲，请登录</a><span><a>免费注册</a></span></li>
+            <li><a>手机逛淘宝</a></li>
+        </ul>
+        <ul class="site-nav-r right">
+            <li class="site-nav-dropdown">
+                <a><span>我的淘宝</span></a>
+                <div class="site-content hidden">
+                    <ul>
+                        <li><a>已买到的宝贝</a></li>
+                        <li><a>我的足迹</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a><span>购物车</span></a></li>
+            <li class="site-nav-dropdown">
+                <a><span>收藏夹</span></a>
+                <div class="site-content hidden">
+                    <ul>
+                        <li><a>收藏的宝贝</a></li>
+                        <li><a>收藏的店铺</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a><span>商品分类</span></a></li>
+            <li class="site-nav-dropdown">
+                <a><span>卖家中心</span></a>
+                <div class="site-content hidden">
+                    <ul>
+                        <li><a>免费开店</a></li>
+                        <li><a>已卖出的宝贝</a></li>
+                        <li><a>出售中的宝贝</a></li>
+                        <li><a>卖家服务市场</a></li>
+                        <li><a>卖家培训中心</a></li>
+                        <li><a>体检中心</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="site-nav-dropdown">
+                <a><span>联系客服</span></a>
+                <div class="site-content hidden">
+                    <ul>
+                        <li><a>消费者客服</a></li>
+                        <li><a>卖家客服</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="site-nav-dropdown">
+                <a><span>网站导航</span></a>
+                <div class="site-content hidden">
+                    <ul>
+                        <li><a>消费者客服</a></li>
+                        <li><a>卖家客服</a></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<script>
+    $(".site-nav-r").on("mouseover","li",function(){
+        var _self = $(this);
+        if(_self.hasClass("site-nav-dropdown")){
+            _self.addClass("site-nav-hover");
+        }
+        _self.children(".site-content").removeClass("hidden");
+    });
+    $(".site-nav-r").on("mouseout","li",function(){
+        var _self = $(this);
+        if(_self.hasClass("site-nav-dropdown")){
+            _self.removeClass("site-nav-hover");
+        }
+        _self.children(".site-content").addClass("hidden");
+    })
+</script>
+</body>
+</html>
