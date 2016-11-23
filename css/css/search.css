@@ -17,7 +17,10 @@
 body{ font-size: 12px;}
 ul{list-style-type: none;}
 a{ cursor: pointer;}
+.hide{ display: none;}
+.clear{ clear: both;}
 
+.search{ width:626px;}
 .search-top{ height: 25px;}
 .search-top ul{ margin-left: -40px;}
 .search-top ul li{width:50px; height: 25px; line-height: 25px; color:#ff5400; display: inline-block; text-align: center;}
@@ -25,10 +28,19 @@ a{ cursor: pointer;}
 .search-top ul li.selected  a,.search-btn input{ background: #ff5400;color:#fff;}
 .search-top ul li.selected  a{ display: block;}
 
-.search-input{ position: relative;}
-.search-icon{ position: absolute; top: 50px; left: 15px; z-index: 0; color:#999;}
-.search-input input{ float: left; border:3px solid #ff5400; width: 500px; height: 34px; line-height: 34px; padding-left: 20px;}
+.search-input{ position: relative;float: left;border:3px solid #ff5400; width: 500px; height: 36px; line-height: 34px; }
+.search-icon{ position: absolute; top: 50px; left: 95px; z-index: 0; color:#999;}
+.search-input input{border:none; width: 400px; height: 34px; vertical-align: middle; padding-left: 20px;}
+.search-btn{ float: left;}
+.search-input input{ float: right;}
 .search-btn input{height: 42px; line-height: 42px; width: 120px; border:none; font-size: 18px; font-weight: bold;}
-.search-end{ margin-top: -2px;}
-.search-end ul{ margin-left: -40px;}
+.search-tab{ width: 80px; background: #f7f7f7; float: left; height: 36px;}
+.search-tab ul{ margin-left: -40px;}
+.search-tab ul li{ vertical-align: middle;width: 80px;height: 36px; text-align: center; margin-top: -10px; color: #666;}
+.search-tab ul li .search-tab-dropmenu ul li{ line-height: 24px;}
+.search-tab ul li .search-tab-dropmenu ul li a:hover{ background-color: #fff; display: block;}
+.search-tab ul li .search-tab-dropmenu{ padding-top: 20px;background: #f7f7f7;}
+
+
+.search-end{ display: block; margin-left: -40px; line-height: 30px;}
 .search-end ul li{ display: inline-block; color:#666; padding-right: 10px;}
