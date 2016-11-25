@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        .scroll{ width: 200px; height: 35px; overflow: hidden;}
+    </style>
+</head>
+<body>
+<div class="scroll">
+    <p>scroll top offset 指的是滚动条相</p>
+    <p>动条相对于其顶部的偏移。</p>
+    <p>指的是滚动条相对于其顶部的偏移</p>
+</div>
+<script>
+    function Scroll(){
+        this.dir = "scrollTop";
+        this.len = "35";
+        this.selector = ".scroll";
+    }
+    Scroll.prototype.roll = function(){
+        var topHeight = $(this.selector)[this.dir]();
+        if(topHeight < this.len){
+            topHeight ++;
+        }
+        else{
+            topHeight = 0;
+            $(this.selector).children("p").eq(0).appendTo($(this.selector));
+        }
+        $(this.selector)[this.dir](topHeight);
+    }
+    var s1 = new Scroll();
+    setInterval(s1.roll(),40)
+</script>
+</body>
+</html>
