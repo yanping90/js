@@ -62,95 +62,92 @@
     </div>
 </div>
 <script>
-    $(function(){
-      var loadlist=function(){
-        $("#list").empty();
-        $.get("/list.php",
-          function(r){
-            if(r.code){}
-            else{
-              var files = r.data.files;
-              for(var i in files){
-                $("<li>").appendTo($("#list")).html(files[i]);
-              }
+  $(function () {
+    var loadlist = function () {
+      $("#list").empty();
+      $.ajax("/list.php", {
+          success: function (r) {
+            var files = r.data.files;
+            for (var i in files) {
+              $("<li>").appendTo($("#list")).html(files[i]);
             }
           },
-          "json"
-        );
-      }
-      loadlist();
-      $("#savebtn").on("click",function(){
-        $.post("/write.php",
-          {
-            "filename":$("#newtitle").val(),
-            "content":$("#txtcontent").val()
-          },
-          function(r){
-            if(r.code) {
-              alert("保存失败");
-            }
-            else{
-              alert("保存成功");
-              loadlist();
-              $(".new-title-bg").addClass("hidden");
-              $(".new-title").addClass("hidden");
-            }
-          },
-          "json"
-        );
-      })
-
-      $("#list").on("click","li",function(){
-        var _self = $(this);
-        $("#editbtn").prop("disabled",false);
-        $.get("/read.php",
-          {
-            "filename": _self.text()
-          },
-          function(r){
-            if(r.code){}
-            else{
-              $("#editcontent").val(r.data.content);
-              $("#filename").val(_self.text());
-            }
-          },
-          "json"
-        );
-      });
-
-      $("#editbtn").on("click",function(e){
-        $("#editbtn").prop("disabled",true);
-        $.post("/write.php",
-          {
-            "filename":$("#filename").val(),
-            "content":$("#editcontent").val()
-          },
-          function(r){
-            if(r.code) {}
-            else{
-              alert("编辑成功");
-              $("#editbtn").prop("disabled",false);
-            }
+          dataType: "json"
+        }
+      );
+    }
+    loadlist();
+    $("#savebtn").on("click", function () {
+      $.post("/write.php",
+        {
+          "filename": $("#newtitle").val(),
+          "content": $("#txtcontent").val()
+        },
+        function (r) {
+          if (r.code) {
+            alert("保存失败");
           }
-        );
-        e.preventDefault();
-        return false;
-      });
-
-      $("#newbtn").on("click",function(){
-        $(".new-title-bg").removeClass("hidden");
-        $(".new-title").removeClass("hidden");
-      });
-      $("#close").on("click",function(){
-        $(".new-title-bg").addClass("hidden");
-        $(".new-title").addClass("hidden");
-      });
-
-      $("#editcontent").on("keyup",function(){
-        $(this).attr("rows",Math.max($("#editcontent").val().split("\n").length,5));
-      });
-
+          else {
+            alert("保存成功");
+            loadlist();
+            $(".new-title-bg").addClass("hidden");
+            $(".new-title").addClass("hidden");
+          }
+        },
+        "json"
+      );
     })
+
+    $("#list").on("click", "li", function () {
+      var _self = $(this);
+      $("#editbtn").prop("disabled", false);
+      $.ajax("/read.php", {
+        data:{"filename": _self.text()}
+
+      }).success(function (r) {
+        if (r.code){}
+        else
+        {
+          $("#editcontent").val(r.data.content);
+          $("#filename").val(_self.text());
+        }
+      });
+    });
+
+    $("#editbtn").on("click", function (e) {
+      $("#editbtn").prop("disabled", true);
+      $.post("/write.php",
+        {
+          "filename": $("#filename").val(),
+          "content": $("#editcontent").val()
+        },
+        function (r) {
+          if (r.code) {}
+          else
+          {
+            alert("编辑成功");
+            $("#editbtn").prop("disabled", false);
+          }
+        }
+      );
+      e.preventDefault();
+      return false;
+    });
+
+    $("#newbtn").on("click", function () {
+      $(".new-title-bg").removeClass("hidden");
+      $(".new-title").removeClass("hidden");
+    });
+    $("#close").on("click", function () {
+      $(".new-title-bg").addClass("hidden");
+      $(".new-title").addClass("hidden");
+    });
+
+    $("#editcontent").on("keyup", function () {
+      $(this).attr("rows", Math.max($("#editcontent").val().split("\n").length, 5));
+    });
+
+  })
 </script>
 </body>
 </html>

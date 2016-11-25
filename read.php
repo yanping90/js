@@ -18,4 +18,6 @@ if (! is_file($filename)) {
     $result["data"]["content"] = @file_get_contents($filename);
 }
 
+header("Content-type: application/json; charset=UTF-8");
+
 echo json_encode($result);
