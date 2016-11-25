@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        .news{  line-height: 12px; height: 12px; overflow: hidden; font-size: 12px;}
+        .news li{line-height: 12px; height: 12px;}
+    </style>
+</head>
+<body>
+<div>
+    <ul class="news">
+        <li>揭开XX游伪善的面纱，让真相大白于天下</li>
+        <li>驰誉欢途西安站发声：长风破浪会有时，直挂云帆济沧海</li>
+        <li>驰誉欢途江苏站发声：在宽容中壮大</li>
+    </ul>
+</div>
+</body>
+<script>
+    function Scroll(){
+        this.dir = "scrollTop";
+        this.len = "12";
+        this.selector = ".news";
+    }
+    Scroll.prototype.roll = function(){
+        var height = $(this.selector)[this.dir]();
+        if(height < this.len){
+            height +=2;
+        }
+        else{
+            height = 0;
+            $(this.selector).children().eq(0).appendTo($(this.selector));
+            clearInterval(int);
+            setTimeout(function () {
+                int=setInterval(function(){
+                    s1.roll();
+                },140);
+            },1000);
+        }
+        $(this.selector)[this.dir](height);
+    };
+    s1 = new Scroll();
+    var int = setInterval(function(){
+        s1.roll();
+    },140);
+</script>
+</html>
