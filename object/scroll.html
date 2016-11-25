@@ -1,80 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <style>
-        ul{ list-style-type: none;}
-        .news{  line-height: 24px; height: 48px; overflow: hidden; font-size: 12px;}
-        .news li{ margin: 5px 0;height: 48px; }
-        .news li span{line-height: 20px; height: 20px; display: block;}
-    </style>
+  <meta charset="UTF-8">
+  <title></title>
+  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+
+    .news {
+      line-height: 24px;
+      height: 48px;
+      overflow: hidden;
+      font-size: 12px;
+    }
+
+    .news li {
+      margin: 5px 0;
+      height: 48px;
+    }
+
+    .news li span
+
+    {line-height: 20px; height: 20px; display: block;}
+  </style>
 </head>
 <body>
 <div>
-    <ul class="news">
-        <li>
-            <span>揭开XX游伪善的面纱</span>
-            <span>让真相大白于天下</span>
-        </li>
-        <li>
-            <span>驰誉欢途西安站发声</span>
-            <span>长风破浪会有时</span>
-        </li>
-        <li>
-            <span>直挂云帆济沧海</span>
-            <span>在宽容中壮大</span>
-        </li>
-    </ul>
+  <ul class="news">
+    <li>
+      <span>揭开XX游伪善的面纱</span>
+      <span>让真相大白于天下</span>
+    </li>
+    <li>
+      <span>驰誉欢途西安站发声</span>
+      <span>长风破浪会有时</span>
+    </li>
+    <li>
+      <span>直挂云帆济沧海</span>
+      <span>在宽容中壮大</span>
+    </li>
+  </ul>
 </div>
 </body>
 <script>
-    var obj = new Object();
-    function Scroll(){
-        this.dir = obj.dir;
-        this.len = obj.len;
-        this.selector = obj.selector;
-        this.speed = obj.speed;
+  function Scroll(opt) {
+    this.dir = opt.dir;
+    this.len = opt.len || 52;
+    this.selector = opt.selector;
+    this.speed = opt.speed || 40;
+    this._pause = 0;
+    this.i = 0;
+  }
+  Scroll.prototype.roll = function () {
+    var height = $(this.selector)[this.dir]();
+    if (this._pause)
+      return;
+    if (height < this.len) {
+      height += 2;
+    } else {
+      height = 0;
+      $(this.selector).children().eq(0).appendTo($(this.selector));
+      var _self = this;
+      _self.stop();
+      setTimeout(function () {
+        _self.start();
+      }, 1000);
     }
-    var stop = 0;
-    Scroll.prototype.roll = function(){
-        var height = $(this.selector)[this.dir]();
-        if(stop){return}
-        if(height < this.len){
-            height +=2;
-        }
-        else{
-            height = 0;
-            $(this.selector).children().eq(0).appendTo($(this.selector));
-            clearInterval(int);
-            setTimeout(function () {
-                int=setInterval(function(){
-                    s1.roll();
-                },Number(this.speed));
-            },1000);
-        }
-        $(this.selector)[this.dir](height);
-    };
-    s1 = new Scroll();
-    s1.dir = "scrollTop";
-    s1.len = "52";
-    s1.selector = ".news";
-    s1.speed = "40";
-    var int = setInterval(function(){
-        s1.roll();
-    },Number(s1.speed));
-    $(".news").on("mouseover",function(){
-        stop = 1;
-    });
-    $(".news").on("mouseout",function(){
-        stop = 0;
-    });
+    $(this.selector)[this.dir](height);
+  };
+  Scroll.prototype.pause = function(b){
+    this._pause = b;
+  }
+  Scroll.prototype.start = function(){
+    var _self = this;
+    _self.i = setInterval(function(){
+      _self.roll();
+    },_self.speed)
+  }
+  Scroll.prototype.stop = function(){
+    clearInterval(this.i);
+  }
 
+
+
+  s1 = new Scroll({
+    dir: "scrollTop"
+    , selector: ".news"
+    , speed : 100
+  });
+  s1.start();
+  $(".news").on("mouseover", function () {
+    s1.pause(true);
+  });
+  $(".news").on("mouseout",function () {
+    s1.pause(false);
+  });
+
+
+  var a={x:2,y:4};
+  var b={x:1,z:2};
+  var c={};
+  for(var i in b){
+    if(b.hasOwnProperty(i)){
+      c[i]=b[i];
+    }
+  }
 </script>
 </html>
