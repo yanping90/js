@@ -10,34 +10,60 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-        .scroll{ width: 200px; height: 35px; overflow: hidden;}
+        .news{  line-height: 24px; height: 24px; overflow: hidden; font-size: 12px;}
+        .news li{line-height: 24px; height: 24px;}
     </style>
 </head>
 <body>
-<div class="scroll">
-    <p>scroll top offset 指的是滚动条相</p>
-    <p>动条相对于其顶部的偏移。</p>
-    <p>指的是滚动条相对于其顶部的偏移</p>
+<div>
+    <ul class="news">
+        <li>揭开XX游伪善的面纱，让真相大白于天下</li>
+        <li>驰誉欢途西安站发声：长风破浪会有时，直挂云帆济沧海</li>
+        <li>驰誉欢途江苏站发声：在宽容中壮大</li>
+        <li>驰誉欢途西安站发声：长风破浪会有时，直挂云帆济沧海</li>
+        <li>驰誉欢途江苏站发声：在宽容中壮大</li>
+    </ul>
 </div>
+</body>
 <script>
+    var obj = new Object();
     function Scroll(){
-        this.dir = "scrollTop";
-        this.len = "35";
-        this.selector = ".scroll";
+        this.dir = obj.dir;
+        this.len = obj.len;
+        this.selector = obj.selector;
     }
+    var stop = 0;
     Scroll.prototype.roll = function(){
-        var topHeight = $(this.selector)[this.dir]();
-        if(topHeight < this.len){
-            topHeight ++;
+        var height = $(this.selector)[this.dir]();
+        if(stop){return}
+        if(height < this.len){
+            height +=2;
         }
         else{
-            topHeight = 0;
-            $(this.selector).children("p").eq(0).appendTo($(this.selector));
+            height = 0;
+            $(this.selector).children().eq(0).appendTo($(this.selector));
+            clearInterval(int);
+            setTimeout(function () {
+                int=setInterval(function(){
+                    s1.roll();
+                },140);
+            },1000);
         }
-        $(this.selector)[this.dir](topHeight);
-    }
-    var s1 = new Scroll();
-    setInterval(s1.roll(),40)
+        $(this.selector)[this.dir](height);
+    };
+    s1 = new Scroll();
+    s1.dir = "scrollTop";
+    s1.len = "24";
+    s1.selector = ".news";
+    var int = setInterval(function(){
+        s1.roll();
+    },140);
+    $(".news").on("mouseover",function(){
+        stop = 1;
+    });
+    $(".news").on("mouseout",function(){
+        stop = 0;
+    });
+
 </script>
-</body>
 </html>
