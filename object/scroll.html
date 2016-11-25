@@ -10,18 +10,27 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-        .news{  line-height: 24px; height: 24px; overflow: hidden; font-size: 12px;}
-        .news li{line-height: 24px; height: 24px;}
+        ul{ list-style-type: none;}
+        .news{  line-height: 24px; height: 48px; overflow: hidden; font-size: 12px;}
+        .news li{ margin: 5px 0;height: 48px; }
+        .news li span{line-height: 20px; height: 20px; display: block;}
     </style>
 </head>
 <body>
 <div>
     <ul class="news">
-        <li>揭开XX游伪善的面纱，让真相大白于天下</li>
-        <li>驰誉欢途西安站发声：长风破浪会有时，直挂云帆济沧海</li>
-        <li>驰誉欢途江苏站发声：在宽容中壮大</li>
-        <li>驰誉欢途西安站发声：长风破浪会有时，直挂云帆济沧海</li>
-        <li>驰誉欢途江苏站发声：在宽容中壮大</li>
+        <li>
+            <span>揭开XX游伪善的面纱</span>
+            <span>让真相大白于天下</span>
+        </li>
+        <li>
+            <span>驰誉欢途西安站发声</span>
+            <span>长风破浪会有时</span>
+        </li>
+        <li>
+            <span>直挂云帆济沧海</span>
+            <span>在宽容中壮大</span>
+        </li>
     </ul>
 </div>
 </body>
@@ -31,6 +40,7 @@
         this.dir = obj.dir;
         this.len = obj.len;
         this.selector = obj.selector;
+        this.speed = obj.speed;
     }
     var stop = 0;
     Scroll.prototype.roll = function(){
@@ -46,18 +56,19 @@
             setTimeout(function () {
                 int=setInterval(function(){
                     s1.roll();
-                },140);
+                },Number(this.speed));
             },1000);
         }
         $(this.selector)[this.dir](height);
     };
     s1 = new Scroll();
     s1.dir = "scrollTop";
-    s1.len = "24";
+    s1.len = "52";
     s1.selector = ".news";
+    s1.speed = "40";
     var int = setInterval(function(){
         s1.roll();
-    },140);
+    },Number(s1.speed));
     $(".news").on("mouseover",function(){
         stop = 1;
     });
