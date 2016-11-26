@@ -28,7 +28,7 @@
 
     .news li span
 
-    {line-height: 20px; height: 20px; display: block;}
+    { line-height: 20px; height: 20px; display: block;}
   </style>
 </head>
 <body>
@@ -51,66 +51,74 @@
 </body>
 <script>
   function Scroll(opt) {
-    this.dir = opt.dir;
-    this.len = opt.len || 52;
-    this.selector = opt.selector;
-    this.speed = opt.speed || 40;
     this._pause = 0;
     this.i = 0;
+    if(typeof opt == "object"){
+      this.config(opt);
+    }
+  }
+  Scroll.prototype.config = function(opt){
+    this.settings = { };
+    var defaults ={
+      dir:"scrollTop"
+      ,len:52
+      ,speed:40
+      ,delay:1000
+      ,selector:""
+      ,autoStart:true
+    };
+    for (var i in defaults) {
+      if (opt.hasOwnProperty(i)) {
+        this.settings[i] = opt[i];
+      } else {
+        this.settings[i] = defaults[i];
+      }
+    }
+    if(this.settings.autoStart){
+      this.start();
+    }
   }
   Scroll.prototype.roll = function () {
-    var height = $(this.selector)[this.dir]();
+    var height = $(this.settings.selector)[this.settings.dir]();
     if (this._pause)
       return;
-    if (height < this.len) {
+    if (height < this.settings.len) {
       height += 2;
     } else {
       height = 0;
-      $(this.selector).children().eq(0).appendTo($(this.selector));
+      $(this.settings.selector).children().eq(0).appendTo($(this.settings.selector));
       var _self = this;
       _self.stop();
-      setTimeout(function () {
+      _self.delayTimer = setTimeout(function () {
         _self.start();
-      }, 1000);
+      }, _self.settings.delay);
     }
-    $(this.selector)[this.dir](height);
+    $(this.settings.selector)[this.settings.dir](height);
   };
-  Scroll.prototype.pause = function(b){
+  Scroll.prototype.pause = function (b) {
     this._pause = b;
   }
-  Scroll.prototype.start = function(){
+  Scroll.prototype.start = function () {
     var _self = this;
-    _self.i = setInterval(function(){
+    _self.i = setInterval(function () {
       _self.roll();
-    },_self.speed)
+    }, _self.settings.speed)
   }
-  Scroll.prototype.stop = function(){
+  Scroll.prototype.stop = function () {
     clearInterval(this.i);
+    clearTimeout(this.delayTimer);
   }
-
-
-
-  s1 = new Scroll({
+  s1 = new Scroll();
+  s1.config({
     dir: "scrollTop"
     , selector: ".news"
-    , speed : 100
+    , speed: 60
   });
-  s1.start();
   $(".news").on("mouseover", function () {
     s1.pause(true);
   });
-  $(".news").on("mouseout",function () {
+  $(".news").on("mouseout", function () {
     s1.pause(false);
   });
-
-
-  var a={x:2,y:4};
-  var b={x:1,z:2};
-  var c={};
-  for(var i in b){
-    if(b.hasOwnProperty(i)){
-      c[i]=b[i];
-    }
-  }
 </script>
 </html>
