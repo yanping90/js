@@ -5,19 +5,15 @@ ul {
 .news {
     padding: 0;
     line-height: 24px;
-    /* width: 100px; */
     overflow: hidden;
     font-size: 12px;
-    /* white-space: nowrap; */
     height: 48px;
 }
 
 .news li {
     margin: 5px 0;
     height: 48px;
-    /* width: 100px; */
     overflow: hidden;
-    /* display: inline-block; */
 }
 
 .news li span {
