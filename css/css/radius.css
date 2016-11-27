@@ -1,0 +1,45 @@
+body {
+    background: #f5f5f5;
+    font-size: 12px;
+}
+
+.brand {
+    width: 170px;
+    background: #fff;
+    padding: 10px;
+}
+
+.brand .brand-img {
+    border-radius: 100px;
+    border: 1px solid #eee;
+    float: left;
+    width: 70px;
+    height: 70px;
+}
+
+.brand .brand-img:hover {
+    border: 1px solid #bbb;
+    opacity: 0.8;
+    background: #fff;
+}
+
+.brand em {
+    color: #999;
+    font-style: normal;
+}
+
+.brand span {
+    color: #f22e00;
+}
+
+.brand strong {
+    font-size: 16px;
+    color: #f22e00;
+}
+
+.brand strong, .brand span, .brand em {
+    display: block;
+    margin-top: 5px;
+    margin-left: 10px;
+    float: left; /* background: blue; */
+}
