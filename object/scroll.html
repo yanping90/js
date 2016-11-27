@@ -26,9 +26,11 @@
       height: 48px;
     }
 
-    .news li span
-
-    { line-height: 20px; height: 20px; display: block;}
+    .news li span {
+      line-height: 20px;
+      height: 20px;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -53,19 +55,29 @@
   function Scroll(opt) {
     this._pause = 0;
     this.i = 0;
-    if(typeof opt == "object"){
+    if (typeof opt == "object") {
       this.config(opt);
+      if(this.settings.pauseOnOver){
+        var _self = this;
+        $(this.settings.selector).on("mouseover", function () {
+          _self.pause(true);
+        });
+        $(this.settings.selector).on("mouseout", function () {
+          _self.pause(false);
+        });
+      }
     }
   }
-  Scroll.prototype.config = function(opt){
-    this.settings = { };
-    var defaults ={
-      dir:"scrollTop"
-      ,len:52
-      ,speed:40
-      ,delay:1000
-      ,selector:""
-      ,autoStart:true
+  Scroll.prototype.config = function (opt) {
+    this.settings = {};
+    var defaults = {
+      dir: "scrollTop"
+      , len: 52
+      , speed: 40
+      , delay: 1000
+      , selector: ""
+      , autoStart: true
+      , pauseOnOver:true
     };
     for (var i in defaults) {
       if (opt.hasOwnProperty(i)) {
@@ -74,9 +86,10 @@
         this.settings[i] = defaults[i];
       }
     }
-    if(this.settings.autoStart){
+    if (this.settings.autoStart) {
       this.start();
     }
+
   }
   Scroll.prototype.roll = function () {
     var height = $(this.settings.selector)[this.settings.dir]();
@@ -112,13 +125,9 @@
   s1.config({
     dir: "scrollTop"
     , selector: ".news"
+    , delay:0
     , speed: 60
-  });
-  $(".news").on("mouseover", function () {
-    s1.pause(true);
-  });
-  $(".news").on("mouseout", function () {
-    s1.pause(false);
+    , pauseOnOver : false
   });
 </script>
 </html>
