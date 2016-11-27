@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <ul class="list-inline drop-down">
+    <li class="drop-menu">
+      <a>css</a>
+      <div class="drop-content hidden">
+        <ul>
+          <li><a>css01</a></li>
+          <li><a>css02</a></li>
+          <li><a>css03</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="drop-menu"><a>html</a></li>
+    <li class="drop-menu">
+      <a>js</a>
+      <div class="drop-content hidden">
+        <ul>
+          <li><a>js01</a></li>
+          <li><a>js02</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+<script>
+  $(".drop-down").on("mouseover","li",function(){
+    $(this).find($(".drop-content")).removeClass("hidden");
+  });
+  $(".drop-down").on("mouseout","li",function(){
+    $(this).find(".drop-content").addClass("hidden");
+  });
+  function DropMenu(obj){
+    this.settings = {};
+    this.settings.selector = obj.selector;
+  }
+</script>
+</body>
+</html>

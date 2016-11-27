@@ -1,0 +1,12 @@
+.drop-down .drop-menu {
+    width: 100px;
+    position: relative;
+}
+
+.drop-content {
+    position: absolute;
+    left: -35px;
+    padding-left: 0;
+}
+
+.drop-content ul{ list-style-type: none;}
