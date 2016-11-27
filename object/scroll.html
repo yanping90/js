@@ -57,7 +57,7 @@
     this.i = 0;
     if (typeof opt == "object") {
       this.config(opt);
-      if(this.settings.pauseOnOver){
+      if (this.settings.pauseOnOver) {
         var _self = this;
         $(this.settings.selector).on("mouseover", function () {
           _self.pause(true);
@@ -77,7 +77,7 @@
       , delay: 1000
       , selector: ""
       , autoStart: true
-      , pauseOnOver:true
+      , pauseOnOver: true
     };
     for (var i in defaults) {
       if (opt.hasOwnProperty(i)) {
@@ -125,9 +125,9 @@
   s1.config({
     dir: "scrollTop"
     , selector: ".news"
-    , delay:0
+    , delay: 0
     , speed: 60
-    , pauseOnOver : false
+    , pauseOnOver: false
   });
 </script>
 </html>
