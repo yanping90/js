@@ -15,21 +15,25 @@
     }
 
     .news {
+      padding: 0;
       line-height: 24px;
-      height: 48px;
+      width: 100px;
       overflow: hidden;
       font-size: 12px;
+      white-space: nowrap;
     }
 
     .news li {
       margin: 5px 0;
       height: 48px;
+      width:100px;
+      overflow: hidden;
+      display: inline-block;
     }
 
     .news li span {
       line-height: 20px;
       height: 20px;
-      display: block;
     }
   </style>
 </head>
@@ -55,50 +59,44 @@
   function Scroll(opt) {
     this._pause = 0;
     this.i = 0;
+    this.delayTimer = 0;
     if (typeof opt == "object") {
       this.config(opt);
-      if (this.settings.pauseOnOver) {
-        var _self = this;
-        $(this.settings.selector).on("mouseover", function () {
-          _self.pause(true);
-        });
-        $(this.settings.selector).on("mouseout", function () {
-          _self.pause(false);
-        });
-      }
     }
   }
   Scroll.prototype.config = function (opt) {
-    this.settings = {};
-    var defaults = {
+    this.settings = $.extend({
       dir: "scrollTop"
-      , len: 52
+      , maxSpan: 52
       , speed: 40
       , delay: 1000
       , selector: ""
       , autoStart: true
       , pauseOnOver: true
-    };
-    for (var i in defaults) {
-      if (opt.hasOwnProperty(i)) {
-        this.settings[i] = opt[i];
-      } else {
-        this.settings[i] = defaults[i];
-      }
+    }, opt);
+
+    if (this.settings.pauseOnOver) {
+      var _self = this;
+      $(this.settings.selector).on("mouseover", function () {
+        _self.pause(true);
+      });
+      $(this.settings.selector).on("mouseout", function () {
+        _self.pause(false);
+      });
     }
     if (this.settings.autoStart) {
       this.start();
     }
-
   }
   Scroll.prototype.roll = function () {
-    var height = $(this.settings.selector)[this.settings.dir]();
-    if (this._pause)
+    if (this._pause){
       return;
-    if (height < this.settings.len) {
-      height += 2;
+    }
+    var span = $(this.settings.selector)[this.settings.dir]();
+    if (span < this.settings.maxSpan) {
+      span += 2;
     } else {
-      height = 0;
+      span = 0;
       $(this.settings.selector).children().eq(0).appendTo($(this.settings.selector));
       var _self = this;
       _self.stop();
@@ -106,7 +104,7 @@
         _self.start();
       }, _self.settings.delay);
     }
-    $(this.settings.selector)[this.settings.dir](height);
+    $(this.settings.selector)[this.settings.dir](span);
   };
   Scroll.prototype.pause = function (b) {
     this._pause = b;
@@ -121,13 +119,14 @@
     clearInterval(this.i);
     clearTimeout(this.delayTimer);
   }
-  s1 = new Scroll();
-  s1.config({
-    dir: "scrollTop"
+
+  new Scroll({
+    dir: "scrollLeft"
     , selector: ".news"
     , delay: 0
     , speed: 60
-    , pauseOnOver: false
+    , pauseOnOver: 0
+    , maxSpan :100
   });
 </script>
 </html>
