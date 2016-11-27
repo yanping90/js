@@ -3,42 +3,13 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
-  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="scroll.css"/>
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <style>
-    ul {
-      list-style-type: none;
-    }
-
-    .news {
-      padding: 0;
-      line-height: 24px;
-      width: 100px;
-      overflow: hidden;
-      font-size: 12px;
-      white-space: nowrap;
-    }
-
-    .news li {
-      margin: 5px 0;
-      height: 48px;
-      width:100px;
-      overflow: hidden;
-      display: inline-block;
-    }
-
-    .news li span {
-      line-height: 20px;
-      height: 20px;
-    }
-  </style>
 </head>
 <body>
-<div>
+<div class="container">
   <ul class="news">
     <li>
       <span>揭开XX游伪善的面纱</span>
@@ -52,6 +23,17 @@
       <span>直挂云帆济沧海</span>
       <span>在宽容中壮大</span>
     </li>
+  </ul>
+</div>
+<div class="container">
+  <ul class="product">
+    <li><img src="https://img.alicdn.com/bao/upload/i2/140040329086715575/TB2z.PSd9OI.eBjSspmXXatOVXa_!!0-dgshop.jpg" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i4/155440329072847406/TB2LR6udYWJ.eBjSspdXXXiXFXa_!!0-dgshop.jpg" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i4/102810329017786180/TB2mgyqas2DjeFjSspnXXb20XXa_!!0-dgshop.jpg" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i1/135230329030165803/TB2OftTe8yN.eBjSZFgXXXmGXXa_!!2-dgshop.png" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i3/116800329014989146/TB2DXJ3e6m2.eBjSZFtXXX56VXa_!!0-dgshop.jpg" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i4/153740329012919326/TB2JLTIdZaK.eBjSspjXXXL.XXa_!!0-dgshop.jpg" /></li>
+    <li><img src="https://img.alicdn.com/bao/upload/i3/136030329010126190/TB2nYrqd91I.eBjy0FjXXabfXXa_!!2-dgshop.png" /></li>
   </ul>
 </div>
 </body>
@@ -70,6 +52,7 @@
       , maxSpan: 52
       , speed: 40
       , delay: 1000
+      , step : 2
       , selector: ""
       , autoStart: true
       , pauseOnOver: true
@@ -94,7 +77,7 @@
     }
     var span = $(this.settings.selector)[this.settings.dir]();
     if (span < this.settings.maxSpan) {
-      span += 2;
+      span += this.settings.step;
     } else {
       span = 0;
       $(this.settings.selector).children().eq(0).appendTo($(this.settings.selector));
@@ -120,13 +103,21 @@
     clearTimeout(this.delayTimer);
   }
 
-  /**new Scroll({
-    dir: "scrollLeft"
+  new Scroll({
+    dir: "scrollTop"
     , selector: ".news"
-    , delay: 0
-    , speed: 60
-    , pauseOnOver: 0
-    , maxSpan :100
-  });**/
+    , speed: 50
+    , pauseOnOver: true
+    , maxSpan :52
+  });
+  s1=new Scroll({
+    dir: "scrollLeft"
+    , selector: ".product"
+    , speed: 20
+    , step: 5
+    , pauseOnOver: true
+    , maxSpan :210
+    , delay : 1000
+  });
 </script>
 </html>

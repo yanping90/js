@@ -21,3 +21,18 @@ ul {
     height: 20px;
     display: block;
 }
+
+.product li img{
+    width: 200px;
+    height: 160px;
+}
+
+.product {
+    width: 600px;
+    height: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 0;
+}
+
+.product li{width:210px;height: 160px;overflow: hidden;display: inline-block;}
