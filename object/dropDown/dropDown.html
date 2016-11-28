@@ -34,16 +34,38 @@
   </ul>
 </div>
 <script>
-  $(".drop-down").on("mouseover","li",function(){
-    $(this).find($(".drop-content")).removeClass("hidden");
+ /**$(".drop-down").on("mouseover","li",function(){
+    $(this).find(".drop-content").removeClass("hidden");
   });
   $(".drop-down").on("mouseout","li",function(){
     $(this).find(".drop-content").addClass("hidden");
-  });
-  function DropMenu(obj){
-    this.settings = {};
-    this.settings.selector = obj.selector;
+  });**/
+  function DropMenu(opt){
+      this.hidden = "hidden";
+     if(typeof opt == "object"){
+         this.config(opt);
+     }
   }
+    DropMenu.prototype.config = function(opt){
+        this.settings = $.extend({
+            menuSelector : "",
+            contentSelector: "",
+            onOverOut : true
+        },opt);
+        if(this.settings.onOverOut){
+            var _self = this;
+            $(this.settings.menuSelector).on("mouseover","li",function(){
+                $(this).find(_self.settings.contentSelector).removeClass(_self.hidden);
+            });
+            $(this.settings.menuSelector).on("mouseout","li",function(){
+                $(this).find(_self.settings.contentSelector).addClass(_self.hidden);
+            });
+        }
+    }
+  new DropMenu({
+      menuSelector : ".drop-down",
+      contentSelector: ".drop-content"
+  });
 </script>
 </body>
 </html>
