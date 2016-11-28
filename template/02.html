@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="../template.js"></script>
+</head>
+<body>
+<div class="content container"></div>
+<script type="text/html" id="include">
+  <h4>{{title}}</h4>
+  {{include "test"}}
+</script>
+<script type="text/html" id="test">
+  <ul>
+    {{each list as value i}}
+    <li>索引{{i+1}}：{{value}}</li>
+    {{/each}}
+  </ul>
+</script>
+<script type="text/javascript">
+  $(".content").html(template(
+    "include",
+    {
+      title: "基本例子",
+      list: ["文艺", "博客", "摄影", "电影", "民谣", "旅行", "吉他"]
+    }
+  ));
+</script>
+</body>
+</html>

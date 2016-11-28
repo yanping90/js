@@ -19,13 +19,11 @@
 <div class="container selectMonth">
 </div>
 <script type="text/html" id="select">
-    {{if admin}}
     <select>
         {{each list as value}}
         <option>{{value}}</option>
         {{/each}}
     </select>
-    {{/if}}
 </script>
 <script type="text/javascript">
     var arrYear = [];
@@ -33,8 +31,7 @@
         arrYear.push(i+1+"年");
     }
     var dataYear = {
-        list:arrYear ,
-        admin: true
+        list:arrYear
     }
     var htmlYear = template("select",dataYear);
     $(".selectYear").html(htmlYear);
@@ -44,8 +41,7 @@
         arrMonth.push(i+1+"月");
     }
     var dataSelect = {
-        list: arrMonth,
-        admin: true
+        list: arrMonth
     };
     var html = template("select",dataSelect);
     $(".selectMonth").html(html);
