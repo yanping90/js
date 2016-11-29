@@ -1,0 +1,4 @@
+.footer{float:left;/* width: 142px; */padding-right: 50px;}
+.footer dt{font-size: 20px;font-weight: normal;padding-bottom: 5px;}
+.footer dd{font-size: 12px;line-height: 22px;color: #999;}
+.footer dd a{color: #999;}
