@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" >
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="../template.js"></script>
-    <style>
-        ul{ padding-left: 0px; list-style-type: none;}
-    </style>
 </head>
 <body>
 <div class="content container">
 </div>
-<div class="container selectYear">
+<div class="container">
+    <ul class="list-inline">
+        <li class="selectYear"></li>
+        <li class="selectMonth"></li>
+        <li class="selectDay">
+            <select>
+                <option>请选择日</option>
+            </select>
+        </li>
+    </ul>
 </div>
-<div class="container selectMonth">
 </div>
 <script type="text/html" id="select">
     <select>
@@ -35,6 +41,7 @@
     }
     var htmlYear = template("select",dataYear);
     $(".selectYear").html(htmlYear);
+
     var arrMonth = [];
     for(var i=0;i<12;i++){
 
@@ -45,25 +52,30 @@
     };
     var html = template("select",dataSelect);
     $(".selectMonth").html(html);
-</script>
-<script type="text/html" id="test">
-<h4>{{title}}</h4>
-{{if admin}}
-<ul>
-    {{each list as value i}}
-    <li>{{i+1}}、{{value}}</li>
-    {{/each}}
-</ul>
-{{/if}}
-</script>
-<script>
-    var data = {
-        title: "template",
-        list: ["国内","出境","旅游","周边"],
-        admin :true
-    };
-    var html = template('test',data);
-    $(".content").html(html);
+
+    $(".selectMonth").find("select").on("change",function(){
+        var _self =$(this);
+        window._self = _self;
+        var days;
+        if(["4月","6月","11月"].indexOf(_self.val()) != -1){
+            days = 30;
+        }
+        else if(["2月"].indexOf(_self.val()) != -1){
+            days = 28;
+        }
+        else{
+            days = 31;
+        }
+        var arrDay = [];
+        for(var i =0;i<days;i++){
+            arrDay.push(i+1+"日");
+        }
+        var dataDay = {
+            list: arrDay
+        };
+        var htmlDay = template("select",dataDay);
+        $(".selectDay").html(htmlDay);
+    });
 </script>
 </body>
 </html>
