@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>对象继承call apply</title>
+</head>
+<body>
+<script>
+  //call apply是function的方法，第一个参数是this(作用域)，第二个数function的参数
+  function add(a,b){
+    console.log(a+b)
+  }
+  function sub(a,b){
+    console.log(a-b);
+  }
+  sub.call(add,1,10);
+
+  Person = function(){
+    this.name = "liy";
+    this.age = 16;
+  }
+  person02 = {};
+  Person.apply(person02);
+</script>
+</body>
+</html>
