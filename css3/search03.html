@@ -43,11 +43,11 @@
     $(".search-menu").on("mouseout",function(){
         $(this).removeClass("expend");
     });
+
     $("#search-txt").on("focus",function(){
         $(".search-hot").addClass("hidden");
         $("#search-txt").attr("value","");
     });
-
     $("#search-txt").on("change",function(){
         if($(this).val() == ""){
             $(".search-hot").removeClass("hidden");
