@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/scss.css" >
+    <script src="../template.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container search">
+    <div class="search-menu">
+        <a>所有产品</a>
+        <ul class="search-content">
+        </ul>
+    </div>
+    <div class="search-input">
+        <input type="text" id="search-txt" value="欧洲"/>
+        <input type="hidden" id="search-txtH" value=""/>
+        <ul class="search-hot list-inline">
+            <li><a>新西兰</a></li>
+            <li><a>云南</a></li>
+            <li><a>新西兰</a></li>
+        </ul>
+    </div>
+    <div class="search-btn"><a>搜索</a></div>
+</div>
+<script  type="text/html" id="searchMenu">
+    {{each list as value i}}
+    <li>{{value}}</li>
+    {{/each}}
+</script>
+<script>
+    var dataMenu = {
+        list:["跟团游","自助游","邮轮","景点门票","自驾游","当地参团"]
+    };
+    $(".search-content").html(template("searchMenu",dataMenu));
+    $(".search-menu").on("mouseover",function(){
+        $(this).addClass("expend");
+    });
+    $(".search-menu").on("mouseout",function(){
+        $(this).removeClass("expend");
+    });
+    $("#search-txt").on("focus",function(){
+        $(".search-hot").addClass("hidden");
+        $("#search-txt").attr("value","");
+    });
+
+    $("#search-txt").on("change",function(){
+        if($(this).val() == ""){
+            $(".search-hot").removeClass("hidden");
+            $(this).val("欧洲");
+        }
+        else{
+            $(".search-hot").addClass("hidden");
+        }
+    });
+</script>
+</body>
+</html>
