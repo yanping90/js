@@ -7,3 +7,5 @@ body{ font-size:12px;}
 .weekday-indent{
     padding-left: 30px;
 }
+.titleL,.titleR{float:left;width: 50px;}
+.titleM{float:left;width: 150px;}
