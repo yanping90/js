@@ -12,12 +12,12 @@
 <body>
 <div class="container search">
     <div class="search-menu">
-    所有产品
+    <a>所有产品</a>
     <ul class="search-content">
     </ul>
   </div>
     <div class="search-input">
-        <input type="text" id="search-txt"  placeholder="欧洲"/>
+        <input type="text" id="search-txt" placeholder="欧洲"/>
         <ul class="search-hot list-inline">
             <li><a>新西兰</a></li>
             <li><a>云南</a></li>
@@ -42,14 +42,14 @@
   $(".search-menu").on("mouseout",function(){
     $(this).removeClass("expend");
   });
-   $("#search-txt").on("focus",function(){
-       $(".search-hot").addClass("hidden");
-   });
-  $("#search-txt").on("keyup",function(){
-      $(".search-hot").addClass("hidden");
-  });
+
   $("#search-txt").on("change",function(){
-      $(".search-hot").addClass("hidden");
+      if($(this).val() == ""){
+          $(".search-hot").removeClass("hidden");
+      }
+      else{
+          $(".search-hot").addClass("hidden");
+      }
   });
 </script>
 </body>
