@@ -45,6 +45,12 @@
    $("#search-txt").on("focus",function(){
        $(".search-hot").addClass("hidden");
    });
+  $("#search-txt").on("keyup",function(){
+      $(".search-hot").addClass("hidden");
+  });
+  $("#search-txt").on("change",function(){
+      $(".search-hot").addClass("hidden");
+  });
 </script>
 </body>
 </html>
