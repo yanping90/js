@@ -133,6 +133,11 @@ var load = function(){
             })
     );
     $(".titleM").html(getYearMonth());
+    var i = fillFrontDay().length;
+    var days = getNextMonthDays("true") + fillFrontDay().length;
+    for(i;i<days;i++){
+        $(".date-days").children().eq(i).attr("class","see");
+    }
 }
 
  $("#title").on("change",function(){
