@@ -10,29 +10,93 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="date container">
+    <div class="title clearfix">
+        <div class="titleL"><a>上一月</a></div>
+        <div class="titleM"><input type="text" id="title" /></div>
+        <div class="titleR"><a>下一月</a></div>
+    </div>
+    <ul class="weekday list-inline"></ul>
+    <ul class="date-preMonth list-inline"></ul>
+    <ul class="date-days list-inline"></ul>
 </div>
 <script>
-  //time 2016-12-01
+  //$("#title").html(getYearMonth());
+  var getYearMonth = function(time){
+      var d;
+      if(time == undefined){
+          d =new Date();
+      }else{
+          d =new Date(time);
+      }
+      return d.getFullYear() + "年" + Math.abs(d.getMonth() + 1) + "月";
+  }
+  //time 2016-12-1
   var getNextMonth = function(time){
     var d = new Date(time);
     var year = d.getFullYear();
     var month = d.getMonth()+1;
-    var nextMonth;
-    if(month<12){
-      nextMonth = month+1;
+    var nextMonth = (month)%12 + 1;
+    if(month == 12){
+        year = year + 1;
     }
-    else{
-      nextMonth = 01;
-    }
-    return nextMonth;
+    return  year + "-" + Math.abs((month)%12 + 1) + "-" + d.getDate();
   }
-  var getMonthDays = function(){
-    var d = new Date();
+  //输入：2016-12-1 ,输出：2017-1-1    输入：2016-1-1，输出：2016-2-1   输入：2016-11-28.输出：2016-12-28
+
+  var getLastMonthDays = function(time){
+    var d = new Date(time);
     var month = d.getMonth()+1;
-    var newYDM = d.getFullYear() + "-" + month + "-" +"01";
+    var newYDM = d.getFullYear() + "-" + month + "-" +"1";
     return  (new Date((new Date(newYDM)).getTime() - 86400000)).getDate();
   }
+  var getNextMonthDays = function(time,currentMonth){
+      var d = new Date(time);
+      var month = d.getMonth()+1;
+      var newYDM = d.getFullYear() + "-"  + month + "-" + "28";
+      var nextYDM = new Date(newYDM);
+      while( nextYDM.getMonth() +1 == month){
+          newYDM = nextYDM.getTime() + 86400000;
+          nextYDM = new Date(newYDM);
+      }
+      var nextMonth = nextYDM.getMonth();
+      if(currentMonth == "true"){
+          nextMonth = nextMonth + 1;
+      }
+      else{
+          nextMonth = nextMonth + 2;
+      }
+      return getLastMonthDays(nextYDM.getFullYear() + "-"  + nextMonth+"-" +"1");
+  }
+
+  var fillFrontDay = function(time){
+      var d = new Date(time);
+      var newTime = d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-1";
+      var idx = new Date(newTime).getDay();
+      var arr = [];
+      for(var i=0 ;i<idx;i++){
+          arr.unshift(getLastMonthDays(newTime)-i);
+      }
+      return arr;
+  }
+
+  var fillBackDay = function(time){
+      var d  = new Date(time);
+      var idx = 6-new Date(d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-"+ getNextMonthDays(time,"true")).getDay();
+      var arr = [];
+      for(var i =0 ;i<idx ; i++){
+          arr.push(i+1);
+      }
+      return arr ;
+  }
+    var fillDay = function(time){
+        var days = getNextMonthDays(time,"true");
+        var arr = [];
+        for(var i = 0 ;i<days; i++){
+            arr.push(i+1);
+        }
+        return arr;
+    }
 </script>
 </body>
 </html>

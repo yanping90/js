@@ -7,3 +7,4 @@ body{ font-size:12px;}
 .titleL{float: left;width: 40px;}
 .titleR{float: right;width: 40px;}
 .titleM{float: left;text-align: center;width: 170px;}
+.titleM #title{border-radius: 25px;border: 1px solid #ddd;text-align: center;}
