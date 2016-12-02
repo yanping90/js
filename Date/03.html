@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../template.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+</div>
+<script>
+  //time 2016-12-01
+  var getNextMonth = function(time){
+    var d = new Date(time);
+    var year = d.getFullYear();
+    var month = d.getMonth()+1;
+    var nextMonth;
+    if(month<12){
+      nextMonth = month+1;
+    }
+    else{
+      nextMonth = 01;
+    }
+    return nextMonth;
+  }
+  var getMonthDays = function(){
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var newYDM = d.getFullYear() + "-" + month + "-" +"01";
+    return  (new Date((new Date(newYDM)).getTime() - 86400000)).getDate();
+  }
+</script>
+</body>
+</html>
