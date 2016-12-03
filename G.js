@@ -90,3 +90,8 @@ String.prototype.trim = function () {
 	return this.replace(/^\s+/, "").replace(/\s+$/, "");
 };
 
+//string 补齐字符
+String.prototype.paddingLeft = function(str,length){
+
+}
+
