@@ -12,7 +12,7 @@
 <body onload="load()">
 <div class="date container">
   <div class="yearMonth">
-    <input type="text" id="title"/><span class="text-muted">日期填写格式为2016-1-1</span>
+    <input type="text" id="title" /><span class="text-muted">日期填写格式为2016-1-1</span>
   </div>
   <div class="rili">
     <div class="title clearfix">
@@ -186,6 +186,8 @@
   });
 
   $("#title").on("click",function(){
+    var _self = $(this);
+    var maxDays = getMonthDays();
     $(".date").addClass("expend");
   });
 
@@ -194,6 +196,8 @@
     var maxDays = getMonthDays();
     if(/^[1,2]{1}[0-9]{3}[-]{1}[1-12]{1}[-]{1}[1-maxDays]{1}$/.test(_self.val())){
       $(".date").removeClass("expend");
+      $(".text-muted").html("日期填写格式为2016-1-1");
+      $(".text-muted").removeClass("text-danger");
     }
     else{
       $(".text-muted").html("日期格式填写错误");
@@ -205,6 +209,7 @@
     $(".date").removeClass("expend");
     $("#title").val($(".titleM").attr("year") + "-"+ $(".titleM").attr("month") +"-"+ $(this).html());
   });
+
 </script>
 </body>
 </html>
