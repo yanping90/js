@@ -1,11 +1,11 @@
 body{ font-size:12px;}
 .date{width: 286px;padding-left: 20px;}
-.date .title{text-align: center;padding-top: 10px;}
+.date .title{text-align: center;/* padding-top: 10px; */}
 .date-days{line-height: 33px;overflow: hidden;}
-.date-days li,.weekday li{width: 34px;line-height: 32px;}
+.date-days li,.weekday li{width: 28px;line-height: 32px;/* padding-left: 0px; */}
 .date-days li{color:#333;}
 .date-days li.disabled{color:#999;}
-.weekday{line-height: 20px;margin-bottom: 10px;margin-top: 10px;}
+.weekday{line-height: 20px;margin-bottom: 0px;/* margin-top: 10px; */}
 .titleL{float: left;width: 40px;}
 .titleR{float: right;width: 40px;}
 .titleM{float: left;text-align: center;width: 170px;}
