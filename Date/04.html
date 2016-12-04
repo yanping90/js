@@ -191,8 +191,10 @@
 
   $("#title").on("change",function(){
     var _self = $(this);
-    if()
-    $(".date").removeClass("expend");
+    var maxDays = getMonthDays();
+    if(/^[1,2]{1}[0-9]{3}[-]{1}[1-12]{1}[-]{1}[1-maxDays]{1}$/.test(_self.val())){
+      $(".date").removeClass("expend");
+    }
   });
 
   $(".date-days").on("click","li",function(){
