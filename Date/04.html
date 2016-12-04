@@ -57,7 +57,7 @@
     return year + "-" + month + "-" + d.getDate();
   }
 
-  /**var getMonthDays = function (time) {
+  var getMonthDays = function (time) {
     var d = isNow(time);
     var month = d.getMonth() + 1;
     var newYDM = d.getFullYear() + "-" + month + "-" + "28";
@@ -70,9 +70,9 @@
     var currentD = new Date(currentYDM.getFullYear() + "-"+  Math.abs(currentYDM.getMonth() + 1) + "-"+  currentYDM.getDate());
     return new Date(currentD.getTime()-86400000).getDate();
 
-  }**/
+  }
 
-  var getMonthDays = function (time) {
+  /**var getMonthDays = function (time) {
     var d = isNow(time);
     var nextMonthDay = new Date(new Date(d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-15").getTime() + 30 * 86400000).getDate();
 
@@ -93,7 +93,7 @@
         break;
     }
     return days;
-  }
+  }**/
 
   var fillFrontDay = function (time) {
     var d = isNow(time);
@@ -193,7 +193,7 @@
 
   $("#title").on("change",function(){
     var _self = $(this);
-    var maxDays = getMonthDays();
+    var maxDays = getMonthDays($(this).val());
     if(/^[1,2]{1}[0-9]{3}[-]{1}[1-12]{1}[-]{1}[1-maxDays]{1}$/.test(_self.val())){
       $(".date").removeClass("expend");
       $(".text-muted").html("日期填写格式为2016-1-1");
