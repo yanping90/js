@@ -11,14 +11,18 @@
 </head>
 <body onload="load()">
 <div class="date container">
-  <div class="yearMonth"><input type="text" id="title"/></div>
-  <div class="title clearfix">
-    <div class="titleL"><a>上一月</a></div>
-    <div class="titleM"></div>
-    <div class="titleR"><a>下一月</a></div>
+  <div class="yearMonth">
+    <input type="text" id="title"/>
   </div>
-  <ul class="weekday list-inline"></ul>
-  <ul class="date-days list-inline"></ul>
+  <div class="rili">
+    <div class="title clearfix">
+      <div class="titleL"><a>上一月</a></div>
+      <div class="titleM"></div>
+      <div class="titleR"><a>下一月</a></div>
+    </div>
+    <ul class="weekday list-inline"></ul>
+    <ul class="date-days list-inline"></ul>
+  </div>
 </div>
 <script type="text/html" id="list">
   {{each list as value}}
@@ -132,11 +136,6 @@
     }
     return arr;
   }
-  var getYearMonth = function (time) {
-    var d = isNow(time);
-    $(".titleM").data("year", d.getFullYear()).data("month", d.getMonth()+1);
-    return d.getFullYear() + "年" + Math.abs(d.getMonth() + 1) + "月";
-  }
 
   $(".weekday").html(
     template("list", {
@@ -157,13 +156,16 @@
     return $(selector).children();
   }
 
-  var showDate = function(selector,value,time){
+  var showDate = function(selector,time){
       $(selector).html(
         template("list", {
-          list: dates(value)
+          list: dates(time)
         })
       );
-      $(".titleM").html(getYearMonth(time));
+    var d=isNow(time);
+    $(".titleM").html(d.getFullYear()+"年"+ Math.abs(d.getMonth()+1)+"月")
+      .attr("year", d.getFullYear())
+      .attr("month", d.getMonth()+1);
   }
   var load = function(){
     showDate(".date-days");
@@ -171,14 +173,34 @@
   }
 
   $("#title").on("change", function () {
-    showDate(".date-days",$("#title").val(),$("#title").val());
+    showDate(".date-days",$("#title").val());
     addDateClass(".date-days",$("#title").val());
   });
 
   $(".titleL").on("click","a",function(){
-    //var _self = $(this);
-    showDate(".date-days",getLastMonth(),getYearMonth());
+    showDate(".date-days",getLastMonth($(".titleM").attr("year")+"-"+$(".titleM").attr("month")));
   });
+
+  $(".titleR").on("click","a",function(){
+    showDate(".date-days",getNextMonth($(".titleM").attr("year")+"-"+$(".titleM").attr("month")));
+  });
+
+  $("#title").on("click",function(){
+    $(".date").addClass("expend");
+  });
+
+  $("#title").on("change",function(){
+    var _self = $(this);
+    if()
+    $(".date").removeClass("expend");
+  });
+
+  $(".date-days").on("click","li",function(){
+    $(".date").removeClass("expend");
+    $("#title").val($(".titleM").attr("year") + "-"+ $(".titleM").attr("month") +"-"+ $(this).html());
+  });
+
+
 </script>
 </body>
 </html>
