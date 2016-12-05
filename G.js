@@ -92,6 +92,7 @@ String.prototype.trim = function () {
 
 //string 补齐字符
 String.prototype.paddingLeft = function(str,length){
-
+	var newStr = str+this;
+	return newStr.substr(length*-1);
 }
 

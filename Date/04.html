@@ -3,6 +3,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
+  <script src="../G.js"></script>
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="../template.js"></script>
@@ -12,7 +13,7 @@
 <body onload="load()">
 <div class="date container">
   <div class="yearMonth">
-    <input type="text" id="title" /><span class="text-muted">日期填写格式为2016-1-1</span>
+    <input type="text" id="title" /><span class="text-muted">日期填写格式为2016-01-01</span>
   </div>
   <div class="rili">
     <div class="title clearfix">
@@ -34,15 +35,16 @@
     return time?new Date(time):new Date();
   }
 
-  //time 2016-12-1
+  //time 2016-12-01
   var getNextMonth = function (time) {
     var d = isNow(time);
     var year = d.getFullYear();
     var month = d.getMonth() + 1;
+    var nextMonth = ""+(month % 12 + 1)+"";
     if (month == 12) {
       year = year + 1;
     }
-    return year + "-" + Math.abs((month) % 12 + 1) + "-1";
+    return year + "-" + nextMonth.paddingLeft("0",2) + "-01";
   }
   //输入：2016-12-1 ,输出：2017-1-1    输入：2016-1-1，输出：2016-2-1   输入：2016-11-28.输出：2016-12-28
 
@@ -163,9 +165,10 @@
         })
       );
     var d=isNow(time);
+    var month = (""+d.getMonth()+1+"").paddingLeft("0",2);
     $(".titleM").html(d.getFullYear()+"年"+ Math.abs(d.getMonth()+1)+"月")
       .attr("year", d.getFullYear())
-      .attr("month", d.getMonth()+1);
+      .attr("month", month);
   }
   var load = function(){
     showDate(".date-days");
@@ -187,27 +190,35 @@
 
   $("#title").on("click",function(){
     var _self = $(this);
-    var maxDays = getMonthDays();
-    $(".date").addClass("expend");
+    if(/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test(_self.val())){
+      $(".date").removeClass("expend");
+      $(".text-muted").html("日期填写格式为2016-01-01");
+      $(".text-muted").removeClass("text-danger");
+    }
+    else{
+      $(".date").addClass("expend");
+    }
+
   });
 
   $("#title").on("change",function(){
     var _self = $(this);
-    var maxDays = getMonthDays($(this).val());
-    if(/^[1,2]{1}[0-9]{3}[-]{1}[1-12]{1}[-]{1}[1-maxDays]{1}$/.test(_self.val())){
+    //var maxDays = getMonthDays($(this).val());
+    if(/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test(_self.val())){
       $(".date").removeClass("expend");
-      $(".text-muted").html("日期填写格式为2016-1-1");
+      $(".text-muted").html("日期填写格式为2016-01-01");
       $(".text-muted").removeClass("text-danger");
     }
     else{
       $(".text-muted").html("日期格式填写错误");
       $(".text-muted").addClass("text-danger");
+      $(".date").addClass("expend");
     }
   });
 
   $(".date-days").on("click","li",function(){
     $(".date").removeClass("expend");
-    $("#title").val($(".titleM").attr("year") + "-"+ $(".titleM").attr("month") +"-"+ $(this).html());
+    $("#title").val($(".titleM").attr("year") + "-"+ $(".titleM").attr("month") +"-"+ ($(this).html()).paddingLeft("0",2));
   });
 
 </script>
