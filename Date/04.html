@@ -189,17 +189,8 @@
   });
 
   $("#title").on("click",function(){
-    var _self = $(this);
-    if(/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test(_self.val())){
-      $(".date").removeClass("expend");
-      $(".text-muted").html("日期填写格式为2016-01-01");
-      $(".text-muted").removeClass("text-danger");
-    }
-    else{
-      $(".date").addClass("expend");
-    }
-
-  });
+    $(".date").addClass("expend");
+    })
 
   $("#title").on("change",function(){
     var _self = $(this);
