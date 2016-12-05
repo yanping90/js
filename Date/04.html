@@ -164,11 +164,6 @@
           list: dates(time)
         })
       );
-    var d=isNow(time);
-    var month = (""+d.getMonth()+1+"").paddingLeft("0",2);
-    $(".titleM").html(d.getFullYear()+"年"+ Math.abs(d.getMonth()+1)+"月")
-      .attr("year", d.getFullYear())
-      .attr("month", month);
   }
   var load = function(){
     showDate(".date-days");
