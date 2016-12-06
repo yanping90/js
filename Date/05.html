@@ -31,28 +31,29 @@
   {{/each}}
 </script>
 <script>
+  //是否为有效日期，通过判断时间戳。
   var isValidDate = function (dateString) {
     return !isNaN((new Date(dateString)).getTime());
   }
 
   var formatDate = function (dateString) {
     var d;
-    if (Object.prototype.toString.call(dateString) == "[object Date]") {
+    if (Object.prototype.toString.call(dateString) == "[object Date]") {  //判断是否为Date属性
       d = dateString;
     } else if (isValidDate(dateString)) {
       d = new Date(dateString);
     } else {
-      return dateString;
+      return dateString;  //参数为字符时候
     }
     return d.getFullYear()
       + "-" + ("0" + (d.getMonth() + 1).toString()).substr(-2)
       + "-" + ("0" + d.getDate().toString()).substr(-2);
   }
   //time 2016-12-01
-  var getNextMonth = function (time) {
+  var getNextMonth = function (timeString) {
     var d;
-    if (isValidDate(time)) {
-      d = new Date(time);
+    if (isValidDate(timeString)) {
+      d = new Date(timeString);
       var year = d.getFullYear();
       var month = d.getMonth() + 1;
       var nextMonth = "0" + (month % 12 + 1);
@@ -61,7 +62,7 @@
       }
       return year + "-" + nextMonth.substr(-2) + "-01";
     } else {
-      return time;
+      return timeString;
     }
   }
   //输入：2016-12-1 ,输出：2017-1-1    输入：2016-1-1，输出：2016-2-1   输入：2016-11-28.输出：2016-12-28
