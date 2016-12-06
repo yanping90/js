@@ -39,7 +39,7 @@
     var d;
     if (Object.prototype.toString.call(dateString) == "[object Date]") {
       d = dateString;
-    } else if(isValidDate(dateString)) {
+    } else if (isValidDate(dateString)) {
       d = new Date(dateString);
     } else {
       return dateString;
@@ -66,9 +66,9 @@
   }
   //输入：2016-12-1 ,输出：2017-1-1    输入：2016-1-1，输出：2016-2-1   输入：2016-11-28.输出：2016-12-28
 
-  var getLastMonth = function (time) {
-    var d;
-    if (isValidDate(d)) {
+  var getLastMonth = function (timeString) {
+    if (isValidDate(timeString)) {
+      var d = new Date(timeString);
       var year = d.getFullYear();
       var month = d.getMonth();
       if (month == 0) {
@@ -76,64 +76,75 @@
         year = year - 1;
       }
       return year + "-" + month + "-01"; // 2016-02-31
+    }else {
+      return "";
     }
   }
 
-  var getMonthDays = function (time) {
-    //  (new Date(getNextMonth(time))).getTime() - 86400000
-    var d = isNow(time);
-    var month = d.getMonth() + 1;
-    var newYDM = d.getFullYear() + "-" + month + "-" + "28";
-    var currentYDM = new Date(newYDM);
-    while (currentYDM.getMonth() + 1 == month) {
-      newYDM = currentYDM.getTime() + 86400000;
-      currentYDM = new Date(newYDM);
+  var getMonthDays = function (timeString) {
+    if (isValidDate(timeString)) {
+      return new Date(((new Date(getNextMonth(timeString))).getTime() - 86400000)).getDate();
     }
-    var nextMonth = currentYDM.getMonth() + 1;
-    var currentD = new Date(currentYDM.getFullYear() + "-" + Math.abs(currentYDM.getMonth() + 1) + "-" + currentYDM.getDate());
-    return new Date(currentD.getTime() - 86400000).getDate();
+    else {
+      return "";
+    }
   }
 
-  var fillFrontDay = function (time) {
-    var d = isNow(time);
-    var newTime = d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-1";
-    var idx = new Date(newTime).getDay();
-    var arr = [];
-    for (var i = 0; i < idx; i++) {
-      arr.unshift(getMonthDays(getLastMonth(newTime)) - i);
+  var fillFrontDay = function (timeString) {
+    if (isValidDate(timeString)) {
+      var newTime = formatDate(timeString);
+      var idx = new Date(newTime).getDay();
+      var arr = [];
+      for (var i = 0; i < idx; i++) {
+        arr.unshift(getMonthDays(getLastMonth(newTime)) - i);
+      }
+      return arr;
+    }else {
+      return [];
     }
-    return arr;
   }
 
-  var fillBackDay = function (time) {
-    var d = isNow(time);
-    var idx = 6 - new Date(d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-" + getMonthDays(time)).getDay();
-    var arr = [];
-    for (var i = 0; i < idx; i++) {
-      arr.push(i + 1);
+  var fillBackDay = function (timeString) {
+    if (isValidDate(timeString)) {
+      var d = new Date(timeString);
+      var idx = 6 - new Date(d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-" + getMonthDays(timeString)).getDay();
+      var arr = [];
+      for (var i = 0; i < idx; i++) {
+        arr.push(i + 1);
+      }
+      return arr;
+    }else {
+      return [];
     }
-    return arr;
   }
-  var fillDay = function (time) {
-    var days = getMonthDays(time);
-    var arr = [];
-    for (var i = 0; i < days; i++) {
-      arr.push(i + 1);
+  var fillDay = function (timeString) {
+    if (isValidDate(timeString)) {
+      var days = getMonthDays(timeString);
+      var arr = [];
+      for (var i = 0; i < days; i++) {
+        arr.push(i + 1);
+      }
+      return arr;
+    }else {
+      return [];
     }
-    return arr;
   }
 
-  var dates = function (time) {
-    var arrFillFront = fillFrontDay(time);
-    var arrFillBack = fillBackDay(time);
-    var arr = fillDay(time);
-    for (var i = arrFillFront.length - 1; i >= 0; i--) {
-      arr.unshift(arrFillFront[i]);
+  var dates = function (timeString) {
+    if(isValidDate(timeString)){
+      var arrFillFront = fillFrontDay(timeString);
+      var arrFillBack = fillBackDay(timeString);
+      var arr = fillDay(timeString);
+      for (var i = arrFillFront.length - 1; i >= 0; i--) {
+        arr.unshift(arrFillFront[i]);
+      }
+      for (var j = 0; j < arrFillBack.length; j++) {
+        arr.push(arrFillBack[j]);
+      }
+      return arr;
+    }else {
+      return [];
     }
-    for (var j = 0; j < arrFillBack.length; j++) {
-      arr.push(arrFillBack[j]);
-    }
-    return arr;
   }
 
   $(".weekday").html(
@@ -142,25 +153,32 @@
     })
   );
 
-  var getYearMonth = function (time) {
-    var d = isNow(time);
-    var month = d.getMonth() + 1;
-    return d.getFullYear() + "年" + ("" + month + "").paddingLeft("0", 2) + "月";
+  var getYearMonth = function (timeString) {
+    if(isValidDate(timeString)){
+      var d = new Date(timeString);
+      var month = d.getMonth() + 1;
+      return d.getFullYear() + "年" + ("" + month + "").paddingLeft("0", 2) + "月";
+    }else {
+      return "";
+    }
   };
 
-  var addDateClass = function (selector, time) {
-    var d = isNow(time);
-    var i;
-    var idxFront = fillFrontDay(time).length;
-    var idx = Math.abs(getMonthDays(time)) + idxFront;
-    for (i = 0; i < idxFront; i++) {
-      $(selector).children().eq(i).attr("class", "disabled");
+  var addDateClass = function (selector, timeString) {
+    if (isValidDate(timeString)) {
+      var i;
+      var idxFront = fillFrontDay(timeString).length;
+      var idx = Math.abs(getMonthDays(timeString)) + idxFront;
+      for (i = 0; i < idxFront; i++) {
+        $(selector).children().eq(i).attr("class", "disabled");
+      }
+      var backLength = $(".date-days").children().length;
+      for (idx; idx <= backLength; idx++) {
+        $(selector).children().eq(idx).attr("class", "disabled");
+      }
+      return $(selector).children();
+    }else {
+      return [];
     }
-    var backLength = $(".date-days").children().length;
-    for (idx; idx <= backLength; idx++) {
-      $(selector).children().eq(idx).attr("class", "disabled");
-    }
-    return $(selector).children();
   }
 
   var showDate = function (selector, time) {
@@ -172,7 +190,7 @@
     $(".titleM").html(getYearMonth(time));
   }
   var load = function () {
-    showDate(".date-days");
+    showDate(".date-days",formatDate(new Date));
     addDateClass(".date-days");
   }
 
@@ -203,7 +221,7 @@
 
   $("#title").on("change", function () {
     var _self = $(this);
-    if (/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test(_self.val())) {
+    if (isValidDate(_self.val())) {
       $(".date").removeClass("expend");
       $(".text-muted").html("日期填写格式为2016-01-01");
       $(".text-muted").removeClass("text-danger");
@@ -211,7 +229,6 @@
     else {
       $(".text-muted").html("日期格式填写错误");
       $(".text-muted").addClass("text-danger");
-      $(".date").addClass("expend");
     }
   });
 
@@ -220,11 +237,6 @@
     var txt = $(".titleM").html();
     $("#title").val(txt.substr(0, 4) + "-" + txt.substr(5, 2) + "-" + ("" + $(this).html() + "").paddingLeft("0", 2));
   });
-  if (/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test()) {
-    $(".date").removeClass("expend");
-    $(".text-muted").html("日期填写格式为2016-01-01");
-    $(".text-muted").removeClass("text-danger");
-  }
 </script>
 </body>
 </html>
