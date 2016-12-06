@@ -159,7 +159,8 @@
     for (i=0; i < idxFront; i++) {
       $(selector).children().eq(i).attr("class","disabled");
     }
-    for (idx; idx <= 35  ; idx++) {
+    var backLength = $(".date-days").children().length;
+    for (idx; idx <= backLength  ; idx++) {
       $(selector).children().eq(idx).attr("class","disabled");
     }
     return $(selector).children();
@@ -187,6 +188,7 @@
     var txt = $(".titleM").html();
     var lastDate = txt.substr(0,4) + "-" + txt.substr(5,2);
     showDate(".date-days",getLastMonth(lastDate));
+    addDateClass(".date-days",getLastMonth(lastDate));
     $(".titleM").html(getYearMonth(getLastMonth(lastDate)));
   });
 
@@ -194,6 +196,7 @@
     var txt = $(".titleM").html();
     var NextDate = txt.substr(0,4) + "-" + txt.substr(5,2);
     showDate(".date-days",getNextMonth(NextDate));
+    addDateClass(".date-days",getNextMonth(NextDate));
     $(".titleM").html(getYearMonth(getNextMonth(NextDate)));
   });
 
@@ -220,7 +223,11 @@
     var txt = $(".titleM").html();
     $("#title").val(txt.substr(0,4) + "-" + txt.substr(5,2) + "-" + (""+$(this).html()+"").paddingLeft("0",2));
   });
-
+  if(/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test()){
+    $(".date").removeClass("expend");
+    $(".text-muted").html("日期填写格式为2016-01-01");
+    $(".text-muted").removeClass("text-danger");
+  }
 </script>
 </body>
 </html>
