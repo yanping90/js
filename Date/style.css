@@ -3,8 +3,9 @@ body{ font-size:12px;}
 .date .title{text-align: center;}
 .date-days{line-height: 33px;overflow: hidden;margin-bottom: 0;}
 .date-days li,.weekday li{width: 28px;line-height: 32px;}
-.date-days li{color:#333; border:1px solid #f5f5f5;}
-.date-days li:hover{ border:1px solid  #f22e00;border-radius: 10px;}
+.date-days li{ line-height: 20px;}
+.date-days li{color:#333;border:1px solid #f5f5f5;padding: -3px;}
+.date-days li:hover{ border:1px solid  #06c;border-radius: 4px;}
 .date-days li.disabled{color:#999;}
 .weekday{line-height: 20px;margin-bottom: 0px;}
 .titleL{float: left;width: 40px;}
