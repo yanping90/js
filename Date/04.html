@@ -144,6 +144,14 @@
       list: ["日", "一", "二", "三", "四", "五", "六"]
     })
   );
+
+  $(".titleM").html(
+          function(time){
+              var d = isNow(time);
+              var month = ""+d.getMonth()+1+"";
+              return d.getFullYear() + "年"+month.paddingLeft("0",2)+"月";
+          }
+  );
   var addDateClass = function (selector,time) {
     var d = isNow(time);
     var i;
@@ -189,7 +197,6 @@
 
   $("#title").on("change",function(){
     var _self = $(this);
-    //var maxDays = getMonthDays($(this).val());
     if(/^[1,2]{1}[0-9]{3}[-]{1}[0-1]{1}[1-9]{1}[-]{1}[0-3]{1}[0-9]{1}$/.test(_self.val())){
       $(".date").removeClass("expend");
       $(".text-muted").html("日期填写格式为2016-01-01");
