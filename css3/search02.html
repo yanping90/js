@@ -44,7 +44,12 @@
   });
 
   $("#search-txt").on("click",function(){
-      $(".search-hot").addClass("hidden");
+      if($(this).val() == ""){
+          $(".search-hot").removeClass("hidden");
+      }
+      else{
+          $(".search-hot").addClass("hidden");
+      }
   });
 
   $("#search-txt").on("change",function(){
