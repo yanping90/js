@@ -40,7 +40,11 @@
     $(this).addClass("expend");
   });
   $(".search-menu").on("mouseout",function(){
-    $(this).removeClass("expend");
+      $(this).removeClass("expend");
+  });
+
+  $("#search-txt").on("click",function(){
+      $(".search-hot").addClass("hidden");
   });
 
   $("#search-txt").on("change",function(){
