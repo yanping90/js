@@ -203,7 +203,7 @@
 
   $(".titleL").on("click", "a", function () {
     var titleM = $(".titleM");
-    var txtArr = (titleM.html()).match(/(\d{4})[\D](\d{2})[\D]/);
+    var txtArr = (titleM.html()).match(/(\d{4})\D(\d{2})\D/);
     var lastDate = txtArr[1]+"-"+txtArr[2];
     showDate(".date-days", getLastMonth(lastDate));
     addDateClass(".date-days", getLastMonth(lastDate));
@@ -212,7 +212,7 @@
 
   $(".titleR").on("click", "a", function () {
     var titleM =  $(".titleM");
-    var txtArr = (titleM.html()).match(/(\d{4})[\D](\d{2})[\D]/);
+    var txtArr = (titleM.html()).match(/(\d{4})\D(\d{2})\D/);
     var NextDate = txtArr[1]+"-"+txtArr[2];
     showDate(".date-days", getNextMonth(NextDate));
     addDateClass(".date-days", getNextMonth(NextDate));
