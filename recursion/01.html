@@ -33,6 +33,25 @@
     }
     $(".getone").html(getMax(5));
 
+  var a = function(n){
+    if(n>1){
+      return n*a(n-1);
+    }else{
+      return 1;
+    }
+  }
+
+  var delRepeat = function(arr){
+    var arrNew = [];
+    for(var i in arr){
+      if(arrNew.indexOf(arr[i]) == -1){
+        arrNew.push(arr[i]);
+      }
+    }
+    return arrNew;
+  }
+
+
 </script>
 </body>
 </html>
