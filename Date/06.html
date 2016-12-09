@@ -12,17 +12,14 @@
 </head>
 <body>
 <div class="date container">
-  <div class="yearMonth">
-    <input type="text" id="title" placeholder="请选择日期"/><span class="text-muted">日期填写格式为2016-01-01</span>
-  </div>
-  <div class="rili">
+  <div class="rili6">
     <div class="title clearfix">
       <div class="titleL"><a>上一月</a></div>
       <div class="titleM"></div>
       <div class="titleR"><a>下一月</a></div>
     </div>
     <ul class="weekday list-inline"></ul>
-    <ul class="date-days list-inline"></ul>
+    <ul class="date-days list-inline" style=""></ul>
   </div>
 </div>
 <script type="text/html" id="list">
@@ -32,10 +29,9 @@
 </script>
 <script>
     function Calendar (obj){
-        this.settings = [];
-        //this.settings.defaultTime = obj.defaultTime;
-        //this.settings.timeString = obj.timeString;
-        //this.settings.selector = obj.selector;
+        this.selectWeek = obj.selectWeek;
+        this.selectWeekTitle = obj.selectWeekTitle;
+        this.selectDay = obj.selectDay;
     }
     Calendar.prototype.isValidDate = function(timeString){
         return !isNaN(new Date(timeString).getTime());
@@ -118,9 +114,38 @@
         }
     }
     Calendar.prototype.fillDays = function(timeString){
-        var arr = [];
         var _self = this;
-        var i, j,n;
+        var i, j,arrFront,arrBack,days;
+        if(_self.isValidDate(timeString)){
+            arrFront = _self.fillFrontDays(timeString);
+            arrBack = _self.fillBackDays(timeString);
+            days = _self.getMonthDays(timeString);
+            for(i=1;i<=days;i++){
+                arrFront.push(i);
+            }
+            for(j=1;j<=arrBack.length;j++){
+                arrFront.push(j);
+            }
+            return arrFront;
+        }else{
+            return "空数组";
+        }
+    }
+    Calendar.prototype.showDays = function(timeString){
+        var _self = this;
+        if(this.isValidDate(timeString)){
+            _self.selectWeek.html(
+                    template(
+                            "list",{
+                                list:["日","一","二","三","四","五","六"]
+                            })
+            );
+            _self.selectDay.html(
+                    template("list",{
+                        list:_self.fillDays(timeString)
+                    })
+            );
+        }
     }
 </script>
 </body>

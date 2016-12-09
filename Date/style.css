@@ -1,5 +1,5 @@
 body{ font-size:12px;}
-.date{width: 362px;padding-left: 20px;}
+.date{width: 284px;padding-left: 20px;}
 .date .title{text-align: center;}
 .date-days{line-height: 33px;overflow: hidden;margin-bottom: 0;}
 .date-days li,.weekday li{width: 28px;line-height: 32px;}
@@ -14,5 +14,6 @@ body{ font-size:12px;}
 #title{border-radius: 25px;border: 1px solid #ddd;text-align: left;padding: 4px 10px;margin-top: 10px;}
 .yearMonth span{padding-left: 10px;}
 
-.rili{ display: none;background: #f5f5f5;}
+.rili{display: none;background: #f5f5f5;/* width: 227px; */}
+.rili6{background: #f5f5f5;/* width: 254px; */padding: 15px 20px;}
 .expend .rili{display: block;padding: 10px;border-radius: 4px;width: 230px;padding-right: 10px;}
