@@ -96,11 +96,6 @@ String.prototype.paddingLeft = function(str,length){
 	return newStr.substr(length*-1);
 }
 
-
-
-
-
-
 String.prototype.beignWith = function(str){
 	return this.indexOf(str) === 0;
 }

@@ -28,128 +28,159 @@
   {{/each}}
 </script>
 <script>
-    function Calendar (obj){
-        this.selectWeek = obj.selectWeek;
-        this.selectWeekTitle = obj.selectWeekTitle;
-        this.selectDay = obj.selectDay;
+  function Calendar(opt) {
+   if(typeof opt =="object" ) {
+     this.config(opt);
+   }
+  }
+  Calendar.prototype.config = function(opt){
+    this.settings = $.extend({
+      onLastNext:true
+      ,selectLast:$(".titleL")
+      ,selectNext:$(".titleR")
+      ,selectWeekTitle:$(".titleM")
+      ,selectWeek:$(".weekday")
+      ,selectDay:$(".date-days")
+      ,displayDate:new Date
+    },opt);
+    this.display(this.settings.displayDate);
+    if (this.onLastNext) {
+      var _self = this;
+      var arrTitle;
+      _self.selectLast.on("click", function () {
+        arrTitle = (_self.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+        _self.selectWeekTitle.html(arrTitle[1] + "年" + arrTitle[2] + "月");
+        _self.showDays(arrTitle[1]+"-"+arrTitle[2]+"-01");
+      });
     }
-    Calendar.prototype.isValidDate = function(timeString){
-        return !isNaN(new Date(timeString).getTime());
+  }
+  Calendar.prototype.isValidDate = function (timeString) {
+    return !isNaN(new Date(timeString).getTime());
+  }
+  Calendar.prototype.formatDate = function (timeString) {
+    var d;
+    if (Object.prototype.toString.call(timeString) == "[object Date]") {
+      d = timeString;
     }
-    Calendar.prototype.formatDate = function(timeString){
-        var d;
-        if(Object.prototype.toString.call(timeString)=="[object Date]"){
-            d = timeString;
-        }
-        else if(this.isValidDate(timeString)){
-            d = new Date(timeString);
-        }
-        else{
-            return timeString;
-        }
-        return d.getFullYear()+"-"+Math.abs(d.getMonth()+1)+"-01";
+    else if (this.isValidDate(timeString)) {
+      d = new Date(timeString);
     }
-    Calendar.prototype.getNextMonth = function(timeString){
-        var d,month,nextMonth,year;
-        if(this.isValidDate(timeString)){
-            d = new Date(timeString);
-            month = d.getMonth()+1;
-            nextMonth = "0"+(month%12 + 1);
-            year = d.getFullYear();
-            if(month == 12){
-                year++;
-            }
-            return year+"-"+nextMonth.substr(-2)+"-01";
-        }else{
-            return "";
-        }
+    else {
+      return timeString;
     }
-    Calendar.prototype.getLastMonth = function(timeString){
-        var d,lastMonth,year;
-        if(this.isValidDate(timeString)){
-            d = new Date(timeString);
-            year = d.getFullYear();
-            lastMonth =d.getMonth();
-            if(lastMonth == 0){
-                lastMonth = 12;
-                year--;
-            }
-            return year+"-"+("0"+lastMonth).substr(-2)+"-01";
-        }else{
-            return "";
-        }
+    return d.getFullYear() + "-" + Math.abs(d.getMonth() + 1) + "-01";
+  }
+  Calendar.prototype.getNextMonth = function (timeString) {
+    var d, month, nextMonth, year;
+    if (this.isValidDate(timeString)) {
+      d = new Date(timeString);
+      month = d.getMonth() + 1;
+      nextMonth = "0" + (month % 12 + 1);
+      year = d.getFullYear();
+      if (month == 12) {
+        year++;
+      }
+      return year + "-" + nextMonth.substr(-2) + "-01";
+    } else {
+      return "";
     }
-    Calendar.prototype.getMonthDays = function(timeString){
-        return new Date(new Date(this.getNextMonth(timeString)).getTime()-86400000).getDate();
+  }
+  Calendar.prototype.getLastMonth = function (timeString) {
+    var d, lastMonth, year;
+    if (this.isValidDate(timeString)) {
+      d = new Date(timeString);
+      year = d.getFullYear();
+      lastMonth = d.getMonth();
+      if (lastMonth == 0) {
+        lastMonth = 12;
+        year--;
+      }
+      return year + "-" + ("0" + lastMonth).substr(-2) + "-01";
+    } else {
+      return "";
     }
-    Calendar.prototype.fillFrontDays = function(timeString){
-        var arrDays=[];
-        var d,idx, i,days;
-        var _self = this;
-        if(_self.isValidDate(timeString)){
-            d= new Date(timeString);
-            idx = new Date(d.getFullYear() + "-" + ("0"+(d.getMonth()+1).toString()).substr(-2) + "-01").getDay();
-            days = _self.getMonthDays(_self.getLastMonth(timeString));
-            for(var i = days-idx+1;i<=days;i++){
-                arrDays.push(i);
-            }
-            return arrDays;
-        }else{
-            return "空数组";
-        }
+  }
+  Calendar.prototype.getMonthDays = function (timeString) {
+    return new Date(new Date(this.getNextMonth(timeString)).getTime() - 86400000).getDate();
+  }
+  Calendar.prototype.fillFrontDays = function (timeString) {
+    var arrDays = [];
+    var d, idx, i, days;
+    var _self = this;
+    if (_self.isValidDate(timeString)) {
+      d = new Date(timeString);
+      idx = new Date(d.getFullYear() + "-" + ("0" + (d.getMonth() + 1).toString()).substr(-2) + "-01").getDay();
+      days = _self.getMonthDays(_self.getLastMonth(timeString));
+      for (var i = days - idx + 1; i <= days; i++) {
+        arrDays.push(i);
+      }
+      return arrDays;
+    } else {
+      return "空数组";
     }
-    Calendar.prototype.fillBackDays = function(timeString){
-        var arrDays = [];
-        var idx, d,i;
-        var _self = this;
-        if(_self.isValidDate(timeString)){
-            d = new Date(timeString);
-            idx= new Date(d.getFullYear()+ "-"+("0"+(d.getMonth()+1).toString()).substr(-2) + "-" + _self.getMonthDays(timeString)).getDay();
-            for(i=1;i<7-idx;i++){
-                arrDays.push(i);
-            }
-            return arrDays;
-        }else{
-            return "空数组";
-        }
+  }
+  Calendar.prototype.fillBackDays = function (timeString) {
+    var arrDays = [];
+    var idx, d, i;
+    var _self = this;
+    if (_self.isValidDate(timeString)) {
+      d = new Date(timeString);
+      idx = new Date(d.getFullYear() + "-" + ("0" + (d.getMonth() + 1).toString()).substr(-2) + "-" + _self.getMonthDays(timeString)).getDay();
+      for (i = 1; i < 7 - idx; i++) {
+        arrDays.push(i);
+      }
+      return arrDays;
+    } else {
+      return "空数组";
     }
-    Calendar.prototype.fillDays = function(timeString){
-        var _self = this;
-        var i, j,arrFront,arrBack,days;
-        if(_self.isValidDate(timeString)){
-            arrFront = _self.fillFrontDays(timeString);
-            arrBack = _self.fillBackDays(timeString);
-            days = _self.getMonthDays(timeString);
-            for(i=1;i<=days;i++){
-                arrFront.push(i);
-            }
-            for(j=1;j<=arrBack.length;j++){
-                arrFront.push(j);
-            }
-            return arrFront;
-        }else{
-            return "空数组";
-        }
+  }
+  Calendar.prototype.fillDays = function (timeString) {
+    var _self = this;
+    var i, j, arrFront, arrBack, days;
+    if (_self.isValidDate(timeString)) {
+      arrFront = _self.fillFrontDays(timeString);
+      arrBack = _self.fillBackDays(timeString);
+      days = _self.getMonthDays(timeString);
+      for (i = 1; i <= days; i++) {
+        arrFront.push(i);
+      }
+      for (j = 1; j <= arrBack.length; j++) {
+        arrFront.push(j);
+      }
+      return arrFront;
+    } else {
+      return "空数组";
     }
-    Calendar.prototype.showDays = function(timeString){
-        var _self = this;
-        if(this.isValidDate(timeString)){
-            _self.selectWeek.html(
-                    template(
-                            "list",{
-                                list:["日","一","二","三","四","五","六"]
-                            })
-            );
-            _self.selectDay.html(
-                    template("list",{
-                        list:_self.fillDays(timeString)
-                    })
-            );
-        }
+  }
+  Calendar.prototype.showDays = function (timeString) {
+    var _self = this;
+    if (_self.isValidDate(timeString)) {
+      _self.settings.selectWeek.html(
+        template(
+          "list", {
+            list: ["日", "一", "二", "三", "四", "五", "六"]
+          })
+      );
+      _self.settings.selectDay.html(
+        template("list", {
+          list: _self.fillDays(timeString)
+        })
+      );
     }
-    Calendar.prototype.getYearMonth = function(timeString){
-
+  }
+  Calendar.prototype.getYearMonth = function (timeString) {
+    var _self = this;
+    var d;
+    if (_self.isValidDate(timeString)) {
+      d = new Date(timeString);
+      return d.getFullYear() + "年" + ("0" + (d.getMonth() + 1).toString()).substr(-2) + "月";
     }
+  }
+  Calendar.prototype.display = function(timeString){
+    var _self = this;
+    _self.settings.selectWeekTitle.html(_self.getYearMonth(timeString));
+    _self.showDays(timeString);
+  }
 </script>
 </body>
 </html>
