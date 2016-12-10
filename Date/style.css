@@ -10,7 +10,7 @@ body{ font-size:12px;}
 .weekday{line-height: 20px;margin-bottom: 0px;}
 .titleL{float: left;width: 40px;}
 .titleR{float: left;width: 40px;}
-.titleM{float: left;text-align: center;width: 108px;}
+.titleM{float: left;text-align: center;width: 108px;color: #666;}
 #title{border-radius: 25px;border: 1px solid #ddd;text-align: left;padding: 4px 10px;margin-top: 10px;}
 .yearMonth span{padding-left: 10px;}
 
