@@ -14,9 +14,9 @@
 <div class="date container">
   <div class="rili6">
     <div class="title clearfix">
-      <div class="titleL"><a>上一月</a></div>
+      <div class="titleL"><a></a></div>
       <div class="titleM"></div>
-      <div class="titleR"><a>下一月</a></div>
+      <div class="titleR"><a></a></div>
     </div>
     <ul class="weekday list-inline"></ul>
     <ul class="date-days list-inline" style=""></ul>
@@ -29,30 +29,42 @@
 </script>
 <script>
   function Calendar(opt) {
-   if(typeof opt =="object" ) {
-     this.config(opt);
-   }
+    if (typeof opt == "object") {
+      this.config(opt);
+    }
   }
-  Calendar.prototype.config = function(opt){
+  Calendar.prototype.config = function (opt) {
     this.settings = $.extend({
-      onLastNext:true
-      ,selectLast:$(".titleL")
-      ,selectNext:$(".titleR")
-      ,selectWeekTitle:$(".titleM")
-      ,selectWeek:$(".weekday")
-      ,selectDay:$(".date-days")
-      ,displayDate:new Date
-    },opt);
+      onLast: true
+      , onNext: true
+      , selectLast: $(".titleL")
+      , selectNext: $(".titleR")
+      ,lastContent:"上一月"
+      ,nextContent:"下一月"
+      , selectWeekTitle: $(".titleM")
+      , selectWeek: $(".weekday")
+      , selectDay: $(".date-days")
+      , displayDate: new Date
+    }, opt);
     this.display(this.settings.displayDate);
-    if (this.onLastNext) {
+    if (this.settings.onLast) {
       var _self = this;
       var arrTitle;
-      _self.selectLast.on("click", function () {
-        arrTitle = (_self.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
-        _self.selectWeekTitle.html(arrTitle[1] + "年" + arrTitle[2] + "月");
-        _self.showDays(arrTitle[1]+"-"+arrTitle[2]+"-01");
+      _self.settings.selectLast.on("click", function () {
+        arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+        _self.display(_self.getLastMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
       });
     }
+
+    if (this.settings.onNext) {
+      var _self = this;
+      var arrTitle;
+      _self.settings.selectNext.on("click", function () {
+        arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+        _self.display(_self.getNextMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
+      });
+    }
+
   }
   Calendar.prototype.isValidDate = function (timeString) {
     return !isNaN(new Date(timeString).getTime());
@@ -152,6 +164,26 @@
       return "空数组";
     }
   }
+
+  Calendar.prototype.addDateClass = function(timeString){
+    var _self = this;
+    var idxFront,idxCurrentBack,arrDay, i,j;
+    arrDay =_self.settings.selectDay.children();
+    if(this.isValidDate(timeString)){
+      idxFront=_self.fillFrontDays(timeString).length;
+      idxFrontCurrent = idxFront + _self.getMonthDays(timeString);
+      for(i=0;i<idxFront;i++){
+        arrDay.eq(i).attr("class","disabled");
+      }
+      for(j = idxFrontCurrent; j<=arrDay.length; j++){
+        arrDay.eq(j).attr("class","disabled");
+      }
+      return arrDay;
+    }else{
+      return "class添加失败"
+    }
+  }
+
   Calendar.prototype.showDays = function (timeString) {
     var _self = this;
     if (_self.isValidDate(timeString)) {
@@ -166,8 +198,11 @@
           list: _self.fillDays(timeString)
         })
       );
+      _self.addDateClass(timeString);
     }
+
   }
+
   Calendar.prototype.getYearMonth = function (timeString) {
     var _self = this;
     var d;
@@ -176,8 +211,11 @@
       return d.getFullYear() + "年" + ("0" + (d.getMonth() + 1).toString()).substr(-2) + "月";
     }
   }
-  Calendar.prototype.display = function(timeString){
+
+  Calendar.prototype.display = function (timeString) {
     var _self = this;
+    _self.settings.selectLast.children().html(_self.settings.lastContent);
+    _self.settings.selectNext.children().html(_self.settings.nextContent);
     _self.settings.selectWeekTitle.html(_self.getYearMonth(timeString));
     _self.showDays(timeString);
   }
