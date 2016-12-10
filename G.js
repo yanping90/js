@@ -1,9 +1,8 @@
-
 function $(str, context) {
 	if (str[0] == "#") {
 		return document.getElementById(str.substr(1));
-	} else if (str.beginWith("<") && str.endWith(">")){
-		return document.createElement(str.substr(1, str.length-2));
+	} else if (str.beginWith("<") && str.endWith(">")) {
+		return document.createElement(str.substr(1, str.length - 2));
 	} else if (str[0] == ".") {
 		return (context || document).getElementsByClassName(str.substr(1));
 	} else {
@@ -50,7 +49,7 @@ Element.prototype.html = function (string) {
 };
 
 Element.prototype.addClass = function (name) {
-	if (! this.hasClass(name))
+	if (!this.hasClass(name))
 		this.className += " " + name;
 	return this;
 };
@@ -72,17 +71,17 @@ Element.prototype.removeClass = function (name) {
 	return this;
 };
 
-Element.prototype.remove = function(){
+Element.prototype.remove = function () {
 	this.parentNode.removeChild(this);
 }
 
-String.prototype.beginWith = function(str) {
+String.prototype.beginWith = function (str) {
 	return this.indexOf(str) === 0;
 };
 
-String.prototype.endWith = function(str) {
+String.prototype.endWith = function (str) {
 	var idx = this.lastIndexOf(str);
-	return idx>-1 && idx+str.length === this.length;
+	return idx > -1 && idx + str.length === this.length;
 };
 
 //去除字符串头尾的空格
@@ -91,18 +90,39 @@ String.prototype.trim = function () {
 };
 
 //string 补齐字符
-String.prototype.paddingLeft = function(str,length){
-	var newStr = str+this;
-	return newStr.substr(length*-1);
+String.prototype.paddingLeft = function (str, length) {
+	if (this.length > length) {
+		return this;
+	} else {
+		var newStr = str + this;
+		return newStr.substr(length * -1);
+	}
 }
 
-String.prototype.beignWith = function(str){
+Array.prototype.delRepeat = function () {
+	if (this.length != 0) {
+		var i;
+		var arrNew = [];
+		var len = this.length;
+		for (i=0;i<len;i++) {
+			if(arrNew.indexOf(this[i]) == -1){
+				arrNew[arrNew.length] = this[i];
+			}
+		}
+		return arrNew;
+	} else {
+		return [];
+	}
+}
+
+
+String.prototype.beignWith = function (str) {
 	return this.indexOf(str) === 0;
 }
 
-String.prototype.endWith = function(str){
+String.prototype.endWith = function (str) {
 	var idx = this.lastIndexOf(str);
-	return idx>-1 && idx+str.length === this.length;
+	return idx > -1 && idx + str.length === this.length;
 }
 
 
