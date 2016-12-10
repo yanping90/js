@@ -30,41 +30,40 @@
 <script>
   function Calendar(opt) {
     if (typeof opt == "object") {
-      this.config(opt);
-    }
-  }
-  Calendar.prototype.config = function (opt) {
-    this.settings = $.extend({
-      onLast: true
-      , onNext: true
-      , selectLast: $(".titleL")
-      , selectNext: $(".titleR")
-      ,lastContent:"上一月"
-      ,nextContent:"下一月"
-      , selectWeekTitle: $(".titleM")
-      , selectWeek: $(".weekday")
-      , selectDay: $(".date-days")
-      , displayDate: new Date
-    }, opt);
-    this.display(this.settings.displayDate);
-    if (this.settings.onLast) {
+      this.settings = $.extend({
+        onLast: true
+        , onNext: true
+        , selectLast: $(".titleL")
+        , selectNext: $(".titleR")
+        ,lastContent:"上一月"
+        ,nextContent:"下一月"
+        , selectWeekTitle: $(".titleM")
+        , displayDate: new Date
+        ,callback:function(){}
+      }, opt);
+      this.display(this.settings.displayDate);
       var _self = this;
       var arrTitle;
-      _self.settings.selectLast.on("click", function () {
-        arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
-        _self.display(_self.getLastMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
-      });
-    }
+      if (this.settings.onLast) {
+        _self.settings.selectLast.on("click", function () {
+          arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+          _self.display(_self.getLastMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
+          if(typeof _self.settings.callback == "function"){
+            _self.settings.callback.call(_self);
+          }
+        });
+        $(".date-days").on("click","li",function(){
+          _self.settings.callback.call(_self);
+        });
+      }
 
-    if (this.settings.onNext) {
-      var _self = this;
-      var arrTitle;
-      _self.settings.selectNext.on("click", function () {
-        arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
-        _self.display(_self.getNextMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
-      });
+      if (this.settings.onNext) {
+        _self.settings.selectNext.on("click", function () {
+          arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+          _self.display(_self.getNextMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
+        });
+      }
     }
-
   }
   Calendar.prototype.isValidDate = function (timeString) {
     return !isNaN(new Date(timeString).getTime());
@@ -126,10 +125,8 @@
       for (var i = days - idx + 1; i <= days; i++) {
         arrDays.push(i);
       }
-      return arrDays;
-    } else {
-      return "空数组";
     }
+    return arrDays;
   }
   Calendar.prototype.fillBackDays = function (timeString) {
     var arrDays = [];
@@ -141,10 +138,8 @@
       for (i = 1; i < 7 - idx; i++) {
         arrDays.push(i);
       }
-      return arrDays;
-    } else {
-      return "空数组";
     }
+    return arrDays;
   }
   Calendar.prototype.fillDays = function (timeString) {
     var _self = this;
@@ -168,7 +163,7 @@
   Calendar.prototype.addDateClass = function(timeString){
     var _self = this;
     var idxFront,idxCurrentBack,arrDay, i,j;
-    arrDay =_self.settings.selectDay.children();
+    arrDay =$(".date-days").children();
     if(this.isValidDate(timeString)){
       idxFront=_self.fillFrontDays(timeString).length;
       idxFrontCurrent = idxFront + _self.getMonthDays(timeString);
@@ -178,29 +173,26 @@
       for(j = idxFrontCurrent; j<=arrDay.length; j++){
         arrDay.eq(j).attr("class","disabled");
       }
-      return arrDay;
-    }else{
-      return [];
     }
+    return arrDay;
   }
 
   Calendar.prototype.showDays = function (timeString) {
     var _self = this;
     if (_self.isValidDate(timeString)) {
-      _self.settings.selectWeek.html(
+      $(".weekday").html(
         template(
           "list", {
             list: ["日", "一", "二", "三", "四", "五", "六"]
           })
       );
-      _self.settings.selectDay.html(
+      $(".date-days").html(
         template("list", {
           list: _self.fillDays(timeString)
         })
       );
       _self.addDateClass(timeString);
     }
-
   }
 
   Calendar.prototype.getYearMonth = function (timeString) {
