@@ -5,7 +5,7 @@ body{ font-size:12px;}
 .date-days li,.weekday li{width: 28px;line-height: 32px;}
 .date-days li{ line-height: 20px;}
 .date-days li{color:#333;border:1px solid #f5f5f5;padding: -3px;}
-.date-days li:hover{ border:1px solid  #06c;border-radius: 4px;}
+.date-days li:hover{border:1px solid  #06c;border-radius: 4px;}
 .date-days li.disabled{color:#999;}
 .weekday{line-height: 20px;margin-bottom: 0px;}
 .titleL{float: left;width: 40px;}
@@ -15,5 +15,5 @@ body{ font-size:12px;}
 .yearMonth span{padding-left: 10px;}
 
 .rili{display: none;background: #f5f5f5;}
-.rili6{background: #f5f5f5;padding: 15px 20px;}
+.rili6{ background: #f5f5f5; padding: 15px 20px;}
 .expend .rili{display: block;padding: 10px;border-radius: 4px;width: 230px;padding-right: 10px;}
