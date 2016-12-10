@@ -107,9 +107,26 @@ Array.prototype.delRepeat = function () {
 		for (i=0;i<len;i++) {
 			if(arrNew.indexOf(this[i]) == -1){
 				arrNew[arrNew.length] = this[i];
+				//arrNew.push(this[i]);
 			}
 		}
 		return arrNew;
+	} else {
+		return [];
+	}
+}
+
+Array.prototype.delRepeat1 = function () {
+	if (this.length != 0) {
+		var i;
+		var len = this.length;
+		for (i=0;i<len;i++) {
+			if(this.indexOf(this[i]) != this.lastIndexOf(this[i])){
+				this.splice(i,1);
+				i--;
+			}
+		}
+		return this;
 	} else {
 		return [];
 	}
