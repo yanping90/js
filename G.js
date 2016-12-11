@@ -132,6 +132,13 @@ Array.prototype.delRepeat1 = function () {
 	}
 }
 
+Object.defineProperty(Array.prototype, "delRepeat1", {
+	enumerable: false
+});
+
+Object.defineProperty(Array.prototype, "delRepeat", {
+	enumerable: false
+});
 
 String.prototype.beignWith = function (str) {
 	return this.indexOf(str) === 0;

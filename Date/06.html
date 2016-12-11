@@ -29,36 +29,44 @@
 </script>
 <script>
   function Calendar(opt) {
+    this.selectDay = $(".date-days");
+    this.selectWeekDay = $(".weekday");
     if (typeof opt == "object") {
       this.settings = $.extend({
         onLast: true
         , onNext: true
         , selectLast: $(".titleL")
         , selectNext: $(".titleR")
-        ,lastContent:"上一月"
-        ,nextContent:"下一月"
+        , lastContent: "上一月"
+        , nextContent: "下一月"
         , selectWeekTitle: $(".titleM")
         , displayDate: new Date
-        ,callback:function(){}
+        , callback: function (){}
       }, opt);
+      this.selectWeekDay.empty();
+      this.selectDay.empty();
       this.display(this.settings.displayDate);
       var _self = this;
       var arrTitle;
       if (this.settings.onLast) {
         _self.settings.selectLast.on("click", function () {
+          _self.selectWeekDay.empty();
+          _self.selectDay.empty();
           arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
           _self.display(_self.getLastMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
-          if(typeof _self.settings.callback == "function"){
+          if (typeof _self.settings.callback == "function") {
             _self.settings.callback.call(_self);
           }
         });
-        $(".date-days").on("click","li",function(){
+        _self.selectDay.on("click", "li", function () {
           _self.settings.callback.call(_self);
         });
       }
 
       if (this.settings.onNext) {
         _self.settings.selectNext.on("click", function () {
+          _self.selectWeekDay.empty();
+          _self.selectDay.empty();
           arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
           _self.display(_self.getNextMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
         });
@@ -160,41 +168,55 @@
     }
   }
 
-  Calendar.prototype.addDateClass = function(timeString){
+  Calendar.prototype.addDateClass = function (timeString) {
     var _self = this;
-    var idxFront,idxCurrentBack,arrDay, i,j;
-    arrDay =$(".date-days").children();
-    if(this.isValidDate(timeString)){
-      idxFront=_self.fillFrontDays(timeString).length;
+    var idxFront, idxCurrentBack, arrDay, i, j;
+    arrDay = _self.selectDay.children();
+    if (this.isValidDate(timeString)) {
+      idxFront = _self.fillFrontDays(timeString).length;
       idxFrontCurrent = idxFront + _self.getMonthDays(timeString);
-      for(i=0;i<idxFront;i++){
-        arrDay.eq(i).attr("class","disabled");
+      for (i = 0; i < idxFront; i++) {
+        arrDay.eq(i).attr("class", "disabled");
       }
-      for(j = idxFrontCurrent; j<=arrDay.length; j++){
-        arrDay.eq(j).attr("class","disabled");
+      for (j = idxFrontCurrent; j <= arrDay.length; j++) {
+        arrDay.eq(j).attr("class", "disabled");
       }
     }
     return arrDay;
   }
 
-  Calendar.prototype.showDays = function (timeString) {
+  /**Calendar.prototype.showDays = function (timeString) {
     var _self = this;
     if (_self.isValidDate(timeString)) {
-      $(".weekday").html(
+     _self.selectWeekDay.html(
         template(
           "list", {
             list: ["日", "一", "二", "三", "四", "五", "六"]
           })
       );
-      $(".date-days").html(
+     _self.selectDay.html(
         template("list", {
           list: _self.fillDays(timeString)
         })
-      );
+     )
+      _self.addDateClass(timeString);
+    }
+  }**/
+
+  Calendar.prototype.showDays = function (timeString) {
+    var _self = this;
+    var arrTitle = ["日", "一", "二", "三", "四", "五", "六"];
+    var arrDays = _self.fillDays(timeString);
+    if (_self.isValidDate(timeString)) {
+      for(var i in arrTitle){
+        $("<li>").appendTo(_self.selectWeekDay).html(arrTitle[i]);
+      }
+      for(var j in arrDays){
+        $("<li>").appendTo(_self.selectDay).html(arrDays[j]);
+      }
       _self.addDateClass(timeString);
     }
   }
-
   Calendar.prototype.getYearMonth = function (timeString) {
     var _self = this;
     var d;
