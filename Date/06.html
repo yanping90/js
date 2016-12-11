@@ -11,8 +11,7 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="date container">
-  <div class="rili6">
+  <div class="calendar">
     <div class="title clearfix">
       <div class="titleL"><a></a></div>
       <div class="titleM"></div>
@@ -21,25 +20,19 @@
     <ul class="weekday list-inline"></ul>
     <ul class="date-days list-inline" style=""></ul>
   </div>
-</div>
-<script type="text/html" id="list">
-  {{each list as value}}
-  <li>{{value}}</li>
-  {{/each}}
-</script>
 <script>
   function Calendar(opt) {
     this.selectDay = $(".date-days");
     this.selectWeekDay = $(".weekday");
+    this.selectLast = $(".titleL");
+    this.selectWeekTitle = $(".titleM");
+    this.selectNext = $(".titleR");
+    this.lastContent = "上一月";
+    this.nextContent = "下一月";
     if (typeof opt == "object") {
       this.settings = $.extend({
         onLast: true
         , onNext: true
-        , selectLast: $(".titleL")
-        , selectNext: $(".titleR")
-        , lastContent: "上一月"
-        , nextContent: "下一月"
-        , selectWeekTitle: $(".titleM")
         , displayDate: new Date
         , callback: function (){}
       }, opt);
@@ -49,10 +42,10 @@
       var _self = this;
       var arrTitle;
       if (this.settings.onLast) {
-        _self.settings.selectLast.on("click", function () {
+        _self.selectLast.on("click", function () {
           _self.selectWeekDay.empty();
           _self.selectDay.empty();
-          arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+          arrTitle = (_self.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
           _self.display(_self.getLastMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
           if (typeof _self.settings.callback == "function") {
             _self.settings.callback.call(_self);
@@ -64,10 +57,10 @@
       }
 
       if (this.settings.onNext) {
-        _self.settings.selectNext.on("click", function () {
+        _self.selectNext.on("click", function () {
           _self.selectWeekDay.empty();
           _self.selectDay.empty();
-          arrTitle = (_self.settings.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
+          arrTitle = (_self.selectWeekTitle.html()).match(/^(\d{4})\D(\d{2})\D$/);
           _self.display(_self.getNextMonth(arrTitle[1] + "-" + arrTitle[2] + "-01"));
         });
       }
@@ -228,9 +221,9 @@
 
   Calendar.prototype.display = function (timeString) {
     var _self = this;
-    _self.settings.selectLast.children().html(_self.settings.lastContent);
-    _self.settings.selectNext.children().html(_self.settings.nextContent);
-    _self.settings.selectWeekTitle.html(_self.getYearMonth(timeString));
+    _self.selectLast.children().html(_self.lastContent);
+    _self.selectNext.children().html(_self.nextContent);
+    _self.selectWeekTitle.html(_self.getYearMonth(timeString));
     _self.showDays(timeString);
   }
 </script>
