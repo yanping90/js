@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab菜单</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css" />
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="line">
+    <ul  class="title list-inline clearfix">
+        <li><a>国内长线</a></li>
+        <li><a>周边短线</a></li>
+        <li><a>国际线路</a></li>
+        <li><a>自由行</a></li>
+        <li><a>邮轮</a></li>
+    </ul>
+    <ul class="content list-inline hidden clearfix">
+        <li><a>福建专线01</a></li>
+        <li><a>新疆专线</a></li>
+        <li><a>四川专线</a></li>
+        <li><a>湖北·三峡游轮专线</a></li>
+        <li><a>东北连线专线</a></li>
+        <li><a>云南专线</a></li>
+        <li class="borderRight"><a>重庆专线</a></li>
+        <li><a>广西专线</a></li>
+        <li><a>湖南专线</a></li>
+        <li><a>北京专线</a></li>
+        <li><a>黑龙江专线</a></li>
+        <li><a>安徽专线</a></li>
+        <li><a>日本专线</a></li>
+        <li class="borderRight"><a>美洲多国专线</a></li>
+        <li class="borderBottom"><a>美国专线</a></li>
+        <li class="borderBottom"><a>美洲多国专线</a></li>
+    </ul>
+    <ul class="content list-inline hidden clearfix">
+        <li><a>福建专线02</a></li>
+        <li><a>新疆专线</a></li>
+        <li><a>四川专线</a></li>
+        <li><a>湖北·三峡游轮专线</a></li>
+        <li><a>东北连线专线</a></li>
+        <li><a>云南专线</a></li>
+        <li class="borderRight"><a>重庆专线</a></li>
+        <li><a>广西专线</a></li>
+        <li><a>湖南专线</a></li>
+        <li><a>北京专线</a></li>
+        <li><a>黑龙江专线</a></li>
+        <li><a>安徽专线</a></li>
+        <li><a>日本专线</a></li>
+        <li class="borderRight"><a>美洲多国专线</a></li>
+        <li class="borderBottom"><a>美国专线</a></li>
+        <li class="borderBottom"><a>美洲多国专线</a></li>
+    </ul>
+    <ul class="content list-inline hidden clearfix">
+        <li><a>福建专线03</a></li>
+        <li><a>新疆专线</a></li>
+        <li><a>四川专线</a></li>
+        <li><a>湖北·三峡游轮专线</a></li>
+        <li><a>东北连线专线</a></li>
+        <li><a>云南专线</a></li>
+        <li class="borderRight"><a>重庆专线</a></li>
+        <li><a>广西专线</a></li>
+        <li><a>湖南专线</a></li>
+        <li><a>北京专线</a></li>
+        <li><a>黑龙江专线</a></li>
+        <li><a>安徽专线</a></li>
+        <li><a>日本专线</a></li>
+        <li class="borderRight"><a>美洲多国专线</a></li>
+        <li class="borderBottom"><a>美国专线</a></li>
+        <li class="borderBottom"><a>美洲多国专线</a></li>
+    </ul>
+    <ul class="content list-inline hidden clearfix">
+        <li><a>福建专线04</a></li>
+        <li><a>新疆专线</a></li>
+        <li><a>四川专线</a></li>
+        <li><a>湖北·三峡游轮专线</a></li>
+        <li><a>东北连线专线</a></li>
+        <li><a>云南专线</a></li>
+        <li class="borderRight"><a>重庆专线</a></li>
+        <li><a>广西专线</a></li>
+        <li><a>湖南专线</a></li>
+        <li><a>北京专线</a></li>
+        <li><a>黑龙江专线</a></li>
+        <li><a>安徽专线</a></li>
+        <li><a>日本专线</a></li>
+        <li class="borderRight"><a>美洲多国专线</a></li>
+        <li class="borderBottom"><a>美国专线</a></li>
+        <li class="borderBottom"><a>美洲多国专线</a></li>
+    </ul>
+    <ul class="content list-inline hidden clearfix">
+        <li><a>福建专线05</a></li>
+        <li><a>新疆专线</a></li>
+        <li><a>四川专线</a></li>
+        <li><a>湖北·三峡游轮专线</a></li>
+        <li><a>东北连线专线</a></li>
+        <li><a>云南专线</a></li>
+        <li class="borderRight"><a>重庆专线</a></li>
+        <li><a>广西专线</a></li>
+        <li><a>湖南专线</a></li>
+        <li><a>北京专线</a></li>
+        <li><a>黑龙江专线</a></li>
+        <li><a>安徽专线</a></li>
+        <li><a>日本专线</a></li>
+        <li class="borderRight"><a>美洲多国专线</a></li>
+        <li class="borderBottom"><a>美国专线</a></li>
+        <li class="borderBottom"><a>美洲多国专线</a></li>
+    </ul>
+</div>
+<script>
+    $(".title").on("click","li",function(){
+        $(".sign").removeClass("sign").addClass("hidden");
+        $(".content").eq($(this).index()).removeClass("hidden").addClass("sign");
+    });
+</script>
+</body>
+</html>

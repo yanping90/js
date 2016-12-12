@@ -28,6 +28,12 @@
     {{/each}}
 </script>
 <script>
+    var mm = function(){
+        var arr =  ["日", "一", "二", "三", "四", "五", "六"];
+        $(".date-preMonth").each(function(i){
+            $("<li>").appendTo(this).html(arr[i]);
+        })
+    }
     var d = new Date();
     var month = d.getMonth() + 1;
     $(".titleM").html(d.getFullYear()+"年"+ month + "月");

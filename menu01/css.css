@@ -8,3 +8,17 @@
 
 #form1 ul{ list-style-type: none; font-size: 12px;}
 #form1 ul li{ height: 34px; line-height: 34px;}
+
+
+a{ color:#666;}
+a:hover{ text-decoration: none; cursor: pointer;}
+.line{width: 900px;margin: 0 auto;overflow: hidden;margin-left: 0;margin-bottom: 0;margin: 0 auto;}
+.title{ margin-bottom: 0;}
+.title li{float: left;text-align: center;background: #3d85b8;color: #fff;border-right: 1px solid #fff;width: 180px;height: 46px;line-height: 46px;}
+.title li a{color:#fff;}
+.line .content{border: 1px solid #ddd;border-top: none;margin-left: 0;margin-bottom: 0;width: 895px;}
+.line .content li{width: 127.5px;font-size: 12px;text-align: center;border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;/height: 42px;line-height: 42px;padding-left: 0px;padding-right: 0px;color: #333;float: left;}
+.line .content li.borderRight{border-right: none;}
+.line .content li.borderBottom { border-bottom: none;}
+.line .content li a:hover{ display: block; background: #23618c; color:#fff;}
+
