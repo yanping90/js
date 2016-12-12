@@ -41,5 +41,22 @@ body {
     display: block;
     margin-top: 5px;
     margin-left: 10px;
-    float: left; /* background: blue; */
+    float: left;
+}
+
+.menu {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.menu li {
+    color: #333;
+    padding: 10px 20px;
+    margin-right: 0px;
+    float: left;
+    border: 1px solid #666;
+}
+
+.menu li a {
+    color: #333;
 }
