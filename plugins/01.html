@@ -16,8 +16,8 @@
 <script>
   (function($){
     $.fn.tip = function(opt){
-        tips="tips";
-        settings = $.extend({},{
+        var tips="tips";
+        var settings = $.extend({},{
         onOverOut:true
       },opt)
       if(settings.onOverOut){
