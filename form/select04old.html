@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select id="year"></select>
+<select id="month"></select>
+<select id="day">
+    <option>1日</option>
+</select>
+<script>
+
+    Element.prototype.append = function (opt) {
+        this.appendChild(opt);
+    }
+
+    Element.prototype.html = function(string){
+        if(typeof string == "undefined"){
+            return this.innerHTML;
+        }else{
+            this.innerHTML = string;
+            return this;
+        }
+    }
+
+    Element.prototype.attr = function(name ,string){
+        if(typeof string == "undefined"){
+            return this.getAttribute(name);
+        }else{
+            this.setAttribute(name ,string);
+            return this;
+        }
+    }
+
+    var year = (new Date()).getFullYear();
+    for(var i =1900;i<=year;i++){
+        var opt = document.createElement("option");
+        opt.appendChild(document.createTextNode(i+"年"));
+        opt.setAttribute("value",i)
+        document.getElementById("year").appendChild(opt);
+    }
+    for(var j =1;j<=12;j++){
+        var opt = document.createElement("option");
+        opt.appendChild(document.createTextNode(j+"月"));
+        opt.setAttribute("value",j);
+        document.getElementById("month").appendChild(opt);
+    }
+    document.getElementById("month").addEventListener("change",function(e){
+        window.e=e;
+        var monthValue = Number(e.target.value);
+        var maxIdx=31;
+        if([2].indexOf(monthValue) != -1){
+            maxIdx = 28;
+        }else if([4,6,9,11].indexOf(monthValue) != -1){
+            maxIdx = 30;
+        }
+        document.getElementById("day").innerHTML="";
+        for(var n =1 ;n<=maxIdx;n++){
+            var opt = document.createElement("option");
+            opt.appendChild(document.createTextNode(n+"日"));
+            opt.setAttribute("value",n);
+            document.getElementById("day").appendChild(opt);
+        }
+    })
+</script>
+</body>
+</html>
