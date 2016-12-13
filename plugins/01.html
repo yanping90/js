@@ -16,16 +16,33 @@
 <script>
   (function($){
     $.fn.tip = function(opt){
-      var settings = $.extend({
-        dataTitle:"dateTitle content"
-        ,onOverOut:true
+        tips="tips";
+      var settings = $.extend({},{
+        onOverOut:true
       },opt)
+      if(settings.onOverOut){
+          var _self = this;
+         _self.on("mouseover",function(){
+             var toolTip = _self.children("span");
+             if(toolTip.size()){
+                 toolTip.show();
+             }else{
+                 $("<span>").appendTo(_self).html(_self.attr("data-title")).addClass(tips);
+             }
+          });
+          _self.on("mouseout",function(){
+              _self.children("span").hide();
+          });
+      }
     }
-  }(jQuery))
+  }(jQuery));
 
 
 
-  $(".title").on("mouseover",function(){
+
+
+
+  /**$(".title").on("mouseover",function(){
     var tips = $(this).children("span");
     if(tips.size()){
       tips.removeClass("hidden");
@@ -36,7 +53,7 @@
 
   $(".title").on("mouseout",function(){
     $(this).children("span").addClass("hidden");
-  });
+  }); **/
 
 
 </script>

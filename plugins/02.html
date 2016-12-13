@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        div{ padding: 10px;}
+    </style>
+</head>
+<body>
+<div>hello world</div>
+<script>
+    (function($){
+        $.fn.hilight = function(opt){
+            settings = $.extend({},
+                    {
+                        color : "red"
+                        , background : "yellow"
+                    }
+                    ,opt);
+            return this.css({
+                color : settings.color
+                , background : settings.background
+            });
+        }
+    })(jQuery);
+</script>
+</body>
+</html>
