@@ -9,10 +9,9 @@ a:hover{text-decoration: none;position: relative;}
     border-radius: 4px;
     background: #666;
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 4px 6px;
     color: #fff;
     position: absolute;
     left: 0px;
     top: 25px;
-    width: 91px;
 }

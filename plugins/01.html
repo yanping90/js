@@ -11,35 +11,32 @@
 </head>
 <body>
 <div class="container content">
-    <a class="title" data-title="Default tooltip">you probably</a>
+  <a class="title" data-title="Default tooltip">you probably</a>
 </div>
 <script>
-  (function($){
-    $.fn.tip = function(opt){
-        var tips="tips";
-        var settings = $.extend({},{
-        onOverOut:true
-      },opt)
-      if(settings.onOverOut){
-          var _self = this;
-         _self.on("mouseover",function(){
-             var toolTip = _self.children("span");
-             if(toolTip.size()){
-                 toolTip.show();
-             }else{
-                 $("<span>").appendTo(_self).html(_self.attr("data-title")).addClass(tips);
-             }
-          });
-          _self.on("mouseout",function(){
-              _self.children("span").hide();
-          });
+  (function ($) {
+    $.fn.tip = function (opt) {
+      var tips = "tips";
+      var settings = $.extend({}, $.fn.tip.defaults, opt);
+      if (settings.onOverOut) {
+        var _self = this;
+        _self.on("mouseover", function () {
+          var toolTip = _self.children("span");
+          if (toolTip.size()) {
+            toolTip.show();
+          } else {
+            $("<span>").appendTo(_self).html(_self.attr("data-title")).addClass(tips);
+          }
+        });
+        _self.on("mouseout", function () {
+          _self.children("span").hide();
+        });
       }
     }
+    $.fn.tip.defaults = {
+      onOverOut: true
+    };
   }(jQuery));
-
-
-
-
 
 
   /**$(".title").on("mouseover",function(){
@@ -51,7 +48,7 @@
     }
   });
 
-  $(".title").on("mouseout",function(){
+   $(".title").on("mouseout",function(){
     $(this).children("span").addClass("hidden");
   }); **/
 
