@@ -52,6 +52,7 @@
         $(".proviceTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
         $(".proviceContent").hide();
         //出现城市
+        $(".cityContent").show();
         $(".cityContent").html("");
         var idxProvice = $(".proviceTitle").attr("value");
         for(var j =0;j<arr[idxProvice].childName.length;j++){
@@ -65,6 +66,7 @@
         $(".cityContent").hide();
         var idxProvice = $(".proviceTitle").attr("value");
         $(".areaContent").html("");
+        $(".areaContent").show();
         var idxCity = $(".cityTitle").attr("value");
         for(var j =0;j<arr[idxProvice].childName[idxCity].childName.length;j++){
             $("<a>").appendTo($("<li>").appendTo($(".areaContent"))).html(arr[idxProvice].childName[idxCity].childName[j].name).attr("value",j);

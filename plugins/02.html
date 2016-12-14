@@ -7,27 +7,31 @@
     <link rel="stylesheet" href="index.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <style>
-        div{ padding: 10px;}
-    </style>
 </head>
 <body>
-<div>hello world</div>
+<div class="container">
+    <a class="title" data-title="helloworld">中国你好</a>
+</div>
+<a class="title" data-title="helloworld">中国你好</a>
 <script>
     (function($){
-        $.fn.hilight = function(opt){
-            settings = $.extend({},
-                    {
-                        color : "red"
-                        , background : "yellow"
-                    }
-                    ,opt);
-            return this.css({
-                color : settings.color
-                , background : settings.background
+        $.fn.toolTips = function(opt){
+            var settings = $.extend({}, $.fn.toolTips.defaults,opt);
+            var newEle = $("<span>").appendTo("body").addClass($.fn.toolTips.defaults.coolTips).hide();
+            return this.each(function(){
+                var _self = $(this);
+                _self.on("mouseover",function(){
+                    _self.append(newEle.html(_self.attr("data-title")).show());
+                });
+                _self.on("mouseout",function(){
+                    newEle.hide();
+                });
             });
         }
-    })(jQuery);
+        $.fn.toolTips.defaults = {
+            coolTips :"tips"
+        };
+    })(jQuery)
 </script>
 </body>
 </html>
