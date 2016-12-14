@@ -14,13 +14,13 @@
     color: #333;
 }
 .provice:hover,.city:hover,.area:hover{ text-decoration: none;}
-.proviceContent,.cityContent,.areaContent{
+.expand,.cityContent,.areaContent{
     position: absolute;
     width: 300px;
     /* display: none; */
     /* border: 1px solid #ddd; */
 }
-.proviceContent li,.cityContent li,.areaContent li{
+.expand li,.cityContent li,.areaContent li{
     font-size: 12px;
     text-align: left;
     padding-right: 18px;

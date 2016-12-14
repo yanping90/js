@@ -12,15 +12,12 @@
 <div class="selectCity">
     <div class="provice">
         <a class="proviceTitle">请选择省</a>
-        <ul class="proviceContent expand list-inline"></ul>
     </div>
     <div class="city">
         <a class="cityTitle">请选择城市</a>
-        <ul class="cityContent  expand list-inline"></ul>
     </div>
     <div class="area">
         <a class="areaTitle">请选择区县</a>
-        <ul class="areaContent expand list-inline"></ul>
     </div>
 </div>
 
@@ -39,63 +36,59 @@
                     name: "宁波", childName: [{name: "海曙"}, {name: "江东"}, {name: "江北"}, {name: "鄞州"}, {name: "北仑"}, {name: "镇海"}, {name: "高新区"}, {name: "余姚"}, {name: "慈溪"}, {name: "象山"}, {name: "奉化"}, {name: "桐庐"}, {name: "宁海"}, {name: "宁波周边"}]
                 }]}];
 
+    //创建新元素
+    var createOpt = function(arr,appendEle){
+      for(var i =0;i<arr.length;i++){
+        $("<a>").appendTo($("<li>").appendTo(expand.appendTo(appendEle))).html(arr[i].name).attr("value",i);
+    }
+      return expand;
+    }
+    var expand = $("<ul>").appendTo("body").addClass("expand").addClass("list-inline").hide();
     $(".proviceTitle").on("click",function(){
-      $(".expand").hide();
-        $(".proviceContent").html("").show();
-        for(var i =0;i<arr.length;i++){
-        $("<a>").appendTo($("<li>").appendTo($(".proviceContent"))).html(arr[i].name).attr("value",i);
-        }
+      expand.empty().show();
+      createOpt(arr,$(".provice"));
     });
 
-    $(".proviceContent").on("click","li",function(){
-        var _self = $(this);
-        $(".proviceTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
-        $(".proviceContent").hide();
-        //出现城市
-        $(".cityContent").show();
-        $(".cityContent").html("");
-        var idxProvice = $(".proviceTitle").attr("value");
-        for(var j =0;j<arr[idxProvice].childName.length;j++){
-            $("<a>").appendTo($("<li>").appendTo($(".cityContent"))).html(arr[idxProvice].childName[j].name).attr("value",j);
-        }
+    $(".provice").on("click","li",function(){
+      var _self = $(this);
+      expand.empty();
+      $(".proviceTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
+      var idxProvice = $(".proviceTitle").attr("value");
+      createOpt(arr[idxProvice].childName,$(".city"));
     })
 
-    $(".cityContent").on("click","li",function(){
-        var _self = $(this);
-        $(".cityTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
-        $(".cityContent").hide();
-        var idxProvice = $(".proviceTitle").attr("value");
-        $(".areaContent").html("");
-        $(".areaContent").show();
-        var idxCity = $(".cityTitle").attr("value");
-        for(var j =0;j<arr[idxProvice].childName[idxCity].childName.length;j++){
-            $("<a>").appendTo($("<li>").appendTo($(".areaContent"))).html(arr[idxProvice].childName[idxCity].childName[j].name).attr("value",j);
-        }
-    });
-
     $(".cityTitle").on("click",function(){
-      $(".expand").hide();
-      $(".cityContent").show();
+      expand.empty().show();
+      var idxProvice = $(".proviceTitle").attr("value");
+      createOpt(arr[idxProvice].childName,$(".city"));
     });
 
-    $(".areaContent").on("click","li",function(){
+    $(".city").on("click","li",function(){
       var _self = $(this);
-      $(".areaTitle").html(_self.find("a").html());
-      $(".areaContent").hide();
+      expand.empty().show();
+      $(".cityTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
+      var idxProvice = $(".proviceTitle").attr("value");
+      var idxCity = $(".cityTitle").attr("value");
+      createOpt(arr[idxProvice].childName[idxCity].childName,$(".area"));
+    });
+
+    $(".area").on("click","li",function(){
+      $(".areaTitle").html($(this).find("a").html());
+      expand.hide();
     });
 
     $(".areaTitle").on("click",function(){
-      $(".expand").hide();
-      $(".areaContent").show();
+      expand.empty().show();
+      var idxProvice = $(".proviceTitle").attr("value");
+      var idxCity = $(".cityTitle").attr("value");
+      createOpt(arr[idxProvice].childName[idxCity].childName,$(".area"));
     });
 
     $(".selectCity").on("click",function(e){
       e.stopPropagation();
     });
     $(document).on("click",function(){
-      $(".proviceContent").hide();
-      $(".cityContent").hide();
-      $(".areaContent").hide();
+      expand.hide();
     });
 </script>
 </body>
