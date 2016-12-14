@@ -87,6 +87,14 @@
         $(".areaContent").show();
     });
 
+    $(".selectCity").on("click",function(e){
+        e.stopPropagation();
+    });
+    $(document).on("click",function(){
+        $(".proviceContent").hide();
+        $(".cityContent").hide();
+        $(".areaContent").hide();
+    });
 </script>
 </body>
 </html>

@@ -17,6 +17,8 @@
 .proviceContent,.cityContent,.areaContent{
     position: absolute;
     width: 300px;
+    /* display: none; */
+    /* border: 1px solid #ddd; */
 }
 .proviceContent li,.cityContent li,.areaContent li{
     font-size: 12px;
