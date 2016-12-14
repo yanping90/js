@@ -40,8 +40,7 @@
     var createOpt = function(arr,appendEle){
       for(var i =0;i<arr.length;i++){
         $("<a>").appendTo($("<li>").appendTo(expand.appendTo(appendEle))).html(arr[i].name).attr("value",i);
-    }
-      return expand;
+      }
     }
     var expand = $("<ul>").appendTo("body").addClass("expand").addClass("list-inline").hide();
     $(".proviceTitle").on("click",function(){
