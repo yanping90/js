@@ -12,7 +12,7 @@
 <div class="selectCity">
     <div  class="provice">
         <a class="proviceTitle">请选择省</a>
-        <ul class="proviceContent list-inline"></ul>
+        <ul class="proviceContent  list-inline"></ul>
     </div>
     <div class="city">
         <a class="cityTitle">请选择城市</a>
@@ -51,7 +51,7 @@
         var _self = $(this);
         $(".proviceTitle").html(_self.find("a").html()).attr("value",_self.find("a").attr("value"));
         $(".proviceContent").hide();
-        //出现市
+        //出现城市
         $(".cityContent").html("");
         var idxProvice = $(".proviceTitle").attr("value");
         for(var j =0;j<arr[idxProvice].childName.length;j++){
