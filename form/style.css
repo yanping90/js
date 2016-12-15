@@ -19,18 +19,28 @@ body{ font-size: 12px;}
 .expand,.cityContent,.areaContent{
     position: absolute;
     width: 300px;
-    /* display: none; */
-    /* border: 1px solid #ddd; */
 }
 .expand li,.cityContent li,.areaContent li{
     font-size: 12px;
     text-align: left;
     padding-right: 18px;
     line-height: 28px;
-    /* width: 60px; */
 }
 
-.select-content{float: left;margin-left: 20px;}
+.select-content{
+    float: left;
+    margin-left: 20px;
+    background: url("dropdown_bg-noborder._CB183808916_.gif") no-repeat right;
+    border:1px solid #ddd;
+    padding: 2px 20px 3px 5px;
+    position: relative;
+}
+
+.expand{
+    position: absolute;
+}
+
 .select-content a{
     color:#333;
 }
+
