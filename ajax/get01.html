@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        .content{width:600px;}
+    </style>
+</head>
+<body>
+<textarea class="content" rows="5"></textarea><br>
+<input type="submit" value="get"  class="btn"/>
+<script>
+    $(function(){
+        $(".btn").on("click",function(){
+            $.get(
+                    "/read.php"
+                    ,{
+                        filename:"test.txt"
+                    }
+                    ,function(r){
+                        if(r.code){}
+                        else{
+                            $(".content").val(r.data.content);
+                            $(".content").attr("rows",Math.max(5,$(".content").val().split("\n").length));
+                        }
+                        console.log(r);
+                    }
+                    ,"json"
+            );
+        });
+    })
+
+    /**$(function(){
+        $(".btn").on("click",function(){
+            $.ajax( {
+                        url:"/read.php"
+                        ,data:{filename:"test.txt"}
+                        ,success:function(r){
+                            $(".content").val(r.data.content);
+                            $(".content").attr("rows",Math.max($(".content").attr("rows"),$(".content").val().split("\n").length));
+                        }
+                        ,dataType:"json"
+                    }
+            );
+        });
+    });**/
+
+</script>
+</body>
+</html>
