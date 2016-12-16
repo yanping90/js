@@ -1,0 +1,26 @@
+*{
+    font-size:12px;
+}
+
+ul{
+    list-style-type: none;
+}
+.news{
+    width:400px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.news li{
+padding: 6px 0;
+height: 50px;
+}
+.news li a{
+    color:#333;
+    height: 18px;
+    overflow: hidden;
+    display: block;
+}
+.news li span{
+     color:#999;
+}
