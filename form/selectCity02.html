@@ -31,24 +31,54 @@
     [{name: "海曙"}, {name: "江东"}, {name: "江北"}, {name: "鄞州"}, {name: "北仑"}, {name: "镇海"}, {name: "高新区"}, {name: "余姚"}, {name: "慈溪"}, {name: "象山"}, {name: "奉化"}, {name: "桐庐"}, {name: "宁海"}, {name: "宁波周边"}]
   }
   ]
-  }]
-  ;
+  }];
+  //三级联动下拉菜单
+  //按钮点击事件 1.显示下拉弹出层
+  //下拉弹出层点击事件 1.点击弹出层列表项给一级按钮，然后判断该项有没有下一级，有的话，展示下拉弹出层内容。
 
-  for (var i = 0; i < 3; i++) {
-    var selectContent;
-    selectContent = $("<div>").appendTo($(".select")).addClass("select-content");
-    $("<a>").appendTo(selectContent).html("请选择").addClass("select-title");
-  }
-  var expand = $("<ul>").appendTo(document.body).addClass("expand").hide();
-  $(".select-title").on("click",function () {
-    var _self = $(this);
-    console.log(_self.parent().index());
-    expand.empty();
-    for(var i =0;i<arr.length;i++){
-      expand.appendTo(_self);
-      $("<a>").appendTo($("<li>").appendTo(expand.show())).html(arr[i].name).attr("value",i);
-    }
-  });
+  //先创建一级元素
+  var selectContent;
+  var createOpt = function(){
+      selectContent = $("<div>").appendTo($(".select")).addClass("select-content");
+      $("<a>").appendTo(selectContent).html("请选择").addClass("select-title");
+  };
+  //创建一个下拉弹出层
+  var expand = $("<ul>").appendTo(document.body).addClass("expand").addClass("list-inline").hide();
+  createOpt();
+  //按钮点击事件 1.显示下拉弹出层
+    $(".select").on("click","a",function(){
+        //显示下拉弹出层
+        var _self = $(this);
+        window._self = _self;
+        expand.show().empty();
+        for(var i=0;i<arr.length;i++){
+            $("<a>").appendTo($("<li>").appendTo(expand.appendTo(selectContent))).html(arr[i].name).attr("value",i);
+        }
+    });
+  //下拉弹出层点击事件 1.点击弹出层列表项给一级按钮，然后判断该项有没有下一级，有的话，展示下拉弹出层内容。
+    expand.on("click","li",function(){
+        var _self = $(this);
+        window._self = _self;
+        var idxOne =Number(_self.children().attr("value"));
+        $(".select-title").html(_self.children().html()).attr("value",_self.children().attr("value"));
+        if(arr[idxOne].childName.length != 0){
+            createOpt();
+            expand.empty();
+            expand.appendTo($(".select-content").next());
+            expand.show();
+            //显示下拉弹出层
+            for(var j=0;j<arr[idxOne].childName.length;j++){
+                var liEle = $("<a>").appendTo($("<li>").appendTo(expand)).html(arr[idxOne].childName[j].name).attr("value",j);
+            }
+        }
+    });
+
+    /**$(document).on("click",function(){
+        expand.hide();
+    });
+    $(".select").on("click",function(e){
+        e.stopPropagation();
+    });**/
 </script>
 </body>
 </html>
