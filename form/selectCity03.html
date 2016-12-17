@@ -13,6 +13,12 @@
   <div class="select-content">
     <a class="select-title">请选择</a>
   </div>
+  <div class="select-content">
+    <a class="select-title">请选择</a>
+  </div>
+  <div class="select-content">
+    <a class="select-title">请选择</a>
+  </div>
 </div>
 <script>
   var arr = [
@@ -33,51 +39,51 @@
     [{name: "海曙"}, {name: "江东"}, {name: "江北"}, {name: "鄞州"}, {name: "北仑"}, {name: "镇海"}, {name: "高新区"}, {name: "余姚"}, {name: "慈溪"}, {name: "象山"}, {name: "奉化"}, {name: "桐庐"}, {name: "宁海"}, {name: "宁波周边"}]
   }
   ]
-  }]
-  ;
+  }];
 
-  var expand = $("<ul>").appendTo(document.body).addClass("expand").addClass("list-inline").hide();
-  $(".select").on("click", ".select-content", function(){
-    $.each(
-      arr,function(idx,v){
-        $("<li>").append(
-          $("<a>").html(v.name))
-          .attr("data-idx",idx)
-          .appendTo(expand);
-      });
-    expand.show().appendTo($(this));
-  });
+  var expand =$("<ul>").addClass("expand list-inline").hide().appendTo(document.body);
 
-  //下拉弹出层点击事件 1.点击弹出层列表项给一级按钮，然后判断该项有没有下一级，有的话，展示下拉弹出层内容。
-  expand.on("click", "li", function (e) {
+  $(".select").on("click",".select-content",function(e){
+    e.stopPropagation();
     var _self = $(this);
-    var parentBtn =_self.parents(".select-content");
-    // 当前的选中索引保存给按钮
-    parentBtn.attr("data-selected", _self.attr("data-idx"));
-    parentBtn.children(".select-title").html(_self.text());
-
-    // 生成列表开始
-    var arr1 = arr; // arr1 是最终展示的列表内容
-      $(".select-content").each(function () {
-        // 不断更新arr1,使其包含当前选中的索引对应的数组
-        arr1 = arr1[$(this).attr("data-selected")].childName;
-      });
-      //生成下一个兄弟按钮
-      var nextBtn = $("<div class='select-content'>").append(
-        $("<a class='select-title'>").html("请选择")
-      ).appendTo(parentBtn.parent());
-
-      // 用arr1生成列表
-      expand.empty();
-      $.each(arr1, function(idx, v){
-        $("<li>").append($("<a>").html(v.name))
-          .attr("data-idx", idx)
-          .appendTo(expand);
-      });
-      // 生成列表结束
-      nextBtn.append(expand);
+    //生成列表
+    //找到每一级下拉内容
+    var arr1 = arr;
+    $.each(_self.prevAll().get().reverse(), function(i, el){
+      if($(el).attr("data-selected") != undefined){
+        arr1 = arr1[$(el).attr("data-selected")].childName;
+      }
+    }); //prevAll()从最近的开始找元素,所以说反序，加了reverse(),get()把它换成数组，换成普通数组的遍历
+    expand.empty();
+    //创建下拉元素
+    $.each(arr1,function(idx,v){
+      $("<li>").append($("<a>")
+        .html(v.name))
+        .attr("data-idx",idx)
+        .appendTo(expand);
+    });
+    _self.append(expand.show());
   });
 
+  expand.on("click","li",function(e){
+    e.stopPropagation();
+    var _self = $(this);
+    var parentBtn = _self.parents(".select-content");
+    //把选中的索引给按钮
+    parentBtn.attr("data-selected",_self.attr("data-idx"));
+    parentBtn.children(".select-title").html(_self.text());
+    expand.hide();
+    if(parentBtn.next().size()){
+      parentBtn.next().trigger("click");
+      parentBtn.nextAll().each(function(i,el){
+        $(el).children(".select-title").html("请选择");
+      });
+    }
+  });
+
+  $(document).on("click",function(){
+    expand.hide();
+  });
 </script>
 </body>
 </html>
