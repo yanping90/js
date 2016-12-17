@@ -25,7 +25,10 @@ body{ font-size: 12px;}
     text-align: left;
     margin-right: 18px;
     line-height: 18px;
-    /* opacity: 0.5; */
+}
+
+.disabled{
+    opacity: 0.5;
 }
 
 .select-content{

@@ -22,41 +22,44 @@
   </div>
 </div>
 <script>
-  var listWrapper =$("<ul>").addClass("expand list-inline").hide().appendTo(document.body);
-
+  var listWrapper = $("<ul>").addClass("expand list-inline").hide().appendTo(document.body);
+  $(".select-content").slice(1).addClass("disabled");
   $(".select").on("click",".select-content",function(e){
     e.stopPropagation();
     var _self = $(this);
-    //生成列表
-    //找到每一级下拉内容
     var arr1 = arr;
     var hasUndefined = false;
-    $(".select-content").slice(0,_self.index())/*找前面的兄弟节点  slice(start ,end)*/
+    $(".select-content").slice(0, _self.index())/*找前面的兄弟节点  slice(start ,end)*/
       .each(function(){
-      if($(this).data("selected") == undefined){ /*前面没有选中，终止循环*/
-        hasUndefined = true;
-        return;
-      }
-      arr1 = arr1[$(this).data("selected")].childName;
-    });
-    if(hasUndefined) { /*终止流程*/
+        if($(this).data("selected") == undefined){ /*前面没有选中，终止循环*/
+          hasUndefined = true;
+          return;
+        }
+        _self.removeClass("disabled");
+        arr1 = arr1[$(this).data("selected")][2];
+      });
+    if(hasUndefined) {
       return ;
     }
-    /**$.each(_self.prevAll().get().reverse(), function(i, el){
-      if($(el).data("selected") != undefined){
-        arr1 = arr1[$(el).data("selected")].childName;
-      }
-    }); **///prevAll()从最近的开始找元素,所以说反序，加了reverse(),get()把它换成数组，换成普通数组的遍历
-    listWrapper.empty();
+    if(arr1 === undefined) {
+      return ;
+    }
+    _self.append(listWrapper.empty());
     //创建下拉元素
-    $.each(arr1,function(idx,v){
+    $.each(arr1, function(idx,v){
       $("<li>").append($("<a>")
-        .html(v.name))
+        .html(v[1]))
         .data("idx",idx)
+        .attr("id",v[0])
         .appendTo(listWrapper);
     });
-    listWrapper.children().eq(_self.data("selected")).addClass("selected");
-    _self.append(listWrapper.show());
+    if(arr1.length === 1) {
+      listWrapper.children().eq(0).trigger("click");
+      _self.addClass("disabled");
+    } else {
+      _self.removeClass("disabled");
+      listWrapper.show().children().eq(_self.data("selected")).addClass("selected");
+    }
   });
 
   listWrapper.on("click", "li", function(e){
@@ -64,17 +67,15 @@
     var _self = $(this);
     var parentBtn = _self.parents(".select-content");
     var hasChanged = parentBtn.data("selected") !== _self.data("idx");
-    parentBtn.data("selected",_self.data("idx"));
+    parentBtn.data("selected",_self.data("idx")).attr("id",_self.attr("id"));
     parentBtn.children(".select-title").html(_self.text());
     listWrapper.hide();
-    if(parentBtn.next().size()){
-      if(hasChanged){
-        parentBtn.nextAll().each(function(i,el){
-          $(el).removeData("selected").children(".select-title").html("请选择");
-        });
-      }
-      parentBtn.next().trigger("click");
+    if(hasChanged){
+      parentBtn.nextAll().each(function(i,el){
+        $(el).addClass("disabled").removeData("selected").children(".select-title").html("请选择");
+      });
     }
+    parentBtn.next().trigger("click");
   });
 
   $(document).on("click",function(){
