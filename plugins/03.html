@@ -17,7 +17,42 @@
   <a class="title" data-title="tooltip">probably</a>
 </div>
 <script>
-  (function ($) {
+  (function($){
+    $.fn.toolTips = function(opt){
+      var settings = $.extend({}, $.fn.toolTips.defaults,opt);
+      var tips = $("<span>").addClass(settings.toolTips).hide().appendTo(document.body);
+      return this.each(function(i,el){
+        var _self = $(el);
+        _self.on("mouseover",function(){
+          _self.append(tips.html(_self.attr("data-title")).show());
+        });
+        _self.on("mouseout",function(){
+          tips.hide();
+        });
+      });
+    }
+    $.fn.toolTips.defaults ={
+      toolTips : "tips"
+    }
+  })(jQuery)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /**(function ($) {
     $.fn.tips = function(opt){
       var settings = $.extend({}, $.fn.tips.defaults,opt);
       var toolTips=$("<span>").addClass(settings.toolTips).hide().appendTo("body");
@@ -34,7 +69,7 @@
     $.fn.tips.defaults = {
       toolTips:"tips"
     };
-  })(jQuery)
+  })(jQuery)**/
 </script>
 </body>
 </html>

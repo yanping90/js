@@ -1,0 +1,33 @@
+body{
+    font-size: 12px;
+}
+a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.linkage-menu{
+    position: relative;
+    display: inline-block;
+}
+
+.linkage-btn{
+    border: 1px solid #ddd;
+    padding: 0px 24px 5px 10px;
+    color:#666;
+    background: url("arrow.gif") no-repeat right;
+    margin-right: 10px;
+}
+
+.linkage-subMenu{
+    position: absolute;
+    padding: 10px 5px;
+    list-style-type: none;
+    top: 24px;
+    width: 500px;
+}
+
+.linkage-subMenu li{
+    float: left;
+    padding-right: 20px;
+}
