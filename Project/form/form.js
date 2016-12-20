@@ -10,7 +10,7 @@ $(function(){
         var _self = $(this);
         var noteSpan = _self.parent().children(".noteSpan");
         noteSpan.removeClass("success").removeClass("error").show();
-        if(/[旅行社有限公司]$/.test(_self.val())){
+        if(/旅行社有限公司$/.test(_self.val())){
             noteSpan.addClass("success").html(successText);
         }else if(_self.val() == ""){
             noteSpan.addClass("error").html(nullText);
@@ -84,6 +84,6 @@ $(function(){
             e.preventDefault();
         }
     });
-})
+});
 
 
