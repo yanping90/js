@@ -1,0 +1,53 @@
+ul{
+    list-style-type: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+body{
+    font-size: 12px;
+}
+
+.region{
+    z-index: 100;
+}
+
+.form-user{
+    width:700px;
+}
+
+.region .regionMenu{
+    width: 72px !important;
+    border: 1px solid #ddd;
+    padding-left: -10px !important;
+    margin-left: -11px;
+    top: 21px;
+    background: #fff;
+}
+
+.form-user .note{
+    color:#999;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.error{
+    color:#f00;
+}
+
+.success{
+    color:#4cae4c;
+}
+.region .regionMenu li{
+    padding-left: 15px;
+    line-height: 20px;
+}
+
+.form-btn{
+    margin-left: 50px;
+    padding-left: 132px;
+}
+
+.form-btn button{
+    margin-right: 10px;
+}

@@ -13,7 +13,7 @@
         var selected = "selected";
         var defaultText = "请选择";
 
-		var subMenu = $("<ul>").addClass(subMenu.substr(1)).addClass(settings.newMenu).appendTo(document.body).hide();
+		var subMenu = $("<ul>").addClass(subMenu.substr(1)).addClass(settings.newSubmenu).appendTo(document.body).hide();
 		return this.each(function(i,el){
 				var _self = $(el);
 				for(i = 0;i<settings.levels;i++){
