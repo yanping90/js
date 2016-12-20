@@ -9,14 +9,33 @@ a:hover{
 .linkage-menu{
     position: relative;
     display: inline-block;
-}
-
-.linkage-btn{
     border: 1px solid #ddd;
-    padding: 0px 24px 5px 10px;
+    padding: 2px 24px 2px 10px;
     color:#666;
     background: url("arrow.gif") no-repeat right;
     margin-right: 10px;
+}
+
+.linkage-btn{
+    color:#333;
+}
+
+.disabled{
+    border:1px solid #eee;
+}
+
+.selected{
+    background: #a7cbea;
+    color:#fff;
+    border-radius: 4px;
+}
+
+.selected a{
+    color:#fff;
+}
+
+.disabled a{
+    color:#999;
 }
 
 .linkage-subMenu{
@@ -29,5 +48,7 @@ a:hover{
 
 .linkage-subMenu li{
     float: left;
-    padding-right: 20px;
+    margin-right: 20px;
+    padding: 2px 6px;
+    margin-left: -10px;
 }
