@@ -76,7 +76,7 @@ $(function(){
         var passText = $("#password1").val();
         if(passText.length <6 || passText.length >16 || /\s+d{9}/.test(passText)){
             if(passText ==""){
-                $(".noteSpan").eq(2).addClass("error").html(nullText);
+                $(".noteSpan").eq(2).addClass("error").html($("#password1").attr("nullmsg"));
             }
             e.preventDefault();
         }
