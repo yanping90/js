@@ -4,7 +4,7 @@
 $(function(){
     var successText = "格式正确";
     var errorText = "格式错误";
-    var nullText = "名称不能为空";
+    var nullText = "不能为空";
 
     $("#companyname").on("change",function(){
         var _self = $(this);
@@ -25,7 +25,7 @@ $(function(){
         if(/^[1][345678]\d{9}$/.test(_self.val())){
             noteSpan.addClass("success").html(successText);
         }else if(_self.val() == ""){
-            noteSpan.addClass("error").html(nullText);
+            noteSpan.addClass("error").html(_self.attr("nullmsg"));
         }else{
             noteSpan.addClass("error").html(errorText);
         }
@@ -38,14 +38,14 @@ $(function(){
         var passText = _self.val();
         if(passText.length >=6 && passText.length <=16){
             if(/\s+/.test(passText)){
-                noteSpan.addClass("error").html("不能包含空格");
+                noteSpan.addClass("error").html(_self.attr("errormsg"));
             }else if(/\d{9}/.test(passText)){
-                noteSpan.addClass("error").html("不能包含9个数字");
+                noteSpan.addClass("error").html(_self.attr("errormsg"));
             }else{
                 noteSpan.addClass("success").html(successText);
             }
         }else{
-            noteSpan.addClass("error").html("字符范围6-16个之间");
+            noteSpan.addClass("error").html(_self.attr("datatype"));
         }
     });
 
@@ -62,13 +62,22 @@ $(function(){
 
     $(".myform").on("submit",function(e){
         if(! /[旅行社有限公司]$/.test($("#companyname").val())){
+            if($("#companyname").val() ==""){
+                $(".noteSpan").eq(0).addClass("error").html(nullText);
+            }
             e.preventDefault();
         }
         if(! /^[1][345678]\d{9}$/.test($("#phone").val())){
+            if($("#phone").val() ==""){
+                $(".noteSpan").eq(1).addClass("error").html(nullText);
+            }
             e.preventDefault();
         }
         var passText = $("#password1").val();
         if(passText.length <6 || passText.length >16 || /\s+d{9}/.test(passText)){
+            if(passText ==""){
+                $(".noteSpan").eq(2).addClass("error").html(nullText);
+            }
             e.preventDefault();
         }
         if($("#password1").val() !== $("#password2").val()){
