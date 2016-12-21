@@ -76,16 +76,19 @@ $(function () {
 
 	$(".myform").on("submit", function (e) {
         e.preventDefault();
-        $.post("/user.php"
-            ,{
-                action:"add"
-                ,username:$("#username").val()
-            }
-            ,function(){
-                if(arguments[0].code){
-                    alert(arguments[0].message);
+        $.post("/user.php",
+            {
+                action:"add",
+                username:$("#username").val()
+            },
+            function(r){
+                if(r.code) {
+                    $(".noteSpan").eq(1).addClass("error").html(r.message +"，请重新填写");
+                }else{
+                    $(".noteSpan").eq(1).addClass("success").html(r.message);
                 }
-            }
+            },
+            "json"
         );
 
 		if (!/旅行社有限公司$/.test($("#companyname").val())) {

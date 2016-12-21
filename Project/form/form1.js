@@ -18,14 +18,29 @@ $(function(){
         }else{
             noteSpan.addClass("error").html("请输入4-20个字符");
         }
+        noteSpan.removeClass("success").removeClass("error").show();
+        $.ajax({
+            url:"/user.php",
+            data:{
+                action:"add",
+                username:$("#username").val()
+            },
+            success:function(r){
+                if(r.code) {
+                    $(".noteSpan").addClass("error").html(r.message +"，请重新填写");
+                }else{
+                    $(".noteSpan").addClass("success").html(r.message);
+                }
+            },
+        dataType:"json",
+            async:false
+            });
     });
 
     $(".myform").on("submit",function(e){
         e.preventDefault();
-        $(".noteSpan").removeClass("error").removeClass("success").empty();
-        $.post("/user.php",
+        $.get("/user.php",
             {
-                action:"add",
                 username:$("#username").val()
             },
             function(r){
@@ -37,6 +52,7 @@ $(function(){
             },
             "json"
         );
+        $(".noteSpan").removeClass("error").removeClass("success").empty();
         if($("#username").val().length<4 || !/^[a-z]+[a-z0-9]+$/i.test($("#username").val())){
             e.preventDefault();
         }
