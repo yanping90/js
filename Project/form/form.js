@@ -19,6 +19,20 @@ $(function () {
 		}
 	});
 
+    $("#username").on("change",function(){
+        var _self = $(this);
+        var noteSpan = _self.parent().children(".noteSpan");
+        noteSpan.removeClass("success").removeClass("error").show();
+        //可输入英文字母、数字，需以字母开头；长度4-20！
+        if(/^[a-z][a-z0-9]{3,19}$/i.test(_self.val())){
+            noteSpan.addClass("success").html(successText);
+        }else if(_self.val() == ""){
+            noteSpan.addClass("error").html(_self.attr("nullmsg"));
+        }else{
+            noteSpan.addClass("error").html(errorText);
+        }
+    });
+
 	$("#phone").on("change", function () {
 		var _self = $(this);
 		var noteSpan = _self.parent().children(".noteSpan");
@@ -61,15 +75,19 @@ $(function () {
 	});
 
 	$(".myform").on("submit", function (e) {
-		e.preventDefault();
-		$.get("/test.php"
-				,$(this).serialize()
-				,function(){
-				alert("提交成功"); //提交成功之后的信息
-				console.log(arguments);
-			}
-			,"json"
-		);
+        e.preventDefault();
+        $.post("/user.php"
+            ,{
+                action:"add"
+                ,username:$("#username").val()
+            }
+            ,function(){
+                if(arguments[0].code){
+                    alert(arguments[0].message);
+                }
+            }
+        );
+
 		if (!/旅行社有限公司$/.test($("#companyname").val())) {
 			if ($("#companyname").val() == "") {
 				$(".noteSpan").eq(0).addClass("error").html(nullText);
