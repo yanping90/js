@@ -18,6 +18,9 @@ $(function () {
 		} else if (!/^[a-z]+[a-z0-9]+$/i.test(userText)) {
 			noteSpan.addClass("error").html("输入英文字母、数字，需以字母开头；长度4-20");
 			return;
+		}else{
+			noteSpan.addClass("success").html("用户名正确");
+			return;
 		}
 
 	});
