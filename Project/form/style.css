@@ -16,15 +16,6 @@ body{
     width:700px;
 }
 
-.region .regionMenu{
-    width: 72px !important;
-    border: 1px solid #ddd;
-    padding-left: -10px !important;
-    margin-left: -11px;
-    top: 21px;
-    background: #fff;
-}
-
 .form-user .note{
     color:#999;
     display: inline-block;
@@ -51,3 +42,14 @@ body{
 .form-btn button{
     margin-right: 10px;
 }
+
+.area .subMenu{
+    background: #fff;
+    margin-left: -11px;
+    border: 1px solid #eee;
+    top: 21px;
+    width: 212px;
+    padding: 9px 10px;
+}
+
+.area .subMenu li{padding-left: 10px;}
