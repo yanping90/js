@@ -2,117 +2,81 @@
  * Created by etc on 2016/12/20.
  */
 $(function () {
-	var successText = "格式正确";
-	var errorText = "格式错误";
-	var nullText = "不能为空";
-
-	$("#companyname").on("change", function () {
-		var _self = $(this);
-		var noteSpan = _self.parent().children(".noteSpan");
-		noteSpan.removeClass("success").removeClass("error").show();
-		if (/旅行社有限公司$/.test(_self.val())) {
-			noteSpan.addClass("success").html(successText);
-		} else if (_self.val() == "") {
-			noteSpan.addClass("error").html(nullText);
-		} else {
-			noteSpan.addClass("error").html(errorText);
-		}
-	});
 
     $("#username").on("change",function(){
         var _self = $(this);
         var noteSpan = _self.parent().children(".noteSpan");
         noteSpan.removeClass("success").removeClass("error").show();
-        //可输入英文字母、数字，需以字母开头；长度4-20！
-        if(/^[a-z][a-z0-9]{3,19}$/i.test(_self.val())){
-            noteSpan.addClass("success").html(successText);
-        }else if(_self.val() == ""){
+        var userText = (_self.val()).replace(/\s+/i,"");
+        if(userText.length === 0){
             noteSpan.addClass("error").html(_self.attr("nullmsg"));
-        }else{
-            noteSpan.addClass("error").html(errorText);
+            return;
+        } else if (userText.length < 4){
+            noteSpan.addClass("error").html(_self.attr("errormsg"));
+            return;
+        } else if (/^[a-z]+[a-z0-9]+$/i.test(userText)){
+            //noteSpan.addClass("success").html(_self.attr("sucmsg"));
+        } else {
+            noteSpan.addClass("error").html(_self.attr("errormsg"));
+            return;
         }
+
+        $.get("/user.php"
+            , {
+                username: userText
+            }
+            , function(r){
+                if(r.code){
+                    noteSpan.addClass("success").html(_self.attr("sucmsg"));
+                }else{
+                    noteSpan.addClass("error").html(_self.attr("definemsg"));
+                }
+            }
+            , "json"
+        );
     });
 
-	$("#phone").on("change", function () {
-		var _self = $(this);
-		var noteSpan = _self.parent().children(".noteSpan");
-		if (/^[1][345678]\d{9}$/.test(_self.val())) {
-			noteSpan.addClass("success").html(successText);
-		} else if (_self.val() == "") {
-			noteSpan.addClass("error").html(_self.attr("nullmsg"));
-		} else {
-			noteSpan.addClass("error").html(errorText);
-		}
-	});
-
-	$("#password1").on("change", function () {
-		var _self = $(this);
-		var noteSpan = _self.parent().children(".noteSpan");
-		noteSpan.removeClass("success").removeClass("error").show();
-		var passText = _self.val();
-		if (passText.length >= 6 && passText.length <= 16) {
-			if (/\s+/.test(passText)) {
-				noteSpan.addClass("error").html(_self.attr("errormsg"));
-			} else if (/\d{9}/.test(passText)) {
-				noteSpan.addClass("error").html(_self.attr("errormsg"));
-			} else {
-				noteSpan.addClass("success").html(successText);
-			}
-		} else {
-			noteSpan.addClass("error").html(_self.attr("datatype"));
-		}
-	});
-
-	$("#password2").on("change", function () {
-		var _self = $(this);
-		var noteSpan = _self.parent().children(".noteSpan");
-		noteSpan.removeClass("success").removeClass("error").empty();
-		if ($("#password1").val() !== _self.val()) {
-			noteSpan.addClass("error").html("两次输入的密码不一致，请重新输入");
-		} else {
-			noteSpan.addClass("success").html(successText);
-		}
-	});
-
-	$(".myform").on("submit", function (e) {
+    $("#phone").on("change",function(){
+        var _self = $(this);
+        var noteSpan = _self.parent().children(".noteSpan");
+        var phoneText = _self.val();
+        if(phoneText.length === 0){
+            noteSpan.addClass("error").html(_self.attr("nullmsg"));
+            return;
+        }else if(/^1[3,4,5,7][0-9]{9}$/.test(phoneText)){
+            noteSpan.addClass("success").html(_self.attr("sucmsg"));
+        }else{
+            noteSpan.addClass("error").html(_self.attr("errormsg"));
+            return;
+        }
+    });
+    $(".myform").on("submit", function (e) {
         e.preventDefault();
-        $.post("/user.php",
-            {
-                action:"add",
-                username:$("#username").val()
-            },
-            function(r){
-                if(r.code) {
-                    $(".noteSpan").eq(1).addClass("error").html(r.message +"，请重新填写");
-                }else{
-                    $(".noteSpan").eq(1).addClass("success").html(r.message);
+        var userText = $("#username").val();
+        if(userText.length === 0
+            || userText.length <4
+            || !/^[a-z]+[a-z0-9]+$/i.test(userText)){
+            return;
+        }
+
+        $.get("/user.php"
+            , {
+                username: $("#username").val()
+            }
+            , function(r){
+                if(r.code){
+                    alert("注册成功");
                 }
-            },
-            "json"
+            }
+            , "json"
         );
 
-		if (!/旅行社有限公司$/.test($("#companyname").val())) {
-			if ($("#companyname").val() == "") {
-				$(".noteSpan").eq(0).addClass("error").html(nullText);
-			}
-			e.preventDefault();
-		}
-		if (!/^[1][345678]\d{9}$/.test($("#phone").val())) {
-			if ($("#phone").val() == "") {
-				$(".noteSpan").eq(1).addClass("error").html(nullText);
-			}
-			e.preventDefault();
-		}
-		var passText = $("#password1").val();
-		if (passText.length < 6 || passText.length > 16 || /\s+d{9}/.test(passText)) {
-			if (passText == "") {
-				$(".noteSpan").eq(2).addClass("error").html($("#password1").attr("nullmsg"));
-			}
-			e.preventDefault();
-		}
-		if ($("#password1").val() !== $("#password2").val()) {
-			e.preventDefault();
-		}
+        var phoneText = $("#phone").val();
+        if(phoneText.length === 0
+            || !/^1[3,4,5,7][0-9]{9}$/.test(phoneText)){
+            return;
+        }
+
 	});
 });
 
