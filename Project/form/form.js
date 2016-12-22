@@ -7,12 +7,13 @@ $(function () {
 		{
 			newSubmenu: "subMenu"
 			, callback: function () {
-				$("#provice").val($(".linkage-btn").eq(0).text());
-				$("#city").val($(".linkage-btn").eq(1).text());
-				$("#area").val($(".linkage-btn").eq(2).text());
+				$("#provice").val($(".linkage-menu").eq(0).attr("select"));
+				$("#city").val($(".linkage-menu").eq(1).attr("select"));
+				$("#area").val($(".linkage-menu").eq(2).attr("select"));
 			}
 		}
 	);
+
 	$("#username").on("change", function () {
 		var _self = $(this);
 		var noteSpan = _self.parent().children(".noteSpan");
@@ -30,6 +31,12 @@ $(function () {
 			noteSpan.addClass("error").html(_self.attr("errormsg"));
 			return;
 		}
+
+		$.get("/"
+			, function(){
+				console.log(arguments);
+			}
+		)
 
 		$.get("/user.php"
 			, {
