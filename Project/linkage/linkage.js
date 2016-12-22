@@ -20,17 +20,17 @@
 					_self.append($("<div>").addClass(menu.substr(1)).addClass(settings.newMenu)
 						.append($("<a>").html(defaultText).addClass(btn.substr(1)).addClass(settings.newBtn)));
 				}
-                $(menu).slice(1).addClass(disabled).addClass(settings.newDisabled);
-				$(menu).on("click",function(){
+                if(typeof settings.callback == "function"){
+                    settings.callback.call(_self);
+                }
+                _self.children(menu).slice(1).addClass(disabled).addClass(settings.newDisabled);
+                _self.children(menu).on("click",function(){
 					var _self = $(this);
-                    if(typeof settings.callback == "function"){
-                        settings.callback.call(_self);
-                    }
 					//生成数组列表
 					_self.append(subMenu.show().empty());
 					var arr1= settings.arr;
                     var hasUndefined = false;
-					$(menu).slice(0,_self.index()).each(function(i,el){
+                    $(el).children(menu).slice(0,_self.index()).each(function(i,el){
 						var _self = $(el);
 						if(_self.attr("select") == undefined){
                             hasUndefined = true;
@@ -59,12 +59,9 @@
                     }
 				});
 
-                $(subMenu).on("click","li",function(e){
+                _self.children(subMenu).on("click","li",function(e){
                     e.stopPropagation();
                     var _self = $(this);
-                    if(typeof settings.callback == "function"){
-                        settings.callback.call(_self);
-                    }
                     //把选中的索引给按钮
                     var parentBtn = _self.parents(menu);
                     var hasChanged = parentBtn.attr("select") !== _self.attr("idx");
