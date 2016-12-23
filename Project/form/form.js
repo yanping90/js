@@ -2,14 +2,13 @@
  * Created by etc on 2016/12/20.
  */
 $(function () {
-
 	$(".area").linkage(
 		{
 			newSubmenu: "subMenu"
 			, callback: function () {
-				$("#provice").val($(".linkage-menu").eq(0).attr("select"));
-				$("#city").val($(".linkage-menu").eq(1).attr("select"));
-				$("#area").val($(".linkage-menu").eq(2).attr("select"));
+				$("#provice").val($(".linkage-menu").eq(0).text());
+				$("#city").val($(".linkage-menu").eq(1).text());
+				$("#area").val($(".linkage-menu").eq(2).text());
 			}
 		}
 	);
