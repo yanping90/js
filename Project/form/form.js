@@ -6,10 +6,10 @@ $(function () {
 		{
 			newSubmenu: "subMenu"
 			, callback: function () {
-				$("#provice").val($(".linkage-menu").eq(0).text());
-				$("#city").val($(".linkage-menu").eq(1).text());
-				$("#area").val($(".linkage-menu").eq(2).text());
-			}
+			$("#provice").val($(".linkage-btn").eq(0).text());
+			$("#city").val($(".linkage-btn").eq(1).text());
+			$("#area").val($(".linkage-btn").eq(2).text());
+		}
 		}
 	);
 
@@ -32,7 +32,7 @@ $(function () {
 		}
 
 		$.get("/"
-			, function(){
+			, function () {
 				console.log(arguments);
 			}
 		)
@@ -66,6 +66,7 @@ $(function () {
 			return;
 		}
 	});
+
 	$(".myform").on("submit", function (e) {
 		e.preventDefault();
 		var userText = $("#username").val();
@@ -92,6 +93,15 @@ $(function () {
 			|| !/^1[3,4,5,7][0-9]{9}$/.test(phoneText)) {
 			return;
 		}
+
+		if($("#provice").val() != "请选择"
+			|| $("#city").val() != "请选择"
+			|| $("#area").val() != "请选择"
+		){
+			$("#provice").parent().children(".noteSpan").addClass("error").html("没有选择地区");
+			return;
+		}
+
 
 	});
 });

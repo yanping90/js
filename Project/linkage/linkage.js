@@ -78,6 +78,14 @@
 					}
 				});
 
+				$(document).on("click",function(){
+					subMenu.hide();
+				});
+
+				_self.on("click",function(e){
+					e.stopPropagation();
+				});
+
 			}
 		);
 	}
