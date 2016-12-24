@@ -6,9 +6,12 @@ $(function () {
 		{
 			newSubmenu: "subMenu"
 			, callback: function () {
-			$("#provice").val($(".linkage-btn").eq(0).text());
-			$("#city").val($(".linkage-btn").eq(1).text());
-			$("#area").val($(".linkage-btn").eq(2).text());
+			$("#provice").attr("select",$(".linkage-menu").eq(0).attr("select"))
+				.val($(".linkage-btn").eq(0).text());
+			$("#city").attr("select",$(".linkage-menu").eq(1).attr("select"))
+				.val($(".linkage-btn").eq(1).text());
+			$("#area").attr("select",$(".linkage-menu").eq(2).attr("select"))
+				.val($(".linkage-btn").eq(2).text());
 		}
 		}
 	);
@@ -94,14 +97,16 @@ $(function () {
 			return;
 		}
 
-		if($("#provice").val() != "请选择"
-			|| $("#city").val() != "请选择"
-			|| $("#area").val() != "请选择"
+		$(".noteSpan").removeClass("error").removeClass("success").empty();
+		if($("#provice").attr("select") == undefined
+			|| $("#city").attr("select") == undefined
+			|| $("#area").attr("select") == undefined
 		){
 			$("#provice").parent().children(".noteSpan").addClass("error").html("没有选择地区");
 			return;
+		} else {
+			$("#provice").parent().children(".noteSpan").addClass("success").html("正确");
 		}
-
 
 	});
 });
