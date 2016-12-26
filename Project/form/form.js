@@ -75,6 +75,16 @@ $(function () {
         }
     });
 
+    $("#pass_again").on("change",function(){
+        var _self = $(this);
+        var noteSpan = _self.parent().children(".noteSpan");
+        if(_self.val() === $("#password").val()){
+            noteSpan.addClass("success").html(_self.attr("succmsg"));
+        } else{
+            noteSpan.addClass("error").html(_self.attr("errormsg"));
+        }
+    });
+
 	$("#phone").on("change", function () {
 		var _self = $(this);
 		var noteSpan = _self.parent().children(".noteSpan");
@@ -107,11 +117,21 @@ $(function () {
 			}
 			, function (r) {
 				if (r.code) {
-					alert("注册成功");
+					console.log("用户名可用");
 				}
 			}
 			, "json"
 		);
+
+        var passText = $("#password").val();
+        var noteSpan = $("#password").parent().children(".noteSpan");
+        if(passText.length === 0
+            || passText.length < 4
+            || /\s+/.test(passText)
+            || /[0-9]{9}/.test(passText)
+            || passText.length >20){
+            noteSpan.addClass("error").html($("#password").attr("nullmsg"));
+        }
 
 		var phoneText = $("#phone").val();
 		if (phoneText.length === 0
@@ -119,13 +139,13 @@ $(function () {
 			return;
 		}
 
-		$(".noteSpan").removeClass("error").removeClass("success").empty();
+        var areaText = $("#provice").parent().children(".noteSpan");
+        areaText.removeClass("error").removeClass("success").empty();
 		if($("#provice").attr("select") == undefined
 			|| $("#city").attr("select") == undefined
 			|| $("#area").attr("select") == undefined
 		){
-			$("#provice").parent().children(".noteSpan").addClass("error").html("没有选择地区");
-			return;
+            areaText.addClass("error").html("没有选择地区");
 		} else {
 			$("#provice").parent().children(".noteSpan").addClass("success").html("正确");
 		}
