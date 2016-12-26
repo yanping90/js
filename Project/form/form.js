@@ -55,6 +55,26 @@ $(function () {
 		);
 	});
 
+    $("#password").on("change",function(){
+        var _self = $(this);
+        var noteSpan = _self.parent().children(".noteSpan");
+        var passText = _self.val();
+        noteSpan.removeClass("error").removeClass("success").empty();
+        if(passText.length === 0){
+            noteSpan.addClass("error").html(_self.attr("nullmsg"));
+        } else if(passText.length < 4){
+            noteSpan.addClass("error").html(_self.attr("error1msg"));
+        } else if(/\s+/.test(passText)){
+            noteSpan.addClass("error").html(_self.attr("errornullmsg"));
+        } else if(/[0-9]{9}/.test(passText)){
+            noteSpan.addClass("error").html(_self.attr("errornummsg"));
+        } else if(passText.length >20){
+            noteSpan.addClass("error").html(_self.attr("error1msg"));
+        } else {
+            noteSpan.addClass("success").html(_self.attr("succmsg"));
+        }
+    });
+
 	$("#phone").on("change", function () {
 		var _self = $(this);
 		var noteSpan = _self.parent().children(".noteSpan");
@@ -72,10 +92,12 @@ $(function () {
 
 	$(".myform").on("submit", function (e) {
 		e.preventDefault();
+        var noteSpan = $("#username").parent().children(".noteSpan");
 		var userText = $("#username").val();
 		if (userText.length === 0
 			|| userText.length < 4
 			|| !/^[a-z]+[a-z0-9]+$/i.test(userText)) {
+            noteSpan.addClass("error").html($("#username").attr("nullmsg"));
 			return;
 		}
 
