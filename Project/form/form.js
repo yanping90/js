@@ -107,8 +107,13 @@ $(function () {
 		if (userText.length === 0) {
             userNote.addClass("error").html($("#username").attr("nullmsg"));
 			return;
-		} else if( userText.length < 4
-            || !/^[a-z]+[a-z0-9]+$/i.test(userText)){
+		} else if (userText.length < 4) {
+            userNote.addClass("error").html($("#username").attr("errormsg"));
+            return;
+        } else if (/^[a-z]+[a-z0-9]+$/i.test(userText)) {
+            userNote.addClass("success").html($("#username").attr("sucmsg"));
+        } else {
+            userNote.addClass("error").html($("#username").attr("errormsg"));
             return;
         }
 
@@ -128,28 +133,40 @@ $(function () {
         var passNote = $("#password").parent().children(".noteSpan");
         if(passText.length === 0){
             passNote.addClass("error").html($("#password").attr("nullmsg"));
-        } else if(passText.length < 4
-            || /\s+/.test(passText)
-            || /[0-9]{9}/.test(passText)
-            || passText.length >20){
             return;
+        } else if(passText.length < 4){
+            passNote.addClass("error").html($("#password").attr("error1msg"));
+            return;
+        } else if(/\s+/.test(passText)){
+            passNote.addClass("error").html($("#password").attr("errornullmsg"));
+            return;
+        } else if(/[0-9]{9}/.test(passText)){
+            passNote.addClass("error").html($("#password").attr("errornummsg"));
+            return;
+        } else if(passText.length >20){
+            passNote.addClass("error").html($("#password").attr("error1msg"));
+            return;
+        } else {
+            passNote.addClass("success").html($("#password").attr("succmsg"));
         }
 
-        var passAgainText = $("#pass_again").val();
         var passAgainNote = $("#pass_again").parent().children(".noteSpan");
-        if(passAgainText.length === 0){
-            passAgainNote.addClass("error").html($("#pass_again").attr("againmsg"));
-            return;
-        } else if(passText !== $("#password").val()){
+        if(passText === $("#pass_again").val()){
+            passAgainNote.addClass("success").html($("#pass_again").attr("succmsg"));
+        } else {
+            passAgainNote.addClass("error").html($("#pass_again").attr("errormsg"));
             return;
         }
 
 		var phoneText = $("#phone").val();
         var phoneNote = $("#phone").parent().children(".noteSpan");
-		if (phoneText.length === 0) {
+        if (phoneText.length === 0) {
             phoneNote.addClass("error").html($("#phone").attr("nullmsg"));
-			return;
-		} else if(!/^1[3,4,5,7][0-9]{9}$/.test(phoneText)){
+            return;
+        } else if (/^1[3,4,5,7][0-9]{9}$/.test(phoneText)) {
+            phoneNote.addClass("success").html($("#phone").attr("sucmsg"));
+        } else {
+            phoneNote.addClass("error").html($("#phone").attr("errormsg"));
             return;
         }
 
