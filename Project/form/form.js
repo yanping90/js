@@ -102,14 +102,15 @@ $(function () {
 
 	$(".myform").on("submit", function (e) {
 		e.preventDefault();
-        var noteSpan = $("#username").parent().children(".noteSpan");
+        var userNote = $("#username").parent().children(".noteSpan");
 		var userText = $("#username").val();
-		if (userText.length === 0
-			|| userText.length < 4
-			|| !/^[a-z]+[a-z0-9]+$/i.test(userText)) {
-            noteSpan.addClass("error").html($("#username").attr("nullmsg"));
+		if (userText.length === 0) {
+            userNote.addClass("error").html($("#username").attr("nullmsg"));
 			return;
-		}
+		} else if( userText.length < 4
+            || !/^[a-z]+[a-z0-9]+$/i.test(userText)){
+            return;
+        }
 
 		$.get("/user.php"
 			, {
@@ -124,20 +125,33 @@ $(function () {
 		);
 
         var passText = $("#password").val();
-        var noteSpan = $("#password").parent().children(".noteSpan");
-        if(passText.length === 0
-            || passText.length < 4
+        var passNote = $("#password").parent().children(".noteSpan");
+        if(passText.length === 0){
+            passNote.addClass("error").html($("#password").attr("nullmsg"));
+        } else if(passText.length < 4
             || /\s+/.test(passText)
             || /[0-9]{9}/.test(passText)
             || passText.length >20){
-            noteSpan.addClass("error").html($("#password").attr("nullmsg"));
+            return;
+        }
+
+        var passAgainText = $("#pass_again").val();
+        var passAgainNote = $("#pass_again").parent().children(".noteSpan");
+        if(passAgainText.length === 0){
+            passAgainNote.addClass("error").html($("#pass_again").attr("againmsg"));
+            return;
+        } else if(passText !== $("#password").val()){
+            return;
         }
 
 		var phoneText = $("#phone").val();
-		if (phoneText.length === 0
-			|| !/^1[3,4,5,7][0-9]{9}$/.test(phoneText)) {
+        var phoneNote = $("#phone").parent().children(".noteSpan");
+		if (phoneText.length === 0) {
+            phoneNote.addClass("error").html($("#phone").attr("nullmsg"));
 			return;
-		}
+		} else if(!/^1[3,4,5,7][0-9]{9}$/.test(phoneText)){
+            return;
+        }
 
         var areaText = $("#provice").parent().children(".noteSpan");
         areaText.removeClass("error").removeClass("success").empty();
