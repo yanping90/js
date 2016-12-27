@@ -1,0 +1,85 @@
+body{
+    font-size:12px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.menu{
+    height: 145px;
+    margin: 0 auto;
+    width: 300px;
+    padding-left: 0;
+    overflow: hidden;
+}
+
+.menu li{
+    margin:10px 0;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.menu li span{
+    color: #F90;
+    padding-right: 5px;
+}
+
+.menu li i{
+    font-style: normal;
+    color:#888;
+}
+
+.menu li a{
+    display: block;
+    color:#333;
+}
+
+.menu li a:hover{
+    color:#3d85b8;
+}
+
+.menu02{
+    float: left;
+    margin: 0 auto;
+    width: 510px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0;
+    /* height: 130px; */
+    margin: 0 auto;
+}
+
+.menuRoll{
+    width: 568px;
+    margin: auto;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.menu02 img{
+    display: block;
+    width:160px;
+    height: 100px;
+}
+.menu02 li{
+    width:160px;
+    margin-right: 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.menu02 li a{
+    line-height: 30px;
+    /* margin-right: 10px; */
+}
+
+.phone{width: 597px;}

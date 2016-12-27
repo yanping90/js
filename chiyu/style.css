@@ -1,0 +1,52 @@
+ul{
+    list-style-type: none;
+}
+
+body{
+    font-size:12px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.top_menu li{
+    display: inline-block;
+    position: relative;
+}
+
+.top_sub_menu{
+    padding-left: 0;
+    position: absolute;
+    color: #666;
+    display: none;
+}
+
+.top_sub_menu li{
+    display: block;
+}
+
+.news ul{
+    height: 148px;
+    overflow: hidden;
+}
+
+.news ul li a{
+    display: block;
+    color: #333;
+}
+
+.news ul li {
+    font-size: 12px;
+    margin: 10px 0;
+    line-height: 20px;
+}
+
+.news ul li span{
+    color:#f80;
+}
+
+.news ul li i{
+    font-style: normal;
+    color: #999;
+}
