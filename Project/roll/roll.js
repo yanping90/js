@@ -15,17 +15,17 @@ $(function () {
 					return;
 				}
 				var steps = _self[settings.dir]();
-				if (steps < settings.maxSpan) {
-					steps += settings.step;
+				if (steps >0) {
+					steps -= settings.step;
 				} else {
-					steps = 0;
-					_self.children().eq(0).appendTo(_self);
+					steps = settings.maxSpan;
+                    _self.children().last().prependTo(_self);
 					stop();
 					delayTimer = setTimeout(function () {
 						int = setInterval(roll, settings.speed);
 					}, settings.delay);
 				}
-				var steps = _self[settings.dir](steps);
+				steps = _self[settings.dir](steps);
 			};
 			var start = function () {
 				int = setInterval(roll, settings.speed);
@@ -48,9 +48,6 @@ $(function () {
 					pause(false);
 				});
 			}
-			if (typeof settings.callback == "function") {
-				settings.callback.call(_self);
-			}
 		});
 	};
 	$.fn.roll.defaults = {
@@ -61,15 +58,14 @@ $(function () {
 		, delay: 1000
 		, onOverOut: true
 		, autoStart: true
-		, callback: function(){}
 	};
 
-	$(".menu02").roll({
+	/**$(".menu02").roll({
 		dir: "scrollLeft"
 		, delay: 2000
 		, maxSpan: 160
 		, step: 6
-	});
+	});**/
 
 })
 
