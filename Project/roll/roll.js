@@ -15,15 +15,28 @@ $(function () {
 					return;
 				}
 				var steps = _self[settings.dir]();
-				if (steps >0) {
-					steps -= settings.step;
-				} else {
-					steps = settings.maxSpan;
-                    _self.children().last().prependTo(_self);
-					stop();
-					delayTimer = setTimeout(function () {
-						int = setInterval(roll, settings.speed);
-					}, settings.delay);
+				if(settings.rightBottom){
+					if (steps >0) {
+						steps -= settings.step;
+					} else {
+						steps = settings.maxSpan;
+						_self.children().last().prependTo(_self);
+						stop();
+						delayTimer = setTimeout(function () {
+							int = setInterval(roll, settings.speed);
+						}, settings.delay);
+					}
+				} else if(settings.topLeft){
+					if(steps < settings.maxSpan){
+						steps += settings.step;
+					} else{
+						steps = 0;
+						_self.children().eq(0).appendTo(_self);
+						stop();
+						delayTimer = setTimeout(function(){
+							int = setInterval(roll,settings.speed);
+						},settings.delay);
+					}
 				}
 				steps = _self[settings.dir](steps);
 			};
@@ -58,14 +71,18 @@ $(function () {
 		, delay: 1000
 		, onOverOut: true
 		, autoStart: true
+		, rightBottom: true
+		, topLeft: true
 	};
 
-	/**$(".menu02").roll({
+	$(".menu02").roll({
 		dir: "scrollLeft"
-		, delay: 2000
+		, speed: 30
+		, delay: 1000
 		, maxSpan: 160
-		, step: 6
-	});**/
+		, step: 5
+		, topLeft: false
+	});
 
 })
 
