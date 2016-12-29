@@ -96,7 +96,7 @@ $(function(){
                 if (reg[_self.attr("datatype")].test(_self.val())) {
                     noteSpan.addClass("success").html("正确");
                 } else {
-                    noteSpan.addClass("error").html("失败");
+                    noteSpan.addClass("error").html("错误");
                 }
             }
     });
@@ -157,17 +157,30 @@ $(function(){
             passAgainNote.addClass("error").html($("#pass_again").attr("errormsg"));
             return;
         }
+
         for (var i = 0; i < $(".v").length; i++) {
-            var noteSpan = $(".v").eq(i).parent().children(".noteSpan");
+            var vNote = $(".v").eq(i).parent().children(".noteSpan");
             if (reg[$(".v").eq(i).attr("datatype")] instanceof RegExp) {
                 if($(".v").eq(i).val().length === 0){
-                    noteSpan.addClass("error").html("不能为空");
+                    vNote.addClass("error").html("不能为空");
+                    return;
                 } else if (reg[$(".v").eq(i).attr("datatype")].test($(".v").eq(i).val())) {
-                    noteSpan.addClass("success").html("成功");
+                    vNote.addClass("success").html("正确");
                 } else {
-                    noteSpan.addClass("error").html("失败");
+                    vNote.addClass("error").html("错误");
+                    return;
                 }
             }
+        }
+
+        var areaNote = $("#provice").parent().children(".noteSpan");
+        areaNote.removeClass("error").removeClass("success").empty();
+        if($("#provice").attr("select") === undefined
+            || $("#city").attr("select") === undefined
+            || $("#area").attr("select") === undefined){
+            areaNote.addClass("error").html("所在地不能为空");
+        }   else {
+            areaNote.addClass("success").html("正确");
         }
     });
 })
