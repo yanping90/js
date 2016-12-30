@@ -53,6 +53,10 @@ $(function () {
                 roll= dirTopLeft;
             }
 
+            if(settings.rightBottom){
+                roll= dirBottomRight;
+            }
+
 			var start = function () {
 				int = setInterval(roll, settings.speed);
 			};
