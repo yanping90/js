@@ -25,7 +25,7 @@ $(function () {
                         int = setInterval(roll, settings.speed);
                     }, settings.delay);
                 }
-                var steps = _self[settings.dir](steps);
+                 var steps = _self[settings.dir](steps);
             };
             var start = function () {
                 int = setInterval(roll, settings.speed);

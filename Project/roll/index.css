@@ -50,7 +50,7 @@ a:hover{
 .menu02{
     float: left;
     margin: 0 auto;
-    width: 510px;
+    width: 506px;
     white-space: nowrap;
     overflow: hidden;
     padding: 0;
@@ -69,12 +69,14 @@ a:hover{
     display: block;
     width:160px;
     height: 100px;
+    /* padding-right: 10px; */
 }
 .menu02 li{
     width:160px;
     margin-right: 10px;
     display: inline-block;
     overflow: hidden;
+    margin-left: 0;
 }
 
 .menu02 li a{
