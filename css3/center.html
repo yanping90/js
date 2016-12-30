@@ -16,12 +16,20 @@
       position: absolute;
       left: 50%;
     }
+    .content1 p>span{
+        border-top:4px solid;
+        border-left: 4px solid transparent;
+        border-right:4px solid transparent;
+    }
   </style>
 </head>
 <body>
 
 <div class="content1">
-  <p>hello world</p>
+  <p>
+      hello world<span></span>
+      <span></span>
+  </p>
 </div>
 <script>
 
@@ -29,7 +37,7 @@
     return str.split(" ")[1];
   }
 
-  /^(([a-z0-9]+-)?[a-z0-9]+\.)+[a-z]{2,6}$/.test("ww-dd.w3333-dd-d.com");//域名匹配正则
+  // /^(([a-z0-9]+-)?[a-z0-9]+\.)+[a-z]{2,6}$/.test("ww-dd.w3333-dd-d.com");//域名匹配正则
 </script>
 </body>
 </html>
