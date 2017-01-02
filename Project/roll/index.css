@@ -50,21 +50,32 @@ a:hover{
 .menu02{
     float: left;
     margin: 0 auto;
-    width: 506px;
-    white-space: nowrap;
+    width: 512px;
+    /* white-space: nowrap; */
     overflow: hidden;
     padding: 0;
     /* height: 130px; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    border: 1px solid #000;
+    /* display: inline-block; */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .menuRoll{
-    width: 568px;
+    width: 1000px;
     margin: auto;
-    white-space: normal;
-    overflow: hidden;
+    padding-left: 0;
 }
-
+.menuRoll:before{
+    content:"";
+    display: table;
+}
+.menuRoll:after{
+    content:"";
+    clear: both;
+    display: table;
+}
 .menu02 img{
     display: block;
     width:160px;
@@ -74,14 +85,18 @@ a:hover{
 .menu02 li{
     width:160px;
     margin-right: 10px;
-    display: inline-block;
+    /* display: inline-block; */
     overflow: hidden;
     margin-left: 0;
+    float: left;
 }
 
 .menu02 li a{
     line-height: 30px;
     /* margin-right: 10px; */
+    height: 28px;
+    overflow: hidden;
+    display: block;
 }
 
-.phone{width: 604px;}
+.phone{width: 613px;}

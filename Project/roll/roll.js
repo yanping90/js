@@ -8,54 +8,54 @@ $(function () {
 			var int = 0;
 			var delayTimer = 0;
 			var _pause = false;
-            var dirLeft = false;
-            var dirRight = false;
+			var dirLeft = false;
+			var dirRight = false;
 
 			var _self = $(el);
-            var roll;
-            var dirBottomRight = function(){
-                if (_pause) {
-                    return;
-                }
-                var steps = _self[settings.dir]();
-                if (steps >0) {
-                    steps -= settings.step;
-                } else {
-                    steps = settings.maxSpan;
-                    _self.children().last().prependTo(_self);
-                    stop();
-                    delayTimer = setTimeout(function () {
-                        int = setInterval(roll, settings.speed);
-                    }, settings.delay);
-                }
-                steps = _self[settings.dir](steps);
-            }
+			var roll;
+			var dirBottomRight = function () {
+				if (_pause) {
+					return;
+				}
+				var steps = _self[settings.dir]();
+				if (steps > 0) {
+					steps -= settings.step;
+				} else {
+					steps = settings.maxSpan;
+					_self.children().children().last().prependTo(_self.children());
+					stop();
+					delayTimer = setTimeout(function () {
+						int = setInterval(roll, settings.speed);
+					}, settings.delay);
+				}
+				steps = _self[settings.dir](steps);
+			}
 
-            var dirTopLeft = function(){
-                if (_pause) {
-                    return;
-                }
-                var steps = _self[settings.dir]();
-                if(steps < settings.maxSpan){
-                    steps += settings.step;
-                } else{
-                    steps = 0;
-                    _self.children().eq(0).appendTo(_self);
-                    stop();
-                    delayTimer = setTimeout(function(){
-                        int = setInterval(roll,settings.speed);
-                    },settings.delay);
-                }
-                steps = _self[settings.dir](steps);
-            }
+			var dirTopLeft = function () {
+				if (_pause) {
+					return;
+				}
+				var steps = _self[settings.dir]();
+				if (steps < settings.maxSpan) {
+					steps += settings.step;
+				} else {
+					steps = 0;
+					_self.children().children().eq(0).appendTo(_self.children());
+					stop();
+					delayTimer = setTimeout(function () {
+						int = setInterval(roll, settings.speed);
+					}, settings.delay);
+				}
+				steps = _self[settings.dir](steps);
+			}
 
-            if(settings.topLeft){
-                roll= dirTopLeft;
-            }
+			if (settings.topLeft) {
+				roll = dirTopLeft;
+			}
 
-            if(settings.rightBottom){
-                roll= dirBottomRight;
-            }
+			if (settings.rightBottom) {
+				roll = dirBottomRight;
+			}
 
 			var start = function () {
 				int = setInterval(roll, settings.speed);
@@ -81,18 +81,21 @@ $(function () {
 				});
 			}
 
-            if(settings.prenextClick){
-                $(settings.preBtnSelector).on("click",function(){
-                    stop();
-                    roll= dirTopLeft;
-                    start();
-                });
-                $(settings.nextBtnSelector).on("click",function(){
-                    stop();
-                    roll= dirBottomRight;
-                    start();
-                });
-            }
+			if (settings.prenextClick) {
+				$(settings.preBtnSelector).on("click", function () {
+					stop();
+					roll = dirTopLeft;
+					start();
+				});
+				$(settings.nextBtnSelector).on("click", function () {
+					stop();
+					//if(_self[settings.dir]() == 0){
+						//steps = _self[settings.dir](settings.maxSpan);
+					//}
+					roll = dirBottomRight;
+					start();
+				});
+			}
 		});
 	};
 	$.fn.roll.defaults = {
@@ -105,16 +108,16 @@ $(function () {
 		, autoStart: true
 		, rightBottom: true
 		, topLeft: true
-        , prenextClick: true
-        , preBtnSelector: "#preBtn"
-        , nextBtnSelector: "#nextBtn"
+		, prenextClick: true
+		, preBtnSelector: "#preBtn"
+		, nextBtnSelector: "#nextBtn"
 	};
 
 	$(".menu02").roll({
 		dir: "scrollLeft"
-		, speed: 30
+		, speed: 100
 		, delay: 2000
-		, maxSpan: 166
+		, maxSpan: 170
 		, step: 5
 		, rightBottom: false
 	});
