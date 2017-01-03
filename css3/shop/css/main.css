@@ -346,36 +346,41 @@
 .list_bar{
     padding: 17px 0;
 }
-.list{
+.leftNav{
     width:182px;
     border:1px solid #d7d7d7;
     color: #555;
-    background-color: white;
+    background-color: #f6f6f6;
 }
-.bottom
-.list h3{
+.nav_title{
     text-align: center;
     font:14px/34px "宋体";
     font-weight: bold;
     border-bottom:1px solid #d7d7d7;
 }
+.nav_cont{
+    padding: 0  0 5px 20px;
+    border-bottom: 1px dotted #d7d7d7;
+    margin-bottom: -1px;
+}
+.nav_cont h3{
+    font-size: 12px;
+    line-height: 30px;
+    height: 30px;
+}
 .list_bar .fr{
     width:810px;
 }
-.list_item{
-    padding: 0  0 5px 20px;
-    border-bottom: 1px dotted #d7d7d7;
-}
-.list_item dt{
-    font-weight: bold;
-    line-height: 30px;
-}
-.list_item dd a{
-    width: 78px;
-    display: inline-block;
+.navCont_list li{
+    float: left;
+    width: 50%;
     color: #555;
     line-height: 24px;
 }
+.navCont_list li a{
+    color: #555;
+}
+
 /*商品列表*/
 .lists{
     width:812px;
