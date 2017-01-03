@@ -9,6 +9,7 @@ ul{
 }
 input,select,textarea{
     outline: none;
+    background: none;
 }
 textarea{
     resize: none;

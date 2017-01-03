@@ -15,11 +15,11 @@
 /*logoBar*/
 .logoBar{background: #1d7ad9;height: 85px;}
 .logo{padding: 13px 185px 0 40px; }
-.searchBar{width:430px; height: 35px; line-height: 35px;padding-top: 23px;}
-.search_text{height: 100%;width:340px;border:none;padding:0 10px;}
-.search_btn{border:none;width:70px;font:14px/35px "微软雅黑";background: #ff8c00;text-align: center;color:#fff;height: 100%;}
+.searchBar{width:430px;height: 35px;line-height: 35px;margin-top: 23px;/* background: #fff; */}
+.search_text{height: 35px;width:340px;border:none;padding:0 10px;background: #fff;line-height: 35px\9;}
+.search_btn{border:none;width:70px;font:14px/35px "微软雅黑";background: #ff8c00;text-align: center;color:#fff;height: 35px;}
 /*shopCar*/
-.shopCar{background: #ff8c00;width: 145px;height: 35px;line-height: 35px;margin-top: 23px;color:#fff;}
+.shopCar{background: #ff8c00;width: 145px;height: 35px;line-height: 35px;margin-top: 23px;color:#fff;margin-right: 50px;display: inline;}
 .shopText{
     width: 87px;
     border-right: 1px solid #e27a00;
@@ -42,6 +42,7 @@
 .shopCate h3{
     line-height: 35px;
     text-align: center;
+    height: 100%;
 }
 .shopCate h3 i{
     background: url("../images/icon/down.jpg") left center no-repeat;
@@ -79,8 +80,9 @@
 .shopClass_item {
     border-top: 1px solid #5aa1fe;
     border-bottom: 1px solid #3487f2;
-    padding: 11px 10px;
+    padding: 13px 10px;
     background: url("../images/icon/shop_sj.jpg") 176px center no-repeat;
+    line-height: 16px;
 }
 .shopClass_active{
     background: #fff !important;
@@ -102,11 +104,12 @@
     text-decoration: underline;
 }
 .shopClass_item dt{
-    font:14px/20px "微软雅黑";
+    font:14px/1 "微软雅黑";
+    overflow: hidden;
+    height: 21px;
 }
 .shopClass_item dd a{
     padding-right: 7px;
-    line-height: 20px;
 }
 
 /*shopClass_list*/
@@ -162,7 +165,7 @@
 .banner_bar{
     position: relative;
     overflow: hidden;
-    float: left;
+    float: right;
 }
 .banner_img{
     position: absolute;
@@ -178,6 +181,8 @@
     position: absolute;
     bottom:15px;
     left:0;
+    height: 4px;
+    /* overflow: hidden; */
 }
 .banner_link a{
     background: #fff;
@@ -185,6 +190,7 @@
     height: 4px;
     display: inline-block;
     margin-right: 4px;
+    overflow: hidden;
 }
 .banner_link .active{
     background: #f80;
