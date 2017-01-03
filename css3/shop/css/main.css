@@ -115,11 +115,13 @@
 /*shopClass_list*/
 .shopClass_list{
     width:568px;
-    border-right:1px solid #ddd;
-    border-bottom:1px solid #ddd;
+    border-top: none;
+    border: 1px solid #ddd;
     position: absolute;
     left: 190px;
     top: 35px;
+    z-index: 100;
+    background: #fff;
 }
 .shopList_count{
     width:538px;
@@ -340,3 +342,87 @@
 .footer_img img{
     padding:30px  24px 0 0;
 }
+/*商品分类页面*/
+.list_bar{
+    padding: 17px 0;
+}
+.list{
+    width:182px;
+    border:1px solid #d7d7d7;
+    color: #555;
+    background-color: white;
+}
+.bottom
+.list h3{
+    text-align: center;
+    font:14px/34px "宋体";
+    font-weight: bold;
+    border-bottom:1px solid #d7d7d7;
+}
+.list_bar .fr{
+    width:810px;
+}
+.list_item{
+    padding: 0  0 5px 20px;
+    border-bottom: 1px dotted #d7d7d7;
+}
+.list_item dt{
+    font-weight: bold;
+    line-height: 30px;
+}
+.list_item dd a{
+    width: 78px;
+    display: inline-block;
+    color: #555;
+    line-height: 24px;
+}
+/*商品列表*/
+.lists{
+    width:812px;
+}
+.lists_title{
+    margin-top: 5px;
+    height: 40px;
+    border-bottom: 2px solid #cccccc;
+}
+.lists_title h3{
+    width: 170px;
+    padding-left: 10px;
+    color:#444;
+    font: 14px/40px "宋体";
+    font-weight: 900;
+    border-bottom: 2px solid #096dba;
+}
+.lists_item{
+    width:203px;
+    /* margin-top: 20px; */
+}
+.lists_img{
+    width:184px;
+    height: 170px;
+    overflow: hidden;
+}
+.lists_text{
+    padding-left: 20px;
+    width: 170px;
+}
+.lists_text a{
+    line-height: 18px;
+    color:#333333;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+.lists_text h3{
+    color:#d4105a;
+    font:14px/1 "微软雅黑";
+    font-weight: bold;
+    line-height: 14px;
+}
+.lists_text p{
+    color:#444;
+}
+.lists_text p b{
+    color:#085c9b;
+    font-weight: normal;
+}
+
