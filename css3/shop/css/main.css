@@ -346,6 +346,9 @@
 .list_bar{
     padding: 17px 0;
 }
+.list_bar .banner_bar{
+    float: none;
+}
 .leftNav{
     width:182px;
     border:1px solid #d7d7d7;
@@ -382,6 +385,10 @@
 }
 
 /*商品列表*/
+.hr_15{
+    height: 15px;
+    overflow: hidden;
+}
 .lists{
     width:812px;
 }
@@ -390,6 +397,9 @@
     height: 40px;
     border-bottom: 2px solid #cccccc;
 }
+.lists_cont{
+    padding: 0 15px;
+}
 .lists_title h3{
     width: 170px;
     padding-left: 10px;
@@ -397,18 +407,19 @@
     font: 14px/40px "宋体";
     font-weight: 900;
     border-bottom: 2px solid #096dba;
+    margin-bottom: -2px;
+    position: relative;
 }
 .lists_item{
-    width:203px;
+    width: 25%;
+    *width: 24%;
+    float: left;
+    height: 265px;
 }
 .lists_img{
     width:184px;
     height: 170px;
     overflow: hidden;
-}
-.lists_text{
-    padding-left: 20px;
-    width: 170px;
 }
 .lists_text a{
     line-height: 18px;
