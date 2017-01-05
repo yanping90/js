@@ -879,6 +879,7 @@
     border:1px solid #cccccc;
     background-color: #fff;
     padding-bottom: -2px;
+    float: left;
 }
 .des_num div{
     float: left;
@@ -912,6 +913,7 @@
     font-size: 14px;
     padding-left: 10px;
     float: left;
+    line-height: 34px;
 }
 .num_limit em{
     font-style: normal;
