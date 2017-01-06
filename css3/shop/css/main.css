@@ -1144,12 +1144,18 @@
     right: 3%;
     top: -20px;
 }
+.score_sort{
+    position: relative;
+}
 .score_count i{
-    border-width: 4px;
+    border-width: 3px;
     border-style:solid dashed dashed dashed;
     border-color: #7f7f7f transparent transparent transparent;
     width:0;
     height: 0;
+    position: absolute;
+    top: 13px;
+    left: 5px;
 }
 /*评论*/
 .review_tit{
@@ -1196,16 +1202,16 @@
 .review_box{
     padding-bottom: 30px;
 }
-.review_content{
+.review_list{
     padding: 0 24px 0 40px;
     width: 720px;
 }
-.review_photo{
+.review_userHeader{
     float: left;
     text-align: center;
     padding-bottom: 36px;
 }
-.review_photo p{
+.review_userHeader p{
     line-height: 20px;
     color:#77778c;
 }
@@ -1235,4 +1241,83 @@
     color:#ababab;
     padding-top: 10px;
 }
-
+/*全部咨询*/
+.user_answer{
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+.user_answer .page{
+    text-align: right;
+    width: 762px;
+}
+.answer_tit{
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px solid #0688ba;
+    color:#0688ba;
+}
+.answer_box{
+    font-weight: 900;
+    font-size: 14px;
+    padding:0 15px;
+    border: 1px solid #0688ba;
+    border-bottom: 1px solid #fff;
+    float: left;
+    line-height: 32px;
+    /* z-index: 100; */
+}
+.announce{
+    float: right;
+    padding-right: 20px;
+}
+.announce a{
+    color:#0688ba;
+}
+.answer_tips{
+    color:#777777;
+    line-height: 25px;
+    background-color: #f3f3f3;
+    padding: 6px 20px;
+    margin: 10px 20px;
+}
+.answer_photo img{
+    width: 35px;
+    height: 35px;
+}
+.answerProduct{
+    padding-left: 0px;
+}
+.answer_bar{
+    padding-top: 26px;
+}
+.answers{
+    background-color: #f3f3f3;
+    padding:20px 30px;
+    color:#777;
+    width: 575px;
+    margin-left: 35px;
+    position: relative;
+}
+.answers span{
+    color:#333;
+}
+.answer_time{
+    width: 670px;
+}
+.answer_info{
+    float: left;
+}
+.answer_time .info_level{
+    padding-left: 35px;
+    padding-top: 5px;
+}
+.answers i{
+    border-width: 5px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent #f1f1f1 transparent;
+    width:0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    left:30px;
+}
