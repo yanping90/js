@@ -10,6 +10,7 @@ ul{
 input,select,textarea{
     outline: none;
     background: none;
+    border: none;
 }
 textarea{
     resize: none;
