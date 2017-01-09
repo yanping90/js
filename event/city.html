@@ -3,23 +3,19 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
-  <script src="../G.js"></script>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="data.js"></script>
+  <script src="drop.js"></script>
 </head>
 <body>
-<select id="year"></select>
-<select id="month"></select>
-<select id="day"></select>
-<script>
-  for(var i=1960;i<=2016;i++){
-    document.getElementById("year").appendCh("option",i+" 年","value",i);
-  }
-
-  for(var i=1;i<=12;i++){
-    document.getElementById("month").appendCh("option",i+" 月","value",i);
-  }
-
-
-
-</script>
+<div class="select_Box clearfix">
+    <div class="select_item">请选择<i class="arrow"></i></div>
+    <div class="select_item">请选择<i class="arrow"></i></div>
+    <div class="select_item">请选择<i class="arrow"></i></div>
+  </div>
+</div>
 </body>
 </html>
