@@ -14,7 +14,7 @@
 .top_nav a{ color:#656565;}
 /*logoBar*/
 .logoBar{background: #1d7ad9;height: 85px;}
-.logo{padding: 13px 185px 0 40px; }
+.logo{padding: 13px 185px 0 40px;}
 .searchBar{width:430px;height: 35px;line-height: 35px;margin-top: 23px;/* background: #fff; */}
 .search_text{height: 35px;width:340px;border:none;padding:0 10px;background: #fff;line-height: 35px\9;}
 .search_btn{border:none;width:70px;font:14px/35px "微软雅黑";background: #ff8c00;text-align: center;color:#fff;height: 35px;}
@@ -1378,6 +1378,17 @@
     width:76px;
     color:#444444;
 }
+.shoppping_radio{
+    height: 32px;
+}
+.shoppping_radio input{
+    position: relative;
+    top: 2px;
+}
+.shoppping_radio span{
+    color:#999;
+    padding-left: 10px;
+}
 .shopping_list_text i{
     color:#f22e00;
     padding-right: 5px;
@@ -1410,4 +1421,164 @@
     line-height: 26px;
     padding: 8px 20px;
     margin-top: 10px;
+}
+/*送货清单*/
+.shopCart_tit{
+    border-bottom: 1px solid #e6e6e6;
+    padding-left: 30px;
+}
+.shopCart_tit li{
+    float: left;
+    color: #666;
+    padding-top: 6px;
+    line-height: 28px;
+}
+.cart_name{
+    width:440px;
+}
+.cart_price,
+.cart_return,
+.cart_number{
+    width:135px;
+}
+.cart_count{
+    width: 123px;
+}
+.shopCart_cont li{
+    float: left;
+}
+.shopCart_cont .cart_count{
+    color:#f00;
+    font-weight: bold;
+    font-family: "微软雅黑";
+}
+.shopCart_cont .cart_price,
+.shopCart_cont .cart_return,
+.shopCart_cont .cart_number{
+    color:#333;
+}
+.cart_img{
+    float: left;
+    width:90px;
+    height: 100px;
+    text-align: center;
+}
+.cart_tit{
+    float: left;
+}
+.cart_note{
+    color:#444444;
+    padding-top: 25px;
+}
+.shopCart_message{
+    color:#3377ff;
+    padding:14px 0 36px 30px;
+}
+.shopCart_tit li.shoplist_text_sorry{
+    color:#ee0000;
+    line-height: 12px;
+    padding-top: 0;
+    background: url("../images/icon/icon_cart_prompt.jpg") left center no-repeat;
+    text-indent: 23px;
+    margin-bottom: 20px;
+}
+.cart_available p{
+    line-height: 20px;
+}
+.cart_available span{
+    color:#f00;
+    font-weight: bold;
+}
+/*提交订单*/
+.submit_box{
+    text-align: right;
+    margin-right: 30px;
+}
+.shopping_total{
+    font:bold 22px/1 "微软雅黑";
+    color:#f00;
+    padding-top: 40px;
+}
+.shopping_total span{
+    font-size: 14px;
+    color:#929292;
+    font-weight: normal;
+    font-family: "宋体";
+    position: relative;
+    top:-2px;
+}
+.shopping_submit{
+    background-color: #e50007;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    padding: 0 30px;
+    color:#fff;
+    display: inline-block;
+    font-family: "微软雅黑";
+    margin-bottom: 40px;
+    margin-top: 6px;
+}
+/*登录注册*/
+.loginBar .comWidth{
+    width:460px;
+}
+.login{
+    font:22px/1 "微软雅黑";
+    padding-left: 24px;
+    padding-top: 35px;
+    color:#fff;
+}
+.logoBar .logo{
+    padding-right: 0;
+}
+.login_box{
+    width:458px;
+    border:1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.login_padding{
+    padding: 38px 66px 10px 86px;
+}
+.login_list li{
+    padding-bottom: 10px;
+}
+.login_list span{
+    color:#999;
+    display: block;
+    line-height: 20px;
+}
+.login_input{
+    border:1px solid #ccc;
+    height:32px;
+    line-height: 32px;
+    line-height: 32px\9;
+    width: 100%;
+    padding: 0 10px;
+    background: url("../images/icon/user_icon.jpg") right center no-repeat;
+}
+.login_auto{
+    color:#333;
+    height: 55px;
+    line-height: 55px;
+}
+.login_auto a{
+    color:#333;
+}
+.login_auto a:hover{
+    text-decoration: underline;
+}
+.login_auto input,
+.login_auto label{
+   vertical-align: middle;
+}
+.login_btn{
+    display: inline-block;
+    background-color: #eee;
+    color:#333;
+    font:16px/36px "微软雅黑" ;
+    text-align: center;
+    width:100%;
+    padding: 0 10px;
 }
