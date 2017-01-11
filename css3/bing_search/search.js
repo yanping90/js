@@ -1,0 +1,12 @@
+$(function(){
+    $(".search_text").on("keyup",function(e){
+        e.stopPropagation();
+        $(".search_suggest").removeClass("hide");
+    });
+    $(".search_suggest").on("click","li",function(){
+        $(".search_text").val($(this).text());
+    });
+    $(document).on("click",function(){
+        $(".search_suggest").addClass("hide");
+    });
+});

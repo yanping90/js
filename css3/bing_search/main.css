@@ -1,0 +1,69 @@
+body{
+    background-color: #333;
+}
+.search_bar{
+    position: relative;
+}
+.search_box{
+    position: absolute;
+    top:120px;
+    left:270px;
+}
+.logo{
+    float: left;
+    font-size: 24px;
+    font-family: "微软雅黑";
+    margin-right: 16px;
+    line-height: 46px;
+    color: #fff;
+}
+.search{
+    background-color: #fff;
+    width: 550px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    overflow: hidden;
+}
+.search_text{
+    width: 485px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    padding: 0 10px;
+}
+.search_button{
+    float: left;
+    width: 45px;
+    background: #0c8484;
+    text-align: center;
+    font: 14px/45px "微软雅黑";
+    color:#fff;
+}
+/*搜索建议下拉框*/
+.hide{
+    display: none;
+}
+.search_suggest{
+    position: absolute;
+    top: 165px;
+    left: 338px;
+    background: #fff;
+    width: 548px;
+    border:1px solid #ddd;
+}
+.search_suggest ul{
+    padding: 10px;
+}
+.search_suggest li{
+    color: #666;
+    font-size: 14px;
+    line-height:32px ;
+}
+.search_suggest a{
+    color: #666;
+}
+.search_suggest li:hover{
+    text-decoration: underline;
+    background-color: #f5f5f5;
+}

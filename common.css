@@ -1,0 +1,29 @@
+body{
+    font-size: 12px;
+}
+ul,ol,div,span,i,em,p,body{
+    padding: 0;
+    margin: 0;
+}
+ul,ol{
+    list-style-type: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+input,textarea,select{
+    background: none;
+    border:none;
+    outline: none;
+}
+textarea{
+    resize: none;
+}
+.clearfix:after{
+    content:"";
+    clear:both;
+    display: block;
+}
+
+
+‰Ø¿¿∆˜ºÊ»› ”Õº
