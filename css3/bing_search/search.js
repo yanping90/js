@@ -12,7 +12,7 @@ $(function () {
 });
 
 //date = {year:2016,month:2}  offset=1  //不改变传进来的值
-var changeYM = function (d, offset) {
+var changeYM01 = function (d, offset) {
 	var year = d.year;
 	var month = d.month + offset;
 	if (month <= 0) {
@@ -29,7 +29,7 @@ var changeYM = function (d, offset) {
 }
 
 //引用传递会改变传进来的值,值传递不改变传进来的值。
-var changeYM = function (d, offset) {
+var changeYM02 = function (d, offset) {
 	d.month += offset;
 	if (d.month <= 0) {
 		d.month += 12;
@@ -40,3 +40,8 @@ var changeYM = function (d, offset) {
 	}
 }
 //getYearMonth({year: 2016, month: 10}, -12);
+
+//2016-1
+var changeYM03 = function(d,offset){
+	new Date()
+}
