@@ -9,19 +9,34 @@ $(function () {
 	$(document).on("click", function () {
 		$(".search_suggest").addClass("hide");
 	});
-
-	//date = {year:2016,month:2}  offset=1
-	var getYearMonth = function(date,offset){
-		var year = date.year;
-		var month = date.month + offset;
-		if(month<0){
-			month = 12+month;
-			year = year - 1 ;
-		} else if(month>12){
-			month = month - 12;
-			year = year +1;
-		}
-        return year+"年"+month;
-	}
-    $(".ym").html(getYearMonth({year:2016,month:10},-12));
 });
+
+//date = {year:2016,month:2}  offset=1  //不改变传进来的值
+var changeYM = function (d, offset) {
+	var year = d.year;
+	var month = d.month + offset;
+	if (month <= 0) {
+		month = 12 + month;
+		year = year - 1;
+	} else if (month > 12) {
+		month = month - 12;
+		year = year + 1;
+	}
+	return {
+		year: year,
+		month: month
+	}
+}
+
+//引用传递会改变传进来的值,值传递不改变传进来的值。
+var changeYM = function (d, offset) {
+	d.month += offset;
+	if (d.month <= 0) {
+		d.month += 12;
+		d.year--;
+	} else if (month > 12) {
+		month -= 12;
+		d.year++;
+	}
+}
+//getYearMonth({year: 2016, month: 10}, -12);
