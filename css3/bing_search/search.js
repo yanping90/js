@@ -13,16 +13,15 @@ $(function () {
 	//date = {year:2016,month:2}  offset=1
 	var getYearMonth = function(date,offset){
 		var year = date.year;
-		var month = date.month+offset;
+		var month = date.month + offset;
 		if(month<0){
-			month = Math.abs(month);
+			month = 12+month;
 			year = year - 1 ;
-		} else if(month>0 && month<12){
-			month = Math.abs(month);
 		} else if(month>12){
-			month = Math.abs(month);
+			month = month - 12;
 			year = year +1;
 		}
-		return date;
+        return year+"年"+month;
 	}
+    $(".ym").html(getYearMonth({year:2016,month:10},-12));
 });
