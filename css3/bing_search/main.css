@@ -39,6 +39,7 @@ body{
     text-align: center;
     font: 14px/45px "微软雅黑";
     color:#fff;
+    display: inline-block;
 }
 /*搜索建议下拉框*/
 .hide{

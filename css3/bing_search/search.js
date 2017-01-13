@@ -42,6 +42,14 @@ var changeYM02 = function (d, offset) {
 //getYearMonth({year: 2016, month: 10}, -12);
 
 //2016-1
-var changeYM03 = function(d,offset){
-	new Date()
+var changeMonth = function(d){
+    return new Date(d).getFullYear()*12 + new Date(d).getMonth();
+}
+var changeYM03 = function(d,offset,year,month){
+    year = Math.floor((d+offset)/12);
+    month = Math.floor((d+offset)%12);
+    return {
+        year:year,
+        month:month
+    }
 }
