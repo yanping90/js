@@ -27,6 +27,20 @@ $(function(){
 	//new Date(2017,1,0)会自动转化成2017,0,lastDay lastDay为最后一天。
 	//每个月的天数
 	var getDays = function(y,m){
-		return new Date(y,m,0).getDate();
+		var lastDay = new Date(y,m,0).getDate();
+		var arr=[];
+		for(var i =0;i<lastDay;i++){
+			arr.push(i+1);
+		}
+		return arr;
 	}
 })
+
+var getDays = function(y,m){
+	var lastDay = new Date(y,m,0).getDate();
+	var arr=[];
+	for(var i =0;i<lastDay;i++){
+		arr.push(i+1);
+	}
+	return arr;
+}
