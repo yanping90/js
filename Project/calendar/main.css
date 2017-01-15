@@ -1,0 +1,87 @@
+.calendar_box{
+    width:496px;
+    border:2px solid #57abff;
+    margin-left: auto;
+    margin-right: auto;
+    color:#333;
+    text-align: center;
+}
+.calendar{
+    padding: 10px;
+    height: 272px;
+}
+.calendar_tit{
+    height: 24px;
+    line-height: 24px;
+}
+.calendar_today{
+    padding: 0 10px;
+    border:1px solid #d8d8d8;
+}
+.calendar_today:hover{
+    border:1px solid #57abff;
+    cursor: pointer;
+}
+.arrowBtn{
+    border-width: 4px;
+    width:0;
+    height: 0;
+    position: absolute;
+    top: 7px;
+    display: inline-block;
+}
+.prevBtn{
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #666 transparent transparent;
+    left:0;
+}
+.nextBtn{
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent #666;
+    right: 4px;
+}
+.calendar_item{
+    position: relative;
+    padding: 0 20px 0 19px;
+    margin-right: 20px;
+    border:1px solid #ddd;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+}
+.return_today{
+    padding: 0 8px;
+    margin-right: 0;
+}
+.calendar_item a{
+    display: inline-block;
+    color:#666;
+}
+.calendar_item:hover{
+    border:1px solid #57abff;
+    cursor: pointer;
+}
+.calendar_cont{
+    width:100%;
+    margin-top: 10px;
+    /* margin-bottom: -1px; */
+}
+.calendar_weekday li,
+.calendar_date li{
+    float: left;
+    width: 68px;
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    border-top:1px solid #57abff;
+    border-bottom:1px solid #c8cacc;
+    font-size: 13px;
+}
+.calendar_date li{
+    border-top:none;
+    height: 40px;
+    font: bold 13px/40px "微软雅黑";
+}
+.calendar_date li.disabled{
+    color:#999;
+}

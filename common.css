@@ -24,6 +24,9 @@ textarea{
     clear:both;
     display: block;
 }
-
-
-ä¯ÀÀÆ÷¼æÈİÊÓÍ¼
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
