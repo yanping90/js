@@ -28,19 +28,9 @@ $(function(){
 	//每个月的天数
 	var getDays = function(y,m){
 		var lastDay = new Date(y,m,0).getDate();
-		var arr=[];
 		for(var i =0;i<lastDay;i++){
-			arr.push(i+1);
+			$(".calendar_date").append($("<li>").html(i+1));
 		}
-		return arr;
 	}
+	getDays($("#year_tit").attr("data-ym") >>0 ,$("#month_tit").attr("data-ym") >>0 );
 })
-
-var getDays = function(y,m){
-	var lastDay = new Date(y,m,0).getDate();
-	var arr=[];
-	for(var i =0;i<lastDay;i++){
-		arr.push(i+1);
-	}
-	return arr;
-}
