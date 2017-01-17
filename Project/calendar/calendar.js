@@ -3,8 +3,12 @@
  */
 $(function(){
 	//年份和月份设置默认值
-	$("#year_tit").html(new Date().getFullYear()+"年").attr("data-ym",new Date().getFullYear());
-	$("#month_tit").html(new Date().getMonth()+1+"月").attr("data-ym",new Date().getMonth());
+	var defaultYear= $("#year_tit").html(new Date().getFullYear()+"年")
+        .attr("data-ym",new Date().getFullYear())
+        .attr("default-y",new Date().getFullYear());
+    var defaultMonth= $("#month_tit").html(new Date().getMonth()+1+"月")
+        .attr("data-ym",new Date().getMonth())
+        .attr("default-m",new Date().getMonth());
 	//把年份转化成月份 d为一个日期，例如:2016-1-1
 	var changeMonth = function(d){
 		return new Date(d).getFullYear()*12 + new Date(d).getMonth();
@@ -48,7 +52,8 @@ $(function(){
 
 	//上一月、下一月、上一年、下一年点击事件
 	$(".arrowBtn").on("click",function(){
-		var ms = changeMonth($("#year_tit").attr("data-ym")+"-"+($("#month_tit").attr("data-ym")+1));
+        var month = $("#month_tit").attr("data-ym") >>0;
+		var ms = changeMonth($("#year_tit").attr("data-ym")+"-"+(month +1));
 		var offset = $(this).attr("data-num") >> 0;
 		var result = changeYM(ms,offset);
 		$("#year_tit").html(result.y + "年").attr("data-ym",result.y);
@@ -56,4 +61,12 @@ $(function(){
 		$(".calendar_date").empty();
 		showDays($("#year_tit").attr("data-ym") >> 0,$("#month_tit").attr("data-ym") >>0);
 	});
+
+    //返回今天  defaultYear、defaultMonth
+    $(".return_today").on("click",function(){
+        var y = defaultYear.attr("default-y");
+        var m = defaultMonth.attr("default-m");
+        $(".calendar_date").empty();
+        showDays(y,m);
+    });
 })
