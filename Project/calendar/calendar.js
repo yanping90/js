@@ -7,8 +7,8 @@ $(function(){
         .attr("data-ym",new Date().getFullYear())
         .attr("default-y",new Date().getFullYear());
     var defaultMonth= $("#month_tit").html(new Date().getMonth()+1+"月")
-        .attr("data-ym",new Date().getMonth())
-        .attr("default-m",new Date().getMonth());
+        .attr("data-ym",new Date().getMonth()+1)
+        .attr("default-m",new Date().getMonth()+1);
 	//把年份转化成月份 d为一个日期，例如:2016-1-1
 	var changeMonth = function(d){
 		return new Date(d).getFullYear()*12 + new Date(d).getMonth();
@@ -21,9 +21,9 @@ $(function(){
 		};
 	}
 
-	//new Date(2017,1,0)会自动转化成2017,0,lastDay lastDay为最后一天。
+	//new Date(2017,1,0)会自动转化成2017,1,lastDay lastDay为最后一天。
 	//每个月的天数
-	var getLastDay = function(y,m){
+	var getDays = function(y,m){
 		return new Date(y,m,0).getDate();
 	}
 
@@ -33,27 +33,27 @@ $(function(){
 	}
 
 	var showDays = function(y,m){
-		var fontDays = getWeekday(y,m+1,1);
-		var lastMonthDays = getLastDay(y,m,0);
+		var fontDays = getWeekday(y,m,1);
+		var lastMonthDays = getDays(y,m-1,0);
 		for(var i = lastMonthDays - fontDays + 1;i<= lastMonthDays;i++){
 			$(".calendar_date").append($("<li>").html(i).addClass("disabled"));
 		}
-		for(var j = 0;j< getLastDay(y,m+1);j++){
+		for(var j = 0;j< getDays(y,m);j++){
 			$(".calendar_date").append($("<li>").html(j+1));
 		}
-		for(var l = 0; l< 6 - getWeekday(y,m+1,getLastDay(y,m+1));l++){
+		for(var l = 0; l< 6 - getWeekday(y,m,getDays(y,m));l++){
 			$(".calendar_date").append($("<li>").html(l+1).addClass("disabled"));
 		}
 
 	}
 
 	showDays($("#year_tit").attr("data-ym") >> 0,$("#month_tit").attr("data-ym") >>0);
-	getLastDay($("#year_tit").attr("data-ym") >>0 ,$("#month_tit").attr("data-ym") >>0 );
+    getDays($("#year_tit").attr("data-ym") >>0 ,$("#month_tit").attr("data-ym") >>0 );
 
 	//上一月、下一月、上一年、下一年点击事件
 	$(".arrowBtn").on("click",function(){
         var month = $("#month_tit").attr("data-ym") >>0;
-		var ms = changeMonth($("#year_tit").attr("data-ym")+"-"+(month +1));
+		var ms = changeMonth($("#year_tit").attr("data-ym")+"-"+month);
 		var offset = $(this).attr("data-num") >> 0;
 		var result = changeYM(ms,offset);
 		$("#year_tit").html(result.y + "年").attr("data-ym",result.y);
