@@ -6,17 +6,20 @@ body,p,div{
     margin: 0;
     padding: 0;
 }
-.scroll_cont{
+.scroll{
     width:600px;
     height: 300px;
+    padding: 15px 25px 15px 15px;
     margin:0 auto;
     background-color: #fff;
+    position: relative;
+}
+.scroll_cont{
+    height: 100%;
     line-height: 26px;
     text-indent: 2em;
-    overflow: hidden;
-    padding: 15px 25px 15px 15px;
-    position: relative;
     color:#333;
+    overflow: hidden;
 }
 .scroll_bar{
     background-color: #e5e5e5;
@@ -24,7 +27,7 @@ body,p,div{
     right:0;
     top:0;
     width:11px;
-    height: 330px;
+    height: 100%;
 }
 .scroll_slide{
     background-color: #fff;
