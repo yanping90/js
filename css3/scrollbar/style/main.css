@@ -1,0 +1,56 @@
+body{
+    background-color: #bbbbbb;
+}
+.scroll{
+    background-color: #fff;
+    width:500px;
+    margin: 20px auto;
+}
+.scroll_tit{
+    height: 35px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e5e5e5;
+}
+.scroll_tit li{
+    float: left;
+    font:14px/35px "微软雅黑";
+    padding: 0 20px;
+    border-right: 1px solid #e5e5e5;
+}
+.scroll_tit .active{
+    border-top:2px solid #00a151;
+    color:#00a151;
+    margin: -1px 0;
+    background-color: #ffffff;
+}
+.scroll_box{
+    font-size: 14px;
+    padding:15px;
+    padding-top: 0;
+    height: 300px;
+    color:#333;
+    font-family: "微软雅黑";
+    position: relative;
+}
+.scroll_cont{
+    overflow: hidden;
+    height: 100%;
+    text-indent: 2em;
+}
+.scroll_cont h3{
+    text-align:center ;
+}
+.scroll_bar{
+    width: 12px;
+    background-color: #ededed;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.scroll_slider{
+    height: 30px;
+    width: 11px;
+    background-color: #ffffff;
+    margin-left: 1px;
+}
