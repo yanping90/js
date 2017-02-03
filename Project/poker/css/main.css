@@ -1,7 +1,7 @@
 body{
     background-color: #f6f6f6;
 }
-.cards{
+.cards,.cards_tit{
     width:600px;
     margin-left: auto;
     margin-right: auto;
