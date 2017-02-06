@@ -79,7 +79,7 @@ $(function(){
     //var cardsCheck = createCards([[4,3],[4,3]]).sort(userSort);
     //console.log(repeatCards(cardsCheck));
     //三张牌
-    var cardsCheck = createCards([[2,4],[2,4],[1,4],[1,4],[1,4]]).sort(userSort);
+    var cardsCheck = createCards([[2,4],[2,4],[1,4],[1,4],[9,4]]).sort(userSort);
     var arrThree=[];
     var arrRepeat=repeatCards(cardsCheck);
     console.log(l(arrRepeat));
@@ -109,6 +109,8 @@ $(function(){
         var count = cardsCount(repeatCards(cardsCheck));
         if(count.length ==2 && Math.max.apply(null,count) == 3){
             console.log("true");
+        } else {
+            console.log("false");
         }
     }
 
