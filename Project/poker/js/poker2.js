@@ -79,39 +79,39 @@ $(function(){
     //var cardsCheck = createCards([[4,3],[4,3]]).sort(userSort);
     //console.log(repeatCards(cardsCheck));
     //三张牌
-    var cardsCheck = createCards([[2,4],[2,4],[1,4],[1,4],[9,4]]).sort(userSort);
-    var arrThree=[];
-    var arrRepeat=repeatCards(cardsCheck);
-    console.log(l(arrRepeat));
+    var cardsCheck = createCards([[2,4],[2,4],[2,4],[9,4],[9,4]]).sort(userSort);
+    var objRepeat=repeatCards(cardsCheck);
+    var countArr = cardsCount(repeatCards(cardsCheck));
+    console.log(l(objRepeat));
     if(cardsCheck.length ==2){
-        if(arrRepeat[cardsCheck[0].value] == 2){
+        if(objRepeat[cardsCheck[0].value] == 2){
             console.log("true");
         } else if(cardsCheck[0].value == 102 && cardsCheck[1].value == 101){
             console.log("true");
         } else {
             console.log("false");
         }
-    } else if(cardsCheck.length == 3 && arrRepeat[cardsCheck[0].value] == 3){
+    } else if(cardsCheck.length == 3 && objRepeat[cardsCheck[0].value] == 3){
         console.log("true");
     } else if(cardsCheck.length == 4){
         var count = cardsCount(repeatCards(cardsCheck));
-        if(count ==2){
-            var arr = cardsCount(repeatCards(cardsCheck));
-            if(Math.max.apply(null,arr) == 3){
+        if(countArr ==2){
+            if(Math.max.apply(null,countArr) == 3){
                 console.log("true");
             }
-        } else if(count == 1){
+        } else if(countArr == 1){
             console.log("true");
         } else {
             console.log("false");
         }
     } else if(cardsCheck.length == 5){
-        var count = cardsCount(repeatCards(cardsCheck));
-        if(count.length ==2 && Math.max.apply(null,count) == 3){
+        if(countArr.length ==2 && Math.max.apply(null,countArr) == 3){
             console.log("true");
         } else {
             console.log("false");
         }
+    } else if(cardsCheck.length == 6){
+        
     }
 
 })
