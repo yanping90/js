@@ -23,8 +23,8 @@ $(function () {
 		"J": 11,
 		"Q": 12,
 		"K": 13,
-		"A": 14,
-		"2": 15
+		"A": 100,
+		"2": 102
 	};
 	var i, j;
 	for (i = 3; i <= 10; i++) {
@@ -38,8 +38,8 @@ $(function () {
 			}
 		}
 	}
-	cards.push(addCards(1, 16, "X"));
-	cards.push(addCards(1, 17, "Y"));
+	cards.push(addCards(1, 104, "X"));
+	cards.push(addCards(1, 106, "Y"));
 	var l = function (obj) {
 		console.log(JSON.stringify(obj, null, 2));
 	};
@@ -55,7 +55,7 @@ $(function () {
 
 	cards.sort(randomNum);
 
-	var n, sortCards, a, i;
+	var n, sortCards;
 	var cardsNew = [];
 	for (n = 0; n < 3; n++) {
 		sortCards = cards.splice(0, 17);
@@ -96,7 +96,8 @@ $(function () {
 			}
 		}
 		if (count >= cards.length - 1) {
-			$(".cards_tit").html("顺子");
+            console.log("true");
+            return;
 		}
 	}
 	//连对(两张)
@@ -110,7 +111,7 @@ $(function () {
 			}
 		}
 		if (count == cards.length / 2 - 1) {
-			$(".cards_tit").html("连对正确");
+            console.log("true");
 		}
 	}
 	//连对(三张)
@@ -118,56 +119,58 @@ $(function () {
 		var count = 0, countS = 0,i;
 		for (i = 0; i < cards.length - 2; i++) {
 			if (cards[i].value - cards[i + 3].value == 1) {
-				for (var j = 0; j < 2; j++) {
+				for (var j = 0; j < cards.length-1; j++) {
 					if (cards[j].value != cards[j + 1].value) {
-						$(".cards_tit").html("连对(三)错误");
+                        console.log("false");
 						return;
-					} else{
-						countS++;
 					}
 				}
 				count++;
 			}
 		}
 		if (count == cards.length / 3 - 1 && countS==2) {
-			$(".cards_tit").html("连对(三)正确");
+            console.log("true");
 		}
 	}
 	var count4 = 0, count6 = 0;
-	var cardsCheck = createCards([[2,2],[2,2]]);
+	var cardsCheck = createCards([[2,2],[3,3],[4,4],[5,5]]);
+    cardsCheck.sort(userSort);
+    console.log(cardsCheck);
 	l(cardsCheck);
 	if (cardsCheck.length == 2) {
 		if (cardsCheck[0].value == cardsCheck[1].value) {
-			$(".cards_tit").html("对子正确");
+            console.log("true");
 		} else if (cardsCheck[0].value == "X" && cardsCheck[1].value == "Y") {
-			$(".cards_tit").html("大小王正确");
+            console.log("true");
 		} else {
-			$(".cards_tit").html("错误");
+            console.log("true");
 		}
 	} else if (cardsCheck.length == 3) {
 		for (var l = 0; l < cardsCheck.length - 1; l++) {
 			if (cardsCheck[l].value != cardsCheck[l + 1].value) {
-				$(".cards_tit").html("错误");
+                console.log("false");
 				return;
 			}
-			$(".cards_tit").html("三张对正确");
+            console.log("true");
 		}
 	} else if (cardsCheck.length == 4) {
 		for (var i = 0; i < cardsCheck.length - 1; i++) {
-			if (cardsCheck[i].value == cardsCheck[i + 1].value) {
-				count4++;
-			}
+			if (cardsCheck[i].value != cardsCheck[i + 1].value) {
+                console.log("false");
+                return;
+			} else {
+                count4++;
+            }
 		}
-		if (count4 == 2) {
-			$(".cards_tit").html("三带一正确");
-		} else if (count4 == 3) {
-			$(".cards_tit").html("炸正确");
+		if (count4 == 2 || count4 == 3) {
+			console.log("true");
 		} else {
-			$(".cards_tit").html("错误");
+            console.log("false");
 		}
-	} else if (cardsCheck.length > 4) {
+	} else if (cardsCheck.length > 4 && cardsCheck.length<13) {
 		cardsShun(cardsCheck);
 		cardsContinueTow(cardsCheck);
+        var count5;
 		if (cardsCheck.length == 6) {
 			for (var i = 0; i < cardsCheck.length - 1; i++) {
 				if (cardsCheck[i].value == cardsCheck[i + 1].value) {
@@ -177,10 +180,9 @@ $(function () {
 				}
 			}
 			if (count6 == 3) {
-				$(".cards_tit").html("四带二(炸)正确");
+                console.log("true");
 			}
 		}
-
 	}
 
 })
