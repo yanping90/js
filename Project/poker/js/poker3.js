@@ -89,6 +89,8 @@ $(function () {
 		}
 		return count;
 	}
+	//
+
 	//对子
 	var duiRule = function (cards) {
 		if (cards.length >= 2 && cards.length <= 4 && countArr.length == 1) {
