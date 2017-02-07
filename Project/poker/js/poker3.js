@@ -177,6 +177,13 @@ $(function(){
             }
         }
     }
+    //连队（三带一、三带二）
+    var lianTRule = function(cards){
+        var countArr = countCards(cards);
+        if(cards.length >=6){
+            
+        }
+    }
 
     if(duiRule(cardsCheck)){
         console.log("过");
