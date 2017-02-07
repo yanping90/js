@@ -113,7 +113,7 @@ $(function(){
     var threeRule = function(cards){
         var countArr = countCards(cards);
         if(cards.length == 4 && countArr.length == 2 && maxCount(cards) == 3){
-           return true;
+            return true;
         } else if(cards.length == 5 && countArr.length == 2 && maxCount(cards) == 3){
             return true;
         } else {
