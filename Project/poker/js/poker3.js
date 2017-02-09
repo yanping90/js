@@ -181,7 +181,7 @@ $(function(){
     var lianTRule = function(cards){
         var countArr = countCards(cards);
         if(cards.length >=6){
-            
+
         }
     }
 
