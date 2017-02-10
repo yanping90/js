@@ -89,7 +89,7 @@ $(function(){
     var cardCount = function(cards){
         return cardsCount(repeatCards(cards));
     }
-    var cardsCheck = createCards([[3,3],[3,3],[4,4],[4,4],[5,5],[5,5]]).sort(userSort);
+    var cardsCheck = createCards([[3,3],[3,3],[3,3],[4,4],[4,4],[4,4],[5,5],[5,5],[5,5],[5,5],[10,10],[6,6]]).sort(userSort);
     cardsCheck.sort(userSort);
     var objRepeat=repeatCards(cardsCheck);
     console.log(l(cardsCheck));
@@ -204,8 +204,37 @@ $(function(){
         }
     }
     //连对(三张) 三带一、三代二(二必须是对子)
-    var lianThreeRule = function(){
-
+    var lianThreeRule = function(cards){
+        var eachCards = eachCard(cards);
+        var countCards = cardCount(cards);
+        var count=0;
+        var arr=[];
+        if(cards.length >=6){
+            for(var c in objRepeat){
+                if(objRepeat[c]==3){
+                    count++;
+                    arr.push(c);
+                }
+            }
+            arr.sort(userSort);
+            if(count < 2){
+                return false;
+            } else if(cards.length == count *3 +count){
+                for(var i=0;i<arr.length-1;i++){
+                    if(arr[i] != arr[i+1] - 1){
+                        return false;
+                    }
+                }
+                return true;
+            } else if(cards.length == count *3 +count * 2){
+                for(var c in countCards){
+                    if(countCards[c]==2){
+                        count++;
+                    }
+                }
+                if(){}
+            }
+        }
     }
     //连对(四张张) 四带二
     var lianFourRule = function(){
