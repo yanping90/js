@@ -27,6 +27,7 @@ $(function () {
 		A: 14,
 		2: 20
 	};
+	
 	for (var i = 3; i <= 10; i++) {
 		mappingsToNum[i] = i;
 	}
