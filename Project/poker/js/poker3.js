@@ -73,10 +73,6 @@ $(function () {
 		return mappingsToCard[numValue];
 	};
 
-	//造牌
-	var arrNum = ["5","5"];
-	arrNum.sort(userSort);
-
 	//计算重复的牌
 	var countCard = function(cards){
 		var obj={};
@@ -94,37 +90,46 @@ $(function () {
 		}
 		return arr;
 	}
-	//计算出现次数的每张牌
-	var eachCard = function(obj){
-		var arr=[];
-		for(var o in obj){
-			arr.push(o);
+	//顺子
+	var shunCard = function (arr) {
+        arr.sort(userSort);
+		for(var i=0;i<arr.length-1;i++){
+			if(arr[i] !=arr[i+1]+1 ){
+				return false;
+			}
+		}
+		return true;
+	}
+	//指定牌重复次数为几的
+	var selectCount = function (obj,selectValue) {
+        var arr=[];
+		for(var i in obj){
+			if(obj[i] ==selectValue){
+				arr.push(obj[i]);
+			}
 		}
 		return arr;
 	}
-	//顺子
-	var shunCard = function (arr) {
-		for(var i=0;i<arr.length-1;i++){
-			if(arr[i] !=arr[i+1]-1 ){
-				return console.log("false");
-			}
-		}
-		return console.log("true");
-	}
-	//指定牌重复次数为几的
-	var selectCount = function (cards,selectValue) {
-		for(var i=0;i<cards.length;i++){
-			if(cards[i] !=selectValue){
-				return console.log("false");
-			}
-		}
-		return console.log("true");
-	}
+    //指定重复次数为几的牌
+    var selectCards = function (obj,selectValue) {
+        var arr=[];
+        for(var i in obj){
+            if(obj[i] ==selectValue){
+                arr.push(parseInt(i));
+            }
+        }
+        return arr.sort(userSort);
+    }
 
-	var eachCards = eachCard(countCard(arrNum));
-	var eachCounts = eachCount(countCard(arrNum));
-	console.log(eachCards);
-	console.log(eachCounts);
+    //造牌
+    var arrNum = [5,5,5,5,4,4,4,6,6,6,6,2,2,2];
+    arrNum.sort(userSort);
+
+    var countCards = countCard(arrNum);
+	var eachCounts = eachCount(countCards);
+    console.log(arrNum);
+    console.log(countCards);
+
 	//规则
 	var maxCount = max(eachCounts);
 	if(arrNum.length ==1){
@@ -137,20 +142,88 @@ $(function () {
 		}
 		//顺子
 		if(arrNum.length>=5){
-			return shunCard(eachCards);
+			shunCard(arrNum);
 		}
 
 	} else if(maxCount ==2){
-		//对子、连对
+		//对子
 		if(arrNum.length==2){
 			return console.log("true");
 		} else if(arrNum.length>=6){
-			return selectCount(eachCards,2);
+            //连对
+			var time2 = selectCount(countCards,2);
+            var time1 = selectCount(countCards,1);
+            var time2Cards = selectCards(countCards,2);
+            if(arrNum.length >=6){
+                shunCard(time2Cards);
+                if(time1.length !=0){
+                    return console.log("false");
+                }
+                if(time2.length == time2Cards.length){
+                    return console.log("true");
+                } else {
+                    return console.log("false");
+                }
+            }
 		}
 	} else if(maxCount ==3){
-		//三带一、三带二、飞机
+        var time2 = selectCount(countCards,2);
+        var time3Cards = selectCards(countCards,3);
+		//三带一、三带二
+        if(arrNum.length ==3 || arrNum.length == 4){
+            return console.log("true");
+        } else if(arrNum.length == 5){
+            if(time2.length !=1){
+                return  console.log("false");
+            } else {
+                return console.log("true");
+            }
+        }
+        //飞机
+        if(arrNum.length >=6){
+            shunCard(time3Cards);
+            var time3CardsLen = time3Cards.length;
+            if(arrNum.length == time3CardsLen *3 + time3CardsLen || arrNum.length == time3CardsLen *3){
+                return console.log("true");
+            } else if(arrNum.length == time3CardsLen *3 + time3CardsLen * 2){
+                var time1 = selectCount(countCards,1);
+                if(time1.length){
+                    return console.log("false");
+                } else if(time2.length && time2.length == time3CardsLen){
+                    return console.log("true");
+                }
+            } else {
+                return console.log("false");
+            }
+        }
 	} else if(maxCount ==4){
 		//炸、四带二、四带三
+        if(arrNum.length ==4 || arrNum.length ==6){
+            return console.log("true");
+        } else if(arrNum.length == 7){
+            var time3 = selectCount(countCards,3);
+            if(time3.length ==1){
+                return  console.log("true");
+            } else {
+                return  console.log("false");
+            }
+        }
+        //连炸
+        var time4Cards = selectCards(countCards,4);
+        var time4CardsLen = time4Cards.length;
+        shunCard(time4Cards);
+        if(arrNum.length == time4CardsLen * 4 || arrNum.length == time4CardsLen * 4 + time4CardsLen *2){
+            return console.log("true");
+        } else if(arrNum.length == time4CardsLen * 4 + time4CardsLen *3){
+            var time3Cards = selectCards(countCards,3);
+            if(time3Cards.length == time4CardsLen){
+                return console.log("true");
+            } else {
+                return console.log("false");
+            }
+        } else {
+            return console.log("true");
+        }
 	}
 
 })
