@@ -184,6 +184,8 @@ $(function () {
                 } else {
                     return console.log("true");
                 }
+            } else {
+                return  console.log("false");
             }
             //飞机
             if(arrNum.length >=6){
@@ -201,6 +203,8 @@ $(function () {
                 } else {
                     return console.log("false");
                 }
+            } else {
+                return console.log("false");
             }
             break;
         case 4:
