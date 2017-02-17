@@ -1,7 +1,6 @@
 window.onload =function() {
 
     var myMenu = function(e){
-        console.log(e.target.className);
         var els = document.getElementsByClassName("show");
         var elsName = e.target.className;
         for(var i =0;i<els.length;i++){
