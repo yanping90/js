@@ -1,6 +1,9 @@
 body{
     background-color: #f5f5f5;
 }
+a{
+    cursor: pointer;
+}
 .line_box{
     background-color: #fff;
     width:900px;
@@ -17,16 +20,25 @@ body{
     height: 50px;
     background-color:#3d85b8;
     font-size:14px;
+    display: inline-block;
 }
 .line_tit li a{
     color:#fff;
 }
 .lineCont{
-    width:899px;
+    width: 899px;
     overflow: hidden;
 }
 .line_cont{
     width: 900px;
+    margin-bottom: -1px;
+    display: none;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
 }
 .line_cont li{
     float: left;

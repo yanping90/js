@@ -1,20 +1,10 @@
 window.onload = function(){
+
 	var myTab = function(e){
 		var count=0;
 		console.log(e.currentTarget, e.target);
-		//三目运算 e.currentTarget、e.target
+		//
 		var li = e.target.tagName.toLocaleLowerCase() == "li" ? e.target : e.target.parentNode;
-		//找到有show的className并把show去掉
-		var eleShow = document.getElementsByClassName("show")[0];
-		var filtered,eleArr;
-		if(eleShow){
-			eleArr = eleShow.className.split(" ");
-			filtered = function(value){
-				return value != "show";
-			}
-			eleShow.className = eleArr.filter(filtered).join(" ");
-		}
-
 		var prevEle = li.previousSibling;
 		while(prevEle != null){
 			if(prevEle.tagName && prevEle.tagName.toLocaleUpperCase() == "LI"){
@@ -24,9 +14,17 @@ window.onload = function(){
 		}
 
 		//提取className
-		var arrName = document.getElementsByClassName("line_cont")[count].className;
+		var arrName = document.getElementsByClassName("line_cont")[count].className.split(" ");
+		var filtered = function(value){
+			return value != "show";
+		}
+		arrName.filter(filtered);
 
-		document.getElementsByClassName("line_cont")[count].className = arrName +" show";
+		if(document.getElementsByClassName("show")[0]){
+			document.getElementsByClassName("show")[0].className=arrName.join(" ")+" hide";
+		}
+
+		document.getElementsByClassName("line_cont")[count].className = arrName.join(" ") +" show";
 	}
 
 	var els = document.getElementsByClassName("line_tit")[0];
