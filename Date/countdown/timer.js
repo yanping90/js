@@ -30,7 +30,7 @@ $(function(){
         var leftTime = parseInt((endTime.getTime()- time.getTime())/1000);
         var d = parseInt(leftTime/(24*60*60));
         var h = parseInt(leftTime/(60*60)%24);
-        var m = parseInt(leftTime/60%60);.
+        var m = parseInt(leftTime/60%60);
         var s = parseInt(leftTime%60);
         $(".timer01").html(d+"天"+h+"小时"+m+"分"+s);
     }
