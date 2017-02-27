@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>测试fixed</title>
+  <script src="../../jquery-3.1.1.min.js"></script>
+  <style>
+    .top{
+      width:100px;
+    }
+    .top_fix{
+      background-color: #000000;
+      position: fixed;
+      top:0;
+    }
+    .hide{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="top">
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()
+  扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+  获取滚动条到左边的垂直宽度 ：$(document).scrollLeft()扩展：获取览器显示区域的高度 ： $(window).height();
+  获取浏览器显示区域的宽度 ：$(window).width();
+  获取页面的文档高度 ：$(document).height();
+  获取页面的文档宽度 ：$(document).width();
+</div>
+<div class="top_fix hide">
+  如何获取滚动条的高度 jquery获取滚动条到顶部的垂直高度 ：
+</div>
+<script>
+
+  $(document).on("scroll",function(e){
+    console.log($(this).scrollTop());
+    var fixTop = $(this).scrollTop();
+    if(fixTop>200){
+      $(".top_fix").removeClass("hide");
+    } else{
+      $(".top_fix").addClass("hide");
+    }
+  });
+</script>
+</body>
+</html>
