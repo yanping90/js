@@ -1,0 +1,9 @@
+.scroll_box{
+    width:520px;
+    height: 280px;
+    overflow: hidden;
+}
+.scroll{
+    width:2000px;
+    margin-left:0;
+}
