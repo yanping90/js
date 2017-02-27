@@ -1,4 +1,5 @@
 $(function () {
+
 	var scroll = function(){
 		var steps = parseInt($(".scroll").css("margin-left"));
 		if(steps>-520){
