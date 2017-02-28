@@ -27,6 +27,6 @@ ul{
     background: #fff;
     display: block;
 }
-.select{
+.scroll_num .select a{
     background-color: #ff0000;
 }
