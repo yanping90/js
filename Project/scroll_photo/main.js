@@ -16,10 +16,11 @@ $(function () {
 		}
 		steps = $(".scroll").css("margin-left",steps+"px");
 	}
-	var int =setInterval(scroll,10);
+    var int =setInterval(scroll,10);
     $(".scroll_num").on("click","li",function(){
         clearInterval(int);
         clearTimeout(timer);
+       int =setInterval(scroll,10);
     } );
 
 
