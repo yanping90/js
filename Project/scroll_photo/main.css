@@ -30,3 +30,11 @@ ul{
 .scroll_num .select a{
     background-color: #ff0000;
 }
+.scroll_btn{
+    position: absolute;
+    left:0;
+    top:100px;
+}
+.scroll_btn a{
+    background-color: #000;
+}
