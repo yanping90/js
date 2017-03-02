@@ -1,6 +1,19 @@
-ul{
+ul,li{
     padding: 0;
     margin:0;
+}
+a,a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float: right;
+}
+.hide{
+    display: none;
 }
 .scroll_box{
     width:520px;
@@ -10,6 +23,10 @@ ul{
 .scroll{
     width:2000px;
     margin-left:0;
+}
+.scroll li{
+    padding-left: 0;
+    padding-right: 0;
 }
 .scroll_num{
     position: absolute;
@@ -33,8 +50,18 @@ ul{
 .scroll_btn{
     position: absolute;
     left:0;
-    top:100px;
+    top: 112px;
+    width: 100%;
 }
 .scroll_btn a{
     background-color: #000;
+    width: 24px;
+    height: 48px;
+    display: inline-block;
+    opacity: 0.7;
+    text-align: center;
+    color: #fff;
+}
+.scroll_btn a:hover{
+    opacity: 1;
 }

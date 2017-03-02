@@ -17,12 +17,21 @@ $(function () {
 		steps = $(".scroll").css("margin-left",steps+"px");
 	}
     var int =setInterval(scroll,10);
-    $(".scroll_num").on("click","li",function(){
+    $(".scroll_box").on("click:roll", function () {
         clearInterval(int);
         clearTimeout(timer);
-       int =setInterval(scroll,10);
+        int =setInterval(scroll,10);
+    });
+    $(".scroll_num").on("click","li",function(){
+        $(".scroll_box").trigger("click:roll");
     } );
-
-
-
+    $(".scroll_box").on("mouseenter",function(){
+        $(".scroll_btn").removeClass("hide");
+    });
+    $(".scroll_box").on("mouseleave",function(){
+        $(".scroll_btn").addClass("hide");
+    });
+    $(".scroll_btn").on("click","a",function(){
+        $(".scroll_box").trigger("click:roll");
+    });
 })
