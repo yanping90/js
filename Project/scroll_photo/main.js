@@ -10,7 +10,7 @@ $(function () {
 			steps =0;
 			clearInterval(int);
 			timer=setTimeout(function(){
-				int = setInterval(scroll,10);
+				int = setInterval(leftScroll,10);
 			},3000);
 			$(".scroll").children().eq(0).appendTo($(".scroll"));
 		}
@@ -26,21 +26,19 @@ $(function () {
             steps =0;
             clearInterval(int);
             timer=setTimeout(function(){
-                int = setInterval(scroll,10);
+                int = setInterval(rightScroll,10);
             },3000);
             $(".scroll").children().eq(0).appendTo($(".scroll"));
         }
     }
-    var scroll;
-    if(){}
-    var int =setInterval(scroll,10);
-    $(".scroll_box").on("click:roll", function () {
+    var int =setInterval(leftScroll,10);
+    $(".scroll_box").on("click:roll", function (e,s) {
         clearInterval(int);
         clearTimeout(timer);
-        int =setInterval(scroll,10);
+        int =setInterval(s,10);
     });
     $(".scroll_num").on("click","li",function(){
-        $(".scroll_box").trigger("click:roll");
+        $(".scroll_box").trigger("click:roll",[leftScroll]);
     } );
     $(".scroll_box").on("mouseenter",function(){
         $(".scroll_btn").removeClass("hide");
@@ -48,7 +46,10 @@ $(function () {
     $(".scroll_box").on("mouseleave",function(){
         $(".scroll_btn").addClass("hide");
     });
-    $(".scroll_btn").on("click","a",function(){
-        $(".scroll_box").trigger("click:roll");
+    $(".left_btn").on("click",function(){
+        $(".scroll_box").trigger("click:roll",[leftScroll]);
+    });
+    $(".right_btn").on("click",function(){
+        $(".scroll_box").trigger("click:roll",[rightScroll]);
     });
 })
