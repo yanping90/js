@@ -23,6 +23,7 @@ a,a:hover{
 .scroll{
     width:2000px;
     margin-left:0;
+    margin-right: 50px;
 }
 .scroll li{
     padding-left: 0;
