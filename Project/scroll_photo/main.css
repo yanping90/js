@@ -19,15 +19,18 @@ a,a:hover{
     width:520px;
     overflow: hidden;
     position: relative;
+    border:4px solid #085c9b;
 }
 .scroll{
     width:2000px;
     margin-left:0;
     margin-right: 50px;
+
 }
 .scroll li{
     padding-left: 0;
     padding-right: 0;
+    float: left;
 }
 .scroll_num{
     position: absolute;
@@ -65,4 +68,8 @@ a,a:hover{
 }
 .scroll_btn a:hover{
     opacity: 1;
+}
+.scroll img{
+    width:520px;
+    height:280px;
 }
