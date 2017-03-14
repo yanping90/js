@@ -14,7 +14,7 @@ $(function () {
 			},3000);
 			$(".scroll").children().eq(0).appendTo($(".scroll"));
 		}
-		steps = $(".scroll").css("margin-left",steps+"px");
+		$(".scroll").css("margin-left",steps+"px");
 	}
     var rightScroll = function(){
         var steps =parseInt($(".scroll").css("margin-left"));
@@ -24,13 +24,13 @@ $(function () {
             $(".scroll_num").children().eq($(".scroll").children().eq(0).attr("id")).addClass("select");
         } else {
             steps =-520;
-            $(".scroll").children().last().prependTo($(".scroll"));
             clearInterval(int);
             timer=setTimeout(function(){
                 int = setInterval(rightScroll,10);
-            },3000);
+            }, );
+            $(".scroll").children().last().prependTo($(".scroll"));
         }
-        steps = $(".scroll").css("margin-left",steps+"px");
+        $(".scroll").css("margin-left",steps+"px");
     }
     var int =setInterval(leftScroll,10);
     $(".scroll_box").on("click:roll", function (e,s) {

@@ -11,7 +11,30 @@
   {{ message }}
 </div>
 <div id="app1">
-
+    <span v-bind:title="message">dddw</span>
+</div>
+<div id="app2">
+    <ol>
+        <li v-for="a in as">{{a.text}}</li>
+    </ol>
+</div>
+<div id="app3">
+    <div>{{message}}</div>
+    <button v-on:click="reverseMessage">点击</button>
+</div>
+<div id="app4">
+    <p>{{message}}</p>
+    <input v-model="message"/>
+</div>
+<div id="app5">
+    <ul>
+        <todo-item></todo-item>
+    </ul>
+</div>
+<div id="app6">
+    <ul>
+        <todo-item v-for="item in grouplist" v-bind:tod="item" :xxx="tail"></todo-item>
+    </ul>
 </div>
 </body>
 </html>
