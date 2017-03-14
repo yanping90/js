@@ -1,0 +1,10 @@
+.test{
+    width:150px;
+}
+.test li{
+    width:70px;
+    float: left;
+    border:1px solid #999;
+    margin-top: -1px;
+    margin-left: -1px;
+}
