@@ -8,10 +8,16 @@
 </head>
 <body>
 <div id="app1">
-    {{message}}-{{time}}
+    {{message}}
 </div>
 <div id="app2">
-    <span v-bind:title="message">除此我们还需要掌握好HTML的语义化</span>
+    <p v-bind:title="message">全部订单 我的机票 我的火车票 我的夺宝</p>
+</div>
+<ul id="app3">
+    <li v-for="todo in todos">{{todo.text}}</li>
+</ul>
+<div id="app4">
+    <p v-if="seen">现在你看到我了</p>
 </div>
 </body>
 </html>

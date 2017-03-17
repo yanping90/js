@@ -3,7 +3,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>Vue</title>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="vue.js"></script>
   <script type=text/javascript src="main.js"></script>
 </head>
 <body>
@@ -27,14 +27,33 @@
     <input v-model="message"/>
 </div>
 <div id="app5">
-    <ul>
+    <ul >
         <todo-item></todo-item>
     </ul>
 </div>
+
 <div id="app6">
     <ul>
-        <todo-item v-for="item in grouplist" v-bind:tod="item" :xxx="tail"></todo-item>
+        <item v-for="l in list" v-bind:list="l"></item>
     </ul>
 </div>
+
+<div id="app7">
+    <ol>
+        <item01></item01>
+    </ol>
+</div>
+
+<div id="app8">
+    <ol>
+        <item02 v-for="i in items" v-bind:item="i"></item02>
+    </ol>
+</div>
+
+<div id="app9">
+    <span>{{message}}</span>
+    <a v-on:click="reverseMessage">点击</a>
+</div>
+
 </body>
 </html>

@@ -44,26 +44,37 @@ window.onload = function(){
         }
     });
 
-    Vue.component('todo-item', {
-        template: '<li>This is a todo</li>'
+    Vue.component("item01",{
+        template:"<li>hello world</li>"
     })
-    var app5=new Vue({
-        el:"#app5"
+    var app7=new Vue({
+        el:"#app7"
     });
 
-    Vue.component("todo-item",{
-        props:["tod", "xxx"],
-        template:"<li>{{tod.text}} {{xxx}}</li>"
+    Vue.component("item02",{
+        props:["item"],
+        template:"<li>{{item.text}}</li>"
     });
-    var app6=new Vue({
-        el:"#app6",
+    var app8=new Vue({
+        el:"#app8",
         data:{
-            grouplist:[
-                {text:"hello"},
-                {text:"world"},
-                {text:"hello world"}
-            ],
-            tail: "..."
+            items:[
+                {text:"华东理工大学2016年招生政策..."},
+                {text:"盘点文商科学生可以申请的STE..."},
+                {text:"忙于留学申请？也许这些申请重要..."}
+            ]
+        }
+    });
+
+    var app9=new Vue({
+        el:"#app9",
+        data:{
+            message:"hello world"
+        },
+        methods:{
+            reverseMessage:function(){
+                this.message= this.message.split("").reverse().join("");
+            }
         }
     });
 

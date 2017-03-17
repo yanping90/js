@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .menu{
+            font-size: 0;
+            letter-spacing: -4px;
+        }
+        .menu li{
+            display: inline-block;
+            background-color: #bbb;
+            font-size: 12px;
+            letter-spacing: 0;
+            margin-right: 30px;
+            width:100px;
+            height: auto;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<ul class="menu">
+    <li>一点小阻挠：inline-block元素间的换行符空格间隙问题</li>
+    <li>在完整的展示兼容性的像素级的inline-block元素列表布局前，有必要讲讲使用display:inline-block列表布局经常会遇到的“换行符/空格间隙问题”。
+
+        如果inline-block元素间有空格或是换行产生了间隙，那是正常的，应该的。如果没有空格与间隙才是不正常的（IE6/7 block水平元素）。真正的inline-block元素，就像个图片一样。例如，两个不在一行的img标签，形成的两个图片之间就会有间隙，如下图所示：</li>
+</ul>
+
+</body>
+</html>
