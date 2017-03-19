@@ -79,5 +79,89 @@ window.onload = function(){
     });
 
 
+    var app10=new Vue({
+       // el:"#app10",
+        data:{
+            msg:"hello world"
+        }
+    });
+    app10.$mount("#app10");
+
+
+
+    var app11 = new Vue({
+        el:"#app11",
+        data:{
+            msg:"helloddd"
+        }
+    });
+
+    var app12=new Vue({
+        el:"#app12",
+        data:{
+            rawHtml:"输出html"
+        }
+    });
+
+    var app13=new Vue({
+        el:"#app13",
+        data:{
+            condition:false,
+            bs:0
+        },
+        methods: {
+            m1: function() {
+                this.condition = true;
+            }
+        },
+        computed: {
+            dis: function() {
+                return true;
+            }
+        }
+    });
+
+    var app14=new Vue({
+        el:"#app14",
+        data:{
+            ok:true
+        }
+    });
+
+    var app15= new Vue({
+        el:"#app15",
+        data:{
+            items:[
+                {text:"css",isFinished:true},
+                {text:"html",isFinished:false},
+                {text:"js",isFinished:true}
+            ]
+        }
+    });
+
+    new Vue({
+        el:"#app16",
+        data:{
+            msg:"<strong>h</strong> world",
+            msg01:"<strong>h</strong> world"
+        }
+    });
+
+    a17 = new Vue({
+        el:"#app17",
+        data:{
+            msg:1
+        },
+        computed:{
+            resultMsg:function(){
+                return this.msg * 0.8
+            }
+        },
+        filters: {
+            round2 : function (v) {
+                return v.toString().replace(/(\.\d\d)\d*$/, "$1");
+            }
+        }
+    });
 
 };

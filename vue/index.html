@@ -5,6 +5,11 @@
   <title>Vue</title>
   <script src="vue.js"></script>
   <script type=text/javascript src="main.js"></script>
+    <style>
+        .finished{
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -55,5 +60,44 @@
     <a v-on:click="reverseMessage">点击</a>
 </div>
 
+<div id="app10">
+    <span v-once>This will never change{{msg}}</span>
+</div>
+
+<div id="app11">
+    <div v-once>
+        <h1>comment</h1>
+        <p>{{msg}}</p>
+    </div>
+</div>
+
+<div id="app12" v-html="rawHtml">
+
+</div>
+
+<div id="app13">
+    <button
+            :disabled="dis"
+            >button</button>
+</div>
+
+<div id="app14">
+    <p v-show="ok">ok</p>
+</div>
+
+<div id="app15">
+    <ol>
+        <li v-for="item in items" v-bind:class="{finished:item.isFinished}">{{item.text}}</li>
+    </ol>
+</div>
+
+<div id="app16">
+    <p v-html="msg"></p><p v-text="msg01"></p>
+</div>
+
+<div id="app17">
+    <p>原始值：{{msg}}</p>
+    <p>最终值：{{resultMsg | round2}}</p>
+</div>
 </body>
 </html>
