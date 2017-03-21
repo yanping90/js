@@ -164,4 +164,13 @@ window.onload = function(){
         }
     });
 
+    a18=new Vue({
+        el:"#app18",
+        data:{
+            isActive:false,
+            activeClass:"active",
+            errorClass:"error"
+        }
+    });
+
 };
