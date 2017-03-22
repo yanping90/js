@@ -164,4 +164,16 @@ window.onload = function(){
         }
     });
 
+    a18=new Vue({
+        el:"#app18",
+        data:{
+            rawId:"world"
+        },
+        filters:{
+            formatId:function(v){
+                return v.toString().toUpperCase().charAt(0) + v.toString().slice(1);
+            }
+        }
+    });
+
 };
