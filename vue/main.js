@@ -176,4 +176,16 @@ window.onload = function(){
         }
     });
 
+    a19=new Vue({
+        el:"#app19",
+        data:{
+            message:"hello world"
+        },
+        computed:{
+            reverseMessage:function(){
+                return this.message.split("").reverse().join("");
+            }
+        }
+    });
+
 };
