@@ -1,4 +1,24 @@
 window.onload = function(){
+    Vue.component("mycomponent",{
+        template:"<p class='text'>把样式绑定在组件上</p>"
+    });
+    a002=new Vue({
+        el:"#app002",
+        data:{
+            isShow:true
+        }
+    });
+
+    a001 =new Vue({
+        el:"#app001",
+        data:
+        {
+            classObject:{
+                active:true,
+                show:true
+            }
+        }
+    });
     var app= new Vue({
         el:"#app",
         data:{
@@ -187,5 +207,6 @@ window.onload = function(){
             }
         }
     });
+
 
 };

@@ -12,6 +12,12 @@
     </style>
 </head>
 <body>
+<div id="app002">
+    <mycomponent v-bind:class="{show:isShow}"></mycomponent>
+</div>
+<div id="app001" v-bind:class="classObject">
+    绑定class对象
+</div>
 <div id="app">
   {{ message }}
 </div>
