@@ -1,4 +1,11 @@
 window.onload = function(){
+
+    a003=new Vue({
+        el:"#app003",
+        data:{
+            ok:false
+        }
+    });
     Vue.component("mycomponent",{
         template:"<p class='text'>把样式绑定在组件上</p>"
     });
