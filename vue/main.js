@@ -1,5 +1,12 @@
 window.onload = function(){
 
+    a004=new Vue({
+        el:"#app004",
+        data:{
+            type:"a"
+        }
+    });
+
     a003=new Vue({
         el:"#app003",
         data:{

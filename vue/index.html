@@ -12,9 +12,15 @@
     </style>
 </head>
 <body>
+<div id="app004">
+    <div v-if="type==='A'">
+        A
+    </div>
+    <div v-else>cb</div>
+</div>
 <div id="app003">
     <p v-if="ok">Yes</p>
-    <p v-else> on</p>
+    <p v-else> no</p>
 </div>
 <div id="app002">
     <mycomponent v-bind:class="{show:isShow}"></mycomponent>
