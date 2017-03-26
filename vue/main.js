@@ -1,9 +1,42 @@
 window.onload = function(){
 
+    Vue.component("mylist",{
+        props:["ls"],
+        template:"<li>{{ls.text}}</li>"
+    })
+
+    a006=new Vue({
+        el:"#app006",
+        data:{
+            lists:[
+                {text:"he"},
+                {text:"ll"},
+                {text:"o"}
+            ]
+        }
+    });
+
+    a005 = new Vue({
+        el:"#app005",
+        data:{
+            items:[
+                {
+                    text:"hello"
+                },
+                {
+                    text:"world"
+                },
+                {
+                    text:"hello world"
+                }
+            ]
+        }
+    });
+
     a004=new Vue({
         el:"#app004",
         data:{
-            type:"a"
+            type:"c"
         }
     });
 
