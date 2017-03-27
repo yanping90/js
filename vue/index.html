@@ -12,6 +12,14 @@
     </style>
 </head>
 <body>
+<div id="app008">
+    <input type="checkbox"  id="checkbox1" v-model="message">
+    <label for="checkbox1">{{message}}</label>
+</div>
+<div id="app007">
+    <input v-model="message" placeholder="edit me">
+    <p>message:{{message}}</p>
+</div>
 <div id="app006">
     <ul>
         <mylist v-for="list in lists" v-bind:ls="list"></mylist>

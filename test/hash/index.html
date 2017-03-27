@@ -5,13 +5,17 @@
     <title>hash</title>
     <script src="../../jquery-3.1.1.min.js"></script>
     <style>
-        #cont{
-            height: 400px;
-            overflow: hidden;
-        }
-        #submenu{
-            z-index: 100;
-        }
+        /*#cont{*/
+            /*height: 400px;*/
+        /*}*/
+        /*.cont{*/
+            /*height: 100%;*/
+            /*overflow: hidden;*/
+        /*}*/
+        /*#submenu{*/
+            /*z-index: 100;*/
+            /*background-color: #fff;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -23,24 +27,27 @@
 </ul>
 
 <div id="cont">
-    <h2 id="vue是什么"><a href="#vue是什么" >vue是什么</a></h2>
-    <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
-    <h2 id="声明式渲染"><a href="#声明式渲染" >声明式渲染</a></h2>
-    <p>声明式渲染Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM：我们已经生成了我们的第一个 Vue 应用！看起来这跟单单渲染一个字符串模板非常类似，但是 Vue 在背后做了大量工作。现在数据和 DOM 已经被绑定在一起，一切都是响应式的。我们如何知道？打开浏览器的 JavaScript 控制台，并修改 app.message，你将看到上面渲染的例子相应地更新了。</p>
-    <h2 id="条件与循环"><a href="#条件与循环" >条件与循环</a></h2>
-    <p>条件与循环继续在控制台设置 app3.seen = false，你会发现 “现在你看到我了” 消失了。
-        这个例子演示了我们不仅可以绑定 DOM 文本到数据，也可以绑定 DOM 结构到数据。而且，Vue 也提供一个强大的过渡效果系统，可以在 Vue 插入/更新/删除元素时自动应用过渡效果。
-        还有其它很多指令，每个都有特殊的功能。例如，v-for 指令可以绑定数组的数据来渲染一个项目列表：
-    </p>
-    <h2 id="处理用户输入"><a href="#处理用户输入" >处理用户输入</a></h2>
-    <p>处理用户输入注意在 reverseMessage 方法中，我们更新了应用的状态，但没有触碰 DOM - 所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注底层逻辑。
-        Vue 还提供了 v-model 指令，使表单输入和应用状态间的双向绑定变得轻而易举。</p>
+    <div class="cont">
+        <h2 id="vue是什么"><a href="#vue是什么" >vue是什么</a></h2>
+        <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
+        <h2 id="声明式渲染"><a href="#声明式渲染" >声明式渲染</a></h2>
+        <p>声明式渲染Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM：我们已经生成了我们的第一个 Vue 应用！看起来这跟单单渲染一个字符串模板非常类似，但是 Vue 在背后做了大量工作。现在数据和 DOM 已经被绑定在一起，一切都是响应式的。我们如何知道？打开浏览器的 JavaScript 控制台，并修改 app.message，你将看到上面渲染的例子相应地更新了。</p>
+        <h2 id="条件与循环"><a href="#条件与循环" >条件与循环</a></h2>
+        <p>条件与循环继续在控制台设置 app3.seen = false，你会发现 “现在你看到我了” 消失了。
+            这个例子演示了我们不仅可以绑定 DOM 文本到数据，也可以绑定 DOM 结构到数据。而且，Vue 也提供一个强大的过渡效果系统，可以在 Vue 插入/更新/删除元素时自动应用过渡效果。
+            还有其它很多指令，每个都有特殊的功能。例如，v-for 指令可以绑定数组的数据来渲染一个项目列表：
+        </p>
+        <h2 id="处理用户输入"><a href="#处理用户输入" >处理用户输入</a></h2>
+        <p>处理用户输入注意在 reverseMessage 方法中，我们更新了应用的状态，但没有触碰 DOM - 所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注底层逻辑。
+            Vue 还提供了 v-model 指令，使表单输入和应用状态间的双向绑定变得轻而易举。</p>
+        <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+    </div>
 </div>
-<script>
-    $("#submenu").on("click","li",function(){
-        var str=$(this).children().attr("href").substr(1);
-        $("#"+str).css("marginTop","100px");
-    });
-</script>
+<!--<script>-->
+    <!--$("#submenu").on("click","li",function(){-->
+        <!--var str=$(this).children().attr("href").substr(1);-->
+        <!--$("#"+str).css("marginTop","100px");-->
+    <!--});-->
+<!--</script>-->
 </body>
 </html>

@@ -1,5 +1,19 @@
 window.onload = function(){
 
+    a008=new Vue({
+        el:"#app008",
+        data:{
+            message:"true"
+        }
+    });
+
+    a007=new Vue({
+        el:"#app007",
+        data:{
+            message:"edit me"
+        }
+    });
+
     Vue.component("mylist",{
         props:["ls"],
         template:"<li>{{ls.text}}</li>"
