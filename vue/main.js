@@ -1,5 +1,13 @@
 window.onload = function(){
 
+    a009=new Vue({
+        el:"#app009",
+        data:{
+            sexs:[]
+        }
+    });
+
+
     a008=new Vue({
         el:"#app008",
         data:{

@@ -12,6 +12,13 @@
     </style>
 </head>
 <body>
+<div id="app009">
+    <input type="checkbox" id="sex1" value="男" v-model="sexs">
+    <label for="sex1">男</label>
+    <input type="checkbox" id="sex2" value="女" v-model="sexs">
+    <label for="sex2">女</label>
+    <p>{{sexs}}</p>
+</div>
 <div id="app008">
     <input type="checkbox"  id="checkbox1" v-model="message">
     <label for="checkbox1">{{message}}</label>
@@ -22,7 +29,7 @@
 </div>
 <div id="app006">
     <ul>
-        <mylist v-for="list in lists" v-bind:ls="list"></mylist>
+        <mylist v-for="list in lists" v-bind:ls="list" key="listy"></mylist>
     </ul>
 </div>
 <div id="app005">
@@ -87,7 +94,7 @@
 
 <div id="app8">
     <ol>
-        <item02 v-for="i in items" v-bind:item="i"></item02>
+        <item02 v-for="i in items" v-bind:item="i" key="app8Key"></item02>
     </ol>
 </div>
 
