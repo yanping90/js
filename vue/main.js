@@ -1,5 +1,18 @@
 window.onload = function(){
 
+    //var data={counter:0};
+    Vue.component("simple-counter",{
+        template:"<button v-on:click='counter += 1'>{{counter}}</button>",
+        data:function(){
+            return {
+                counter:1
+            }
+        }
+    });
+    new Vue({
+        el:"#app012"
+    });
+
     var child = {
         template:"<p>hello world</p>"
     };
@@ -9,7 +22,6 @@ window.onload = function(){
             "my-component":child
         }
     });
-    return;
 
     a010=new Vue({
         el:"#app010",
