@@ -1,5 +1,12 @@
 window.onload = function(){
 
+    a010=new Vue({
+        el:"#app010",
+        data:{
+            sexy:[]
+        }
+    });
+
     a009=new Vue({
         el:"#app009",
         data:{
