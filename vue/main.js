@@ -1,5 +1,16 @@
 window.onload = function(){
 
+    var child = {
+        template:"<p>hello world</p>"
+    };
+    a011 =new Vue({
+        el:"#app011",
+        components:{
+            "my-component":child
+        }
+    });
+    return;
+
     a010=new Vue({
         el:"#app010",
         data:{
