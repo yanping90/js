@@ -12,9 +12,28 @@
     </style>
 </head>
 <body>
+<div id="dom1">
+    <div>test</div>
+    <div>{{value}}</div>
+    <table>
+        <tr is="my-com">
+        </tr>
+    </table>
+</div>
+<script>
+    Vue.component("my-com", {
+        template: "<tr><td>table</td></tr>"
+    });
+    new Vue({
+        el: "#dom1",
+        data: {
+            value: 1
+        }
+    });
+</script>
 <div id="app013">
     <input v-model="parentMsg">
-    <my-child v-bind:my-message="parentMsg"></my-child>
+    <my-child v-bind:msg="parentMsg"></my-child>
 </div>
 
 <div id="app012">

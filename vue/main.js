@@ -1,8 +1,8 @@
 window.onload = function(){
 
     Vue.component("my-child",{
-        props:["myMessage"],
-        template:"<p>{{myMessage}}</p>"
+        props:["msg"],
+        template:"<p>{{msg}}</p>"
     });
     new Vue({
         el:"#app013",
