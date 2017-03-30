@@ -1,5 +1,16 @@
 window.onload = function(){
 
+    Vue.component("my-child",{
+        props:["myMessage"],
+        template:"<p>{{myMessage}}</p>"
+    });
+    new Vue({
+        el:"#app013",
+        data:{
+            parentMsg:"hello world"
+        }
+    });
+
     //var data={counter:0};
     Vue.component("simple-counter",{
         template:"<button v-on:click='counter += 1'>{{counter}}</button>",

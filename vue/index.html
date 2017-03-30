@@ -12,6 +12,11 @@
     </style>
 </head>
 <body>
+<div id="app013">
+    <input v-model="parentMsg">
+    <my-child v-bind:my-message="parentMsg"></my-child>
+</div>
+
 <div id="app012">
     <simple-counter></simple-counter>
     <simple-counter></simple-counter>
