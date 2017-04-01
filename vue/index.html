@@ -31,6 +31,11 @@
         }
     });
 </script>
+<div id="app014">
+    <p>{{total}}</p>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
 <div id="app013">
     <input v-model="parentMsg">
     <my-child v-bind:msg="parentMsg"></my-child>

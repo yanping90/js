@@ -1,5 +1,32 @@
 window.onload = function(){
 
+    Vue.component("button-counter",{
+        template:'<button v-on:click="increment">{{counter}}</button>',
+        data:function(){
+            return {
+                counter:0
+            }
+        },
+        methods:{
+            increment:function(){
+                this.counter +=1;
+                this.$emit('increment')
+            }
+        }
+    });
+
+    new Vue({
+        el:"#app014",
+        data:{
+            total: 0
+        },
+        methods:{
+            incrementTotal:function(){
+                this.total += 1
+            }
+        }
+    });
+
     Vue.component("my-child",{
         props:["msg"],
         template:"<p>{{msg}}</p>"
