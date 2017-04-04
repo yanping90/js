@@ -10,19 +10,18 @@ window.onload = function(){
         methods:{
             increment:function(){
                 this.counter +=1;
-                this.$emit('increment')
+                this.$emit("increment");
             }
         }
     });
-
     new Vue({
-        el:"#app014",
+        el:"#app015",
         data:{
-            total: 0
+            total:0
         },
         methods:{
             incrementTotal:function(){
-                this.total += 1
+                this.total +=1
             }
         }
     });
