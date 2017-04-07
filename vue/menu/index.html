@@ -17,8 +17,12 @@
     </style>
 </head>
 <body>
+<div id="example-1">
+    <button></button>
+</div>
+
 <div id="counter">
-    <button @click="counters">增加1</button>
+    <button @click.once="counters">增加1</button>
     <p>这个按钮被点击了{{counter}}次</p>
 </div>
 

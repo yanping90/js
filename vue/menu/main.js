@@ -1,5 +1,16 @@
 window.onload=function(){
 
+
+    vm=new Vue({
+        created:function(){
+            console.log(this.message);
+        },
+        data:{
+            message:"hello"
+        }
+    });
+    //vm.$mount("#example-1");
+
     new Vue({
         el:"#counter",
         data:{
