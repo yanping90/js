@@ -1,5 +1,11 @@
 window.onload=function(){
 
+    new Vue({
+        created:function(){
+            console.log("a is")
+        }
+    });
+
 
     vm=new Vue({
         created:function(){
@@ -28,6 +34,12 @@ window.onload=function(){
 
 
     var bus = new Vue();
+    bus.$on("m1c", function(a){
+        console.log(a);
+    });
+    bus.$emit("m1c", "menu-list m1 called");
+
+
 
     Vue.component("menu-list",{
         props:["item"],
@@ -60,7 +72,7 @@ window.onload=function(){
 
         created: function() {
             bus.$on("m1c", function(a){
-                console.log(a);
+                    console.log(a);
             });
         }
 
