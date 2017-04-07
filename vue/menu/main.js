@@ -1,4 +1,21 @@
 window.onload=function(){
+
+    new Vue({
+        el:"#counter",
+        data:{
+            counter:0
+        },
+        methods:{
+            counters:function(){
+                this.counter = this.counter+1;
+            }
+        }
+    });
+
+
+
+
+
     var bus = new Vue();
 
     Vue.component("menu-list",{

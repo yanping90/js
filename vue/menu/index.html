@@ -3,7 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>menu</title>
-    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
     <script type=text/javascript src="main.js"></script>
     <style>
         #menu a{
@@ -16,6 +17,18 @@
     </style>
 </head>
 <body>
+<div id="counter">
+    <button @click="counters">增加1</button>
+    <p>这个按钮被点击了{{counter}}次</p>
+</div>
+
+
+
+
+
+
+
+
 <div id="menu">
     <ul>
         <li is="menu-list" v-for="item in items" :item="item"></li>
