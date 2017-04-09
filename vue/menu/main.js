@@ -30,9 +30,6 @@ window.onload=function(){
     });
 
 
-
-
-
     var bus = new Vue();
 
     Vue.component("menu-list",{
