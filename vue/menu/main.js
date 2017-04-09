@@ -34,21 +34,20 @@ window.onload=function(){
 
 
     var bus = new Vue();
-    bus.$on("m1c", function(a){
-        console.log(a);
-    });
-    bus.$emit("m1c", "menu-list m1 called");
-
-
 
     Vue.component("menu-list",{
         props:["item"],
         template:'<li @click="m1"><a :href="item.url">{{ item.text }}</a></li>',
         methods: {
-            m1: function() {
-                bus.$emit("m1c", "menu-list m1 called");
+            m1: function(e) {
+                bus.$emit("m1c", this, e);
+
             }
         }
+    });
+
+    bus.$on("m1c", function (v, e) {
+        document.title = e.target.innerHTML;
     });
 
     var ins = new Vue({
@@ -71,9 +70,7 @@ window.onload=function(){
         },
 
         created: function() {
-            bus.$on("m1c", function(a){
-                    console.log(a);
-            });
+
         }
 
 
