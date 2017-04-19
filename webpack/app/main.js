@@ -1,3 +1,3 @@
-import C from "./sub.js"
-
-window.onload = C.test
+var t = require("./sub.js")
+import "./main.css"
+window.onload =t
