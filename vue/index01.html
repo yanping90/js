@@ -7,6 +7,9 @@
     <script type=text/javascript src="main1.js"></script>
 </head>
 <body>
+    <div id="demo2">
+        <p :title="plus">sssss</p>
+    </div>
     <div id="demo01">
         <p>{{doSomeThing}}</p>
         <input v-bind:value="doSomeThing" v-on:input="doSomeThing=$event.target.value">
