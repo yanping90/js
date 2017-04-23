@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .demo01{
+            width:34px;
+            height: 33px;
+            background: url("ico01.png") top center no-repeat;
+            animation: myfirst 5s;
+        }
+        @keyframes  myfirst {
+            from {
+                background: url("ico01.png") top center no-repeat;
+            }
+            to {
+                background: url("ico02.png") top center no-repeat;
+            }
+        }
+        .demo02 img{
+            position: relative;
+            top:0;
+            left:0;
+        }
+    </style>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+<!--<div class="demo01"></div>-->
+<div class="demo02">
+    <img src="ico01.png">
+</div>
+</body>
+</html>
