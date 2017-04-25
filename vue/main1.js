@@ -1,12 +1,17 @@
 window.onload=function(){
 
 
-    d4=new Vue({
+    var d4=new Vue({
         el:"#dem04",
         data:{
             msg:"123"
         }
     });
+    d4.msg="12345";
+    console.log(d4.$el.textContent);
+    Vue.nextTick(function () {
+        console.log(d4.$el.textContent === '12345');
+    })
 
     d3= new Vue({
         el:"#demo3",
