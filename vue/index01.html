@@ -7,12 +7,21 @@
     <script type=text/javascript src="main1.js"></script>
 </head>
 <body>
-    <div id="demo2">
-        <p :title="plus">sssss</p>
-    </div>
-    <div id="demo01">
-        <p>{{doSomeThing}}</p>
-        <input v-bind:value="doSomeThing" v-on:input="doSomeThing=$event.target.value">
-    </div>
+
+<div id="dem04">
+    <p>{{msg}}</p>
+</div>
+
+<div id="demo3">
+    <p>{{message}}&nbsp;&nbsp;&nbsp;&nbsp;{{o1.b}}</p>
+</div>
+
+<div id="demo2">
+    <p :title="plus">sssss</p>
+</div>
+<div id="demo01">
+    <p>{{doSomeThing}}</p>
+    <input v-bind:value="doSomeThing" v-on:input="doSomeThing=$event.target.value">
+</div>
 </body>
 </html>

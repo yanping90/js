@@ -8,7 +8,6 @@
 </head>
 <body>
 <div id="time">
-    <p>还剩{{showDay}}天</p>
+    <p>{{day}}</p>
+    <p>{{showDay}}</p>
 </div>
-</body>
-</html>

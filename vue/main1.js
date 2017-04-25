@@ -1,6 +1,23 @@
 window.onload=function(){
 
 
+    d4=new Vue({
+        el:"#dem04",
+        data:{
+            msg:"123"
+        }
+    });
+
+    d3= new Vue({
+        el:"#demo3",
+        data:{
+            message:"hello world",
+            o1:""
+        }
+    });
+    d3.o1={};
+    Vue.set(d3.o1,"b","how old are you?");
+
     var d1=new Vue({
         el:"#demo2",
         data:{
