@@ -41,5 +41,18 @@ window.onload= function(){
         }
     });
 
+    vm2= new Vue({
+        el:"#tit",
+        data:{
+            ts:[
+                {text:"土木工程"},
+                {text:"工商管理"},
+                {text:"市场营销"},
+                {text:"物流管理"},
+                {text:"行政管理"}
+            ]
+        }
+    });
+
 
 }
