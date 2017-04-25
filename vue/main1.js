@@ -7,7 +7,6 @@ window.onload=function(){
             msg:"123"
         }
     });
-    d4.msg="222123456";
 
     d3= new Vue({
         el:"#demo3",
