@@ -1,5 +1,12 @@
 window.onload=function(){
 
+    var d3= new Vue({
+        el:"#demo3",
+        data:{
+            message:"hello world"
+        }
+    });
+
 
     var d1=new Vue({
         el:"#demo2",
