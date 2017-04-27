@@ -1,5 +1,12 @@
 window.onload=function(){
 
+    d5= new Vue({
+        el:"#dem05",
+        data:{
+            message:"hello world",
+            show:"true"
+        }
+    });
 
     d4=new Vue({
         el:"#dem04",

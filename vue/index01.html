@@ -5,8 +5,25 @@
     <title></title>
     <script type="text/javascript" src="vue.js"></script>
     <script type=text/javascript src="main1.js"></script>
+    <style>
+        .fade-enter-active,.fade-leave-active {
+            transition:opacity .5s;
+        }
+        .fade-enter,.fade-leave-active{
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
+
+<div id="dem05">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition  name="fade">
+        <p v-if="show">{{ message }}</p>
+    </transition>
+</div>
 
 <div id="dem04">
     <p>{{msg}}</p>
