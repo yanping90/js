@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>demo01</title>
+</head>
+<body>
+<form class="registerform" action="ajax_post.php">
+    <ul>
+        <li>
+            <label class="label"><span class="need">*</span> 学员姓名：</label>
+            <input type="text" value="" name="name" class="inputxt" />
+        </li>
+        <li>
+            <label class="label"><span class="need">*</span> 手机号码：</label>
+            <input type="text" value="" name="name" class="inputxt" />
+        </li>
+        <li>
+            <label class="label"><span class="need">*</span> 选择站点：</label>
+            <select name="province" >
+                <option value="">请选择城市</option>
+                <option value="1">上海市</option>
+                <option value="2">南京市</option>
+                <option value="3">天津市</option>
+            </select>
+        </li>
+    </ul>
+    <div class="action">
+        <input type="submit" value="提 交" /> <input type="reset" value="重 置" />
+    </div>
+</form>
+<script type="text/javascript" src="demo/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="demo/js/Validform_v5.3.2_min.js"></script>
+<script>
+    $(function(){
+
+        var demo=$(".registerform").Validform({
+            tiptype:3,
+            label:".label",
+            showAllError:false,
+            ajaxPost:true
+        });
+        demo.addRule([
+            {
+                ele:".inputxt:eq(0)",
+                datatype:"*"
+            },
+            {
+                ele:".inputxt:eq(1)",
+                datatype:"m"
+            },
+            {
+                ele:"select",
+                datatype:"*"
+            }
+        ]);
+
+
+    })
+</script>
+</body>
+</html>
