@@ -86,8 +86,11 @@
             label:".label",
             showAllError:false,
             ajaxPost:true,
-            callback:function(d){
-                console.log(d);
+            callback:function(form){
+                var check = confirm("您确定要提交表单吗？");
+                if(check){
+                    form[0].submit;
+                }
             }
         });
         demo.addRule([
@@ -113,7 +116,6 @@
                 recheck:"userpassword"
             }
         ]);
-
 
     })
 </script>
