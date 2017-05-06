@@ -35,7 +35,7 @@ a,a:hover{
 .scroll_num{
     position: absolute;
     bottom: 10px;
-    left:260px;
+    left:240px;
 }
 .scroll_num li{
     padding: 0 2px;
@@ -49,7 +49,7 @@ a,a:hover{
     display: block;
 }
 .scroll_num .select a{
-    background-color: #ff0000;
+    background-color: #f80;
 }
 .scroll_btn{
     position: absolute;
