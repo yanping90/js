@@ -4,6 +4,12 @@ $(function () {
     var ml = 0;
     var autoTimer = 0;
 
+    //生成圆点
+    for(var a=0;a<$(".scroll").children().length;a++){
+        $(".scroll_num").append($("<li>").append($("<a>")));
+    }
+    $(".scroll_num").children().eq(0).addClass("select");
+
     $(".scroll_box").on("mouseenter", function () {
         clearInterval(autoTimer);
         $(".scroll_btn").removeClass("hide");
