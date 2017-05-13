@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>楼层导航</title>
+    <style>
+        .top{
+            height: 100px;
+            background-color: #888888;
+        }
+        .hide{
+            display: none;
+        }
+        .floorMenu{
+            position: fixed;
+            top:33%;
+            left:33%;
+            background-color: #ddd;;
+        }
+        .menu_cont{
+            margin: 0 auto;
+            width:40px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+        .menu_cont div{
+            background-color: #bbb;
+            margin-bottom: 30px;;
+        }
+        .floorMenu li.active a{
+            font-weight:bold;
+        }
+    </style>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+//            鼠标点击跳转效果
+            $(".floorMenu").on("click","li",function(){
+                var offsetHeight = $(".floor_cont").eq($(this).index()).offset().top;
+                $("body").animate({
+                    scrollTop:offsetHeight
+                },500,function(){
+                    console.log(1);
+                });
+            });
+
+            $(window).on("scroll",function(){
+//            显示隐藏menu
+                var scrollHeight= $(this).scrollTop();
+                if(scrollHeight>670){
+                    $(".floorMenu").removeClass("hide");
+                } else{
+                    $(".floorMenu").addClass("hide");
+                }
+
+//              滚动显示显示状态
+                $(".floor_cont").each(function(){
+                    var offsetHeight = $(this).offset().top;
+                    if(scrollHeight > offsetHeight - 10){
+                        $(".active").removeClass("active");
+                        $(".floorMenu").children().eq($(this).index()).addClass("active");
+                    }
+                });
+
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div  class="top">头部信息</div>
+<div class="main">
+    <ul class="floorMenu hide">
+        <li><a>1F</a></li>
+        <li><a>2F</a></li>
+        <li><a>3F</a></li>
+        <li><a>4F</a></li>
+    </ul>
+    <div class="menu_cont">
+        <div class="floor_cont">
+            1f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+        </div>
+        <div class="floor_cont">
+            2f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+        </div>
+        <div  class="floor_cont">
+            3f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+        </div>
+        <div class="floor_cont">
+            4f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+</div>
+</body>
+</html>
