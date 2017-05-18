@@ -48,6 +48,7 @@
             $(".floor_cont").each(function(){
                 arr.push($(this).offset().top);
             });
+            console.log(arr);
 
             $(window).on("scroll",function(){
 //            显示隐藏menu
@@ -57,7 +58,7 @@
                 } else{
                     $(".floorMenu").addClass("hide");
                 }
-
+                console.log(scrollHeight);
                 for(var i=0;i<arr.length && arr[i]<scrollHeight;i++);
                 $(".active").removeClass("active");
                 $(".floorMenu").children().eq(i-1).addClass("active");
@@ -86,7 +87,7 @@
             3f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
         </div>
         <div class="floor_cont">
-            4f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            4f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
         </div>
     </div>
 </div>

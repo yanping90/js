@@ -16,6 +16,7 @@
         .demo{
             width:520px;
             overflow: hidden;
+            position: relative;
         }
         .demo ul{
             width:1560px;
@@ -23,15 +24,47 @@
         .demo ul li{
             float: left;
         }
+        .btn{
+            position: absolute;
+            top:110px;
+            left:0;
+            width:520px;
+        }
+        .rightBtn,
+        .leftBtn{
+            background-color: #000;
+            opacity: 0.8;
+            width:30px;
+            height:50px;
+        }
+        .hide{
+            display: none;
+        }
+        .rightBtn{
+            float: left;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .leftBtn{
+            float: right;
+        }
+        .rightBtn:hover,
+        .leftBtn:hover{
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 <div class="demo">
-    <ul>
+    <ul class="demo1">
         <li><img src="01.jpg"></li>
         <li><img src="02.jpg"></li>
         <li><img src="03.jpg"></li>
     </ul>
+    <div class="btn hide">
+        <a class="rightBtn"></a><a class="leftBtn"></a>
+    </div>
+
 </div>
 </body>
 </html>
