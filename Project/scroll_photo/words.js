@@ -6,14 +6,14 @@ $(function(){
     $wordsList.on("scrollTop",function(){
         var timer = setInterval(function(){
             mt-=1;
-            if(mt<-40){
+            if(mt<-16){
                 mt=0;
                 clearInterval(timer);
                 $wordsList.append($wordsList.children().first());
             }
             $wordsList.css("marginTop",mt+"px");
 
-        },10);
+        },20);
     });
     $wordsList.on("mouseleave",function(){
         autoTimer = setInterval(function(){
