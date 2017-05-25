@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        .demo ul li{
+            float:left;
+            width:97px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .demo ul li.current{
+            z-index: -10;
+        }
+        .demo ul li img{
+            position: relative;
+            width:222px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".demo ul").on("mouseenter","li",function(){
+                $(".current").children().css("left","0px");
+                $(".current").animate({width:"97px"},100);
+                $(this).addClass("current").children().css("left","-97px");
+                $(this).animate({width:"140px"},100);
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="demo">
+    <ul>
+        <li><img src="Island_201701424.jpg"></li>
+        <li><img src="Temai_201701424.jpg"></li>
+        <li><img src="Youlun_20170124.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>
