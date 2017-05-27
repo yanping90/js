@@ -3,6 +3,10 @@ $(function(){
     var autoTimer = 0;
     var tmd=1;
 
+    for(var i=0;i<$(".demo1").children().length;i++){
+        $(".dotted").append($("<a>"));
+    }
+
     $(".demo").on("roll",function(){
 
         var timer = setInterval(function(){
@@ -16,7 +20,7 @@ $(function(){
 
             $(".demo1").css("opacity",tmd);
 
-        },20);
+        },25);
 
     });
 
@@ -24,7 +28,7 @@ $(function(){
 
         autoTimer = setInterval(function(){
             $(".demo").trigger("roll");
-        },2000);
+        },4000);
 
     });
 
@@ -40,6 +44,9 @@ $(function(){
 
     $(".demo").trigger("mouseleave");
 
-
+    var currentDot = 0;
+    $(".dotted").on("click","a",function(){
+        currentDot = $(this)-currentDot;
+    });
 
 })
