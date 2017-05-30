@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        .demo {
+        }
+
+        .demo ul {
+            width: auto;
+            padding: 0;
+        }
+
+        .demo ul:after {
+            content: "";
+            clear: both;
+        }
+
+        .demo ul li {
+            float: left;
+            width: 97px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .demo ul li.current{
+            z-index: -10;
+            width: 122px;
+        }
+
+        .demo ul li.current img{
+            left:-100px;
+        }
+
+        .demo ul li img {
+            position: relative;
+            width: 222px;
+        }
+
+    </style>
+    <script>
+        $(function () {
+
+            var running = false;
+            $(".demo ul").on("mouseenter", "li", function () {
+                if ($(this).is(".current"))return;
+                if (running)return;
+                running = true;
+                var current =$(".current");
+                var _self = $(this);
+                $.when(
+                        current.animate({width:"97px"},200),
+                        current.find("img").animate({left:"0"},200),
+                        _self.animate({width:"122px"},200),
+                        _self.find("img").animate({left:"-100px"},200)
+                ).done(function(){
+                            current.removeClass("current");
+                            _self.addClass("current");
+                            running = false;
+                        }
+                );
+
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div class="demo">
+    <ul>
+        <li class="current"><img src="Island_201701424.jpg"></li>
+        <li><img src="Temai_201701424.jpg"></li>
+        <li><img src="Youlun_20170124.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

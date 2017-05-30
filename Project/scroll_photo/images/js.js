@@ -13,14 +13,14 @@ $(function(){
         },40);
     });
 
-    $(".wordsScroll").on("mouseenter",function(){
-        clearInterval(autoTimer);
-    });
-
     $(".wordsScroll").on("mouseleave",function(){
         autoTimer = setInterval(function(){
             $(".wordsScroll").trigger("rollTop");
         },3000);
+    });
+
+    $(".wordsScroll").on("mouseenter",function(){
+        clearInterval(autoTimer);
     });
 
     $(".wordsScroll").trigger("mouseleave");

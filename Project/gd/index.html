@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="../../jquery-3.1.1.min.js"></script>
-    <script src="js.js"></script>
+    <script src="opacity.js"></script>
     <style>
         ul,li{
             padding: 0;
@@ -16,6 +16,14 @@
         .demo{
             width:520px;
             overflow: hidden;
+            position: relative;
+            background-color: #000;
+            height: 280px;
+            color:#f00;
+        }
+        .demo img{
+            width:520px;
+            height: 280px;
         }
         .demo ul{
             width:1560px;
@@ -23,15 +31,69 @@
         .demo ul li{
             float: left;
         }
+        .btn{
+            position: absolute;
+            top:110px;
+            left:0;
+            width:520px;
+        }
+        .rightBtn,
+        .leftBtn{
+            background-color: #000;
+            opacity: 0.8;
+            width:30px;
+            height:50px;
+            cursor: pointer;
+        }
+        .hide{
+            display: none;
+        }
+        .rightBtn{
+            float: left;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .leftBtn{
+            float: right;
+        }
+        .rightBtn:hover,
+        .leftBtn:hover{
+            opacity: 1;
+        }
+        .dotted{
+            position: absolute;
+            bottom: 20px;
+            left:230px;
+        }
+        .dotted a{
+            width:12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .dotted a.active{
+            background-color: #f80;
+        }
     </style>
 </head>
 <body>
 <div class="demo">
-    <ul>
-        <li><img src="01.jpg"></li>
-        <li><img src="02.jpg"></li>
-        <li><img src="03.jpg"></li>
+    <ul class="demo1">
+        <li>1<img src="01.jpg"></li>
+        <li>2<img src="02.jpg"></li>
+        <li>3<img src="03.jpg"></li>
+        <li>4<img src="04.jpg"></li>
+        <li>5<img src="05.jpg"></li>
+        <li>6<img src="06.jpg"></li>
     </ul>
+    <div class="btn hide">
+        <a class="rightBtn"></a><a class="leftBtn"></a>
+    </div>
+    <div class="dotted">
+    </div>
 </div>
 </body>
 </html>
