@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        .subMenu:first-child,
+        .subMenu:nth-child(2),
+        .subMenu:nth-child(3),
+        .subMenu:nth-child(4){
+            margin: 0 auto;
+        }
+        .subMenu:first-child{
+            width:600px;
+            height: 400px;
+            background-color: #0057b0;
+        }
+        .subMenu:nth-child(2){
+            width:600px;
+            height: 100px;
+            background-color: #bbb;
+        }
+        .subMenu:nth-child(3){
+            width:600px;
+            height: 400px;
+            background-color: #0057b0;
+        }
+        .subMenu:nth-child(4){
+            width:600px;
+            height: 700px;
+            background-color: #009966;
+        }
+        .menuFix{
+            position: fixed;
+            left:30%;
+            top:30%;
+        }
+        .active{
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".menuFix ul").on("click","li",function(){
+                $("body").animate({scrollTop:$(".subMenu").eq($(this).index()).offset().top},500);
+                console.log($(this).index());
+            })
+            var arr=[];
+            for(var i=0;i<$(".subMenu").length;i++){
+                arr.push($(".subMenu").eq(i).offset().top);
+            }
+            console.log(arr);
+            $(window).on("scroll",function(){
+                var h = $(this).scrollTop();
+                for(var j=0;j<arr.length && arr[j]<h;j++);
+                $(".active").removeClass("active");
+                $(".menuFix ul").children().eq(j).addClass("active");
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="subMenu" id="1F"></div>
+<div class="subMenu" id="2F"></div>
+<div class="subMenu" id="3F"></div>
+<div class="subMenu" id="4F"></div>
+<div class="menuFix">
+    <ul>
+        <li>1F</li>
+        <li>2F</li>
+        <li>3F</li>
+        <li>4F</li>
+    </ul>
+</div>
+</body>
+</html>
