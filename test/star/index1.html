@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>星级评分</title>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <style>
+        .stars {
+            list-style-type: none;
+        }
+        .stars  li{
+            width:20px;
+            height: 20px;
+            float: left;
+            margin-right: 8px;
+        }
+        .stars  li.star_grey{
+            background: url("star_grey.png") center center no-repeat;
+        }
+        .stars  li.star{
+            background: url("star.png") center center no-repeat;
+        }
+    </style>
+    <script>
+
+        $(function(){
+
+            //闭包，自我执行的匿名函数
+            var rating=(function(){
+
+                var lightOn = function($stars,num){
+                    $stars.find(".star_grey").each(function(idx){
+                        if(idx<num){
+                            $(this).addClass("star");
+                        } else{
+                            $(this).removeClass("star");
+                        }
+                    });
+                }
+                var init  =function(el,num){
+                    var $stars=$(el);
+                    lightOn($stars,num);
+                    $stars.on("mouseenter","li",function(){
+                        lightOn($stars,$(this).index()+1);
+                    }).on("click","li",function(){
+                        num = $(this).index()+1;
+                    }).on("mouseleave",function(){
+                        lightOn($stars,num);
+                    });
+                };
+
+                return{
+                    init:init
+                }
+
+            })()
+
+            rating.init("#stars1",2);
+            rating.init("#stars2",1);
+        })
+    </script>
+</head>
+<body>
+<ul class="stars" id="stars1">
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+</ul>
+<ul class="stars" id="stars2">
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+    <li class="star_grey"></li>
+</ul>
+</body>
+</html>

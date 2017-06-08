@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @media screen and (min-width: 1200px){
+            .main{
+                width:1200px;
+                margin: 0 auto;
+            }
+            .main_l{
+                width:80%;
+            }
+            .main_r{
+                width:20%;
+            }
+        }
+        @media screen and (max-width: 970px){
+            .main{
+                margin: 0 auto;
+            }
+            .main_l{
+                width:50%;
+            }
+            .main_r{
+                width:50%;
+            }
+        }
+        .main_l,
+        .main_r{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="main_l">将下拉菜单触发器和下拉菜单都包裹在 .dropdown 里，或者另一个声明了 position: relative; 的元素。然后加入组成菜单的 HTML 代码。</div>
+    <div class="main_r">dddd</div>
+</div>
+</body>
+</html>
