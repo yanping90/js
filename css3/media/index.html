@@ -16,12 +16,28 @@
                     $(".row-offcanvas").toggleClass("active");
                 });
 
+                $(".category").on("click",function(){
+                    $(".navbar-nav").toggleClass("hide");
+                });
+
             })()
         })
     </script>
 </head>
 <body>
 <div class="container">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <button class="pull-right category visible-xs">分类</button>
+            <a class="navbar-brand" href="#">Brand</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="row row-offcanvas">
         <div class="col-sm-9 col-xs-12">
             <button class="visible-xs pull-right" id="cate">分类</button>

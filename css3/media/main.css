@@ -9,4 +9,15 @@
         right:50%;
     }
 
+    .navbar{
+        position: relative;
+    }
+    .navbar-nav{
+        position: absolute;
+        top:43px;
+        right:20px;
+        z-index: 1000;
+        background-color: #000;
+        width: 100%;
+    }
 }
