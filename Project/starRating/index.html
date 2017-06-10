@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>星级评分</title>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script src="main1.js"></script>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        .star li{
+            float: left;
+            background: url("star.png") left center no-repeat;
+            width:40px;
+            height: 38px;
+            margin-right: 20px;
+        }
+        .star li.starHalf{
+            background-position: -52px 0;
+        }
+        .star li.starOn{
+            background-position: -105px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="star_box">
+    <ul class="star">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
