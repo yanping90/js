@@ -1,0 +1,7 @@
+\9代表所有的IE浏览器
+
+font:font-size/line-height font-family
+
+font:12px/30px "微软雅黑" 
+
+background

@@ -1,4 +1,38 @@
 window.onload = function(){
+
+    a004=new Vue({
+        el:"#app004",
+        data:{
+            type:"a"
+        }
+    });
+
+    a003=new Vue({
+        el:"#app003",
+        data:{
+            ok:false
+        }
+    });
+    Vue.component("mycomponent",{
+        template:"<p class='text'>把样式绑定在组件上</p>"
+    });
+    a002=new Vue({
+        el:"#app002",
+        data:{
+            isShow:true
+        }
+    });
+
+    a001 =new Vue({
+        el:"#app001",
+        data:
+        {
+            classObject:{
+                active:true,
+                show:true
+            }
+        }
+    });
     var app= new Vue({
         el:"#app",
         data:{
@@ -167,10 +201,35 @@ window.onload = function(){
     a18=new Vue({
         el:"#app18",
         data:{
+<<<<<<< HEAD
             isActive:false,
             activeClass:"active",
             errorClass:"error"
         }
     });
 
+=======
+            rawId:"world"
+        },
+        filters:{
+            formatId:function(v){
+                return v.toString().toUpperCase().charAt(0) + v.toString().slice(1);
+            }
+        }
+    });
+
+    a19=new Vue({
+        el:"#app19",
+        data:{
+            message:"hello world"
+        },
+        computed:{
+            reverseMessage:function(){
+                return this.message.split("").reverse().join("");
+            }
+        }
+    });
+
+
+>>>>>>> 2f3cb1e7c03f52ca7aab6b3d9c08b5be7bf2249b
 };

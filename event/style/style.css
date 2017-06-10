@@ -1,0 +1,44 @@
+.clearfix:after{
+    content:"";
+    clear: both;
+    display: block;
+}
+.select_Box{
+    width:600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.select_bar{
+    text-align: center;
+}
+.select_item{
+    border: 1px solid #ccc;
+    padding: 2px 16px 2px 8px;
+    float: left;
+    margin-right: 10px;
+    font-size: 12px;
+    position: relative;
+}
+.arrow{
+    border-width: 4px;
+    border-style: solid dashed dashed dashed;
+    border-color: #999 transparent transparent transparent;
+    position: absolute;
+    top: 8px;
+    right: 6px;
+}
+.select_sub{
+    position: absolute;
+    top: 10px;
+    left:0;
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 22px;
+}
+.select_sub li{
+    width:100px;
+}
+.select_Box  div.disabled{
+    border:1px solid #ddd;
+    color:#999;
+}

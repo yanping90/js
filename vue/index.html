@@ -12,6 +12,22 @@
     </style>
 </head>
 <body>
+<div id="app004">
+    <div v-if="type==='A'">
+        A
+    </div>
+    <div v-else>cb</div>
+</div>
+<div id="app003">
+    <p v-if="ok">Yes</p>
+    <p v-else> no</p>
+</div>
+<div id="app002">
+    <mycomponent v-bind:class="{show:isShow}"></mycomponent>
+</div>
+<div id="app001" v-bind:class="classObject">
+    绑定class对象
+</div>
 <div id="app">
   {{ message }}
 </div>
@@ -100,6 +116,16 @@
     <p>最终值：{{resultMsg | round2}}</p>
 </div>
 
+<<<<<<< HEAD
 <div  id="app18" v-bind:class="[isActive ? activeClass:'',errorClass]">class与style的绑定</div>
+=======
+<div id="app18">{{rawId | formatId}}</div>
+
+<div id="app19">
+    <p>original message:{{message}}</p>
+    <p>computed message:{{reverseMessage}}</p>
+</div>
+
+>>>>>>> 2f3cb1e7c03f52ca7aab6b3d9c08b5be7bf2249b
 </body>
 </html>
