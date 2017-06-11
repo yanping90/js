@@ -3,7 +3,7 @@ $(function () {
 	var leftScroll = function(){
 		var steps = parseInt($(".scroll").css("margin-left"));
 		if(steps>-520){
-			steps=steps-5;
+			steps=steps-20;
 			$(".select").removeClass("select");
 			$(".scroll_num").children().eq($(".scroll").children().eq(0).attr("id")).addClass("select");
 		} else{
@@ -11,7 +11,7 @@ $(function () {
 			clearInterval(int);
 			timer=setTimeout(function(){
 				int = setInterval(leftScroll,10);
-			},3000);
+			},4000);
 			$(".scroll").children().eq(0).appendTo($(".scroll"));
 		}
 		$(".scroll").css("margin-left",steps+"px");
@@ -19,7 +19,7 @@ $(function () {
     var rightScroll = function(){
         var steps =parseInt($(".scroll").css("margin-left"));
         if(steps <0){
-            steps = steps +5;
+            steps = steps +20;
             $(".select").removeClass("select");
             $(".scroll_num").children().eq($(".scroll").children().eq(0).attr("id")).addClass("select");
         } else {
@@ -27,7 +27,7 @@ $(function () {
             clearInterval(int);
             timer=setTimeout(function(){
                 int = setInterval(rightScroll,10);
-            }, );
+            },4000);
             $(".scroll").children().last().prependTo($(".scroll"));
         }
         $(".scroll").css("margin-left",steps+"px");
@@ -51,6 +51,9 @@ $(function () {
         $(".scroll_box").trigger("click:roll",[leftScroll]);
     });
     $(".right_btn").on("click",function(){
-        $(".scroll_box").trigger("click:roll",[rightScroll]);
+        var rightS=setTimeout(function(){
+            setInterval(rightScroll,10);
+        },0);
+        $(".scroll_box").trigger("click:roll",[leftScroll]);
     });
 })

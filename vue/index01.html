@@ -3,21 +3,42 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="main1.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type=text/javascript src="main1.js"></script>
+    <style>
+        .fade-enter-active,.fade-leave-active {
+            transition:opacity .5s;
+        }
+        .fade-enter,.fade-leave-active{
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
-<div id="app1">
-    {{message}}
+
+<div id="dem05">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition  name="fade">
+        <p v-if="show">{{ message }}</p>
+    </transition>
 </div>
-<div id="app2">
-    <p v-bind:title="message">全部订单 我的机票 我的火车票 我的夺宝</p>
+
+<div id="dem04">
+    <p>{{msg}}</p>
 </div>
-<ul id="app3">
-    <li v-for="todo in todos">{{todo.text}}</li>
-</ul>
-<div id="app4">
-    <p v-if="seen">现在你看到我了</p>
+
+<div id="demo3">
+    <p>{{message}}&nbsp;&nbsp;&nbsp;&nbsp;{{o1.b}}</p>
+</div>
+
+<div id="demo2">
+    <p :title="plus">sssss</p>
+</div>
+<div id="demo01">
+    <p>{{doSomeThing}}</p>
+    <input v-bind:value="doSomeThing" v-on:input="doSomeThing=$event.target.value">
 </div>
 </body>
 </html>

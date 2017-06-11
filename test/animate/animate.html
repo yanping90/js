@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".demo1").hide();
+            $(document).on("scroll",function(){
+                console.log($(this).scrollTop());
+                if($(this).scrollTop()>400){
+                    $(".demo1").show(200);
+                }
+                if($(this).scrollTop()<400){
+                    $(".demo1").hide(200);
+                }
+            });
+
+            $(".clickHere").on("click",function(){
+                var demo2Ele = $(".demo2_cont");
+//                if(demo2Ele.css("display") == "block"){
+//                    demo2Ele.hide();
+//                } else{
+//                    demo2Ele.show();
+//                }
+//                demo2Ele.css("display") == "block" ? demo2Ele.hide(1000,function(){console.log("hello world")}) : demo2Ele.show(1000);
+                demo2Ele.toggle(120,function(){console.log("成功");});
+            });
+
+            $("#fadeIn").on("click",function(){
+                $(".demo3").fadeToggle(1000);
+            });
+
+            $(".demo4_btn").on("click",function(){
+                $(".demo4_cont").slideUp(1000);
+            });
+
+            $(".demo5").on("mouseenter",function(){
+                $(this).animate({marginLeft:"140px",opacity:0.6,fontSize:"100px"},800);
+            });
+
+            $(".demo6").on("click",function(){
+                $(this).css("transform","rotate(45deg)");
+            });
+
+
+        })
+    </script>
+    <style>
+        .demo1{
+            width:40px;
+            background-color: #0057b0;
+            position: fixed;
+            top:50%;
+            left:30%;
+            font-size:14px;
+            line-height: 22px;
+            padding: 20px;
+            color:#fff;
+        }
+        .demo2_cont,.clickHere{
+            border:1px solid #000;
+        }
+        .demo2_cont{
+            width:100px;
+        }
+        .demo3{
+            background-color: #0066cc;
+            width:120px;
+            height: 90px;
+            display: none;
+        }
+        .demo4_cont{
+        }
+        .demo5{
+            background-color: #98bf21;
+            width:260px;
+            height: 150px;
+            padding-top: 50px;
+        }
+        .demo6{
+            width:50px;
+            height: 50px;
+            background-color: #f0ad4e;
+        }
+
+    </style>
+</head>
+<body>
+<div class="demo6"></div>
+<div class="demo5">
+    jQuery
+</div>
+<div clas="demo4">
+    <div class="demo4_cont">
+        <p>W3School - 领先的 Web 技术教程站点</p>
+        <p>在 W3School，你可以找到你所需要的所有网站建设教程。</p>
+    </div>
+    <a class="demo4_btn">点击</a>
+</div>
+<div class="demo3"></div>
+<a id="fadeIn">点击淡入</a>
+<div class="demo2">
+    <h2 class="clickHere">点击这里，隐藏/显示面板</h2>
+    <div class="demo2_cont">一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</div>
+</div>
+<div class="demo1">一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

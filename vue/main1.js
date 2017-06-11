@@ -1,35 +1,56 @@
 window.onload=function(){
 
-    var app1=new Vue({
-        el:"#app1",
+    d5= new Vue({
+        el:"#dem05",
         data:{
-            message:"hello world"
+            message:"hello world",
+            show:"true"
         }
     });
 
-    var app2=new Vue({
-        el:"#app2",
+    var d4=new Vue({
+        el:"#dem04",
         data:{
-            message:"hwllo"
+            msg:"123"
+        }
+    });
+    d4.msg="12345";
+    console.log(d4.$el.textContent);
+    Vue.nextTick(function () {
+        console.log(d4.$el.textContent === '12345');
+    })
+
+    d3= new Vue({
+        el:"#demo3",
+        data:{
+            message:"hello world",
+            o1:""
+        }
+    });
+    d3.o1={};
+    Vue.set(d3.o1,"b","how old are you?");
+
+    var d1=new Vue({
+        el:"#demo2",
+        data:{
+            a:1
+        },
+        methods:{
+            plus:function(){
+                this.a++;
+            }
         }
     });
 
-    var app3=new Vue({
-        el:"#app3",
-        data:{
-            todos:[
-                {text:"hello"},
-                {text:"world"},
-                {text:"hello world"}
-            ]
-        }
-    });
+    //d1.alt={};
+    ////Vue.set(d1.alt,"b","1");
+    //d1.alt=Object.assign({},d1.alt,{a:10,b:2});
 
-    var app4=new Vue({
-        el:"#app4",
-        data:{
-            seen:true
-        }
+    new Vue({
+        el:"#demo01",
+       data:{
+           doSomeThing:"hello"
+       }
     });
 
 }

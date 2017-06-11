@@ -1,9 +1,131 @@
 window.onload = function(){
 
+    Vue.component("button-counter",{
+        template:'<button v-on:click="increment">{{counter}}</button>',
+        data:function(){
+            return {
+                counter:0
+            }
+        },
+        methods:{
+            increment:function(){
+                this.counter +=1;
+                this.$emit("increment");
+            }
+        }
+    });
+    new Vue({
+        el:"#app015",
+        data:{
+            total:0
+        },
+        methods:{
+            incrementTotal:function(){
+                this.total +=1
+            }
+        }
+    });
+
+    Vue.component("my-child",{
+        props:["msg"],
+        template:"<p>{{msg}}</p>"
+    });
+    new Vue({
+        el:"#app013",
+        data:{
+            parentMsg:"hello world"
+        }
+    });
+
+    //var data={counter:0};
+    Vue.component("simple-counter",{
+        template:"<button v-on:click='counter += 1'>{{counter}}</button>",
+        data:function(){
+            return {
+                counter:1
+            }
+        }
+    });
+    new Vue({
+        el:"#app012"
+    });
+
+    var child = {
+        template:"<p>hello world</p>"
+    };
+    a011 =new Vue({
+        el:"#app011",
+        components:{
+            "my-component":child
+        }
+    });
+
+    a010=new Vue({
+        el:"#app010",
+        data:{
+            sexy:[]
+        }
+    });
+
+    a009=new Vue({
+        el:"#app009",
+        data:{
+            sexs:[]
+        }
+    });
+
+
+    a008=new Vue({
+        el:"#app008",
+        data:{
+            message:"true"
+        }
+    });
+
+    a007=new Vue({
+        el:"#app007",
+        data:{
+            message:"edit me"
+        }
+    });
+
+    Vue.component("mylist",{
+        props:["ls"],
+        template:"<li>{{ls.text}}</li>"
+    })
+
+    a006=new Vue({
+        el:"#app006",
+        data:{
+            lists:[
+                {text:"he"},
+                {text:"ll"},
+                {text:"o"}
+            ]
+        }
+    });
+
+    a005 = new Vue({
+        el:"#app005",
+        data:{
+            items:[
+                {
+                    text:"hello"
+                },
+                {
+                    text:"world"
+                },
+                {
+                    text:"hello world"
+                }
+            ]
+        }
+    });
+
     a004=new Vue({
         el:"#app004",
         data:{
-            type:"a"
+            type:"c"
         }
     });
 

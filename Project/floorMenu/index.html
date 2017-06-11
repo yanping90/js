@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>楼层导航</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .floorMenu{
+            position: fixed;
+            top:33%;
+            left:33%;
+            background-color: #ddd;;
+        }
+        .menu_cont{
+            margin: 0 auto;
+            width:40px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+        .menu_cont div{
+            background-color: #bbb;
+            margin-bottom: 30px;;
+        }
+        .floorMenu li.active a{
+            font-weight:bold;
+        }
+    </style>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            $(window).on("scroll",function(){
+                var scrollHeight= $(document).scrollTop();
+                if(scrollHeight>500){
+                    $(".floorMenu").removeClass("hide");
+                } else{
+                    $(".floorMenu").addClass("hide");
+                }
+                $(".floorMenu").children(".active").removeClass("active");
+                if(scrollHeight>550 && scrollHeight<1200){
+                    $(".floorMenu").children().eq(1).addClass("active");
+                } else if(scrollHeight>1200){
+                    $(".floorMenu").children().eq(2).addClass("active");
+                }
+            });
+
+        })
+    </script>
+</head>
+<body>
+<ul class="floorMenu hide">
+    <li><a href="#1f">1F</a></li>
+    <li><a href="#2f">2F</a></li>
+    <li><a href="#3f">3F</a></li>
+    <li><a href="#4f">4F</a></li>
+</ul>
+<div class="menu_cont">
+    <div id="1f">
+       1f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+    </div>
+    <div id="2f">
+        2f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+    </div>
+    <div id="3f">
+        3f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+    </div>
+    <div id="4f">
+        4f使用name属性只能针对a标签来定位，而对div等其他标签就不能起到定位作用。
+    </div>
+</div>
+</body>
+</html>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head lang="en">
   <meta charset="UTF-8">
   <title>Vue</title>
-  <script src="vue.js"></script>
+  <script type="text/javascript" src="vue.js"></script>
   <script type=text/javascript src="main.js"></script>
     <style>
         .finished{
@@ -12,6 +12,78 @@
     </style>
 </head>
 <body>
+
+<div id="app015">
+    <p>{{total}}</p>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
+<div id="dom1">
+    <div>test</div>
+    <div>{{value}}</div>
+    <table>
+        <tr is="my-com">
+        </tr>
+    </table>
+</div>
+<script>
+    Vue.component("my-com", {
+        template: "<tr><td>table</td></tr>"
+    });
+    new Vue({
+        el: "#dom1",
+        data: {
+            value: 1
+        }
+    });
+</script>
+<div id="app013">
+    <input v-model="parentMsg">
+    <my-child v-bind:msg="parentMsg"></my-child>
+</div>
+
+<div id="app012">
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+</div>
+<div id="app011">
+    <p is="my-component"></p>
+</div>
+<div id="app010">
+    <input type="radio" value="男" id="one" v-model="sexy">
+    <label for="one">男</label>
+    <input type="radio" value="女" id="two" v-model="sexy">
+    <label for="two">女</label>
+    <span>{{sexy}}</span>
+</div>
+<div id="app009">
+    <input type="checkbox" id="sex1" value="男" v-model="sexs">
+    <label for="sex1">男</label>
+    <input type="checkbox" id="sex2" value="女" v-model="sexs">
+    <label for="sex2">女</label>
+    <p>{{sexs}}</p>
+</div>
+<div id="app008">
+    <input type="checkbox"  id="checkbox1" v-model="message">
+    <label for="checkbox1">{{message}}</label>
+</div>
+<div id="app007">
+    <input v-model="message" placeholder="edit me">
+    <p>message:{{message}}</p>
+</div>
+<div id="app006">
+    <ul>
+        <mylist v-for="list in lists" v-bind:ls="list" key="listy"></mylist>
+    </ul>
+</div>
+<div id="app005">
+    <ul>
+        <template>
+            <li v-for="(item,idx) of items">{{idx+1}}&nbsp;{{item.text}}</li>
+        </template>
+    </ul>
+</div>
 <div id="app004">
     <div v-if="type==='A'">
         A
@@ -67,7 +139,7 @@
 
 <div id="app8">
     <ol>
-        <item02 v-for="i in items" v-bind:item="i"></item02>
+        <item02 v-for="i in items" v-bind:item="i" key="app8Key"></item02>
     </ol>
 </div>
 
