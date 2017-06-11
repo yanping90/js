@@ -6,28 +6,28 @@ $(function(){
         this.num=num;
         this.$li = this.el.find("li");
         this.lightOn(this.num);
-        //this.event();
+        this.event();
     };
-    StarRating.prototype.lightOn = function(){
+    StarRating.prototype.lightOn = function(num){
         var self = this;
         this.$li.each(function (idx) {
-            if(idx<self.num){
+            if(idx<num){
                 $(this).addClass("starOn");
             } else {
                 $(this).removeClass("starOn");
             }
         });
     };
-    //StarRating.prototype.event = function(){
-    //    var self = $(this);
-    //    this.el.on("mouseover","li",function(){
-    //        self.lightOn(this.num);
-    //    }).on("click","li",function(){
-    //        self.num = $(this).index()+1;
-    //    }).on("mouseout",function(){
-    //        self.lightOn(this.num);
-    //    });
-    //};
+    StarRating.prototype.event = function(){
+        var self = this;
+        self.el.on("mouseover","li",function(){
+            self.lightOn($(this).index()+1);
+        }).on("click","li",function(){
+            self.num = $(this).index()+1;
+        }).on("mouseout",function(){
+            self.lightOn(self.num);
+        });
+    };
     new StarRating(".star",2);
 
 
