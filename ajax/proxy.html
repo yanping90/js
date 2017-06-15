@@ -10,8 +10,8 @@
 <script>
     $(function () {
         $(".proxy").on("click", function () {
-            $.get("localhost/index.html",
-                    function (r) {
+            $.get("/index.html",
+                    function () {
                         console.log(1);
                     },
                     "json"
