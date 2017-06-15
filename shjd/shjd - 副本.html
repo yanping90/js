@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上海交通大学</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/shjd.css">
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/simplefoucs.js"></script>
+    <script>
+        $(function(){
+
+            $(window).on("scroll",function(){
+                $(".top").css("position","fixed");
+                if($(this).scrollTop()<300){
+                    $(".top").css("position","");
+                }
+            });
+
+            (function(){
+                $(".course_box ul").on("mouseenter","li",function(){
+                    var self = $(this);
+                    self.find(".course_cont").css("height","170px");
+                    self.find(".courseCont").removeClass("hide");
+                    self.find(".course_cont h3").addClass("text_left");
+                });
+                $(".course_box ul").on("mouseleave","li",function(){
+                    var self = $(this);
+                    self.find(".course_cont").css("height","auto");
+                    self.find(".courseCont").addClass("hide");
+                    self.find(".course_cont h3").removeClass("text_left");
+                });
+
+            })();
+
+            (function(){
+                var isActive = false;
+                $(".team_cont ul").on("mouseenter","li",function(){
+                    var self = $(this);
+                    if(self.is(".active"))return;
+                    if(isActive) return;
+                    isActive=true;
+                    var $active = $(".active");
+                    $.when(
+                            $active.css("borderColor","#fff"),
+                            $active.animate({width:"170px"},200),
+                            self.animate({width:"420px"},200).addClass("active")
+                    ).done(function(){
+                        isActive=false;
+                        $active.removeClass("active");
+                        self.addClass("active").css("borderColor","#be1d21");
+                    });
+                });
+            })()
+
+        })
+    </script>
+</head>
+<body>
+<div class="top">
+    <div class="comWidth clearfix">
+        <div class="fl">
+            <img src="images/shjd/logo.png" title="上海交通大学">
+        </div>
+        <div class="fl">
+            <a href="#about">学校简介</a>
+            <a href="#course">开班课程</a>
+            <a href="#team">名师阵容</a>
+            <a href="#news">学院新闻</a>
+            <a href="#qa">在线问答</a>
+        </div>
+        <div class="fr">
+            <div class="top_tel">
+                咨询热线<br>
+                <span>021-33566526</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bannerbox">
+    <div id="focus">
+        <ul>
+            <li><img src="images/shjd/banner01.jpg" alt="" /></a></li>
+            <li><img src="images/shjd/banner02.jpg" alt="" /></li>
+        </ul>
+    </div>
+</div>
+<div class="line40" id="about"></div>
+<div class="about">
+    <div class="comWidth clearfix">
+        <img src="images/shjd/about_img.png">
+        <p>上海交通大学是我国历史最悠久、享誉海内外的高等学府之一，是教育部直属并与上海市共建的全国重点大学。经过120年的不懈努力，上海交通大学已经成为一所“综合性、研究型、国际化”的国内一流、国际知名大学。交通大学始终把人才培养作为办学的根本任务。一百多年来，学校为国家和社会培养了20余万各类优秀人才，包括一批杰出的政治家、科学家、社会活动家、实业家、工程技术专家和医学专家，如江泽民、陆定一、丁关根、汪道涵、钱学森、吴文俊、徐光宪、张光斗..</p>
+    </div>
+</div>
+<div class="line40" id="course"></div>
+<div class="course">
+    <div class="comWidth">
+        <div class="item_tit">
+            <div class="itemTit_en">Course</div>
+            <div class="itemTit_cont">开班<span>课程</span></div>
+        </div>
+        <div class="course_box clearfix">
+            <ul>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course01.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>国际总裁EMBA研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.跨国公司，大中型国有、民营企业总裁、总经理等高层管理。<br>2.大专以上学历，拥有5年管理经验，渴望提高管理技能的优秀人</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course02.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3 class="course_letter">国际人力资源总监高级研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.企业人力资源总监/经理、行政总监/经理
+                                2.企业董事长、总裁、总经理高层决策人员
+                                3.政府和事业单位人事/行政主管
+                                4.企业部门高管</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course03.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>国际财务总监高级研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.会计师事务所及律师事务所高级管理人员；<br>2.有意进入、从事金融和创业投融资行业人士。</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course04.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>领航+系列课程</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.企业董事长、总经理、副总经理、董事<br>
+                                2.企业中高层管理者</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course05.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>卓越卡系列课程</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.新晋部门负责人、高潜储备中层等<br>
+                                2.企业内部高管
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course06.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>私募股权与上市融资总裁高级研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1、企业董事长、总经理或高层管理者；2、创业投资公司、私募股权投资公司、银行、基金、保险、担保...</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course07.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>现代品牌与战略营销总裁高级研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.决心打造自主品牌的企事业总裁；2.企业品牌管理部、企划部、市场部等相关部门负责人；</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course08.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>中国连锁经营企业总裁EMBA高级研修班</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.连锁与特许企业的董事长、总经理、决策层、执行总监、营运总监、市场部经理、区域总经理</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course09.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>现代物流与供应链管理EMBA课程</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1.系统掌握现代物流与供应链管理必备专业知识与实操技能；
+                                2.深入了解目前国内最前沿的物流供应链...</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="doyoo.util.openChat();doyoo.util.accept();return false;">
+                        <img src="images/shjd/course10.jpg">
+                        <div class="course_hot">热门</div>
+                        <div class="course_cont">
+                            <h3>中国商业地产总裁班（EMBA课程）</h3>
+                            <p class="courseCont hide"><span>招生对象：</span><br>1、商业地产及其相关企业（集团）总裁、副总裁、董事长、总经理、总监、高级经理等高层管理人员；</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl fl2">综合管理</div>
+            <div class="fr fr2 clearfix">
+                <ul>
+                    <li>国际总裁EMBA研修班</li>
+                    <li>国际人力资源总监高级研修班</li>
+                </ul>
+                <ul>
+                    <li>私募股权与上市融资总裁高级研修班</li>
+                    <li>香港浸会大学MBA课程</li>
+                </ul>
+                <ul>
+                    <li>新西兰奥塔哥大学工商管理博士班DBA</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl">全球CEO</div>
+            <div class="fr clearfix">
+                <ul>
+                    <li>中国CEO全球研修计划</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl">金融银行</div>
+            <div class="fr clearfix">
+                <ul>
+                    <li>银行定制内训</li>
+                </ul>
+                <ul>
+                    <li>国际银行家课程</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl">艺术人文</div>
+            <div class="fr clearfix">
+                <ul>
+                    <li>艺术品鉴赏、收藏与投资高级研修班 </li>
+                </ul>
+                <ul>
+                    <li>全球文化IP运营与投资实战课程</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl fl2">商业连锁</div>
+            <div class="fr fr2 clearfix">
+                <ul>
+                    <li>现代品牌战略与营销EMBA班</li>
+                    <li>国际财务总监高级研修班</li>
+                </ul>
+                <ul>
+                    <li>中国连锁经营企业总裁EMBA高级研修班</li>
+                </ul>
+                <ul>
+                    <li>现代物流与供应链管理EMBA课程</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl">商业发展</div>
+            <div class="fr clearfix">
+                <ul>
+                    <li>中国商业地产总裁班(EMBA课程)</li>
+                </ul>
+                <ul>
+                    <li>中国新业态零售总裁班(EMBA课程)</li>
+                </ul>
+                <ul>
+                    <li>商业互联总裁班首期</li>
+                </ul>
+                <ul>
+                    <li>战略定位</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl">精英中层卓越卡</div>
+            <div class="fr clearfix">
+                <ul>
+                    <li>领航+系列课程</li>
+                </ul>
+                <ul>
+                    <li>卓越卡系列课程</li>
+                </ul>
+                <ul>
+                    <li>新晋中层成长营</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl fl2">创新管理</div>
+            <div class="fr fr2 clearfix">
+                <ul>
+                    <li>互联网+与电子商务创新总裁班（EMBA课程）</li>
+                    <li>拟上市公司董事会秘书高级研修班  </li>
+                </ul>
+                <ul>
+                    <li>金融EMBA投融资创新课程</li>
+                    <li>新三板企业董事会秘书董秘实务班(上海班)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="course_cate clearfix">
+            <div class="fl fl3">其他课程</div>
+            <div class="fr fr3 clearfix">
+                <ul>
+                    <li>企业家讲师培训计划</li>
+                    <li>女性研修班</li>
+                    <li>苏黎世应用科技大学</li>
+                    <li>女性研修班</li>
+                    <li>创业家</li>
+                    <li>公务员培训及其他</li>
+                </ul>
+                <ul>
+                    <li>国学与西方经典高级研修课程</li>
+                    <li>财富管理高级研究硕士MAS</li>
+                    <li>企业全流程定制</li>
+                    <li>主题公园方向奥塔哥大学DBA</li>
+                    <li>PMP项目经理培训</li>
+                </ul>
+                <ul>
+                    <li>基业长青-创二代文化体育、影视产业与资本运作高级研修班</li>
+                    <li>高级经理工商管理SMBA核心课程</li>
+                    <li>主题公园方向奥塔哥大学DBA</li>
+                    <li>智造邦“互联网总裁班（EMBA课程）”</li>
+                    <li>公务员及企业培训 </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="team"></div>
+<div class="team comWidth">
+    <div class="item_tit">
+        <div class="itemTit_en">team</div>
+        <div class="itemTit_cont">名师<span>阵容</span></div>
+    </div>
+    <div class="team_cont">
+        <ul class="clearfix">
+            <li class="active">
+                <img src="images/shjd/team01.png">
+                <div class="fr">
+                    <h2>陈竺</h2>
+                    <p>陈竺，男，1953年8月出生，博士，中国科学院院士，美国科学院和美国医学科学院外籍院士，外籍院士。</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/shjd/team02.png">
+                <div class="fr">
+                    <h2>雷啸霖</h2>
+                    <p>雷啸霖教授，物理学家。1938年11月27日生于广西桂林，1963年毕业于北京大学物理系。</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/shjd/team03.png">
+                <div class="fr">
+                    <h2>刘永坦</h2>
+                    <p>刘永坦教授，电子工程专家。湖北武汉人，汉族。1936年12月出生于江苏省南京市。1953年考入哈尔滨工业大学</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/shjd/team04.png">
+                <div class="fr">
+                    <h2>周尧和</h2>
+                    <p>周尧和，材料科学与工程专家。1927年5月生于北京。1950年毕业于清华大学机械工程系。</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/shjd/team05.png">
+                <div class="fr">
+                    <h2>张杰</h2>
+                    <p>张杰，中国科学院院士，德国科学院院士，第三世界科学院院士，英国皇家工程院外籍院士，美国科学院外籍院士...</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="line50" id="news"></div>
+<div class="news">
+    <div class="comWidth">
+        <div class="item_tit">
+            <div class="itemTit_en">news</div>
+            <div class="itemTit_cont">学院<span>新闻</span></div>
+        </div>
+        <div class="news_cont clearfix">
+            <ul>
+                <li>上海市副市长陈寅在上海交大调研</li>
+                <li>上海交大党委常委会开展“两学一做”第三专题学习</li>
+                <li>2015年度上海交大国际卓越论文数居全国高校第一</li>
+                <li>上海市副市长陈寅在上海交大调研</li>
+                <li>上海交大党委常委会开展“两学一做”第三专题学习</li>
+            </ul>
+            <ul>
+                <li>上海市副市长陈寅在上海交大调研</li>
+                <li>上海交大党委常委会开展“两学一做”第三专题学习</li>
+                <li>2015年度上海交大国际卓越论文数居全国高校第一</li>
+                <li>上海市副市长陈寅在上海交大调研</li>
+                <li>上海交大党委常委会开展“两学一做”第三专题学习</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="qa"></div>
+<div class="qa">
+    <div class="comWidth">
+        <div class="item_tit">
+            <div class="itemTit_en">Q&A</div>
+            <div class="itemTit_cont">在线<span>问答</span></div>
+        </div>
+        <div class="qa_cont">
+            <ul>
+                <li>
+                    <h2><i><img src="images/shjd/qa_ico.png"></i>游客提问：英语成绩是120数学是90左右大约能进吗？？</h2>
+                    <p><i class="arrow"></i>老师回复：我们主要是以我们入学测试为主的，建议您可以带孩子到我们学校来参加一下测试。 如需详细咨询请致电客服热线：021-51093665谢谢！</p>
+                </li>
+                <li>
+                    <h2><i><img src="images/shjd/qa_ico.png"></i>游客提问：英语成绩是120数学是90左右大约能进吗？？</h2>
+                    <p><i class="arrow"></i>老师回复：我们主要是以我们入学测试为主的，建议您可以带孩子到我们学校来参加一下测试。 如需详细咨询请致电客服热线：021-51093665谢谢！</p>
+                </li>
+                <li>
+                    <h2><i><img src="images/shjd/qa_ico.png"></i>游客提问：英语成绩是120数学是90左右大约能进吗？？</h2>
+                    <p><i class="arrow"></i>老师回复：我们主要是以我们入学测试为主的，建议您可以带孩子到我们学校来参加一下测试。 如需详细咨询请致电客服热线：021-51093665谢谢！</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer">Copyright &copy; 2004-2017 教育人生. 天下文枢信息科技（上海）有限公司 沪ICP备17006735号-2。咨询热线：<b>021-33566526</b></div>
+<div class="footer_fix">
+    <div class="footerFix_bg"></div>
+    <div  class="footerFix_cont">
+        <h2 class="clearfix"><div class="fl">汇聚行业精英，更多学习，更多机会！现在报名交大研修课程>>></div><span class="fr"><i class="bg"></i><b>021-33566526</b></span></h2>
+        <form name="formenroll" id="formenroll" action="http://enroll.edulife.com.cn/enroll.asp" method="get" onsubmit="return toValid()">
+            <div class="footerFix_txt">
+                <input name="username" id="username" type="text" class="txt" value="学员姓名" onfocus="if (value =='学员姓名'){value =''}" onblur="if (value ==''){value='学员姓名'}">
+                <input name="tel" id="tel" type="text" class="txt" value="手机号码" onfocus="if (value =='手机号码'){value =''}" onblur="if (value ==''){value='手机号码'}" required="">
+                <select name="province" id="province" class="ls select" required="">
+                    <option value="" selected="">选择专业</option>
+                    <option value="综合管理">综合管理</option>
+                    <option value="全球CEO">全球CEO</option>
+                    <option value="金融银行">金融银行</option>
+                    <option value="艺术人文">艺术人文</option>
+                    <option value="商业连锁">商业连锁</option>
+                    <option value="商业发展">商业发展</option>
+                    <option value="精英中层卓越卡">精英中层卓越卡</option>
+                    <option value="创新管理">创新管理</option>
+                    <option value="其他课程">其他课程</option>
+                </select>
+                <button class="messageBtn" type="submit">免费预约报名</button>
+                <input name="laiyuan" type="hidden" value="http://www.jiaoyugang.com/program/shjd/">
+                <input name="ItemID" type="hidden" value="321">
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="http://gate.looyu.com/50823/110537.js"></script>
+</body>
+</html>

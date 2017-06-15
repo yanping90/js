@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".proxy").on("click", function () {
+                $.get("/home.html",
+                        function (r) {
+                            console.log(r.match(/馨途网 - 中国旅游云平台 www.tripb2b.com/)[0]);
+                        }
+                );
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="proxy"><a>proxy</a></div>
-<script>
-    $(function () {
-        $(".proxy").on("click", function () {
-            $.get("/index.html",
-                    function () {
-                        console.log(1);
-                    },
-                    "json"
-            );
-        });
-    });
-</script>
+<div class="cont"></div>
 </body>
 </html>
