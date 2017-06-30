@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            var imgArr=[
+                   "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1305/23/c9/21233806_21233806_1369310564359.jpg",
+                    "http://attach.bbs.miui.com/forum/201611/03/150158l6j5a2w7zne55a6d.jpg",
+                    "http://image.tianjimedia.com/imagelist/2009/286/gre3yr4a5z4u.jpg",
+                    "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1107/05/c5/8235345_8235345_1309860288554.jpg",
+                     "http://bbsatt.yineitong.com/forum/2011/03/25/110325164993a2105258f0d314.jpg",
+                     "http://img161.poco.cn/mypoco/myphoto/20100509/09/53310080201005090900481429150345234_004.jpg",
+                     "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1403/03/c4/31738359_31738359_1393842469406.jpg",
+                     "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1206/02/c3/11848625_11848625_1338612091781.jpg",
+                "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1409/06/c1/38320647_38320647_1409988602931.jpg",
+                "http://img.pconline.com.cn/images/photo2/1434034/1115621655292.JPG",
+                    "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1409/06/c1/38320647_38320647_1409988621498.jpg",
+                    "http://img3.cache.netease.com/photo/0011/2012-09-23/8C4CCRT453DA0011.jpg"
+            ];
+            var idx=0;
+            var len=imgArr.length;
+            var count=0;
+            $.each(imgArr,function(i,value){
+                var img = new Image();
+                $(img).on("load error",function(){
+                    $(".progress").html(Math.round((count+1) / len *100 ) +"%");
+                    if(count>=len-1){
+                        $(".load").hide();
+                        document.title="1/"+len;
+                    }
+                    count++;
+                });
+                img.src=value;
+
+            });
+            $(".preload_btn").on("click","a",function(e){
+                var self = e.target.className;
+                if(self === "prev"){
+                    idx=Math.max(0,--idx);
+                } else {
+                    idx=Math.min(len,++idx);
+                }
+                $("#img").attr("src",imgArr[idx]);
+            });
+        })
+    </script>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .load{
+            position: fixed;
+            background-color: #eee;
+            font-size:30px;
+            text-align: center;
+            width:100%;
+            height: 100%;
+            top:0;
+            left:0;
+        }
+        .progress{
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="preload">
+    <div class="preload_cont">
+        <img src="images/21233806_21233806_1369310564359.jpg" alt=""id="img" width="1200" />
+    </div>
+    <div class="preload_btn">
+        <a class="prev">上一张</a>
+        <a class="next">下一张</a>
+    </div>
+    <div class="load">
+        <div class="progress">0%</div>
+    </div>
+</div>
+</body>
+</html>
