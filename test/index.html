@@ -16,8 +16,17 @@
   </style>
   <script>
       $(function(){
-          var img  = new Image();
-          console.log(img);
+
+          function Cat(name,age){
+              this._name=name;
+              this.age=age;
+              this.nameAge();
+          }
+          Cat.prototype.nameAge =function(){
+              console.log("姓名："+this._name+" "+"年龄："+this.age);
+          }
+          var c1=new Cat("doudou",12);
+
       })
   </script>
 </head>

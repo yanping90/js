@@ -7,31 +7,57 @@
     <script>
         $(function(){
             var img = [
-                    "http://img5q.duitang.com/uploads/item/201503/11/20150311021506_R4myX.jpeg",
-                    "http://dn-kdt-img.qbox.me/upload_files/2016/03/27/Fl5zqE0WT_-EkS3oVG8hs6GJ_bhk.jpg",
-                    "http://img5q.duitang.com/uploads/item/201501/21/20150121184316_hKid5.jpeg",
-                    "http://img3.duitang.com/uploads/item/201311/10/20131110211903_fjFhf.jpeg",
-                    "http://img3.duitang.com/uploads/item/201312/20/20131220100445_ZHL5P.jpeg"
+                "http://img5q.duitang.com/uploads/item/201503/11/20150311021506_R4myX.jpeg",
+                "http://dn-kdt-img.qbox.me/upload_files/2016/03/27/Fl5zqE0WT_-EkS3oVG8hs6GJ_bhk.jpg",
+                "http://img5q.duitang.com/uploads/item/201501/21/20150121184316_hKid5.jpeg",
+                "http://img3.duitang.com/uploads/item/201311/10/20131110211903_fjFhf.jpeg",
+                "http://img3.duitang.com/uploads/item/201312/20/20131220100445_ZHL5P.jpeg"
             ];
 
-            var idx =0;
-            var len=img.length;
-            var count=0;
-            $.each(img,function(idx,val){
-                //先建立一个Image对象
-                var imgObj = new Image();
-                //给progress赋值
-                $(imgObj).on("load",function(){
-                    $(".progress").html(Math.round((count+1) / len *100)+"%");
-                    if(count>=len-1){
-                        $(".load").hide();
-                        return;
-                    }
-                    count++;
+            function PreLoad(opts){
+                var idx=0;
+                var count=0;
+                this.settings=$.extend({},this.default,opts);
+                this.load();
+            }
+            PreLoad.prototype.default = {
+                arrImg:img,
+                each:null,
+                all:null
+            };
+            PreLoad.prototype.load = function(){
+
+                var imgArr=this.settings.arrImg;
+                console.log(imgArr);
+                var len=imgArr.length;
+                var count=0;
+                var _self = this;
+                $.each(imgArr,function(i,value){
+                    var img = new Image();
+                    $(img).on("load error",function(){
+                        _self.settings.each.call($(this),count);
+                        if(count>=len-1){
+                            _self.settings.all && _self.settings.all();
+                        }
+                        count++;
+                    });
+                    img.src=value;
+
                 });
-                imgObj.src=val;
+            }
+
+            new PreLoad({
+                each:function(count){
+                    $(".progress").html(Math.round((count+1) / len *100 ) +"%");
+                },
+                all:function(){
+                    $(".load").hide();
+                    document.title="1/"+len;
+                }
             });
 
+            var idx = 0;
+            var len = img.length;
             $(".preload_btn").on("click","a",function(){
                 if($(this).attr("class") === "next"){
                     idx = Math.min(len,++idx);
