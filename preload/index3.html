@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片预加载之有序加载</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            var img = [
+                "http://img5q.duitang.com/uploads/item/201503/11/20150311021506_R4myX.jpeg",
+                "http://dn-kdt-img.qbox.me/upload_files/2016/03/27/Fl5zqE0WT_-EkS3oVG8hs6GJ_bhk.jpg",
+                "http://img5q.duitang.com/uploads/item/201501/21/20150121184316_hKid5.jpeg",
+                "http://img3.duitang.com/uploads/item/201311/10/20131110211903_fjFhf.jpeg",
+                "http://img3.duitang.com/uploads/item/201312/20/20131220100445_ZHL5P.jpeg"
+            ];
+            var count =0;
+            var idx = 0;
+            var len = img.length;
+            function load(){
+                var imgObj =new Image();
+                $(imgObj).on("load error",function(){
+                    if(count>=len){
+//                        图片全部加载完成
+                    } else {
+                        load();
+                    }
+                    count++;
+                });
+                imgObj.src= img[count];
+            }
+            load();
+
+            $(".preload_btn").on("click","a",function(){
+                if($(this).attr("class") === "next"){
+                    idx = Math.min(len,++idx);
+                } else {
+                    idx = Math.max(0,--idx);
+                }
+                $(".preload_cont img").attr("src",img[idx]);
+            })
+        })
+    </script>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .load{
+            position: fixed;
+            background-color: #eee;
+            font-size:30px;
+            text-align: center;
+            width:100%;
+            height: 100%;
+            top:0;
+            left:0;
+        }
+        .progress{
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="preload">
+    <div class="preload_cont">
+        <img src="http://img5q.duitang.com/uploads/item/201503/11/20150311021506_R4myX.jpeg" alt=""id="img" width="1200" />
+    </div>
+    <div class="preload_btn">
+        <a class="prev">上一张</a>
+        <a class="next">下一张</a>
+    </div>
+</div>
+</body>
+</html>
