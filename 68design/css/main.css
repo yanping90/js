@@ -1,0 +1,22 @@
+/*header*/
+body{
+    font-size:12px;
+}
+.public-header{
+    height: 31px;
+    line-height: 31px;
+    background-color: #4e4e4e;
+    color: #ddd;
+}
+.public-header-item-yellow{
+    color:#f90;
+}
+.public-header-item-line{
+    font-style:normal;
+}
+.public-header-tit li,.public-header-user li{
+    padding: 0 10px;
+}
+.glyphicon-menu-down{
+    padding-left: 8px;
+}
