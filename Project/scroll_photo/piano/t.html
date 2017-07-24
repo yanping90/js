@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        .bd{position: relative; width: 876px; height:84px; overflow: hidden}
+        .img-mask{position: absolute; width: 876px; height:84px; top:0; left: 0; overflow: hidden; z-index:2 }
+        .img-mask img{width: 876px; height: 84px; position: relative; }
+    </style>
+</head>
+<body>
+
+<div class="bd">
+    <div class="img">
+        <img src="img.png" />
+    </div>
+    <div class="img-mask">
+        <img src="img.png" />
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".img-mask").animate({left: "214px"}, 500).find("img").animate({left: "-876px"}, 500);
+    });
+</script>
+</body>
+</html>

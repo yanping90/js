@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        .oldImg,
+        .newImg{
+            float: left;
+        }
+        .oldImg,
+        .newImg{
+            height: 84px;
+            overflow: hidden;
+        }
+        .oldImg{
+            width:0px;
+        }
+        .newImg{
+            width:438px;
+        }
+        .oldImg img{
+            width:219px;
+            height: 84px;
+        }
+        .newImg img{
+            width:438px;
+            height: 84px;
+            position: relative;
+            left:0;
+        }
+    </style>
+    <script>
+        $(function(){
+
+            var oldImg = $(".oldImg");
+            var newImg = $(".newImg");
+            $.when(
+                    oldImg.animate({width:"219px"},1000),
+                    newImg.find("img").animate({left:"-438px"},1000)
+            ).done(
+                    function(){
+                        console.log(1);
+                    }
+            );
+
+        })
+    </script>
+</head>
+<body>
+<div class="img">
+    <div class="oldImg"><img src="img.png"></div>
+    <div class="newImg"><img src="img.png"></div>
+</div>
+</body>
+</html>
