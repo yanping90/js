@@ -14,9 +14,39 @@ body{
 .public-header-item-line{
     font-style:normal;
 }
-.public-header-tit li,.public-header-user li{
+.public-header-item-yellow ,
+.public-header-item-line,
+.public-header-item
+{
     padding: 0 10px;
 }
 .glyphicon-menu-down{
-    padding-left: 8px;
+    /* padding-left: 8px; */
+}
+.public-header-brand .glyphicon-menu-down{
+    position: relative;
+    left: 4px;
+    top: 2px;
+}
+.public-header-user{
+    padding-left: 92px;
+}
+
+.public-header-brand{
+    position: relative;
+}
+.public-header-brand-cont {
+    position: absolute;
+    top: 6px;
+    left: 90px;
+    width: 1100px;
+    background-color: #4e4e4e;
+    color:#ccc;
+    font-size:14px;
+    line-height: 26px;
+    z-index:1000;
+    border-radius:4px;
+}
+.public-header-brand-cont li{
+    padding: 5px 17px;
 }
