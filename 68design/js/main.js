@@ -25,26 +25,38 @@ $(function(){
         ["22","钦州"]
     ];
 
-    var $publicHeaderBrandCont = $("#public-header-brand-cont");
-    var $publicHeaderBrand = $("#public-header-brand");
-    var $glyphiconMenuDown = $(".glyphicon-menu-down");
+    var $headerBrand = $(".header-brand");
+    var $glyphiconMenuDown=".glyphicon-menu-down";
 //    渲染建站品牌内容列表
     for(var i=0;i<arrBrand.length;i++){
-        $publicHeaderBrandCont.append($("<li>").html(arrBrand[i][1]).attr("value",arrBrand[i][0]));
+        $(".header-brand-cont").append($("<li>").append($("<a>").html(arrBrand[i][1])).attr("value",arrBrand[i][0]));
     }
 
-//    点击显示建站品牌内容列表时间
-    $publicHeaderBrand.on("mouseenter",function(){
+    //点击显示建站品牌内容列表时间
+    $headerBrand.on("mouseenter",function(){
         var _self = $(this);
-        _self.find($glyphiconMenuDown).animate({rotate: '-90'},500);
-        $publicHeaderBrandCont.removeClass("hide");
+        _self.find($glyphiconMenuDown).animate({rotate: '-90'}, 500);
+        _self.find(".header-brand-cont").animate({"height":"80px"},500);
     });
-
-    $publicHeaderBrand.on("mouseleave",function(){
+    $headerBrand.on("mouseleave",function(){
         var _self = $(this);
-        _self.find($glyphiconMenuDown).animate({rotate: '0'},500);
-        $publicHeaderBrandCont.addClass("hide");
+        _self.find($glyphiconMenuDown).animate({rotate: '0'}, 500);
+        _self.find(".header-brand-cont").animate({"height":0},500);
     });
-
+    //点击显示用户信息列表
+    var  $headerUserPosition = $(".header-user-position");
+    $headerUserPosition.on("mouseenter",function(){
+        var _self = $(this);
+        _self.addClass("active");
+        _self.find($glyphiconMenuDown).animate({rotate: '180'}, 500);
+        _self.find(".header-user-cont").animate({"height":"210px"},500);
+    });
+    $headerUserPosition.on("mouseleave",function(){
+        var _self = $(this);
+        _self.removeClass("active");
+        _self.find($glyphiconMenuDown).animate({rotate: '0'}, 500);
+        _self.find(".header-user-cont").animate({"height":0},500);
+        console.log("mouseleave");
+    });
 
 })
