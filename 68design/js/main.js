@@ -24,39 +24,49 @@ $(function(){
         ["21","濮阳"],
         ["22","钦州"]
     ];
-
-    var $headerBrand = $(".header-brand");
-    var $glyphiconMenuDown=".glyphicon-menu-down";
-//    渲染建站品牌内容列表
     for(var i=0;i<arrBrand.length;i++){
-        $(".header-brand-cont").append($("<li>").append($("<a>").html(arrBrand[i][1])).attr("value",arrBrand[i][0]));
+        $(".top-drop-down-list-brand").append($("<li>").append($("<a>").html(arrBrand[i][1])).attr("value",arrBrand[i][0]));
     }
 
-    //点击显示建站品牌内容列表时间
-    $headerBrand.on("mouseenter",function(){
+    $(".top-left-item").on("mouseenter",function(){
         var _self = $(this);
-        _self.find($glyphiconMenuDown).animate({rotate: '-90'}, 500);
-        _self.find(".header-brand-cont").animate({"height":"80px"},500);
-    });
-    $headerBrand.on("mouseleave",function(){
-        var _self = $(this);
-        _self.find($glyphiconMenuDown).animate({rotate: '0'}, 500);
-        _self.find(".header-brand-cont").animate({"height":0},500);
-    });
-    //点击显示用户信息列表
-    var  $headerUserPosition = $(".header-user-position");
-    $headerUserPosition.on("mouseenter",function(){
-        var _self = $(this);
+        _self.find($(".top-drop-down-list")).animate({height:"80px"},500);
+        _self.find($(".icon")).animate({rotate: '-90'}, 500);
         _self.addClass("active");
-        _self.find($glyphiconMenuDown).animate({rotate: '180'}, 500);
-        _self.find(".header-user-cont").animate({"height":"210px"},500);
     });
-    $headerUserPosition.on("mouseleave",function(){
+    $(".top-left-item").on("mouseleave",function(){
         var _self = $(this);
+        _self.find($(".top-drop-down-list")).animate({height:"0"},500);
+        _self.find($(".icon")).animate({rotate: '0'}, 500);
         _self.removeClass("active");
-        _self.find($glyphiconMenuDown).animate({rotate: '0'}, 500);
-        _self.find(".header-user-cont").animate({"height":0},500);
-        console.log("mouseleave");
     });
+
+    $(".top-right-item").on("mouseenter",function(){
+        var _self = $(this);
+        _self.find($(".top-drop-down-list")).animate({height:"210px"},500);
+        _self.find($(".icon")).animate({rotate: '180'}, 500);
+        _self.addClass("active");
+    });
+    $(".top-right-item").on("mouseleave",function(){
+        var _self = $(this);
+        _self.find($(".top-drop-down-list")).animate({height:"0"},500);
+        _self.find($(".icon")).animate({rotate: '0'}, 500);
+        _self.removeClass("active");
+    });
+
+    $(".nav-cont-more").on("mouseenter",function(){
+        var _self = $(this);
+        _self.find($(".nav-cont-more-cont")).animate({height:"110px"},500);
+        _self.find($(".icon")).animate({rotate: '180'}, 500);
+        _self.addClass("active");
+    });
+
+    $(".nav-cont-more").on("mouseleave",function(){
+        var _self = $(this);
+        _self.find($(".nav-cont-more-cont")).animate({height:"0"},500);
+        _self.find($(".icon")).animate({rotate: '0'}, 500);
+        _self.removeClass("active");
+    });
+
 
 })
