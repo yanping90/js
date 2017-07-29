@@ -13,6 +13,11 @@ a{
 em{
     font-style: normal;
 }
+input,select,button{
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
 body{
     font-size:12px;
 }

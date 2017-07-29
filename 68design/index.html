@@ -85,13 +85,14 @@
             </ul>
         </div>
         <div class="nav-search fr">
-            <form action="">
-                <select name="" id="" class="nav-search-select">
+            <form method="get" id="nav-search-form">
+                <select name="" class="nav-search-select">
                     <option value="作品">作品</option>
                     <option value="人才">人才</option>
                 </select>
-                <input type="text" class="nav-search-txt"/>
-                <input type="submit" class="nav-search-btn"/>
+                <input type="text" class="nav-search-txt" placeholder="关键字"/>
+                <ul class="autoSuggest"></ul>
+                <input type="submit" class="nav-search-btn" value=""/>
             </form>
         </div>
     </div>
@@ -99,6 +100,7 @@
 </div>
 
 <div class="index-banner">
+    <div class="comWidth"></div>
 </div>
 <div class="index-works"></div>
 <div class="index-good-works"></div>
