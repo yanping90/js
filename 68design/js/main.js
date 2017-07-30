@@ -90,19 +90,25 @@ $(function() {
     $navSearchTxt.on("keyup", function () {
         var arrNew=[];
         $(".autoSuggest").empty();
+        arrNew = [];
         //    先判断词库里有没有这个值，然后把包含这个词的值给一个新的数组
         if (autoSuggests.join("").indexOf($navSearchTxt.val()) == -1) {
             $(".autoSuggest").hide();
         } else {
             //    渲染新数组
             $(".autoSuggest").show();
-            for (var i = 0; i < autoSuggests.length; i++) {
-                if (autoSuggests[i][1].indexOf($navSearchTxt.val()) != -1) {
-                    arrNew[arrNew.length] = autoSuggests[i];
-                }
-            }
+            //第一种，普通方法
+            //for (var i = 0; i < autoSuggests.length; i++) {
+            //    if (autoSuggests[i][1].indexOf($navSearchTxt.val()) != -1) {
+            //        arrNew[arrNew.length] = autoSuggests[i];
+            //    }
+            //}
+            //第二种，用jQuery的filter方法，推荐这种，很赞！
+            arrNew = autoSuggests.filter(function(value){
+                return value[1].indexOf($navSearchTxt.val()) != -1;
+            });
+            console.log(arrNew);
             List(arrNew, ".autoSuggest");
-            arrNew = [];
         }
         console.log("keyup");
     });

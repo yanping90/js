@@ -197,10 +197,60 @@ body{
 
 /*index-banner*/
 .index-banner{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .index-banner .comWidth{
     height: 290px;
     overflow: hidden;
     background-color: #999999;
+    position: relative;
+}
+.index-banner-cont{
+    width:10000px;
+}
+.index-banner-cont li{
+    float: left;
+}
+.index-banner-btn {
+    position: absolute;
+    top: 114px;
+    left: 30px;
+    width: 1140px;
+}
+.index-banner-btn a{
+    width:37px;
+    height: 57px;
+    background-color: #000;
+    opacity: .7;
+    color: #fff;
+    font-size: 36px;
+    padding-top: 8px;
+}
+.index-banner-rightBtn .icon{
+    transform: rotate(-180deg);
+}
+.index-banner-btn a:hover{
+    opacity: 1;
+}
+/*index-works*/
+.index-works-tit{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.index-works-tit h1{
+    font-size:16px;
+    color:#444;
+    width:700px;
+}
+.index-works-tit-scroll,
+.index-works-tit-num{
+    font-size:14px;
+    color:#999999;
+}
+.index-works-tit-scroll{
+    height: 18px;
+    overflow: hidden;
+}
+.index-works-tit-scroll li span{
+    padding: 0 5px;
 }
