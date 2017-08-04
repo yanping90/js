@@ -10,7 +10,7 @@ a{
     color:#333;
     cursor: pointer;
 }
-em{
+em,i{
     font-style: normal;
 }
 input,select,button{

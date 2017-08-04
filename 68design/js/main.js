@@ -1,5 +1,9 @@
 $(function() {
 
+    //自定義事件
+    $(document).on("mouseenter",function(){
+
+    });
     //渲染ul列表
     function List(arr, el) {
         for (var i = 0; i < arr.length; i++) {
@@ -112,5 +116,38 @@ $(function() {
         }
         console.log("keyup");
     });
+
+        // 文字向上滚动
+    var h = 0;
+    var timer=0;
+    var $scroll = $(".index-works-tit-scroll ul");
+    $scroll.on("scrollTop",function(){
+        var timeInterval = setInterval(function(){
+            h -= 1;
+            if(h<-18){
+                h=0;
+                clearInterval(timeInterval);
+                $scroll.children().first().appendTo($scroll);
+            }
+            $scroll.css("marginTop",h+"px");
+        },30);
+    });
+
+    $scroll.on("mouseleave",function(){
+        timer = setInterval(function(){
+            $scroll.trigger("scrollTop");
+        },2000);
+    });
+    $scroll.on("mouseenter",function(){
+        clearTimeout(timer);
+    });
+    $scroll.trigger("mouseleave");
+
+//    tab
+    $(".index-footer-contTab").on("mouseenter","li",function(){
+        var _self = $(this);
+
+    });
+
 
 })
