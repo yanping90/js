@@ -1,7 +1,9 @@
 $(function() {
 
     //自定義事件
-    $(document).on("mouseenter",function(){
+
+    $(document).on("arrowDown",function(e,el,num,speed){
+        $(this).find($(el)).animate({rotate: num}, speed);
 
     });
     //渲染ul列表
@@ -68,6 +70,7 @@ $(function() {
         var _self = $(this);
         _self.find($(".nav-cont-more-cont")).animate({height: "110px"}, 500);
         _self.find($(".icon")).animate({rotate: '180'}, 500);
+        //$(this).trigger("arrowDown",[".icon","180",500]);
         _self.addClass("active");
     });
 
