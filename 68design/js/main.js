@@ -147,10 +147,27 @@ $(function() {
     $scroll.trigger("mouseleave");
 
 //    tab
-    $(".index-footer-contTab").on("mouseenter","li",function(){
+    $(".index-footer-contTab").on("click","li",function(){
         var _self = $(this);
-
+        $(".active").removeClass("active");
+        var $indexFooterContCont = $(".index-footer-contCont");
+        _self.addClass("active");
+        $indexFooterContCont.addClass("hide");
+        $indexFooterContCont.eq(_self.index()).removeClass("hide");
+    });
+    $(".index-footer-tab").on("click","li",function(){
+        var _self = $(this);
+        $(".active").removeClass("active");
+        var $indexFooterCont = $(".index-footer-cont");
+        _self.addClass("active");
+        $indexFooterCont.addClass("hide");
+        $indexFooterCont.eq(_self.index()).removeClass("hide");
     });
 
+//    rightNav
+    $(".rightNav").on("mouseenter","li",function(){
+        var _self = $(this);
+        _self.removeClass()
+    });
 
 })

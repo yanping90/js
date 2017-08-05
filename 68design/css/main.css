@@ -497,3 +497,19 @@ body{
 .index-footer-links span{
     padding: 0 10px;
 }
+/*rightNav*/
+.rightNav{
+    position: fixed;
+    bottom:100px;
+    right:20px;
+}
+.rightNav ul li{
+    background-color: #fff;
+    width: 45px;
+    text-align: center;
+    padding: 9px 0;
+}
+.rightNav ul li .icon{
+    font-size: 20px;
+    color: #333;
+}
