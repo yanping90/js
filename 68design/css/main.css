@@ -508,8 +508,18 @@ body{
     width: 45px;
     text-align: center;
     padding: 9px 0;
+    position: relative;
 }
 .rightNav ul li .icon{
     font-size: 20px;
     color: #333;
+}
+.rightNav-top{
+    opacity: 0;
+}
+
+.download .rightNav-top{
+    position: absolute;
+    top:0;
+    left: -120px;
 }

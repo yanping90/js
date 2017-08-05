@@ -167,7 +167,7 @@ $(function() {
 //    rightNav
     $(".rightNav").on("mouseenter","li",function(){
         var _self = $(this);
-        _self.removeClass()
+        _self.find($(".rightNav-top")).animate({left:"-90px",opacity:1},500);
     });
 
 })
