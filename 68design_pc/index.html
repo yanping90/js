@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>68design</title>
+    <script src="js/iconfont.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.rotate.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="top-box">
+    <div class="top">
+        <div class="comWidth clearFix">
+            <div class="fl top-left">
+                <ul>
+                    <li class="top-left-item top-drop-down">
+                        <a href="">建站品牌</a>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-jiantou2"></use>
+                        </svg>
+                        <ul class="top-drop-down-list top-drop-down-list-brand"></ul>
+                    </li>
+                    <li class="top-left-item top-left-yellow"><a href="">担保接单</a></li>
+                    <li class="top-left-item top-left-yellow"><a href="">急需求职</a></li>
+                    <li class="top-left-item"><a href="">高端人才</a></li>
+                    <em class="top-left-line">|</em>
+                    <li class="top-left-item"><a href="">PSD分享</a></li>
+                    <li class="top-left-item"><a href="">原创教程</a></li>
+                    <em class="top-left-line">|</em>
+                    <li class="top-left-item"><a href="">热门培训</a></li>
+                    <li class="top-left-item top-left-yellow"><a href="">今日酷站</a></li>
+                </ul>
+            </div>
+            <div class="fr top-right">
+                <ul>
+                    <li class="top-right-item"><a href="">duduchf</a></li>
+                    <li class="top-right-item top-drop-down top-drop-down-user">
+                        <a href="">我的消息</a>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-jiantou2"></use>
+                        </svg>
+                        <ul class="top-drop-down-list top-drop-down-list-user">
+                            <li><a href="">站内私信<em>0</em></a></li>
+                            <li><a href="">最新关注<em>0</em></a></li>
+                            <li><a href="">好友请求<em>0</em></a></li>
+                            <li><a href="">最新评论<em>0</em></a></li>
+                            <li><a href="">有意聘我<em>0</em></a></li>
+                            <li><a href="">委托设计<em>0</em></a></li>
+                            <li><a href="">系统消息<em>0</em></a></li>
+                        </ul>
+                    </li>
+                    <li class="top-right-item"><a href="">管理</a></li>
+                    <li class="top-right-item"><a href="">发布作品</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-box">
+    <div class="comWidth clearFix">
+        <div class="nav-logo fl">
+            <img src="img/logo.png">
+        </div>
+        <div class="nav-cont fl">
+            <ul>
+                <li class="nav-cont-item"><a href="">作品</a></li>
+                <li class="nav-cont-item"><a href="">招聘</a></li>
+                <li class="nav-cont-item"><a href="">素材</a></li>
+                <li class="nav-cont-item"><a href="">设计部</a></li>
+                <li class="nav-cont-item nav-cont-more">
+                    <a href="">更多</a>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou2"></use>
+                    </svg>
+                    <ul class="nav-cont-more-cont">
+                        <li><a href="">人才</a></li>
+                        <li><a href="">专访</a></li>
+                        <li><a href="">品牌</a></li>
+                        <li><a href="">十佳</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-search fr">
+            <form method="get" id="nav-search-form">
+                <select name="" class="nav-search-select">
+                    <option value="作品">作品</option>
+                    <option value="人才">人才</option>
+                </select>
+                <input type="text" class="nav-search-txt" placeholder="关键字"/>
+                <ul class="autoSuggest"></ul>
+                <input type="submit" class="nav-search-btn" value=""/>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="index-banner">
+    <div class="comWidth">
+        <ul class="index-banner-cont">
+            <li><img src="img/banner01.jpg" alt=""/></li>
+            <li><img src="img/banner02.jpg" alt=""/></li>
+            <li><img src="img/banner03.jpg" alt=""/></li>
+        </ul>
+        <div class="index-banner-btn clearFix">
+            <a class="index-banner-leftBtn fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-xiangzuo"></use>
+                </svg>
+            </a>
+            <a class="index-banner-rightBtn fr">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-xiangzuo"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="index-works comWidth">
+    <div class="index-works-tit clearFix">
+        <h1 class="fl">主推作品</h1>
+        <div class="index-works-tit-scroll fl">
+            <ul>
+                <li><span class="index-works-tit-scroll-name">方婷</span><span>提交作品待审</span><span>5小时前</span></li>
+                <li><span class="index-works-tit-scroll-name">小月</span><span>提交作品待审</span><span>5小时前</span></li>
+                <li><span class="index-works-tit-scroll-name">小方</span><span>提交作品待审</span><span>5小时前</span></li>
+                <li><span class="index-works-tit-scroll-name">小莉</span><span>提交作品待审</span><span>5小时前</span></li>
+                <li><span class="index-works-tit-scroll-name">小高</span><span>提交作品待审</span><span>5小时前</span></li>
+            </ul>
+        </div>
+        <div class="index-works-tit-num fr">
+            <span>当前有效作品 <b>359754</b> 套</span><span>今日已评审通过 <b>18</b> 套</span>
+        </div>
+    </div>
+    <div class="index-works-cont clearFix">
+        <ul>
+            <li>
+                <img src="img/works01.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works02.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works03.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works04.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works05.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works01.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works02.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works03.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works04.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+            <li>
+                <img src="img/works05.jpg">
+                <h2><a href="">设计中的光影表现</a></h2>
+                <h3>钟星南</h3>
+                <h4><a href="">平面设计</a>,<a href="">其他</a></h4>
+                <div class="index-works-ico">
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-zan"></use>
+                            </svg>
+                        </i><b>38</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chakan"></use>
+                            </svg>
+                        </i>
+                        <b>1284</b>
+                    </span>
+                    <span>
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shitidian-"></use>
+                            </svg>
+                        </i>
+                        <b>1小时前</b></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="index-people">
+    <div class="comWidth">
+        <div class="index-works-tit clearFix">
+            <h1 class="fl">人物专访</h1>
+            <div class="index-works-tit-num fr">
+                <a href="">更多专访</a>
+            </div>
+        </div>
+        <ul class="index-people-cont clearFix">
+            <li>
+                <img src="img/people.jpg">
+                <h1>本期人物：伍贤良</h1>
+                <p>在杭州的这些日子一直在做电商外包，所以做的类目比较多(打杂)，但是我很喜欢这样，我觉得如果天天只做一个类目的话久而久之会被局限，做多种类目的话能够让思维跟创意得到很好的发挥出来，做设计一定要坚持下去...</p>
+            </li>
+            <li>
+                <img src="img/people1.jpg">
+                <h1>上期人物：岑双华</h1>
+                <p>电商类项目最终卖的是产品，无论是高逼格、抑或是小清新还是傻大粗，只要你能迅速抓住客户的眼球，把该展示的卖点通过精心的设计，清晰简单地表现出来，最终促成交易，那么这就是好的设计。视觉在电商上只是锦上添花...</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="index-brand">
+    <div class="comWidth">
+
+        <div class="index-works-tit clearFix">
+            <h1 class="fl">推荐品牌</h1>
+            <div class="index-works-tit-num fr">
+                <a href="">更多品牌设计公司</a>
+            </div>
+        </div>
+
+        <div class="index-brand-cont clearFix">
+            <ul>
+                <li>
+                    <a href=""><img src="img/bocweb.gif" alt=""/></a>
+                    <p><a href="">博采网络</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/hanbang.gif" alt=""/></a>
+                    <p><a href="">汉邦未来</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/htqd.jpg" alt=""/></a>
+                    <p><a href="">昊天前端</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/kgu.gif" alt=""/></a>
+                    <p><a href="">空谷KGU</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/bocweb.gif" alt=""/></a>
+                    <p><a href="">博采网络</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/hanbang.gif" alt=""/></a>
+                    <p><a href="">汉邦未来</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/htqd.jpg" alt=""/></a>
+                    <p><a href="">昊天前端</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/kgu.gif" alt=""/></a>
+                    <p><a href="">空谷KGU</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/bocweb.gif" alt=""/></a>
+                    <p><a href="">博采网络</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/mwchn.gif" alt=""/></a>
+                    <p><a href="">汉邦未来</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/manvision2.gif" alt=""/></a>
+                    <p><a href="">昊天前端</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/lonwin.gif" alt=""/></a>
+                    <p><a href="">空谷KGU</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/bocweb.gif" alt=""/></a>
+                    <p><a href="">博采网络</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/hanbang.gif" alt=""/></a>
+                    <p><a href="">汉邦未来</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/htqd.jpg" alt=""/></a>
+                    <p><a href="">昊天前端</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/kgu.gif" alt=""/></a>
+                    <p><a href="">空谷KGU</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/manvision2.gif" alt=""/></a>
+                    <p><a href="">昊天前端</a></p>
+                </li>
+                <li>
+                    <a href=""><img src="img/lonwin.gif" alt=""/></a>
+                    <p><a href="">空谷KGU</a></p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="index-footer">
+    <div class="comWidth clearFix">
+        <div class="fl">
+            <ul class="index-footer-tab clearFix">
+                <li class="index-footer-tab-item active">上周点评达人榜</li>
+                <li class="index-footer-tab-item">收获点评榜</li>
+            </ul>
+            <div class="index-footer-cont">
+                <ul class="index-footer-contTab clearFix">
+                    <li class="active">1总榜</li>
+                    <li>指导榜</li>
+                    <li>资深榜</li>
+                    <li>设计师榜</li>
+                    <li>助理榜</li>
+                </ul>
+                <div class="index-footer-contCont">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>1谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>2谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>3谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>4谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>5谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+            </div>
+            <div class="index-footer-cont hide">
+                <ul class="index-footer-contTab clearFix">
+                    <li class="active">2总榜</li>
+                    <li>指导榜</li>
+                    <li>资深榜</li>
+                    <li>设计师榜</li>
+                    <li>助理榜</li>
+                </ul>
+                <div class="index-footer-contCont">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>1谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>2谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>3谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>4谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+                <div class="index-footer-contCont hide">
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">1</i>5谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">2</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-yellow">3</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">4</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">5</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                    <p class="index-footer-contCont-item">
+                        <span class="index-footer-name"><i class="index-footer-green">6</i>谢明帅</span><span class="index-footer-num">38条</span><span class="index-footer-career">电商设计师</span><span class="index-footer-world">全国 6</span><span class="index-footer-place">广东 3</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="fr">
+            <ul class="index-footer-tab clearFix">
+                <li class="index-footer-tab-item">推荐招聘</li>
+                <li class="index-footer-tab-item index-footer-tab-more">更多</li>
+            </ul>
+            <ul class="index-footer-list">
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+                <li><span>高级网页设计师（高薪）</span><span class="index-footer-company">恒久尚品网络科技...</span><span class="index-footer-time">17-07-19</span></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="index-footer-copy">
+    <div class="comWidth">
+        <div class="index-footer-tit">
+            <a href="">关于我们</a>
+            <em>|</em>
+            <a href="">帮助中心</a>
+            <em>|</em>
+            <a href="">推广招聘</a>
+            <em>|</em>
+            <a href="">网站地图</a>
+            <em>|</em>
+            <a href="">友情链接</a>
+            <em>|</em>
+            <a href="">联系我们</a>
+        </div>
+        <p>Copyright © 2003-2017 68design.net, All Rights Reserved　站长统计</p>
+        <p>皖ICP备05012247号    皖公网安备34010402700146号</p>
+        <p class="index-footer-links">
+            友情链接：<span>网站设计</span><span>电商设计</span><span>致设计</span><span>学UI网</span><span>中国设计</span><span>在线广告</span><span>配音中国</span><span>设计网</span><span>创意设计</span><span>家装设计</span><span>快站</span>
+        </p>
+    </div>
+</div>
+<div class="rightNav">
+    <ul>
+        <li class="returnTop">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-top"></use>
+            </svg>
+            <div class="rightNav-top">
+                返回顶部
+                <i class="arrowLeft"></i>
+            </div>
+        </li>
+        <li class="download">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-erweima"></use>
+            </svg>
+            <div class="rightNav-top">
+                <img src="img/weixin_68.gif" alt=""/>
+                <i class="arrowLeft"></i>
+            </div>
+        </li>
+        <li class="feedback">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-fankui"></use>
+            </svg>
+            <div class="rightNav-top">
+                问题反馈
+                <i class="arrowLeft"></i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -7,9 +7,14 @@
 }
 body{
     background-color: #f4f4f4;
+    font-size:12px;
 }
 .hide{
     display: none;
+}
+.container{
+    width:1200px;
+    padding:0;
 }
 /*top*/
 .top{
@@ -34,22 +39,28 @@ body{
     padding-right: 10px;
     position: relative;
 }
+.top-drop-down button{
+    background: none;
+}
 .top-drop-down .icon{
     margin-left: 10px;
 }
-.top-drop-down-list-brand{
+.dropdown-menu{
     position: absolute;
     top: 0;
     left: 88px;
     background-color: #4e4e4e;
     width: 1100px;
-    height: 0;
     overflow: hidden;
     z-index: 10000;
 }
-.top-drop-down-list-brand a:hover{
+.dropdown-menu>li>a{
+    color:#999999;
+}
+.dropdown-menu>li>a:hover{
     text-decoration: underline;
     color:#ddd;
+    background:none;
 }
 .top-drop-down-list-brand li{
     float: left;
@@ -510,16 +521,40 @@ body{
     padding: 9px 0;
     position: relative;
 }
+.rightNav ul li:hover{
+    background-color: #333;
+}
+.rightNav ul li:hover .icon{
+    color:#fff;
+}
 .rightNav ul li .icon{
     font-size: 20px;
     color: #333;
 }
 .rightNav-top{
-    opacity: 0;
+    position: absolute;
+     opacity: 0;
 }
 
 .download .rightNav-top{
-    position: absolute;
     top:0;
     left: -120px;
+}
+.download .arrowLeft{
+    top:20px;
+    right: 91px;
+}
+.returnTop{
+    opacity: 0;
+}
+.returnTop .rightNav-top,
+.feedback .rightNav-top{
+    top:0;
+    left:-120px;
+    background-color:#008040 ;
+    color:#fff;
+    width:90px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
 }

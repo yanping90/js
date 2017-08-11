@@ -1,0 +1,40 @@
+body,div,ul,li,h1,h2,h3,h4,p{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:#333;
+    cursor: pointer;
+}
+em,i{
+    font-style: normal;
+}
+input,select,button{
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+body{
+    font-size:12px;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.comWidth{
+    width:1200px;
+    margin: 0 auto;
+}
+.clearFix:after{
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+

@@ -164,10 +164,21 @@ $(function() {
         $indexFooterCont.eq(_self.index()).removeClass("hide");
     });
 
-//    rightNav
+////    rightNav
     $(".rightNav").on("mouseenter","li",function(){
         var _self = $(this);
-        _self.find($(".rightNav-top")).animate({left:"-90px",opacity:1},500);
+        $(".rightNav-top").css({"opacity":0,left:"-120px"});
+        _self.find($(".rightNav-top")) .animate({left:"-90px",opacity:1},500);
     });
+    $(window).on("scroll",function(){
+        var h = $(this).scrollTop();
+
+        if(h>200){
+            $(".returnTop").css("opacity",1);
+        } else {
+            $(".returnTop").css("opacity",0);
+        }
+    });
+
 
 })
