@@ -64,6 +64,9 @@ ul{
 .menu .navbar{
     margin-bottom: 0;
 }
+.menu .navbar-header{
+    height: 60px;
+}
 .menu .navbar-default{
     border-color:#e0e0e0;
     background-color: #fff;
@@ -75,6 +78,20 @@ ul{
 .menu .navbar-collapse{
     padding-right: 0;
 }
+.navbar-collapse .nav{
+    background-color: #fff;
+    z-index: 100000;
+    position: relative;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover{
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle:focus .icon-bar,
+.navbar-default .navbar-toggle:hover .icon-bar{
+    background-color:#008040;
+}
+
 .menu  .navbar-brand{
     margin-top: 6px;
 }
@@ -174,6 +191,14 @@ ul{
 .thumbnail .caption{
     padding: 0;
 }
+.work-cont .thumbnail .caption h3{
+    height: 1em;
+    overflow: hidden;
+}
+.work-cont .thumbnail .caption p{
+    overflow: hidden;
+    height: 2em;
+}
 .work-cont .thumbnail .caption h3,
 .work-cont .thumbnail .caption p{
     font-size:1em;
@@ -265,6 +290,13 @@ ul{
     .brand-cont li{
         width:24%;
     }
+    /*.work-cont .thumbnail img{*/
+        /*float: left;*/
+        /*width:50%;*/
+    /*}*/
+    /*.thumbnail .caption{*/
+        /*float: left;*/
+    /*}*/
     /*top*/
     .menu .navbar-default{
         background-color: #008040;
