@@ -136,7 +136,7 @@ ul{
 .p-tit h2{
     font-size:1.25em;
     font-weight: bold;
-    color:#666;
+    color:#333;
     margin: 0;
 }
 .p-cont{
@@ -194,7 +194,8 @@ ul{
     padding-right: 26px;
 }
 /*inter*/
-.inter .p-tit{
+.inter .p-tit,
+.brand .p-tit{
     padding: 1em 0;
 }
 .inter-more{
@@ -221,6 +222,24 @@ ul{
     height: 90px;
     overflow: hidden;
 }
+/*brand*/
+.brand-cont li{
+    float: left;
+    width:11.5%;
+    overflow: hidden;
+    margin-right: 1%;
+    text-align: center;
+}
+.brand-cont li p{
+    padding-top: 6px;
+}
+.brand .list-inline>li{
+    padding: 0;
+}
+.brand-cont li:nth-child(9){
+    margin-right: 0;
+}
+
 
 
 
@@ -243,9 +262,9 @@ ul{
     }
 }
 @media (max-width:768px){
-    /*body{*/
-        /*font-size:24px;*/
-    /*}*/
+    .brand-cont li{
+        width:24%;
+    }
     /*top*/
     .menu .navbar-default{
         background-color: #008040;
