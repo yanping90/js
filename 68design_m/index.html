@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+
+            $(".footer-nav").on("click","li",function(){
+                $(".footer-cont").addClass("hide").removeClass("show");
+                $(".footer-nav li").removeClass("active");
+                $(this).addClass("active");
+                $(".footer-cont").eq($(this).index()).addClass("show").removeClass("hide");
+            });
+            $(".footer-cont-nav").on("click","li",function(){
+                var _self = $(this);
+                var $footerContDetails = _self.parent().parent().find($(".footer-cont-details"));
+                $footerContDetails.addClass("hide").removeClass("show");
+                $(".footer-cont-nav li").removeClass("active");
+                $(this).addClass("active");
+                $footerContDetails.eq(_self.index()).addClass("show").removeClass("hide");
+            });
+
+        })
+
+    </script>
 </head>
 <body>
 <div class="top visible-lg">
@@ -73,13 +94,14 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""/></a>
+                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <a class="navbar-brand hidden-xs" href="#"><img src="images/logo.png" alt=""/></a>
+                <a class="navbar-brand visible-xs" href="#">68Design</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -110,7 +132,7 @@
     </nav>
 </div>
 <div class="container-fluid main-box">
-    <div class="banner container">
+    <div class="banner container-fluid">
         <ul class="list-inline">
             <li><img src="images/banner02.jpg"  class="img-responsive visible-lg" alt=""/></li>
             <li><img src="images/banner01.jpg"  class="img-responsive hidden-lg" alt=""/></li>
@@ -376,6 +398,492 @@
         </ul>
     </div>
 </div>
+<div class="footer-box hidden-sm hidden-xs">
+    <div class="footer-top">
+        <div class="container clearfix">
+            <div class="pull-left">
+                <ul class="footer-nav list-inline">
+                    <li class="active"><a>上周点评达人榜</a></li>
+                    <li><a>收获点评榜</a></li>
+                </ul>
+                <div class="footer-cont">
+                    <ul class="footer-cont-nav list-inline">
+                        <li class="active"><a href="javascript:;">1总榜</a></li>
+                        <li><a href="javascript:;">指导榜</a></li>
+                        <li><a href="javascript:;">资深榜</a></li>
+                        <li><a href="javascript:;">设计师榜</a></li>
+                        <li><a href="javascript:;">助理榜</a></li>
+                    </ul>
+                    <div class="footer-cont-details clearfix">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>1谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>2谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide clearfix">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>3谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>4谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>5谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-cont hide">
+                    <ul class="footer-cont-nav list-inline">
+                        <li class="active"><a href="javascript:;">2总榜</a></li>
+                        <li><a href="javascript:;">指导榜</a></li>
+                        <li><a href="javascript:;">资深榜</a></li>
+                        <li><a href="javascript:;">设计师榜</a></li>
+                        <li><a href="javascript:;">助理榜</a></li>
+                    </ul>
+                    <div class="footer-cont-details">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>1谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>2谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>3谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>4谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-details hide">
+                        <ul class="list-unstyled footer-name">
+                            <li><a href=""><em class="orange">1</em>5谢明帅</a></li>
+                            <li><a href=""><em class="orange">2</em>李东</a></li>
+                            <li><a href=""><em class="orange">3</em>周家琦</a></li>
+                            <li><a href=""><em class="green">4</em>巫梓填</a></li>
+                            <li><a href=""><em class="green">5</em>小雅</a></li>
+                            <li><a href=""><em class="green">6</em>曾成斌</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-num">
+                            <li><a href="">249条</a></li>
+                            <li><a href="">9条</a></li>
+                            <li><a href="">2491条</a></li>
+                            <li><a href="">29条</a></li>
+                            <li><a href="">49条</a></li>
+                            <li><a href="">24条</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">UI设计师</a></li>
+                            <li><a href="">网页设计师</a></li>
+                            <li><a href="">电商设计师</a></li>
+                            <li><a href="">-</a></li>
+                            <li><a href="">UI设计师</a></li>
+                        </ul>
+                        <ul class="list-unstyled footer-ord">
+                            <li><a href="">全国 3</a></li>
+                            <li><a href="">全国 13</a></li>
+                            <li><a href="">全国 2</a></li>
+                            <li><a href="">全国 1</a></li>
+                            <li><a href="">全国 16</a></li>
+                            <li><a href="">全国 -</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="">广东 1</a></li>
+                            <li><a href="">上海 605</a></li>
+                            <li><a href="">广东 10</a></li>
+                            <li><a href="">上海 6</a></li>
+                            <li><a href="">广东 -</a></li>
+                            <li><a href="">广东 6</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right">
+                <ul class="footer-nav list-inline">
+                    <li class="active"><a href="">推荐招聘</a></li>
+                    <li class="footer-more pull-right"><a href="">更多</a></li>
+                </ul>
+                <ul class="footer-refer-cont list-unstyled clearfix">
+                    <li><a href="">网页设计教师</a><a href="">湖南邵阳精英职业技术学校</a>17-07-19</li>
+                    <li><a href="">平面设计师</a><a href="">湖南邵阳精英职业技术学校</a>17-07-19</li>
+                    <li><a href="">资深网页设计师</a><a href="">深度国际旅行社</a>17-07-19</li>
+                    <li><a href="">网页设计教师</a><a href="">邦米（北京）国际公关策划有限公司</a>17-07-19</li>
+                    <li><a href="">网页设计教师</a><a href="">北京百川互动广告有限公司</a>17-07-19</li>
+                    <li><a href="">美术指导（互联网网站建设）</a><a href="">上海派琪(PAIKY)网络传媒</a>17-07-19</li>
+                    <li><a href="">网页设计师</a><a href="">圣博医疗集团</a>17-07-19</li>
+                    <li><a href="">网页设计美工</a><a href="">杭州翰臣科技有限公司</a>17-07-19</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p><a href="#">关于我们</a>|<a href="#">帮助中心</a>|<a href="#">推广&招聘</a>|<a href="#">网站地图</a>|<a href="#">友情链接</a>|<a href="#">联系我们</a><br>
+                Copyright © 2003-2017 68design.net, All Rights Reserved　站长统计br<br>
+                皖ICP备05012247号    皖公网安备34010402700146号<br>
+            </p>
+            <div class="footer-links">
+                友情链接：<a href="#">网站设计</a><a href="#">电商设计</a><a href="#">致设计</a><a href="#">学UI网</a><a href="#">中国设计</a><a href="#">在线广告配音</a><a href="#">中国设计网</a><a href="#">创意设计</a><a href="#">家装设计</a><a href="#">快站</a><a href="#">DOOOOR设计网</a><a href="#">在线设计</a><a href="#">微场景制作</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+<footer class="visible-xs visible-sm container-fluid">
+    <ul class="footer list-inline">
+        <li class="active"><a href=""><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><br>作品</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>招聘</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>素材</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span><br>服务</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span><br>更多</a></li>
+    </ul>
+</footer>
 </body>
 </html>

@@ -1,6 +1,9 @@
 ul{
     margin-bottom: 0;
 }
+body{
+    padding-bottom: 4.6em;
+}
 /*top*/
 .top{
     height: 30px;
@@ -70,7 +73,7 @@ ul{
 .menu .navbar-default{
     border-color:#e0e0e0;
     background-color: #fff;
-    height: 60px;
+    /*height: 60px;*/
 }
 .menu .navbar-form{
     padding-right: 0;
@@ -261,15 +264,161 @@ ul{
 .brand .list-inline>li{
     padding: 0;
 }
-.brand-cont li:nth-child(9){
+.brand-cont li:nth-child(8),
+.brand-cont li:nth-child(16){
     margin-right: 0;
 }
+/*footer*/
+.footer{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width:100%;
+    padding: 10px 0;
+    background-color: #fff;
+    margin-left: 0;
+    text-align: center;
+    box-shadow: 0 0 4px #ddd;
+}
+.footer li{
+    font-size:1.1em;
+    width:19%;
+    padding: 0;
+}
+.footer .list-inline>li{
+    padding: 0;
+}
+.footer li a {
+    color: #666;
+}
+.footer li a:hover,
+.footer li.active a{
+    color:#008040;
+}
+.footer li a span{
+    font-size:1.1em;
+}
+.footer-box a,
+.footer-nav .active a{
+    color:#959595;
+}
+.footer-top{
+    background-color: #3a3a3a;
+    padding: 50px 0;
+}
+.footer-nav a{
+    font-size:18px;
+    color:#646464;
+}
+.footer-cont-nav{
+    margin-top: 20px;
+}
+.footer-cont-nav li a{
+    font-size:16px;
+}
+.footer-cont-nav li{
+    width:102px;
+    text-align: center;
+    padding-bottom: 12px;
+}
+.footer-cont-nav li.active{
+    border-bottom: 2px solid #008040;
+}
+.footer-cont-nav li.active a{
+    color:#008040;
+}
+.footer-cont-details ul{
+    float: left;
+    margin-top: 15px;
+}
+.footer-cont-details li{
+    line-height: 32px;
+}
+.footer-name{
+    margin-right: 30px;
+}
+.footer-name em{
+    font-style:normal;
+    width:14px;
+    line-height: 14px;
+    height: 14px;
+    border-radius: 50%;
+    text-align: center;
+    color:#fff;
+    display: inline-block;
+    margin-right: 15px;
+}
+.footer-name em.orange{
+    background-color: #ff7700;
+}
+.footer-name em.green{
+    background-color: #008040;
+}
+.footer-num{
+    margin-right: 55px;
+    margin-left: 30px;
+}
+.footer-ord{
+    margin-left: 32px;
+    margin-right: 64px;
+}
+.footer-nav li.footer-more a{
+    font-size:14px;
+}
+.footer-refer-cont{
+    line-height: 32px;
+    margin-top: 15px;
+    color:#959595;
+}
+.footer-refer-cont li a{
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    text-align: left;
+    height: 32px;
+}
+.footer-refer-cont li a:first-child{
+    width: 110px;
+}
+.footer-refer-cont li a:last-child{
+    width: 200px;
+}
+.footer-bottom{
+    background-color: #333333;
+    color:#959595;
+    padding: 30px 0;
+    line-height: 30px;
+    font-size:13px;
+}
+.footer-bottom p a{
+    padding: 0 10px;
+}
+.footer-bottom p a:first-child{
+    padding-left: 0;
+}
+.footer-links{
+    color:#666;
+}
+.footer-links a{
+    font-size:12px;
+    color:#666;
+    padding: 0 10px;
+}
 
+
+
+.banner{
+    text-align: center;
+}
 
 
 
 /*media*/
 @media (min-width: 1200px) {
+    .banner{
+        width:1170px;
+        margin: 0 auto;
+    }
     .banner{
         margin-top: 30px;
     }
@@ -285,28 +434,43 @@ ul{
         margin-left: 2px;
         margin-right: 2px;
     }
+    .menu{
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: 1000;
+    }
+    .banner{
+        margin-top: 30px;
+    }
 }
-@media (max-width:768px){
+@media (max-width:767px){
     .brand-cont li{
         width:24%;
     }
-    /*.work-cont .thumbnail img{*/
-        /*float: left;*/
-        /*width:50%;*/
-    /*}*/
-    /*.thumbnail .caption{*/
-        /*float: left;*/
-    /*}*/
+    .menu .navbar-header{
+        display: block;
+        font-weight: bold;
+        text-align: center;
+        height: 50px;
+    }
+    .menu  .navbar-brand{
+        margin-top: 0;
+    }
+    .navbar-default .navbar-brand:hover{
+        color:#fff;
+    }
+    .navbar-default .navbar-brand {
+        float: none;
+        color:#fff;
+    }
     /*top*/
     .menu .navbar-default{
         background-color: #008040;
         border:none;
     }
-    .menu  .navbar-brand{
-        margin: 0 auto;
-        width: 120px;
 
-    }
     .menu .navbar-toggle {
         position: relative;
         float: right;
@@ -321,4 +485,14 @@ ul{
     .menu .navbar-default .navbar-toggle .icon-bar{
         background-color: #fff;
     }
+    .container-fluid{
+        padding: 0;
+    }
+    .inter-cont{
+        padding: 1em 1em 0 1em;
+    }
+    .inter-cont img{
+        padding-right: 1em;
+    }
+
 }
