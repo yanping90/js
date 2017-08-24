@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue实例</title>
+    <script src="vue.js"></script>
+    <script src="menu/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            v1 = new Vue({
+                el:"#app1",
+                data:{
+                    message:"hello world!!"
+                }
+            });
+            v2= new Vue({
+                el:"#words",
+                data:{
+                    newText:"",
+                    wsPrimary:[
+                        "春风十里不如你",
+                        "春风十里",
+                        "春风",
+                        "春风十里不如你剧情介绍",
+                        "盲约"
+                    ],
+                    ws:[]
+                },
+                methods:{
+                    filterWords:function(){
+                        var _self = this;
+                        _self.ws=_self.wsPrimary;
+                        _self.ws=_self.ws.filter(function(v){
+                            return v.indexOf(_self.newText) != -1;
+                        });
+                        $(".words").removeClass("hide");
+                    }
+                }
+            });
+        })
+    </script>
+    <style>
+        ul{
+            list-style: none;
+        }
+        #words{
+            position: relative;
+        }
+        .words{
+            position: absolute;
+            top: 20px;
+            left: 0;
+            font-size: 12px;
+            box-shadow: 0 0 5px #999;
+            padding: 10px;
+            color:#999;
+        }
+    </style>
+</head>
+<body>
+<div id="app1">{{message}}</div>
+<div id="words" >
+    <input type="text" placeholder="请输入关键字" v-model="newText" v-on:keyup="filterWords"/>
+    <ul class="words">
+        <li v-for="w in ws">{{w}}</li>
+    </ul>
+</div>
+</body>
+</html>
