@@ -16,26 +16,11 @@
                 }
             });
             var vm = new Vue({
-                el: '#app2',
-                data: {
-                    tabs: [
-                        {message: "css"},
-                        {message: "js"},
-                        {message: "html"}
-                    ]
-                },
-                methods: {
-                    tabClick: function () {
-                        console.log(this.index);
-                    }
-                }
-            });
-            var vm = new Vue({
-                el: '#app01',
+                el: '#app1',
                 data: {
                     tabs: ["标题一", "标题二", "标题三"],
                     tabContents: ["内容一", "内容二", "内容三"],
-                    num: 1
+                    num: 0
                 },
                 methods: {
                     tab: function (index) {
@@ -43,41 +28,150 @@
                     }
                 }
             });
+            var v2 = new Vue({
+                el:"#app2",
+                data:{
+                    tabs:[
+                            "js",
+                            "css",
+                            "html"
+                    ],
+                    tabConts:[
+                            "jsCont",
+                            "cssCont",
+                            "htmlCont"
+                    ],
+                    num:0
+                },
+                methods:{
+                    tabClick:function(index){
+                        this.num=index;
+                    }
+                }
+            });
+            var v4=new Vue({
+                el:"#app4",
+                data:{
+                    conts:[
+                        "js",
+                        "css",
+                        "html",
+                        "jquery"
+                    ],
+                    isShow:false
+                },
+                methods:{
+                    clickCont:function(){
+                        this.isShow == true ? this.isShow=false:this.isShow=true;
+                    }
+                }
+            });
+//            注册全局组件
+            Vue.component("my-text",{
+                template:"<p>hello world!</p>"
+            })
+//            创建根实例
+            var v5 = new Vue({
+                el:"#app5"
+            });
+//            注册局部组件
+            var v6 = new Vue({
+                el:"#app6",
+                components:{
+                    "my-word":{
+                template:"<p>hello</p>"
+            }
+                }
+            });
+//            var v7 = new Vue({
+//                el:"#app7",
+//                components:{
+//                    "my-li":{
+//                        template:"<li>hello</li>"
+//                    }
+//                }
+//            });
+            Vue.component("my-li",{
+                props:["message"],
+                template:"<li>{{message}}</li>"
+            });
+            var v7= new Vue({
+                el:"#app7",
+                data:{
+                    items:[
+                            "特性",
+                            "属性",
+                            "物理特性"
+                    ]
+                }
+            });
+            var v8=new Vue({
+                el:"#app8",
+                data:{
+                    html:"<span>这个世界真大</span>"
+                }
+            });
+
         }
     </script>
     <style>
-        .hide{
-            display: none;
+        ul{
+            list-style: none;
+        }
+        .clearfix:after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        #app01 li{
+            float: left;
+            background-color: #281567;
+            margin-right: 10px;
+            color:#fff;
+        }
+        #app01 li.active{
+            background-color: #000000;
         }
     </style>
 </head>
 <body>
-
-<div id="app01">
-    <ul>
-        <li
-                v-for="(item,index) in tabs"
-                :class="{active:index == num}"
-                @click="tab(index)">{{item}}</li>
-    </ul>
-    <div class="tabCon">
-        <div
-                v-for='(itemCon,index) in tabContents'
-                v-show=" index == num">{{itemCon}}</div>
-    </div>
-</div>
-<!--v-bind 缩写是:-->
+<!--v-bind 缩写是: v-on的缩写是@-->
 <div id="app1" :title="titleMessage">{{message}}</div>
 <div id="app3" :class="{active:isActive}"></div>
+<!--tab-->
 <div id="app2">
     <ul>
-        <li v-for="(tab,index) in tabs" @click="tabClick">{{index}}&nbsp;&nbsp;{{tab.message}}</li>
+        <li
+                v-for = "(tab,index) of tabs"
+                @click="tabClick(index)"
+                >{{index}}&nbsp;&nbsp;{{tab}}</li>
     </ul>
     <div class="tabCont">
-        <div class="tabCont"></div>
-        <div class="tabCont"></div>
-        <div class="tabCont"></div>
+        <div v-for="(tabCont,index) of tabConts"
+                v-show="index == num">{{tabCont}}</div>
     </div>
+</div>
+<!--下拉-->
+<div id="app4">
+    <a href="javascript:;" @click="clickCont">更多</a>
+    <div class="click-cont">
+        <ul v-show="isShow">
+            <li v-for="cont in conts">{{cont}}</li>
+        </ul>
+    </div>
+</div>
+<!--组件-->
+<div id="app5">
+    <my-text></my-text>
+</div>
+<div id="app6">
+    <my-word></my-word>
+</div>
+<ul id="app7">
+    <li is="my-li" :message="item" v-for="item in items"></li>
+</ul>
+<div id="app8">
+    <p v-html="html"></p>
 </div>
 </body>
 </html>
