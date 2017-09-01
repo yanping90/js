@@ -15,12 +15,12 @@
             position: relative;
             width:409px;
         }
-        .banner ul{
+        .banner-box{
             width:409px;
             height: 230px;
             overflow: hidden;
         }
-        .banner li{
+        .banner-box li{
             float: left;
         }
         .banner a{
@@ -34,19 +34,42 @@
             opacity: .7;
             font-weight: bold;
         }
-        .arrLeft{
-            left:10px;
+        .dot:after{
+            content:"";
+            clear:both;
         }
-        .arrRight{
-            right:10px;
+        .dot{
+            position: absolute;
+            bottom:20px;
+            left:50%;
+            margin-left: -25px;
+        }
+        .dot li{
+            width:10px;
+            height: 10px;
+            background-color: #281567;
+            border-radius:50%;
+            margin-right: 10px;
+            float: left;
+        }
+        .dot li.active{
+            background-color: #f80;
+        }
+        .img-enter-active, .img-leave-active {
+            transition: opacity .5s
+        }
+        .img-enter, .img-leave-to {
+            opacity: 0
         }
     </style>
 </head>
 <body>
 <div class="banner" id="banner">
-    <ul>
-        <li v-for="(b,index) in bs" v-show="index == num"><img :src="b" alt=""/></li>
-    </ul>
+    <transition name="img">
+        <ul class="banner-box">
+            <li v-for="(b,index) in bs" v-show="index == num"><img :src="b" alt=""/></li>
+        </ul>
+    </transition>
     <ul class="dot">
         <li v-for="(item,index) in bs.length" :class="{active:index == num}" @click="change(index)"></li>
     </ul>
@@ -64,14 +87,25 @@
                     "images/about03.jpg"
                 ]
             },
+            created:function(){
+                this.play();
+            },
             methods:{
-                scrollBanner:function(index){
-                    console.log(index);
+                change:function (index) {
+                    this.num = index;
                 },
-                scrollLeft:function(){
-
+                play:function () {
+                    var _self = this;
+                    var autoPlay = function () {
+                        _self.num++;
+                        if (_self.num == 3) {
+                            _self.num == 0;
+                            return;
+                        }
+                    };
+                    setInterval(autoPlay, 3000);
                 }
-            }
+        }
         });
 
     })
