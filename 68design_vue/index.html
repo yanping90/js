@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>68design首页</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div id="index">
+    <div class="top-box">
+        <div class="top-tit">
+            <div class="container clearFix">
+                <div class="fl">
+                    <div class="top-brand">
+                        <a href="javascript:;" @click="brandDown">
+                            建站品牌
+                            <i><img  alt="" :src="arrowSrc"/></i>
+                        </a>
+                        <transition name="fade">
+                            <ul class="brand-cont" v-show="show">
+                                <li><a href="javascript:;">北京</a></li>
+                                <li><a href="javascript:;">上海</a></li>
+                                <li><a href="javascript:;">广州</a></li>
+                                <li><a href="javascript:;">深圳</a></li>
+                                <li><a href="javascript:;">杭州</a></li>
+                                <li><a href="javascript:;">武汉</a></li>
+                                <li><a href="javascript:;">天津</a></li>
+                                <li><a href="javascript:;">重庆</a></li>
+                                <li><a href="javascript:;">苏州</a></li>
+                                <li><a href="javascript:;">宁波</a></li>
+                                <li><a href="javascript:;">合肥</a></li>
+                                <li><a href="javascript:;">哈尔滨</a></li>
+                                <li><a href="javascript:;">佛山</a></li>
+                                <li><a href="javascript:;">济南</a></li>
+                                <li><a href="javascript:;">东莞</a></li>
+                                <li><a href="javascript:;">昆明</a></li>
+                                <li><a href="javascript:;">贵阳</a></li>
+                                <li><a href="javascript:;">金华</a></li>
+                                <li><a href="javascript:;">邵阳</a></li>
+                                <li><a href="javascript:;">岳阳</a></li>
+                                <li><a href="javascript:;">濮阳</a></li>
+                                <li><a href="javascript:;">钦州</a></li>
+                            </ul>
+                        </transition>
+                    </div>
+                    <div class="top-navsub">
+                        <a href="javascript:;">担保接单</a>
+                        <a href="javascript:;">急需求职</a>
+                        <a href="javascript:;">高端人才</a>
+                        <em>|</em>
+                        <a href="javascript:;">PSD分享</a>
+                        <a href="javascript:;">原创教程</a>
+                        <em>|</em>
+                        <a href="javascript:;">热门培训</a>
+                        <a href="javascript:;" class="navsub-today">今日酷站</a>
+                    </div>
+                </div>
+                <div class="fr top-user">
+                    <a><a href="javascript:;">注册</a><em>|</em><a href="javascript:;">登录</a></a>
+                    <a href="javascript:;">发布产品</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="top-footer">
+            <div class="container clearFix">
+                <a href="index.html" class="top-logo fl"><img src="images/logo.png" alt=""/></a>
+                <div class="top-menu fl">
+                    <ul>
+                        <li><a href="javascript:;" class="active">作品</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                        <li><a href="javascript:;">素材</a></li>
+                        <li class="new"><a href="javascript:;">服务</a></li>
+                        <li class="moreMenu" @mouseenter="moreShow = !moreShow" @mouseleave="moreShow = !moreShow">
+                            <a href="javascript:;">更多</a>
+                            <ul class="menu-more" v-show="moreShow">
+                                <li><a href="javascript:;">人才</a></li>
+                                <li><a href="javascript:;">专访</a></li>
+                                <li><a href="javascript:;">品牌</a></li>
+                                <li><a href="javascript:;">十佳</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="top-search fr">
+                    <form action="post">
+                        <select name="" id="">
+                            <option value="">作品</option>
+                            <option value="">人才</option>
+                        </select>
+                        <input type="text" placeholder="关键字" class="search-txt" v-model="txt" @keyup="searchTxt"/>
+                        <ul class="search-cont" v-show="showSearch">
+                            <li v-for="(text,index) in texts" @click="searchDown(index)">{{text}}</li>
+                        </ul>
+                        <input type="button" value="" class="search-btn"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="banner">
+                <div class="banner-box">
+                    <ul class="clearFix">
+                        <li v-for="(b,index) in bs" @mouseenter="scrollEnter" @mouseleave="scrollLeave(index)"><img alt="" :src="b"/></li>
+                    </ul>
+                    <a href="javascript:;" class="leftArr"><img src="images/arrleft.png" alt=""/></a>
+                    <a href="javascript:;" class="rightArr"><img src="images/arrright.png" alt=""/></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    $(function () {
+        var v1 = new Vue({
+            el:"#index",
+            data:{
+                show:false,
+                moreShow:false,
+                isActive:false,
+                searchShow:false,
+                showSearch:false,
+                arrowSrc:"images/arrow-down.jpg",
+                text:"春风十里",
+                txt:"",
+                texts:[],
+                dataText:[
+                        "春风十里",
+                        "春风十里不如你",
+                        "春风",
+                        "十里",
+                        "春风十里不如",
+                        "春风十里不如你剧情介绍",
+                        "盲约",
+                        "盲约剧情介绍",
+                        "盲约剧情"
+                ],
+                bs:[
+                    "images/banner01.jpg",
+                    "images/banner02.jpg",
+                    "images/banner03.jpg"
+                ]
+            },
+            methods:{
+                brandDown:function(){
+                    this.show == false ? this.show = true : this.show = false;
+                    this.arrowSrc == "images/arrow-down.jpg" ? this.arrowSrc = "images/arrow-right.jpg" : this.arrowSrc = "images/arrow-down.jpg";
+                },
+                searchTxt:function(){
+                    var _self = this;
+                    if(_self.txt != ""){
+                        this.showSearch=true;
+                        _self.texts=_self.dataText.filter(function(v){
+                            return v.indexOf(_self.txt) != -1;
+                        });
+                        if(_self.texts==[]){
+                            this.showSearch=false;
+                        }
+                    }
+
+                },
+                searchDown:function(index){
+                    this.txt= this.texts[index];
+                    this.showSearch=false;
+                },
+                scrollEnter:function(){
+                    console.log("scrollEnter");
+                },
+                scrollLeave:function(index){
+                    var scroll = function(){
+                        var s=0;
+                    }
+                    console.log(this);
+                    console.log("scrollLeave"+index);
+                }
+
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

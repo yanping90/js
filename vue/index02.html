@@ -33,7 +33,9 @@
                         _self.ws=_self.ws.filter(function(v){
                             return v.indexOf(_self.newText) != -1;
                         });
-                        $(".words").removeClass("hide");
+                    },
+                    wordClick:function(index){
+                        console.log(this.ws[index]);
                     }
                 }
             });
@@ -62,7 +64,7 @@
 <div id="words" >
     <input type="text" placeholder="请输入关键字" v-model="newText" v-on:keyup="filterWords"/>
     <ul class="words">
-        <li v-for="w in ws">{{w}}</li>
+        <li v-for="(w,index) in ws" v-html="w" @click="wordClick(index)">{{w}}</li>
     </ul>
 </div>
 </body>

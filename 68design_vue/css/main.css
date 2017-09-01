@@ -1,0 +1,263 @@
+.container{
+    margin: 0 auto;
+}
+/*top-box*/
+.top-box{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 90px;
+    /* display: block; */
+    background-color: #fff;
+}
+.top-tit .fl{
+    width:82%;
+}
+.top-tit .fr{
+    width: 18%;
+}
+.top-tit {
+    height: 30px;
+    line-height: 30px;
+    background-color: #4e4e4e ;
+}
+.top-tit a,
+.top-tit em{
+    color:#999999;
+    padding: 0 10px;
+}
+.top-brand{
+    padding-right: 20px;
+    position: relative;
+    float: left;
+}
+.top-navsub{
+    float: left;
+}
+.top-tit a.navsub-today,
+.top-navsub a:hover{
+    color:#f90;
+}
+.top-navsub a:hover{
+    text-decoration: underline;
+}
+.brand-cont{
+    background-color: #4e4e4e;
+    position: absolute;
+    top:0;
+    left: 90px;
+    width: 1000px;
+    font-size: 14px;
+    padding: 8px;
+    z-index: 1000;
+}
+.brand-cont li{
+    float: left;
+}
+.brand-cont li a:hover,
+.top-user a:hover{
+    color:#eee;
+    text-decoration: underline;
+}
+.fade-enter-active, .fade-leave-active,
+.menu-enter-active,
+.menu-leave-active{
+     transition: opacity 1s
+ }
+.fade-enter, .fade-leave-to,
+.menu-enter, .menu-leave-to{
+    opacity: 0
+}
+.top-footer{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.top-menu ul li{
+    float: left;
+    font-size:15px;
+}
+.top-menu ul li a{
+    padding: 20px 14px;
+    margin: 0 12px;
+}
+.top-menu ul li.moreMenu a{
+    padding: 20px 22px;
+    margin: 0;
+}
+
+.top-menu ul li a.active {
+    border-bottom: 2px solid #008040;
+    position: relative;
+    bottom: 1px;
+}
+.top-menu  ul li.new a:after{
+    content: url("../images/new.jpg");
+    position: relative;
+    top: -14px;
+    left: 2px;
+}
+.top-menu ul li.moreMenu{
+    position: relative;
+}
+.menu-more{
+    position: absolute;
+    top: 50px;
+    left:0;
+    background-color: #454648;
+}
+.top-footer .top-menu ul li.moreMenu .menu-more{
+    line-height: 18px;
+}
+.top-footer .top-menu ul li.moreMenu .menu-more a{
+    color: #999;
+    font-size:14px;
+    display: inline-block;
+    padding: 5px 23px;
+}
+.top-menu ul li.moreMenu .menu-more li:hover a{
+    background-color: #00803f;
+    color:#fff;
+}
+.moreMenu:hover a{
+    background-color: #454648;
+    color:#999;
+}
+.top-search{
+    width:210px;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #e0e0e0;
+    border-radius:50px;
+    margin-top: 15px;
+    font-size: 12px;
+    position: relative;
+}
+.top-search select{
+    color: #888;
+    padding-left: 10px;
+    background: url("../images/menu-down.png") right center no-repeat;
+    -webkit-appearance: none;
+    padding-right: 20px;
+    float: left;
+    margin-top: 6px;
+}
+.search-txt {
+    width: 115px;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.search-btn{
+    width:16px;
+    height: 16px;
+    background: url("../images/ser-icon.jpg") center center no-repeat;
+    margin-top: 6px;
+}
+.search-cont{
+    position: absolute;
+    top: 31px;
+    left: 65px;
+    box-shadow: 0 0 4px #ddd;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    line-height: 26px;
+    color: #333;
+    background-color: #fff;
+}
+.top-logo{
+    width: 8%;
+    display: block;
+}
+.top-menu{
+    width: 32%;
+}
+/*main*/
+.main{
+    background-color: #f4f4f4;
+    margin-top: 90px;
+    padding: 30px 0;
+}
+/*banner*/
+.banner{
+    width:100%;
+    position: relative;
+    overflow: hidden;
+}
+.banner-box{
+    width:1200px;
+    height: 290px;
+}
+.banner-box ul{
+    width: 3600px;
+    height: 290px;
+}
+.banner-box li{
+    float: left;
+}
+.banner-box li,
+.banner-box li img{
+    width: 1200px;
+    height: 290px;
+}
+.arrow{
+    position: absolute;
+    top: 114px;
+    left:0;
+}
+.banner-box a{
+    padding: 10px;
+    background-color: #000;
+    opacity: .7;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -33px;
+}
+a.leftArr{
+    left: 30px;
+}
+a.rightArr{
+    right: 30px;
+}
+
+/*media*/
+@media (min-width: 786px) {
+    .top-box{
+        display: none;
+    }
+}
+@media (min-width: 992px){
+    .top-box{
+        display: block;
+    }
+    .container{
+        width:970px;
+    }
+    .top-tit .fl{
+        width: 70%;
+    }
+    .top-tit .fr{
+        width: 22%;
+    }
+    .top-menu{
+        width: 43%;
+        margin: 0 11% 0 12%;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        width:1200px;
+    }
+    .top-menu{
+        margin: 0 20% 0 16%;
+        width: 35%;
+    }
+    .top-logo img{
+        padding-top: 20px;
+    }
+}

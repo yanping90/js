@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播广告位</title>
+    <script src="menu/jquery-3.1.1.min.js"></script>
+    <script src="vue.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .banner{
+            position: relative;
+            width:409px;
+        }
+        .banner ul{
+            width:409px;
+            height: 230px;
+            overflow: hidden;
+        }
+        .banner li{
+            float: left;
+        }
+        .banner a{
+            padding: 10px 4px;
+            background-color: #000;
+            text-decoration: none;
+            position: absolute;
+            top:50%;
+            margin-top: -30px;
+            color:#fff;
+            opacity: .7;
+            font-weight: bold;
+        }
+        .arrLeft{
+            left:10px;
+        }
+        .arrRight{
+            right:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="banner" id="banner">
+    <ul>
+        <li v-for="(b,index) in bs" v-show="index == num"><img :src="b" alt=""/></li>
+    </ul>
+    <ul class="dot">
+        <li v-for="(item,index) in bs.length" :class="{active:index == num}" @click="change(index)"></li>
+    </ul>
+</div>
+<script>
+    $(function(){
+
+        new Vue({
+            el:"#banner",
+            data:{
+                num:0,
+                bs:[
+                    "images/about01.jpg",
+                    "images/about02.jpg",
+                    "images/about03.jpg"
+                ]
+            },
+            methods:{
+                scrollBanner:function(index){
+                    console.log(index);
+                },
+                scrollLeft:function(){
+
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
