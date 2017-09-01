@@ -67,11 +67,11 @@
 <div class="banner" id="banner">
     <transition name="img">
         <ul class="banner-box">
-            <li v-for="(b,index) in bs" v-show="index == num"><img :src="b" alt=""/></li>
+            <li v-for="(b,index) in bs" v-show="index == num" :key="index"><img :src="b" alt=""/></li>
         </ul>
     </transition>
     <ul class="dot">
-        <li v-for="(item,index) in bs.length" :class="{active:index == num}" @click="change(index)"></li>
+        <li v-for="(item,index) in bs.length" :class="{active:index == num}" :key="index" @click="change(index)"></li>
     </ul>
 </div>
 <script>
@@ -98,8 +98,8 @@
                     var _self = this;
                     var autoPlay = function () {
                         _self.num++;
-                        if (_self.num == 3) {
-                            _self.num == 0;
+                        if (_self.num == _self.bs.length) {
+                            _self.num = 0;
                             return;
                         }
                     };
