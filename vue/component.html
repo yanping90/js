@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="menu/jquery-3.1.1.min.js"></script>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    <!--下拉-->
+    <down tit="前端" :ds="arrayDs"></down>
+
+    <down tit="计算机系" :ds="arrayDs1"></down>
+
+    <!--父组件向子组件传值-->
+    {{words}}
+    <example @say="sayWhat"></example>
+    <example @say="sayWhat"></example>
+</div>
+<script>
+    $(function(){
+
+        Vue.component("example",{
+            template:'<p @click="say">{{msg}}</p>',
+            data:function(){
+                return {
+                    msg:"hello world"
+                }
+            },
+            methods:{
+                say:function(){
+                    this.msg += "1"
+                    this.$emit("say");
+                }
+            }
+        });
+
+        Vue.component("down",{
+            template:'<div>\
+        <a href="#" @click="isShow = !isShow">{{tit}}</a>\
+        <ul v-show="isShow">\
+        <li v-for="d in ds">{{d}}</li>\
+    </ul>\
+    </div>',
+            props:["tit","ds"],
+            data:function(){
+                return {isShow:false}
+            }
+        });
+
+        new Vue({
+            el:"#app1",
+            data:{
+                arrayDs:[
+                    "js","css","html"
+                ],
+                arrayDs1:["jsj"],
+                words:"hello"
+            },
+            methods:{
+                sayWhat:function(){
+                    this.words += "1";
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
