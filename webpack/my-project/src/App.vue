@@ -125,6 +125,75 @@
                 </div>
             </div>
         </div>
+        <div class="news">
+            <div class="comWidth clearfix">
+                <div class="expert fl">
+                    <h2 class="expert-tit">上周点评达人榜</h2>
+                    <div class="expert-cont-box">
+                        <ul class="expert-cont-tit clearfix">
+                            <li @click="changeTab('总榜')" :class="{active:tab =='总榜'}">总榜</li>
+                            <li @click="changeTab('指导榜')" :class="{active:tab =='指导榜'}">指导榜</li>
+                            <li @click="changeTab('资深榜')" :class="{active:tab =='资深榜'}">资深榜</li>
+                            <li @click="changeTab('设计师榜')" :class="{active:tab =='设计师榜'}">设计师榜</li>
+                            <li @click="changeTab('助理榜')" :class="{active:tab =='助理榜'}">助理榜</li>
+                        </ul>
+                        <div v-show="tab == '总榜'" class="expert-cont">
+                            <p><span class="expert-name"><i class="orange">1</i>李从亮1</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="orange">2</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -342</span></p>
+                            <p><span class="expert-name"><i class="orange">3</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">4</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -1002</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">5</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">6</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                        </div>
+                        <div v-show="tab == '指导榜'" class="expert-cont">
+                            <p><span class="expert-name"><i class="orange">1</i>李从亮2</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="orange">2</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -342</span></p>
+                            <p><span class="expert-name"><i class="orange">3</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">4</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -1002</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">5</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">6</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                        </div>
+                        <div v-show="tab == '资深榜'" class="expert-cont">
+                            <p><span class="expert-name"><i class="orange">1</i>李从亮3</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="orange">2</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -342</span></p>
+                            <p><span class="expert-name"><i class="orange">3</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">4</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -1002</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">5</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">6</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                        </div>
+                        <div v-show="tab == '设计师榜'" class="expert-cont">
+                            <p><span class="expert-name"><i class="orange">1</i>李从亮4</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="orange">2</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -342</span></p>
+                            <p><span class="expert-name"><i class="orange">3</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">4</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -1002</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">5</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">6</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                        </div>
+                        <div v-show="tab == '助理榜'" class="expert-cont">
+                            <p><span class="expert-name"><i class="orange">1</i>李从亮5</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="orange">2</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -342</span></p>
+                            <p><span class="expert-name"><i class="orange">3</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">4</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -1002</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">5</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                            <p><span class="expert-name"><i class="blue">6</i>李从亮</span><span class="expert-num">74条</span><span class="expert-best">UI设计师</span><span class="expert-better">全国 -</span><span class="expert-good">江西 -</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="expert fr">
+                    <h2 class="expert-tit">推荐招聘</h2>
+                    <div class="expert-cont">
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+                        <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--footer-->
         <foot></foot>
     </div>
@@ -154,6 +223,7 @@
                 hrefBrand:"pp.html",
                 moreBrand:"更多品牌设计公司",
                 titsBrand:"推荐品牌",
+                tab:"总榜",
                 ps:[
                     {href:"src/assets/people.jpg","tit":"本期人物：袁康",text:"奢侈品牌主要针对高端消费群体，只针对有极致追求生活品味的人而定，别样人生，智享非凡品质，而普通电商追求的首要因素是针对销量策划来定页面以及详情卖点，常规电商类目都是以活动促销为依托，不同活动针对不同"},
                     {href:"src/assets/people1.jpg","tit":"上期人物：谢巍",text:"在小米待的这是第四年了，这四年小米的变化是很大的，小米在这几年的摸爬滚打终于找到了自己的方向，以前的“为发烧而生”不如改为“为探索而生”更加符合现在的品牌调性，小米的设计部门有很多比如小米商城，MIUI.."}
@@ -177,8 +247,12 @@
                     {href:"brand.html",src:"src/assets/daxue.gif",text:"淘宝大学"},
                     {href:"brand.html",src:"src/assets/lnest.gif",text:"港湾有巢"},
                     {href:"brand.html",src:"src/assets/bocweb.gif",text:"博采网络"}
-
                 ]
+            }
+        },
+        methods:{
+            changeTab:function(val){
+                this.tab = val;
             }
         }
     }
@@ -247,4 +321,85 @@
         width:120px;
         height: 60px;
     }
+    /*news*/
+    .news{
+        background-color: #3a3a3a;
+        color:#999;
+        padding: 50px 0;
+    }
+    .expert-tit{
+        font-weight: normal;
+        padding-bottom: 10px;
+    }
+    .expert-cont-tit li{
+        float: left;
+        font-size:16px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        color:#888;
+    }
+    .expert-cont-tit li:first-child{
+        margin-left: 0;
+    }
+    .expert-cont-tit li.active{
+        border-bottom:2px solid #008040;
+        color:#008040;
+    }
+    .expert-cont{
+        padding-top: 10px;
+    }
+    .expert-cont p{
+        margin: 15px 0;
+    }
+    .expert-cont p span{
+        font-size:13px;
+        display: inline-block;
+    }
+    .expert-name{
+        width:122px;
+    }
+    .expert-num,
+    .expert-best{
+        width:108px;
+    }
+    .expert-better{
+        width:124px;
+    }
+    .expert-job{
+        width:180px;
+        display: inline-block;
+        overflow: hidden;
+    }
+    .expert-school{
+        width:130px;
+        overflow: hidden;
+        padding-right: 30px;
+    }
+    .news .fr{
+        width:445px;
+    }
+    .news .fr p span{
+        height: 16px;
+        line-height: 16px;
+        overflow: hidden;
+        font-size:14px;
+    }
+    .expert-cont p span i{
+        width:14px;
+        height: 14px;
+        line-height: 14px;
+        text-align: center;
+        font-style: normal;
+        color:#fff;
+        border-radius:50%;
+        display: inline-block;
+        margin-right: 15px;
+    }
+    .expert-cont p span i.orange{
+        background-color: #f80;
+    }
+    .expert-cont p span i.blue{
+        background-color: #008040;
+    }
+
 </style>

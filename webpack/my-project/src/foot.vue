@@ -1,23 +1,18 @@
 <template>
     <div class="footer">
         <div class="comWidth">
-            <p><a href="#">关于我们</a>|<a href="#">帮助中心</a>|<a href="#">推广&amp;招聘</a>|<a href="#">网站地图</a>|<a href="#">友情链接</a>|<a href="#">联系我们</a><br>
-                Copyright © 2003-2017 68design.net, All Rights Reserved　站长统计br<br>
+            <div class="footer-cont">
+                <a href="#">关于我们</a>|<a href="#">帮助中心</a>|<a href="#">推广&amp;招聘</a>|<a href="#">网站地图</a>|<a href="#">友情链接</a>|<a href="#">联系我们</a><br>
+                Copyright © 2003-2017 68design.net, All Rights Reserved　站长统计<br>
                 皖ICP备05012247号    皖公网安备34010402700146号<br>
-            </p>
-            <div class="footer-links">
-                友情链接：<a href="#">网站设计</a><a href="#">电商设计</a><a href="#">致设计</a><a href="#">学UI网</a><a href="#">中国设计</a><a href="#">在线广告配音</a><a href="#">中国设计网</a><a href="#">创意设计</a><a href="#">家装设计</a><a href="#">快站</a><a href="#">DOOOOR设计网</a><a href="#">在线设计</a><a href="#">微场景制作</a>
             </div>
+            <div class="footer-links">友情链接：<a href="#">网站设计</a><a href="#">电商设计</a><a href="#">致设计</a><a href="#">学UI网</a><a href="#">中国设计</a><a href="#">在线广告配音</a><a href="#">中国设计网</a><a href="#">创意设计</a><a href="#">家装设计</a><a href="#">快站</a><a href="#">DOOOOR设计网</a><a href="#">在线设计</a><a href="#">微场景制作</a></div>
         </div>
     </div>
 </template>
 <script>
     export default {
-        name:"foot",
-                data:function(){
-            return{
-            }
-        }
+        name:"foot"
     }
 </script>
 <style>
@@ -25,20 +20,22 @@
         background-color: #333333;
         padding: 40px 0;
     }
-    .footer p{
+    .footer-cont{
         color:#999999;
         margin-bottom: 30px;
         line-height: 30px;
         font-size:13px;
+        text-align: left;
+        width:100%;
     }
-    .footer p a{
+    .footer-cont a{
         padding: 0 10px;
         color:#999999;
     }
     .footer a:hover{
         text-decoration: underline;
     }
-    .footer p a:first-child{
+    .footer-cont a:first-child{
         padding-left: 0;
     }
     .footer-links{
