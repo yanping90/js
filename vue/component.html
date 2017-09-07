@@ -9,7 +9,8 @@
 <body>
 <div id="app1">
     <!--下拉-->
-    <down tit="前端" :ds="arrayDs"></down>
+    <down tit="前端" :ds="arrayDs" @down="downs"></down>
+    <img :src="src" alt=""/>
 
     <down tit="计算机系" :ds="arrayDs1"></down>
 
@@ -56,7 +57,8 @@
                     "js","css","html"
                 ],
                 arrayDs1:["jsj"],
-                words:"hello"
+                words:"hello",
+                src:"images/arrow-down.jpg"
             },
             methods:{
                 sayWhat:function(){

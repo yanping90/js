@@ -13,36 +13,7 @@
             <div class="container clearFix">
                 <div class="fl">
                     <div class="top-brand">
-                        <a href="javascript:;" @click="brandDown">
-                            建站品牌
-                            <i><img  alt="" :src="arrowSrc"/></i>
-                        </a>
-                        <transition name="fade">
-                            <ul class="brand-cont" v-show="show">
-                                <li><a href="javascript:;">北京</a></li>
-                                <li><a href="javascript:;">上海</a></li>
-                                <li><a href="javascript:;">广州</a></li>
-                                <li><a href="javascript:;">深圳</a></li>
-                                <li><a href="javascript:;">杭州</a></li>
-                                <li><a href="javascript:;">武汉</a></li>
-                                <li><a href="javascript:;">天津</a></li>
-                                <li><a href="javascript:;">重庆</a></li>
-                                <li><a href="javascript:;">苏州</a></li>
-                                <li><a href="javascript:;">宁波</a></li>
-                                <li><a href="javascript:;">合肥</a></li>
-                                <li><a href="javascript:;">哈尔滨</a></li>
-                                <li><a href="javascript:;">佛山</a></li>
-                                <li><a href="javascript:;">济南</a></li>
-                                <li><a href="javascript:;">东莞</a></li>
-                                <li><a href="javascript:;">昆明</a></li>
-                                <li><a href="javascript:;">贵阳</a></li>
-                                <li><a href="javascript:;">金华</a></li>
-                                <li><a href="javascript:;">邵阳</a></li>
-                                <li><a href="javascript:;">岳阳</a></li>
-                                <li><a href="javascript:;">濮阳</a></li>
-                                <li><a href="javascript:;">钦州</a></li>
-                            </ul>
-                        </transition>
+                        <drop-down tit="建站品牌" :drops="dropsCont" navClass="brandCont"></drop-down>
                     </div>
                     <div class="top-navsub">
                         <a href="javascript:;">担保接单</a>
@@ -61,7 +32,6 @@
                     <a href="javascript:;">发布产品</a>
                 </div>
             </div>
-
         </div>
         <div class="top-footer">
             <div class="container clearFix">
@@ -118,6 +88,20 @@
 <script src="js/vue.js"></script>
 <script>
     $(function () {
+
+        Vue.component("drop-down",{
+            props:["tit","drops","navClass"],
+            template: '<div><a href="javascript:;" @click="dropShow = !dropShow">{{tit}}</a>\
+            <ul v-show="dropShow" :class="navClass">\
+            <li v-for="drop in drops"><a href="javascript:;">{{drop}}</a></li>\
+            </ul></div>',
+            data:function(){
+                return {dropShow:false}
+            }
+
+
+
+        });
         var v1 = new Vue({
             el:"#index",
             data:{
@@ -127,6 +111,7 @@
                 searchShow:false,
                 showSearch:false,
                 arrowSrc:"images/arrow-down.jpg",
+                brandCont:"brandCont",
                 text:"春风十里",
                 txt:"",
                 texts:[],
@@ -145,6 +130,9 @@
                     "images/banner01.jpg",
                     "images/banner02.jpg",
                     "images/banner03.jpg"
+                ],
+                dropsCont:[
+                        "html","css","js"
                 ]
             },
             methods:{
