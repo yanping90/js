@@ -189,7 +189,6 @@
                         <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
                         <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
                         <p><span class="expert-job">网页设计教师</span><span class="expert-school">湖南邵阳精英职业技术学校</span><span class="expert-time">17-07-19</span></p>
-
                     </div>
                 </div>
             </div>

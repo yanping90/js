@@ -108,7 +108,17 @@
             var v8=new Vue({
                 el:"#app8",
                 data:{
-                    html:"<span>这个世界真大</span>"
+                    message:"点我"
+                },
+                mounted:function(){
+                    this.$nextTick(function(){
+                        this.message="hello world";
+                    })
+                },
+                methods:{
+                    example:function(){
+                        this.message="hello";
+                    }
                 }
             });
 
@@ -171,7 +181,7 @@
     <li is="my-li" :message="item" v-for="item in items"></li>
 </ul>
 <div id="app8">
-    <p v-html="html"></p>
+    <p @click="example">{{message}}</p>
 </div>
 </body>
 </html>

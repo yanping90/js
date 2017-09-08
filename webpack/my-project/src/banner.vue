@@ -30,7 +30,7 @@
         },
         created:function(){
                 this.play();
-            },
+        },
         methods:{
             change:function(index){
                 this.num = index;
