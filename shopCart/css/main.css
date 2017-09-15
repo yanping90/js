@@ -1,0 +1,160 @@
+/*reset css*/
+body{
+    font-size:12px;
+}
+div,ul,li,p,span,input,select,a{
+    padding: 0;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*cart*/
+.cart{
+    width:1190px;
+    margin: 0 auto;
+}
+.cart-tit {
+    font-size: 18px;
+    color: #f40;
+    border-bottom: 2px solid #e6e6e6;
+    font-weight: bold;
+}
+.cart-tit p{
+    border-bottom: 2px solid #f40;
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+    left:0;
+    padding: 0 10px 16px 10px;
+}
+.cart-tit span{
+    font-size:14px;
+    font-weight: normal;
+}
+.cart-tab ul li{
+    float: left;
+    padding: 15px 0;
+}
+.cart-th-all{
+    width:125px;
+}
+.cart-th-name{
+    width:510px;
+}
+.cart-th-price{
+    width:120px;
+}
+.cart-th-num{
+    width:120px;
+}
+.cart-th-money,
+.cart-td-money{
+    width:170px;
+}
+.cart-th-all span{
+     position: relative;
+     top: -2px;
+    left:4px;
+}
+.cart-list{
+    border:1px solid #cccccc;
+    background-color: #fcfcfc;
+    padding: 0 25px;
+}
+.cart-list ul li{
+    padding: 20px 0;
+    border-bottom: 1px solid #e7e7e7;
+}
+.cart-list ul li:last-child{
+    border-bottom: none;
+}
+.cart-list ul li div{
+    float: left;
+    color: #444;
+}
+.cart-td-all{
+    width: 610px;
+}
+.cart-td-all img{
+    vertical-align: text-top;
+    border:1px solid #eeeeee;
+    margin: 0 10px;
+}
+.cart-td-num,
+.cart-td-name{
+    width:120px;
+}
+.cart-input{
+    /*-webkit-appearance: none;*/
+    /*width:11px;*/
+    /*height: 11px;*/
+    /*background-color: #fff;*/
+    /*border:1px solid #c5c5c5;*/
+}
+.cart-td-name,
+.cart-td-money{
+    font-size:14px;
+    font-weight: bold;
+    color:#444;
+}
+.cart-td-money{
+    color:#f40;
+}
+.cart-td-num a,
+.cart-td-num input{
+    height: 23px;
+    line-height: 23px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+}
+.cart-td-num a{
+    width:17px;
+    background-color: #f0f0f0;
+    border:1px solid #e5e5e5;
+}
+.active{
+    border-color:#ff6600;
+    color:#ff6600;
+}
+.gray{
+    color:#e5e5e5;
+}
+.cart-td-num input{
+    width:40px;
+    background-color: #fff;
+    border:1px solid #aaaaaa;
+}
+.cart-add{
+    position: fixed;
+    bottom:0;
+    background-color: #e5e5e5;
+    padding: 10px 20px 10px 0;
+    width:1190px;
+    text-align: right;
+}
+.cart-add-num{
+    padding-right: 40px;
+}
+.cart-add p span b{
+    color:#f40;
+    font-weight: bold;
+    padding: 0 5px;
+}
+.cart-add-num b{
+    font-size:16px;
+}
+.cart-add-money b{
+    font-size:22px;
+}
+

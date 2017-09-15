@@ -1,0 +1,22 @@
+{
+  "status":1,
+  "result":{
+    "price":"99",
+    "list":[
+      {
+        "goodId":"gd100000001",
+        "goodName":"百草味芒果干120g 休闲零食芒果片 蜜饯果脯果干",
+        "goodPrice":9,
+        "goodNum":1,
+        "goodImg":"images/goods-img1.jpg"
+      },
+      {
+        "goodId":"gd100000002",
+        "goodName":"美国原装正品rumbatime手表女铆钉大表盘石英表防水双绕式表带",
+        "goodPrice":375,
+        "goodNum":1,
+        "goodImg":"images/goods-img2.jpg"
+      }
+    ]
+  }
+}

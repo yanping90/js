@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="cart" id="shopCart">
+    <div class="cart-tit">
+        <p>全部商品 <span>10</span></p>
+    </div>
+    <div class="cart-tab">
+        <ul class="clearfix">
+            <li class="cart-th-all"><input type="checkbox" class="cart-input"/><span>全选</span></li>
+            <li class="cart-th-name">商品信息</li>
+            <li class="cart-th-price">单价</li>
+            <li class="cart-th-num">数量</li>
+            <li class="cart-th-money">金额</li>
+            <li class="cart-th-action">操作</li>
+        </ul>
+    </div>
+    <div class="cart-list">
+        <ul class="clearfix">
+            <li class="clearfix" v-for="good in goods">
+                <div  class="cart-td-all"><input type="checkbox" class="cart-input"/><img :src="good.goodImg" alt=""/>{{good.goodName}}</div>
+                <div class="cart-td-name">{{good.goodPrice | fatMoney}}</div>
+                <div class="cart-td-num">
+                    <a @click="changeMoney(good,-1)" :class="{active:isActive,gray:isGray}">-</a>
+                    <input type="text" v-model="good.goodNum" />
+                    <a @click="changeMoney(good,1)">+</a>
+                </div>
+                <div class="cart-td-money">{{good.goodPrice * good.goodNum | fatMoney}}</div>
+                <div class="cart-td-action">移入收藏夹<br>删除</div>
+            </li>
+        </ul>
+    </div>
+    <div class="cart-add">
+        <p><span  class="cart-add-num">已选商品<b>1</b>件</span><span  class="cart-add-money">合计（不含运费）：<b>9.9</b></span></p>
+    </div>
+</div>
+</body>
+</html>
