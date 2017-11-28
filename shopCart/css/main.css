@@ -6,6 +6,9 @@ div,ul,li,p,span,input,select,a{
     padding: 0;
     margin:0;
 }
+.input{
+    outline: none;
+}
 ul{
     list-style-type: none;
 }
@@ -95,11 +98,11 @@ a{
     width:120px;
 }
 .cart-input{
-    /*-webkit-appearance: none;*/
-    /*width:11px;*/
-    /*height: 11px;*/
-    /*background-color: #fff;*/
-    /*border:1px solid #c5c5c5;*/
+    -webkit-appearance: none;
+    width:11px;
+    height: 11px;
+    background-color: #fff;
+    border:1px solid #c5c5c5;
 }
 .cart-td-name,
 .cart-td-money{
@@ -156,5 +159,8 @@ a{
 }
 .cart-add-money b{
     font-size:22px;
+}
+.check{
+    border:1px solid #f80;
 }
 

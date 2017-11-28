@@ -1,6 +1,6 @@
 $(function(){
 
-    new Vue({
+    app1=new Vue({
         el:"#shopCart",
         data:{
             goods:[],
@@ -38,6 +38,13 @@ $(function(){
                     } else if(good.goodNum == 1) {
                         _self.isGray=true;
                     }
+                }
+            },
+            checkGood:function(good){
+                if(typeof good.checked == "undefined"){
+                    this.$set(good,"checked","true");
+                } else {
+                    good.checked = false;
                 }
             }
         }

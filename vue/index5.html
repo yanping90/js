@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue练习</title>
+    <script src="./menu/jquery-3.1.1.min.js"></script>
+    <script src="vue.js"></script>
+    <script>
+        $(function(){
+
+            new Vue({
+                el:"#app1",
+                data:{
+                    message:"hello",
+                    isActive:false
+                }
+            });
+
+            Vue.component("my-example",{
+                template:"<p>{{message}}</p>",
+                props:["message"]
+            });
+            new Vue({
+                el:"#app2",
+                data:{
+                    example1:"绑定属性message"
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div id="app1">
+    <p :title="message" :class="{active:isActive}">{{message}}</p>
+</div>
+<div id="app2">
+    <my-example :message="example1"></my-example>
+    <my-example message="example2"></my-example>
+</div>
+</body>
+</html>

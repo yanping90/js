@@ -26,7 +26,7 @@
     <div class="cart-list">
         <ul class="clearfix">
             <li class="clearfix" v-for="good in goods">
-                <div  class="cart-td-all"><input type="checkbox" class="cart-input"/><img :src="good.goodImg" alt=""/>{{good.goodName}}</div>
+                <div  class="cart-td-all"><input type="checkbox" :class="{check:good.checked}" @click="checkGood(good)" class="cart-input"/><img :src="good.goodImg" alt=""/>{{good.goodName}}</div>
                 <div class="cart-td-name">{{good.goodPrice | fatMoney}}</div>
                 <div class="cart-td-num">
                     <a @click="changeMoney(good,-1)" :class="{active:isActive,gray:isGray}">-</a>
