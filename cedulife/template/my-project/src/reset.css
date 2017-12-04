@@ -4,7 +4,13 @@
     border:0;
     outline: none;
     text-decoration: none;
+    color:#333;
+}
+body{
     font-size:12px;
+}
+dl,ul{
+    list-style-type: none;
 }
 .fl{
     float: left;
@@ -30,29 +36,6 @@
 .top-search .ico {
     background-position: 35px -56px;
 }
-@media (min-width: 1170px) {
-    .top-header,
-    .top-label{
-        display: block;
-    }
-    .width{
-        width:1200px;
-    }
-    .top-txt{
-        width:72%;
-    }
-}
-@media (max-width:1169px ) {
-    .top-header,
-    .top-label{
-        display: none;
-    }
-}
-@media (max-width:992px ) {
-    .top-txt{
-        width:66%;
-    }
-    .top-search .ico {
-        background-position: 18px -56px;
-    }
+.width{
+    width:1200px;
 }

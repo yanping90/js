@@ -21,10 +21,24 @@
                 template:"<p>{{message}}</p>",
                 props:["message"]
             });
+
             new Vue({
                 el:"#app2",
                 data:{
                     example1:"绑定属性message"
+                }
+            });
+
+            new Vue({
+                el:"#app3",
+                data:{
+                    navTit:""
+                },
+                methods:{
+                    showRightNav:function(val){
+                        this.navTit = val;
+                        console.log(this.navTit);
+                    }
                 }
             });
         })
@@ -37,6 +51,28 @@
 <div id="app2">
     <my-example :message="example1"></my-example>
     <my-example message="example2"></my-example>
+</div>
+<div id="app3">
+    <ul>
+        <li>
+            <a href="#" @click="showRightNav('js')">js</a>
+            <ul v-show="navTit==='js'">
+                <li>aaa</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">css</a>
+            <ul>
+                <li>cssaaa</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">html</a>
+            <ul>
+                <li>htmlaaa</li>
+            </ul>
+        </li>
+    </ul>
 </div>
 </body>
 </html>
