@@ -1,13 +1,15 @@
 <template>
     <div class="top-search">
         <div class="form-cont clearfix">
-            <select name="" id="select" class="ico fl">
-                <option value="">班级</option>
-                <option value="">课程</option>
-                <option value="">学校</option>
-            </select>
-            <input type="text" class="top-txt fl" placeholder="请输入关键字">
-            <input type="submit" class="top-btn fr ico" value="">
+            <form action="" method="get">
+                <select name="" id="select" class="ico fl">
+                    <option value="">班级</option>
+                    <option value="">课程</option>
+                    <option value="">学校</option>
+                </select>
+                <input type="text" class="top-txt fl" placeholder="请输入关键字">
+                <button type="submit" class="top-btn fr ico" @click="submitForm"></button>
+            </form>
         </div>
         <div class="top-label">
             <a href="#">小学辅导</a>
@@ -33,6 +35,9 @@
         border-radius:4px;
         height: 36px;
         line-height: 36px;
+    }
+    .form-cont form{
+        height: 36px;
     }
     .top-search select.ico{
         -webkit-appearance: none;

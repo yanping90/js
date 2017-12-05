@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>form</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+
+            $("#form").on("submit",function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url:"data.json",
+                    success:function(r){
+                        console.log(r);
+                    }
+                });
+            })
+
+        })
+    </script>
+</head>
+<body>
+<form action="" method="get" id="form">
+    <select name="" id="select">
+        <option value="">班级</option>
+        <option value="">课程</option>
+        <option value="">学校</option>
+    </select>
+    <input type="text" placeholder="请输入关键字" id="txt">
+    <input type="submit" value="submit"  id="btn"/>
+</form>
+</body>
+</html>
