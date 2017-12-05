@@ -1,10 +1,10 @@
 <template>
     <div class="banner">
-        <ul class="clearfix ">
-            <li v-for="b in bs" @mouseenter="changeImg"><img :src="b.text" alt=""/></li>
+        <ul>
+            <li v-for="(b,index) in bs" @mouseenter="playEnter" @mouseleave="play"><img :src="b.text" alt="" v-show="num == index"/></li>
         </ul>
-        <ul class="dot">
-            <li v-for="d in bs.length"><a href="javascript:;"></a></li>
+        <ul class="dot clearfix">
+            <li v-for="(d,index) in bs.length" @click="changeDot(index)"><a href="javascript:;" :class="{activeDot:num == index}"></a></li>
         </ul>
     </div>
 </template>
@@ -14,16 +14,35 @@
         data:function(){
             return{
                 bs:[
-                    {text:"./dist/banner01.jpg"},
-                    {text:"./dist/banner02.jpg"},
-                    {text:"./dist/banner03.jpg"}
+                    {text:"dist/banner01.jpg"},
+                    {text:"dist/banner02.jpg"},
+                    {text:"dist/banner03.jpg"}
                 ],
-                num:0
+                num:0,
+                timer:0
             }
         },
+        created:function(){
+            this.play();
+        },
         methods:{
-            changeImg:function(){
-                console.log("click");
+            changeDot:function(index){
+                this.num=index;
+            },
+            play:function(){
+                var _self = this;
+                var autoPlay =function(){
+                    _self.num++;
+                    if(_self.num == _self.bs.length){
+                        _self.num =0;
+                        return;
+                    }
+                }
+                this.timer = setInterval(autoPlay,3000);
+            },
+            playEnter:function(){
+                clearInterval(this.timer);
+                console.log("mouseenter");
             }
         }
     }
@@ -33,10 +52,8 @@
         overflow: hidden;
         height: 458px;
         position: relative;
-        z-index: -10000;
     }
     .banner ul li img{
-        width:100%;
         height: 458px;
     }
     .dot{
@@ -54,5 +71,8 @@
         border-radius:50%;
         display: inline-block;
         background-color: #fff;
+    }
+    .dot li a.activeDot{
+        background-color: #f80;
     }
 </style>

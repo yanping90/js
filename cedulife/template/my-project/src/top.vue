@@ -16,7 +16,7 @@
 </script>
 <style>
     .top-logo{
-        margin-right: 120px;
+        margin-right: 100px;
     }
     .top-logo img{
         width:100%;

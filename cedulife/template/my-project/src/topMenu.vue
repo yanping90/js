@@ -18,6 +18,9 @@
 <style>
     .menu{
         padding-bottom: 8px;
+        position: absolute;
+        left: 10px;
+        top: 0;
     }
     .menu ul li{
         float: left;

@@ -318,8 +318,15 @@
     .cate{
         box-shadow: 0 0 5px #ddd;
         width:200px;
-        height: 504px;
+        position: relative;
+        z-index: 1000;
+    }
+    .cate-cont{
+        position: absolute;
+        top:44px;
+        left:0;
         background-color: #fff;
+        height: 460px;
     }
     .cate-tit{
         background-color:#445aa8 ;

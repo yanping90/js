@@ -9,9 +9,8 @@
                   <topMenu class="fl"></topMenu>
               </div>
           </div>
-          <banner></banner>
       </div>
-
+      <banner></banner>
   </div>
 </template>
 
