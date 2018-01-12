@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .clearfix:after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .content{
+            width:100px;
+        }
+        .fl{
+            width:60px;
+            background-color: #000;
+            border:10px solid #ddd;
+            float: left;
+        }
+        .fr{
+            width:40px;
+            background-color: #999;
+            border:10px solid #ddd;
+            float: right;
+        }
+        .img{
+            position: relative;
+            background-color: #999;
+            width:300px;
+            height: 128px;
+        }
+        .img img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .cont{
+            padding-left: 148px;
+            width:100%;
+        }
+        .content-fl{
+            background-color: #999999;
+            .fl;
+        }
+        .object-fit img{
+            width: 200px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .middle{
+            border:5px solid #ddd;
+        }
+        .middle ul{
+            list-style-type: none;
+        }
+       .middle ul li{
+           float: left;
+           text-align: center;
+       }
+        .middle ul li div{
+
+            display: inline-block;
+        }
+        .middle ul li img{
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="content clearfix">
+    <div class="fl">11</div>
+    <div class="fr">11</div>
+</div>
+<div class="img">
+    <img src="http://tpc.googlesyndication.com/daca_images/simgad/2950348894543298718" alt=""/>
+    <div class="cont">#猜海报 赢观影票 第七期获奖公示#</div>
+</div>
+<div class="object-fit"></div>
+<div class="middle">
+    <ul class="clearfix">
+        <li>
+            <img src="http://img.alicdn.com/bao/uploaded/TB2Xn01c3nH8KJjSspcXXb3QFXa_!!684239560-0-beehive-scenes.jpg_180x180xzq90.jpg_.webp" alt=""/>居中1
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+
+            var words=$(".words").html();
+            var msg=["日本","台湾","美国"];
+            //            for循环
+            for(var i =0; i<msg.length;i++){
+                //            判断文章里有没有这个词
+                if(words.indexOf(msg[i]) !=-1){
+                    //            replace替换关键词
+                    words=words.replace(new RegExp(msg[i],"g"),"<span>"+msg[i]+"</span>");//必须赋值给word,更新word。
+                }
+            }
+            console.log(words);
+            $(".words").html(words);
+        })
+    </script>
+    <style>
+        .words span{
+            color:#f00;
+        }
+    </style>
+</head>
+<body>
+<div class="words">首先找到这些敏感词台湾，然后定位它们在内容中的位置日本，最后用自己再把这些敏感词替换成带有特殊颜色的html文本日本。</div>
+</body>
+</html>
