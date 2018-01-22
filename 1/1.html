@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab选项卡插件</title>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <style>
+        .hide{
+            display: none;
+        }
+        .tab-tit .active{
+            color:#ff0000;
+        }
+    </style>
+    <script>
+        $(function(){
+
+            $(".tab-tit").on("click","li",function(){
+                var _self = $(this);
+//                隐藏、显示tab内容
+                $(".tab").find($(".tab-cont")).addClass("hide");
+                $(".tab-cont").eq(_self.index()).removeClass("hide");
+//                隐藏、显示tab标题样式
+                $(".tab-tit").find($(".active")).removeClass("active");
+                $(".tab-tit li").eq(_self.index()).addClass("active");
+            });
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+<div class="tab">
+
+    <div class="tab-tit">
+        <ul>
+            <li class="active">tit1</li>
+            <li>tit2</li>
+            <li>tit3</li>
+        </ul>
+    </div>
+    <div class="tab-cont">
+        tab-cont01tab-cont01tab-cont01tab-cont01tab-cont01
+    </div>
+    <div class="tab-cont hide">
+        tab-cont02tab-cont02tab-cont02tab-cont02tab-cont02
+    </div>
+    <div class="tab-cont hide">
+        tab-cont03tab-cont03tab-cont03tab-cont03tab-cont03
+    </div>
+
+</div>
+
+
+</body>
+</html>

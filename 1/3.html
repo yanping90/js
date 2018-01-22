@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab选项卡插件</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        body{
+            background-color: #333;
+            padding-top: 200px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .tab{
+            width:300px;
+            margin: 0 auto;
+        }
+        .tab-nav li{
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            font-size:12px;
+            text-align: center;
+            padding: 0 20px;
+            background-color: #666;
+            border-radius:3px 3px 0 0;
+            margin-right: 5px;
+        }
+        .tab-nav li a{
+            color:#fff;
+        }
+        .tab-nav li.active{
+            background-color: #fff;
+        }
+        .tab-nav li.active a{
+            color:#333;
+        }
+        .tab-cont{
+
+        }
+        .tab-item{
+            display: none;
+        }
+        .current{
+            display: block;
+        }
+        .tab-item img{
+            object-fit: cover;
+            width:300px;
+            height: 180px;
+            border:5px solid #fff;
+        }
+    </style>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="tab.js"></script>
+    <script>
+        $(function(){
+            var t1=new Tab({
+                "tabEle":$(".tab"),
+                "triggerType":"click"
+            });
+        })
+
+    </script>
+
+</head>
+<body>
+<div class="tab">
+    <ul class="tab-nav">
+        <li class="active"><a href="#">新闻</a></li>
+        <li><a href="#">娱乐</a></li>
+        <li><a href="#">电影</a></li>
+        <li><a href="#">科技</a></li>
+    </ul>
+    <div class="tab-cont">
+        <div class="tab-item current"><img src="https://img.alicdn.com/tfs/TB1dL9Km4rI8KJjy0FpXXb5hVXa-750-291.jpg_Q90.jpg" alt=""/></div>
+        <div class="tab-item"><img src="https://img.alicdn.com/tfs/TB1nx5jj5qAXuNjy1XdXXaYcVXa-750-291.jpg_Q90.jpg" alt=""/></div>
+        <div class="tab-item"><img src="https://img.alicdn.com/imgextra/i3/2108418347/TB2mlRbngDD8KJjy0FdXXcjvXXa_!!2108418347.jpg_Q90.jpg" alt=""/></div>
+        <div class="tab-item"><img src="https://img.alicdn.com/tfs/TB1KUv4m4rI8KJjy0FpXXb5hVXa-750-291.jpg_Q90.jpg" alt=""/></div>
+    </div>
+</div>
+</body>
+</html>
