@@ -59,12 +59,13 @@
         }
     </style>
     <script src="../jquery-3.1.1.min.js"></script>
-    <script src="tab.js"></script>
+    <script src="tab1.js"></script>
     <script>
         $(function(){
             var t1=new Tab({
-                "tabEle":$(".tab"),
-                "triggerType":"click"
+                tabEle:$(".tab"),
+                triggerType:"mouseenter"
+//                auto:1000
             });
         })
 
