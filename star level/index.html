@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="iconfont.css"/>
+    <script src="iconfont.js"></script>
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="star.js"></script>
+    <style>
+        ul,li{
+            list-style-type: none;
+        }
+        .level-item{
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .level li i{
+            display: none;
+            color:#9b9997;
+        }
+        .level-third li i.star-solid{
+             color:#fab54d;
+         }
+        .level-fifth li i.star-solid{
+            color:#dd2727;
+        }
+        .level li i.current{
+            display: block;
+        }
+        .star-border{
+            font-size:20px;
+        }
+        .star-solid{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+<ul class="level">
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+</ul>
+</body>
+</html>
