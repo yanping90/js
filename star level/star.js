@@ -1,14 +1,16 @@
 $(function(){
 
-    var num= 2,
-        $item = $(".level").find($(".level-item")),
-        $current = $(".current");
+    var num= 1,
+        $item = $(".level").find(".level-item"),
+        $starSolid = $(".star-solid"),
+        $starBorder = $(".star-border");
 //    点亮星星
     var lightOn = function(num){
-        $item.each(function(idx,el){
-            var _self = $(this);
+        $item.each(function(idx){
             if(idx<num){
-                _self.find($current).removeClass("current").siblings().addClass("current");
+                $(this).find($starSolid).addClass("current").siblings().removeClass("current");
+            } else {
+                $(this).find($starBorder).addClass("current").siblings().removeClass("current");
             }
         });
     }
@@ -18,8 +20,9 @@ $(function(){
     }).on("click",function(){
         num= $(this).index()+1;
     });
-    $(".level").on("mouseout",function(){
+    $(".level").on("mouseleave",function(){
         lightOn(num);
+        console.log(num);
     });
 
 })
