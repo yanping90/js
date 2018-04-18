@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{
+            margin: 4px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        a[href$="pdf"]{
+            background-color: #555555;
+        }
+        a{
+            padding: 5px;
+        }
+        body{
+            font-size:12px;
+            background-color: #fff;
+        }
+        table{
+            margin: 0 auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+            width:1200px;
+            font-size:14px;
+        }
+        table,td,th{
+            border:1px solid #e0e2e2;
+        }
+        tr,td,th{
+            padding: 10px;
+            margin: 0;
+        }
+        td{
+            color:#444444;
+        }
+        th:nth-of-type(n){
+            background-color: #edf0f2;
+            color:#444444;
+            text-align: left;
+        }
+        td:first-child{
+            background-color: #f8f9fa;
+        }
+        td:last-child{
+            font-size:16px;
+            color:#0da056;
+            font-weight: bold;
+        }
+        a:first-child{
+            background-color: #555555;
+        }
+        /*input[type="text"]:read-write{*/
+            /*background-color: #0da056;*/
+        /*}*/
+        /*::selection{*/
+            /*color:#f00;*/
+        /*}*/
+        input:in-range{
+            border:2px solid #0da056;
+        }
+        input:out-of-range{
+            border:2px solid #bbbbbb;
+        }
+        /*div~p{*/
+            /*color:#f00;*/
+        /*}*/
+        /*p:not(.demo){*/
+            /*background-color: #555555;*/
+        /*}*/
+        :target{
+            color:#f00;
+        }
+        .btn{
+            display: inline-block;
+            padding: 10px 30px;
+            margin-bottom: 10px;
+            background-color: #0da056;
+            color:#fff;
+            border-radius:100px 0px 100px 0px / 100px 0px 100px 0px;
+        }
+        .origin{
+            width:300px;
+            height: 200px;
+            line-height: 200px;
+            padding: 20px;
+            text-align: center;
+            background-color: #0da056;
+            border:30px solid rgba(0,0,0,.5);
+            background: url("https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/qrcode/zbios_efde696.png") no-repeat;
+            background-origin: content-box;
+            background-clip: content-box;
+            background-size:cover;
+        }
+        h2{
+            text-shadow: 2px 2px 5px #f00;
+            font-size:20px;
+        }
+        .test{
+            width:100px;
+            border:1px solid #888;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            overflow: hidden
+        }
+        div:nth-of-type(1){
+            text-overflow: ellipsis;
+        }
+        div:nth-of-type(2){
+            text-overflow: clip;
+        }
+        .test2{
+            width:100px;
+            word-break: keep-all;
+        }
+        @font-face {
+            font-family:myfont;
+            src:url("font/方正综艺_GBK.ttf");
+        }
+        .testFont{
+            font:30px myfont;
+        }
+        .color li{
+            float: left;
+            margin-right: 10px;
+        }
+        .color li a{
+            width:40px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color:#fff;
+            display: inline-block;
+            border-radius:4px;
+        }
+        .color li.rotate a{
+            background-color: #0da056;
+        }
+        .color li.rotate a:hover{
+            transform:rotate(20deg) scale(1.2,1.2);
+        }
+        .color li.scale a{
+            background-color: #ff0000;
+        }
+        .color li.scale a:hover{
+            transform:scale(0.8,0.8);
+        }
+        .color li.scaleX a{
+            background-color: #ff8800;
+        }
+        .color li.scaleX a:hover{
+            transform: scaleX(1.2);
+        }
+        .color li.scaleY a{
+            background-color: crimson;
+        }
+        .color li.scaleY a:hover{
+            transform:scale(0.8,0.8);
+        }
+        .color li.scaleY a:hover{
+            transform: scaleY(0.5);
+        }
+        .color li.translate a{
+            background-color: chartreuse;
+        }
+        .color li.translate a:hover{
+            transform: translate(-10px,10px);
+        }
+        .color li.translateX a{
+            background-color: chocolate;
+        }
+        .color li.translateX a:hover{
+            transform: translateX(10px);
+        }
+        .color li.translateY a{
+            background-color: coral;
+        }
+        .color li.translateY a:hover{
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body>
+<ul class="color">
+    <li class="rotate"><a href="#">rotate</a></li>
+    <li class="scale"><a href="#">scale</a></li>
+    <li class="scaleX"><a href="#">scaleX</a></li>
+    <li class="scaleY"><a href="#">scaleY</a></li>
+    <li class="translate"><a href="#">translate</a></li>
+    <li class="translateX"><a href="#">translateX</a></li>
+    <li class="translateY"><a href="#">translateY</a></li>
+</ul>
+<p class="testFont">北京西城</p>
+<h2>北京西城：离红墙近 跟百姓亲</h2>
+<div class="test">在习近平新时代中国特色社会主义思想指引下——新时代 新气象 新作为</div>
+<div class="test">在习近平新时代中国特色社会主义思想指引下——新时代 新气象 新作为</div>
+<div class="test2">在习近平新时代中hellollll hello，world!特色社会主义思想指引下——新时代 新气象 新作为</div>
+<div class="origin">hello，world!</div>
+<a href="#" class="btn">提交</a>
+<div><p><a href="#click">点击跳转</a></p></div>
+<p>12222</p>
+<p class="demo">dddd</p>
+<div id="click">你好吗</div>
+<form action="#" method="get">
+    <input type="number" min="1" max="10" value="1"/>
+    <input type="text" />
+    <input type="text" />
+    <input type="submit" value="提交"/>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>4种晋级方式</th>
+            <th>设计师资</th>
+            <th>深设计师</th>
+            <th>设计指导</th>
+            <th>我的成绩</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>作品总数</td>
+            <td>1</td>
+            <td>10</td>
+            <td>4</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>优秀作品</td>
+            <td>7</td>
+            <td>4</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>主推作品</td>
+            <td>303</td>
+            <td>24</td>
+            <td>28</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>总数（含优秀）</td>
+            <td>33</td>
+            <td>77</td>
+            <td>89</td>
+            <td>18</td>
+        </tr>
+    </tbody>
+</table>
+<p><a href="#">1</a></p>
+<p><a href="#">2</a></p>
+<p><a href="#">3</a></p>
+<h2><a href="#">14</a></h2>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .nav-Menu{
+            background-color: #777;
+        }
+        progress{
+            border:none;
+            background-color: #555;
+        }
+        #myCanvas{
+            border:1px solid #666;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+//        window.onload=function(){
+//            var canvas=document.getElementById("myCanvas").getContext("2d");
+//            canvas.fillStyle="#f00";
+//            canvas.fillRect(0,0,100,100);
+//        }
+        $(function(){
+            var canvas=$("#myCanvas")[0].getContext("2d");
+//            绘制开始
+            canvas.beginPath();
+            canvas.moveTo(0,30);
+            canvas.lineTo(100,30);
+            canvas.arcTo(10,200,30,100,10);
+            canvas.lineTo(100,100);
+//            绘制结束
+            canvas.stroke();
+        })
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="100"></canvas>
+<header>
+    <nav class="nav-Menu">
+        <ul>
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">hao123</a></li>
+            <li><a href="#">地图</a></li>
+            <li><a href="#">视频</a></li>
+            <li><a href="#">贴吧</a></li>
+        </ul>
+    </nav>
+</header>
+<section>
+    hello<mark>你好吗</mark>
+    <progress value="30" max="100"></progress>
+    <details>
+        <summary>日本本州舒心戏雪六日东京一天自由活动（全程五星日本航空NH/JL 阪/名进东出）</summary>
+        <p>ddddddd日本本州舒心戏雪六日东京一天自由活动日本本州舒心戏雪六日东京一天自由活动日本本州舒心戏雪六日东京一天自由活动日本本州舒心戏雪六日东京一天自由活动</p>
+    </details>
+    <input type="text" list="lists" placeholder="请选择..."/>
+    <datalist id="lists">
+        <option value="js"></option>
+        <option value="css"></option>
+        <option value="html"></option>
+    </datalist>
+    <form action="test.html" method="get">
+        <input type="text" autocomplete="on"/><br>
+        <input type="text" /><br>
+        <input type="submit" value="提交"/>
+    </form>
+</section>
+<footer>
+    <p><a href="#">把百度设为首页</a><a href="#">关于百度</a><a href="#">About Baidu</a><a href="#">百度推广</a></p>
+</footer>
+</body>
+</html>
