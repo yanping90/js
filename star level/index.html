@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="iconfont.css"/>
     <script src="iconfont.js"></script>
     <script src="../jquery-3.1.1.min.js"></script>
-    <script src="star.js"></script>
+    <script src="star1.js"></script>
     <style>
         ul,li{
             list-style-type: none;
@@ -16,7 +16,8 @@
             margin-right: 10px;
             cursor: pointer;
         }
-        .level li i{
+        .level li i,
+        .level1 li i{
             display: none;
             color:#9b9997;
         }
@@ -26,7 +27,8 @@
         .level-fifth li i.star-solid{
             color:#dd2727;
         }
-        .level li i.current{
+        .level li i.current,
+        .level1 li i.current{
             display: block;
         }
         .star-border{
@@ -35,10 +37,33 @@
         .star-solid{
             font-size:20px;
         }
+        .clearfix:after{
+            content:"";
+            clear:both;
+            display: block;
+        }
     </style>
+    <script>
+        $(function(){
+            new StarLevel({
+                defaultNum:2
+            });
+            new StarLevel({
+                defaultNum:1,
+                el:".level1"
+            });
+        })
+    </script>
 </head>
 <body>
-<ul class="level">
+<ul class="level clearfix">
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+    <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
+</ul>
+<ul class="level1 clearfix">
     <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
     <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>
     <li class="level-item"><i class="iconfont star-border current">&#xe60c;</i><i class="iconfont star-solid">&#xe626;</i></li>

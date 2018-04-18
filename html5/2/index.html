@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .active{
+            color:#f00;
+        }
+    </style>
+    <script src="../../jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+
+            $(".nav ul").on("mouseenter","li",function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li class="active">css</li>
+        <li>js</li>
+        <li>html</li>
+    </ul>
+</div>
+</body>
+</html>
